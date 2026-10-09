@@ -37,7 +37,7 @@ Review the Actions result and deployed website after each push. Do not assume a 
 - The owner approved keeping **Let's chat** visible but disabled until a contact-page design is ready. There is no contact form or submission service yet.
 - On tablets, navigation moves to a second row. On phones, the heading uses additional lines and the panel's height follows its content.
 - Desktop panels are centered horizontally and vertically in the browser viewport. Symmetric padding reserves room for the header; shorter windows scroll without overlapping the header. Tablet and phone placement remains unchanged.
-- Above 1440px, a shared fluid unit grows the panel, headline, supporting copy, spacing, corner radius, and backdrop blur proportionally. Growth stops at a 2880px composition; the 1440px panel and typography retain their original dimensions.
+- Above 1440px, a shared fluid unit grows the panel, headline, supporting copy, spacing, corner radius, and backdrop blur proportionally. Following the owner's feedback, growth is gentler: 1.5× at 2560px, capped at 1.65× on wider screens. The 1440px panel and typography retain their original dimensions. Header spacing and the artwork crop use their established desktop scaling independently.
 - Relative asset paths support the repository subpath and a future custom-domain root.
 
 ## Review checklist
@@ -61,7 +61,7 @@ Static validation does not establish visual fidelity or accessibility compliance
 - Static validation and the production build passed; GitHub Actions deployed commit `e172915` successfully.
 - Live layouts were inspected at 1440 × 900, 1920 × 1080, 2560 × 1440, and 3840 × 2160, plus 768 × 1024, 390 × 844, and 320 × 700. None had horizontal overflow.
 - At 1440px the panel remains approximately 1133 × 570px, with a 116px headline and 20px supporting copy. Its vertical placement is now centered.
-- At 2560 × 1440 the panel is approximately 2015 × 1013px, centered at (1280, 720), with a 206px headline and 35.6px supporting copy.
+- The initial 2560 × 1440 pass used a 2015 × 1013px panel. The owner subsequently requested more breathing room; the revised target is approximately 1700 × 855px, centered at (1280, 720), with a 174px headline and 30px supporting copy.
 - A 1440 × 600 window scrolls to fit the hero while keeping it below the header. All five images and three font weights loaded; the keyboard skip link moved focus to main content. No browser errors or warnings were reported.
 - The owner selected **MESSY settles** from the entrance previews. The live hero uses a CSS-only entrance: the panel fades in, headline lines rise in sequence, colored letters settle from alternating slight rotations, and supporting copy follows. The entrance finishes in about one second, plays once per page load, and is disabled when the visitor prefers reduced motion. Both headline and supporting-copy font weights are preloaded.
 

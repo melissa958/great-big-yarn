@@ -216,16 +216,19 @@ h1 {
   }
 }
 
-/* One shared unit preserves the 1440px composition as large screens grow.
-   Stop at a 2880px composition so ultrawide displays retain breathing room. */
+/* Gentler hero growth reaches 1.5x at 2560px and caps at 1.65x.
+   Keep the header and artwork's established desktop spacing independent. */
 @media (min-width: 1441px) {
-  :root { --hero-unit: clamp(1px, 0.0694444444vw, 2px); }
+  :root {
+    --desktop-unit: clamp(1px, 0.0694444444vw, 2px);
+    --hero-unit: clamp(1px, calc(0.3571428571px + 0.0446428571vw), 1.65px);
+  }
 
-  .yarn-art { top: calc(-201 * var(--hero-unit)); }
+  .yarn-art { top: calc(-201 * var(--desktop-unit)); }
   .site-header {
-    width: calc(100% - 120 * var(--hero-unit));
-    max-width: calc(1320.638 * var(--hero-unit));
-    top: calc(34 * var(--hero-unit));
+    width: calc(100% - 120 * var(--desktop-unit));
+    max-width: calc(1320.638 * var(--desktop-unit));
+    top: calc(34 * var(--desktop-unit));
   }
   main {
     padding-top: calc(110 * var(--hero-unit));
