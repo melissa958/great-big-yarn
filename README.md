@@ -63,7 +63,7 @@ Static validation does not establish visual fidelity or accessibility compliance
 - At 1440px the panel remains approximately 1133 × 570px, with a 116px headline and 20px supporting copy. Its vertical placement is now centered.
 - At 2560 × 1440 the panel is approximately 2015 × 1013px, centered at (1280, 720), with a 206px headline and 35.6px supporting copy.
 - A 1440 × 600 window scrolls to fit the hero while keeping it below the header. All five images and three font weights loaded; the keyboard skip link moved focus to main content. No browser errors or warnings were reported.
-- Entrance animation comparisons are exploratory previews outside the published site. No entrance animation is enabled on the live homepage yet.
+- The owner selected **MESSY settles** from the entrance previews. The live hero uses a CSS-only entrance: the panel fades in, headline lines rise in sequence, colored letters settle from alternating slight rotations, and supporting copy follows. The entrance finishes in about one second, plays once per page load, and is disabled when the visitor prefers reduced motion. Both headline and supporting-copy font weights are preloaded.
 
 ## Future work
 
