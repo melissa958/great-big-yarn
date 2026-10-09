@@ -173,7 +173,8 @@ h1 {
   text-transform: uppercase;
 }
 
-.headline-line { display: block; }
+.headline-mask, .headline-line { display: block; }
+.hero-wipe { display: none; }
 .messy { white-space: nowrap; }
 .letter-m { color: var(--red); }
 .letter-e { color: var(--pink); }
@@ -276,55 +277,75 @@ h1 {
   main { padding: 38px 16px 64px; }
   .hero-panel { padding: 40px 20px; border-radius: 16px; }
   h1 { font-size: clamp(34px, 9vw, 53px); line-height: 0.98; }
-  .headline-line:nth-child(2) .messy { display: block; }
+  .headline-mask:nth-child(2) .messy { display: block; }
   .hero-copy { margin-top: 32px; font-size: 16px; line-height: 1.5; }
   .hero-copy p + p { margin-top: 24px; }
 }
 
-/* Approved "MESSY settles" entrance: one pass, with no loading screen.
+/* Approved Noho-inspired entrance. The blue curtain clears in one second;
+   masked headlines and copy finish the sequence at 2.05 seconds.
    Backwards fill covers stagger delays; ordinary styles own the final state. */
 @media (prefers-reduced-motion: no-preference) {
+  .hero-wipe {
+    display: block;
+    position: fixed;
+    z-index: 5;
+    inset: 0;
+    background: var(--blue);
+    pointer-events: none;
+    transform: translateY(-100%);
+    animation: hero-curtain 1000ms cubic-bezier(.5, 0, 0, 1) backwards;
+  }
+  .site-header {
+    animation: hero-header-rise 850ms cubic-bezier(.22, 1, .36, 1) 600ms backwards;
+  }
   .hero-panel {
-    animation: hero-fade 422.5ms cubic-bezier(.22, 1, .36, 1) backwards;
+    animation: hero-panel-rise 1100ms cubic-bezier(.22, 1, .36, 1) 200ms backwards;
+  }
+  .headline-mask {
+    /* Extend the mask around the tight line-height to retain the font's
+       ascenders and punctuation without adding space between the lines. */
+    clip-path: inset(-.2em -.03em -.15em);
   }
   .headline-line {
-    animation: hero-rise 650ms cubic-bezier(.22, 1, .36, 1) 90ms backwards;
+    animation: hero-line-reveal 850ms cubic-bezier(.22, 1, .36, 1) 500ms backwards;
   }
-  .headline-line:nth-child(2) { animation-delay: 180ms; }
-  .headline-line:nth-child(3) { animation-delay: 270ms; }
+  .headline-mask:nth-child(2) .headline-line { animation-delay: 620ms; }
+  .headline-mask:nth-child(3) .headline-line { animation-delay: 740ms; }
   .hero-copy {
-    animation: hero-copy-rise 650ms cubic-bezier(.22, 1, .36, 1) 350ms backwards;
+    animation: hero-copy-rise 750ms cubic-bezier(.22, 1, .36, 1) 1300ms backwards;
   }
-  .messy > span {
-    display: inline-block;
-    animation: messy-settle 650ms cubic-bezier(.22, 1, .36, 1) 160ms backwards;
+  .messy > span { display: inline-block; }
+
+  /* Keyboard users can reach content immediately during the entrance. */
+  body:focus-within .hero-wipe,
+  .site-header:focus-within,
+  main:focus .hero-panel,
+  main:focus .headline-line,
+  main:focus .hero-copy {
+    animation: none;
   }
-  .messy > span:nth-child(even) { animation-name: messy-settle-alternate; }
-  .messy > span:nth-child(2) { animation-delay: 205ms; }
-  .messy > span:nth-child(3) { animation-delay: 250ms; }
-  .messy > span:nth-child(4) { animation-delay: 295ms; }
-  .messy > span:nth-child(5) { animation-delay: 340ms; }
 }
 
-@keyframes hero-fade {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@keyframes hero-curtain {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100%); }
 }
-@keyframes hero-rise {
-  from { opacity: 0; transform: translateY(16px); }
+@keyframes hero-header-rise {
+  from { opacity: 0; translate: 0 16px; }
+  to { opacity: 1; translate: 0 0; }
+}
+@keyframes hero-panel-rise {
+  from { opacity: 0; transform: translateY(48px); }
   to { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-line-reveal {
+  from { transform: translateY(110%); }
+  to { transform: translateY(0); }
 }
 @keyframes hero-copy-rise {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
-}
-@keyframes messy-settle {
-  from { opacity: 0; transform: translateY(12px) rotate(-6deg); }
-  to { opacity: 1; transform: translateY(0) rotate(0); }
-}
-@keyframes messy-settle-alternate {
-  from { opacity: 0; transform: translateY(-10px) rotate(6deg); }
-  to { opacity: 1; transform: translateY(0) rotate(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
