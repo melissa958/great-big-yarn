@@ -36,6 +36,8 @@ Review the Actions result and deployed website after each push. Do not assume a 
 - Approach, Projects, About, and Insights are intentionally inactive text until their pages are designed.
 - The owner approved keeping **Let's chat** visible but disabled until a contact-page design is ready. There is no contact form or submission service yet.
 - On tablets, navigation moves to a second row. On phones, the heading uses additional lines and the panel's height follows its content.
+- Desktop panels are centered horizontally and vertically in the browser viewport. Symmetric padding reserves room for the header; shorter windows scroll without overlapping the header. Tablet and phone placement remains unchanged.
+- Above 1440px, a shared fluid unit grows the panel, headline, supporting copy, spacing, corner radius, and backdrop blur proportionally. Growth stops at a 2880px composition; the 1440px panel and typography retain their original dimensions.
 - Relative asset paths support the repository subpath and a future custom-domain root.
 
 ## Review checklist
@@ -53,6 +55,15 @@ Static validation does not establish visual fidelity or accessibility compliance
 - Keyboard Tab revealed the skip link; Enter moved focus to the main content. The logo navigated to the homepage under the correct repository subpath.
 - The contact button is disabled and the four unfinished navigation labels have no destinations, as approved. No console errors or warnings were reported during review.
 - Browser zoom and other browser engines have not been verified.
+
+### Large-screen update verified October 9, 2026
+
+- Static validation and the production build passed; GitHub Actions deployed commit `e172915` successfully.
+- Live layouts were inspected at 1440 × 900, 1920 × 1080, 2560 × 1440, and 3840 × 2160, plus 768 × 1024, 390 × 844, and 320 × 700. None had horizontal overflow.
+- At 1440px the panel remains approximately 1133 × 570px, with a 116px headline and 20px supporting copy. Its vertical placement is now centered.
+- At 2560 × 1440 the panel is approximately 2015 × 1013px, centered at (1280, 720), with a 206px headline and 35.6px supporting copy.
+- A 1440 × 600 window scrolls to fit the hero while keeping it below the header. All five images and three font weights loaded; the keyboard skip link moved focus to main content. No browser errors or warnings were reported.
+- Entrance animation comparisons are exploratory previews outside the published site. No entrance animation is enabled on the live homepage yet.
 
 ## Future work
 
