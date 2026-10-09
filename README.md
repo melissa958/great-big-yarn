@@ -3,7 +3,7 @@
 A progressively built brand and content website, using approved Figma designs.
 
 - Repository: https://github.com/melissa958/great-big-yarn
-- Expected Pages address (verify after deployment): https://melissa958.github.io/great-big-yarn/
+- Live Pages address: https://melissa958.github.io/great-big-yarn/
 - Design: https://www.figma.com/design/oIV91BuTH2ouyVi5pHCDDv/Brand-Assets?node-id=62-5
 - Stack: semantic HTML and CSS, self-hosted fonts, no runtime dependencies or JavaScript required for the current hero.
 
@@ -17,7 +17,7 @@ Only `site/` is uploaded to Pages. Project documentation and workflow files are 
 
 The account's GitHub Free plan cannot host Pages from a private repository. On October 9, 2026, the owner explicitly authorized a public repository to use GitHub Pages. This replaces the original private-repository requirement.
 
-Enable **Settings → Pages → Build and deployment → Source → GitHub Actions** once. Push small completed changes to `main`; the **Validate and publish website** workflow validates the website, uploads `site/`, and deploys only after validation passes. Pull requests validate without deploying. A failed validation leaves the prior deployment in place.
+**Settings → Pages → Build and deployment → Source → GitHub Actions** is configured. Push small completed changes to `main`; the **Validate and publish website** workflow validates the website, uploads `site/`, and deploys only after validation passes. Pull requests validate without deploying. A failed validation leaves the prior deployment in place.
 
 No local development server is needed. Run the lightweight check with:
 
@@ -43,6 +43,16 @@ Review the Actions result and deployed website after each push. Do not assume a 
 Compare the published page to the 1440px Figma desktop frame. Also inspect tablet, 390px phone, and 320px narrow layouts, plus browser zoom. Verify no horizontal scrolling or clipped text, all five images and three font weights load, and the skip link and home link work with the keyboard. Confirm inactive navigation and contact behavior is intentional.
 
 Static validation does not establish visual fidelity or accessibility compliance. Record only checks actually performed.
+
+### Verified October 9, 2026
+
+- The first GitHub Actions validation and deployment jobs succeeded.
+- The live desktop rendering was compared with the Figma reference at 1440 × 1192.
+- Phone layouts at 320 × 700 and 390 × 844 and a tablet layout at 768 × 1024 were inspected; page and headline measurements showed no horizontal overflow.
+- All five artwork files and the 500, 700, and 800 font weights loaded on the live site.
+- Keyboard Tab revealed the skip link; Enter moved focus to the main content. The logo navigated to the homepage under the correct repository subpath.
+- The contact button is disabled and the four unfinished navigation labels have no destinations, as approved. No console errors or warnings were reported during review.
+- Browser zoom and other browser engines have not been verified.
 
 ## Future work
 

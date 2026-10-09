@@ -155,6 +155,7 @@ main { padding: 102px 24px 100px; }
 .hero-panel {
   width: 100%;
   max-width: 1133.33px;
+  min-height: 570.058px;
   margin: 0 auto;
   padding: 57.307px 49.767px 58px;
   border-radius: 18.097px;
@@ -199,7 +200,7 @@ h1 {
   .site-header { width: calc(100% - 64px); gap: 32px; }
   .site-navigation ul { gap: 26px; }
   main { padding-top: 80px; }
-  .hero-panel { max-width: 90%; padding: 48px 28px; }
+  .hero-panel { max-width: 90%; min-height: 0; padding: 48px 28px; }
   h1 { font-size: 7.45vw; }
   .hero-copy { margin-top: 40px; font-size: 18px; }
 }
