@@ -26,11 +26,13 @@ jobs:
           node-version: '24'
       - name: Validate website
         run: node scripts/validate.mjs
+      - name: Prepare static website with versioned styles
+        run: node scripts/build.mjs
       - name: Upload publishable files only
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v4
         with:
-          path: site
+          path: dist
 
   deploy:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'

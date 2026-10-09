@@ -7,7 +7,7 @@
 - Completed increments may be committed and pushed directly to `main`; additional per-push approval is not needed. Preserve unrelated changes and never force push.
 - Edit locally, validate without a local server, and let GitHub Actions publish. The user reviews the deployed URL, not localhost.
 - Leave the custom domain and DNS alone until explicitly requested.
-- Publish only `site/`. Never publish the entire repository, documentation, or credentials.
+- Publish only the `dist/` copy produced from `site/` by `node scripts/build.mjs`. This adds automatic stylesheet cache versioning. Never publish the entire repository, documentation, or credentials.
 
 ## Design
 - Implement only Figma designs identified as ready. Do not invent sections, pages, or marketing copy.

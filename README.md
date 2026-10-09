@@ -11,13 +11,13 @@ A progressively built brand and content website, using approved Figma designs.
 
 `site/` contains the publishable website. `site/styles/main.css` holds the reusable design tokens and responsive styles. `site/assets/` contains the original Figma artwork and licensed fonts. `scripts/validate.mjs` checks local references, empty assets, basic HTML requirements, and temporary development markers.
 
-Only `site/` is uploaded to Pages. Project documentation and workflow files are not part of the deployed site.
+`scripts/build.mjs` copies `site/` into an ignored `dist/` directory and versions the stylesheet URL using its content hash. Only `dist/` is uploaded to Pages. Project documentation and workflow files are not part of the deployed site. The build uses only Node.js built-ins; no dependency installation is needed.
 
 ## Publishing
 
 The account's GitHub Free plan cannot host Pages from a private repository. On October 9, 2026, the owner explicitly authorized a public repository to use GitHub Pages. This replaces the original private-repository requirement.
 
-**Settings → Pages → Build and deployment → Source → GitHub Actions** is configured. Push small completed changes to `main`; the **Validate and publish website** workflow validates the website, uploads `site/`, and deploys only after validation passes. Pull requests validate without deploying. A failed validation leaves the prior deployment in place.
+**Settings → Pages → Build and deployment → Source → GitHub Actions** is configured. Push small completed changes to `main`; the **Validate and publish website** workflow validates the website, prepares `dist/`, and deploys only after validation and preparation pass. Pull requests validate and prepare without deploying. A failed validation leaves the prior deployment in place.
 
 No local development server is needed. Run the lightweight check with:
 
