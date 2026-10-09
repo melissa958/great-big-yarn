@@ -196,6 +196,58 @@ h1 {
   .hero-panel { background: rgb(12 16 23 / 94%); }
 }
 
+/* Symmetric space centers the panel in the viewport while reserving room
+   for the header. Content can expand the page on short windows. */
+@media (min-width: 1200px) {
+  .hero-stage { min-height: 100svh; }
+  .site-header {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 34px;
+    margin-top: 0;
+    transform: translateX(-50%);
+  }
+  main {
+    display: grid;
+    place-items: center;
+    min-height: 100svh;
+    padding: 110px 24px;
+  }
+}
+
+/* One shared unit preserves the 1440px composition as large screens grow.
+   Stop at a 2880px composition so ultrawide displays retain breathing room. */
+@media (min-width: 1441px) {
+  :root { --hero-unit: clamp(1px, 0.0694444444vw, 2px); }
+
+  .yarn-art { top: calc(-201 * var(--hero-unit)); }
+  .site-header {
+    width: calc(100% - 120 * var(--hero-unit));
+    max-width: calc(1320.638 * var(--hero-unit));
+    top: calc(34 * var(--hero-unit));
+  }
+  main {
+    padding-top: calc(110 * var(--hero-unit));
+    padding-bottom: calc(110 * var(--hero-unit));
+  }
+  .hero-panel {
+    max-width: calc(1133.33 * var(--hero-unit));
+    min-height: calc(570.058 * var(--hero-unit));
+    padding: calc(57.307 * var(--hero-unit)) calc(49.767 * var(--hero-unit)) calc(58 * var(--hero-unit));
+    border-radius: calc(18.097 * var(--hero-unit));
+    -webkit-backdrop-filter: blur(calc(21.226 * var(--hero-unit)));
+    backdrop-filter: blur(calc(21.226 * var(--hero-unit)));
+  }
+  h1 { font-size: calc(116 * var(--hero-unit)); }
+  .hero-copy {
+    max-width: calc(909 * var(--hero-unit));
+    margin-top: calc(45.413 * var(--hero-unit));
+    font-size: calc(20 * var(--hero-unit));
+  }
+  .hero-copy p + p { margin-top: calc(26.6 * var(--hero-unit)); }
+}
+
 @media (max-width: 1199px) {
   .site-header { width: calc(100% - 64px); gap: 32px; }
   .site-navigation ul { gap: 26px; }
