@@ -1,5 +1,13 @@
 @font-face {
   font-family: "Be Vietnam";
+  src: url("../assets/fonts/BeVietnam-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Be Vietnam";
   src: url("../assets/fonts/BeVietnam-Medium.ttf") format("truetype");
   font-style: normal;
   font-weight: 500;
@@ -187,7 +195,7 @@ h1 {
   margin: 45.413px auto 0;
   font-size: 20px;
   line-height: 1.33;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 .hero-copy p { margin: 0; }

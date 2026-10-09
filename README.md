@@ -31,8 +31,8 @@ Review the Actions result and deployed website after each push. Do not assume a 
 
 - The desktop hero is the only supplied, ready design.
 - Original background texture and all four logo layers are downloaded from Figma.
-- Original **Be Vietnam** Medium, Bold, and ExtraBold font files are self-hosted, not replaced with Be Vietnam Pro. Files were obtained from Google Fonts' Be Vietnam v10 distribution; the upstream SIL Open Font License and author notice are included in `site/assets/fonts/`.
-- The owner approved changing the two hero supporting paragraphs to **Be Vietnam Medium (500)** and supplied the current “we” wording. The page description uses the same wording.
+- Original **Be Vietnam** Light, Medium, Bold, and ExtraBold font files are self-hosted, not replaced with Be Vietnam Pro. Files were obtained from Google Fonts' Be Vietnam v10 distribution; the upstream SIL Open Font License and author notice are included in `site/assets/fonts/`.
+- The owner approved changing the two hero supporting paragraphs to **Be Vietnam Light (300)** and supplied the current first-person wording. The page description uses the same wording.
 - `Projecrs` was corrected to `Projects` with the owner's approval.
 - Approach, Projects, About, and Insights are intentionally inactive text until their pages are designed.
 - The owner approved keeping **Let's chat** visible but disabled until a contact-page design is ready. There is no contact form or submission service yet.
@@ -43,7 +43,7 @@ Review the Actions result and deployed website after each push. Do not assume a 
 
 ## Review checklist
 
-Compare the published page to the 1440px Figma desktop frame. Also inspect tablet, 390px phone, and 320px narrow layouts, plus browser zoom. Verify no horizontal scrolling or clipped text, all five images and three font weights load, and the skip link and home link work with the keyboard. Confirm inactive navigation and contact behavior is intentional.
+Compare the published page to the 1440px Figma desktop frame. Also inspect tablet, 390px phone, and 320px narrow layouts, plus browser zoom. Verify no horizontal scrolling or clipped text, all five images and four font weights load, and the skip link and home link work with the keyboard. Confirm inactive navigation and contact behavior is intentional.
 
 Static validation does not establish visual fidelity or accessibility compliance. Record only checks actually performed.
 
