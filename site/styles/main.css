@@ -79,7 +79,8 @@ a { color: inherit; }
   overflow: hidden;
 }
 
-/* Preserve the source art's 90-degree rotation and desktop crop. */
+/* Preserve the source art's rotation and proportions. Pull back 15% around
+   its center to reveal more yarn without moving the hero content. */
 .yarn-art {
   position: absolute;
   z-index: -1;
@@ -88,7 +89,7 @@ a { color: inherit; }
   top: clamp(-201px, -13.9583vw, -90px);
   width: max(1902px, 132.0833vw);
   height: max(1295.765px, 89.9837vw);
-  transform: translateX(-50%);
+  transform: translateX(-50%) scale(0.85);
 }
 
 .yarn-art img {

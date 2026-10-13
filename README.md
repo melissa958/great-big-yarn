@@ -39,6 +39,7 @@ Review the Actions result and deployed website after each push. Do not assume a 
 - On tablets, navigation moves to a second row. On phones, the heading uses additional lines and the panel's height follows its content.
 - Desktop panels are centered horizontally and vertically in the browser viewport. Symmetric padding reserves room for the header; shorter windows scroll without overlapping the header. Tablet and phone placement remains unchanged.
 - Above 1440px, a shared fluid unit grows the panel, headline, supporting copy, spacing, corner radius, and backdrop blur proportionally. Following the owner's feedback, growth is gentler: 1.5× at 2560px, capped at 1.65× on wider screens. The 1440px panel and typography retain their original dimensions. Header spacing and the artwork crop use their established desktop scaling independently.
+- Following the owner's October 13 feedback, the background artwork is displayed at 85% of its previous size around the same center, revealing more of the yarn on desktop, tablet, and phone layouts. The original image and its proportions are preserved.
 - Relative asset paths support the repository subpath and a future custom-domain root.
 
 ## Review checklist
