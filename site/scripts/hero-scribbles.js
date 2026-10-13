@@ -37,6 +37,12 @@ function render() {
     line.setAttribute('d', gestures[index].d);
     line.setAttribute('stroke', gestures[index].color);
     length = line.getTotalLength();
+    if (document.body.dataset.layout === 'scroll') {
+      // Align each gesture's ink to the top, rather than scaling its empty
+      // margin into a large gap on wide screens. Keep its width unchanged.
+      const bounds = line.getBBox();
+      svg.setAttribute('viewBox', `0 ${bounds.y - 12} 1000 670`);
+    }
     stage.dataset.gesture = String(index);
   }
   let start = 0;

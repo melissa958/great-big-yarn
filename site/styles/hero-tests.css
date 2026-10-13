@@ -99,22 +99,24 @@ body.hero-preview {
 .hero-preview[data-layout="scroll"] .preview-hero {
   display: block;
   margin-top: 98px;
-  min-height: max(660px, calc(100svh - 182px));
+  min-height: 0;
   text-align: center;
 }
 .hero-preview[data-layout="scroll"] h1 { max-width: 950px; margin: 0 auto; }
 .hero-preview[data-layout="scroll"] .preview-copy { margin: 40px auto 0; }
-.scribble-below { width: 100%; margin: 0 auto; overflow: clip; }
+.scribble-below { width: 100%; margin: 24px auto 0; overflow: clip; }
 /* Match the 2021px-wide Figma gesture on a 1440px canvas. Clip only at
    the page edges, leaving the drawing itself free to cross those edges. */
 .scribble-below .scribble-stage {
   width: 140.38%;
   margin-left: -20.19%;
-  aspect-ratio: 1000 / 760;
+  /* Crop the SVG's empty top margin so the ink follows the copy closely. */
+  aspect-ratio: 1000 / 670;
 }
 .scribble-below .original-scribble {
   width: 1270.75px;
   height: 1853.64px;
+  top: 765.694px;
   transform: translate(-50%, -50%) rotate(81.48deg);
 }
 .preview-controls {
@@ -165,9 +167,9 @@ body.hero-preview {
     margin: 32px 0 0;
     aspect-ratio: 1000 / 760;
   }
-  .hero-preview[data-layout="scroll"] .preview-hero { margin-top: 72px; min-height: max(650px, calc(100svh - 200px)); }
+  .hero-preview[data-layout="scroll"] .preview-hero { margin-top: 72px; }
   .original-scribble { transform: translate(-50%, -50%) rotate(54.18deg); }
-  .scribble-below .original-scribble { transform: translate(-50%, -50%) rotate(81.48deg) scale(0.85); }
+  .scribble-below .original-scribble { top: 650.84px; transform: translate(-50%, -50%) rotate(81.48deg) scale(0.85); }
 }
 @media (max-width: 599px) {
   .hero-preview .site-header { width: calc(100% - 40px); margin-top: 24px; }
@@ -177,10 +179,10 @@ body.hero-preview {
   .preview-copy p + p { margin-top: 24px; }
   .preview-hero .scribble-stage { margin-top: 36px; }
   .original-scribble { transform: translate(-50%, -50%) rotate(54.18deg) scale(0.6); }
-  .hero-preview[data-layout="scroll"] .preview-hero { margin-top: 64px; min-height: max(600px, calc(100svh - 136px)); }
+  .hero-preview[data-layout="scroll"] .preview-hero { margin-top: 64px; }
   .hero-preview[data-layout="scroll"] .preview-copy { margin-top: 28px; }
   .scribble-below .scribble-stage { width: 190%; margin-left: -45%; }
-  .scribble-below .original-scribble { transform: translate(-50%, -50%) rotate(81.48deg) scale(0.5); }
+  .scribble-below .original-scribble { top: 382.847px; transform: translate(-50%, -50%) rotate(81.48deg) scale(0.5); }
   .preview-controls { bottom: 12px; max-width: calc(100% - 24px); }
   .preview-controls a, .preview-controls button { padding: 10px 12px; font-size: 12px; }
 }
