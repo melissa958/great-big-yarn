@@ -17,7 +17,7 @@ const line = svg.querySelector('.scribble-line');
 const pauseButton = document.querySelector('[data-pause]');
 const nextButton = document.querySelector('[data-next]');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-const firstGesture = document.body.dataset.layout === 'scroll' ? 1 : 0;
+const gestureOrder = [2, 3, 4, 5, 0, 1]; // Red first, blue last.
 const drawDuration = 2400;
 const holdDuration = 1600;
 const eraseDuration = 1800;
@@ -33,12 +33,13 @@ let length = 0;
 let framingDirty = true;
 
 function render() {
-  const index = (Math.floor(elapsed / cycleDuration) + firstGesture) % gestures.length;
+  const index = gestureOrder[Math.floor(elapsed / cycleDuration) % gestureOrder.length];
   const phase = elapsed % cycleDuration;
   if (index !== current) {
     current = index;
     line.setAttribute('d', gestures[index].d);
     line.setAttribute('stroke', gestures[index].color);
+    svg.style.transform = index === 1 ? 'translateY(75px)' : '';
     length = line.getTotalLength();
     framingDirty = true;
     stage.dataset.gesture = String(index);
