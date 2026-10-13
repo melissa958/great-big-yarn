@@ -13,9 +13,11 @@ body.hero-preview {
   color-scheme: light;
   background: var(--paper);
   color: var(--ink);
+  overflow-x: clip;
 }
 .hero-preview :focus-visible { outline-color: var(--blue); }
 .hero-preview .skip-link { color: white; }
+.preview-canvas { display: flow-root; overflow: clip; }
 .hero-preview .site-header {
   position: relative;
   z-index: 2;
@@ -35,6 +37,7 @@ body.hero-preview {
   padding: 0 0 100px;
 }
 .preview-hero {
+  position: relative;
   width: calc(100% - 120px);
   max-width: 1320px;
   margin: 130px auto 0;
@@ -61,14 +64,25 @@ body.hero-preview {
 }
 .preview-copy p { margin: 0; }
 .preview-copy p + p { margin-top: 24.84px; }
+.preview-words { position: relative; z-index: 1; }
 .scribble-stage {
   position: relative;
   width: 100%;
   aspect-ratio: 1000 / 1000;
-  overflow: hidden;
+  overflow: visible;
   pointer-events: none;
 }
-.preview-hero .scribble-stage { margin-top: -24px; }
+/* Figma's right-hand scribble is 1244 × 1171 at 1440px, starts at
+   x=460 / y=-132, and overlaps the copy before leaving the canvas. */
+.preview-hero .scribble-stage {
+  position: absolute;
+  z-index: 0;
+  left: 30.303%;
+  top: calc(-214px - 9.1667vw);
+  width: 86.3944vw;
+  aspect-ratio: 1244.0838 / 1171.2238;
+  margin: 0;
+}
 .scribble-stage svg { display: none; width: 100%; height: 100%; overflow: visible; }
 .scribble-stage.is-animated svg { display: block; }
 .scribble-stage.is-animated .original-scribble { display: none; }
@@ -79,7 +93,7 @@ body.hero-preview {
   top: 50%;
   width: 703.648px;
   height: 1026.41px;
-  transform: translate(-50%, -50%) rotate(54.18deg) scale(0.39);
+  transform: translate(-50%, -50%) rotate(54.18deg);
 }
 .original-scribble img { display: block; }
 .hero-preview[data-layout="scroll"] .preview-hero {
@@ -90,12 +104,18 @@ body.hero-preview {
 }
 .hero-preview[data-layout="scroll"] h1 { max-width: 950px; margin: 0 auto; }
 .hero-preview[data-layout="scroll"] .preview-copy { margin: 40px auto 0; }
-.scribble-below { width: 100%; max-width: 1600px; margin: 0 auto; }
-.scribble-below .scribble-stage { aspect-ratio: 1000 / 760; }
+.scribble-below { width: 100%; margin: 0 auto; overflow: clip; }
+/* Match the 2021px-wide Figma gesture on a 1440px canvas. Clip only at
+   the page edges, leaving the drawing itself free to cross those edges. */
+.scribble-below .scribble-stage {
+  width: 140.38%;
+  margin-left: -20.19%;
+  aspect-ratio: 1000 / 760;
+}
 .scribble-below .original-scribble {
   width: 1270.75px;
   height: 1853.64px;
-  transform: translate(-50%, -50%) rotate(81.48deg) scale(0.7);
+  transform: translate(-50%, -50%) rotate(81.48deg);
 }
 .preview-controls {
   position: fixed;
@@ -136,9 +156,18 @@ body.hero-preview {
 @media (max-width: 899px) {
   .preview-hero { display: block; margin-top: 72px; }
   .preview-hero h1 { max-width: 700px; }
-  .preview-hero .scribble-stage { width: min(100%, 640px); margin: 32px auto 0; aspect-ratio: 1000 / 760; }
+  .preview-hero .scribble-stage {
+    position: relative;
+    left: 50%;
+    top: auto;
+    width: 180vw;
+    transform: translateX(-50%);
+    margin: 32px 0 0;
+    aspect-ratio: 1000 / 760;
+  }
   .hero-preview[data-layout="scroll"] .preview-hero { margin-top: 72px; min-height: max(650px, calc(100svh - 200px)); }
-  .scribble-below .original-scribble { transform: translate(-50%, -50%) rotate(81.48deg) scale(0.4); }
+  .original-scribble { transform: translate(-50%, -50%) rotate(54.18deg); }
+  .scribble-below .original-scribble { transform: translate(-50%, -50%) rotate(81.48deg) scale(0.85); }
 }
 @media (max-width: 599px) {
   .hero-preview .site-header { width: calc(100% - 40px); margin-top: 24px; }
@@ -147,11 +176,11 @@ body.hero-preview {
   .hero-preview .preview-copy { margin-top: 28px; font-size: 16px; line-height: 1.5; }
   .preview-copy p + p { margin-top: 24px; }
   .preview-hero .scribble-stage { margin-top: 36px; }
-  .original-scribble { transform: translate(-50%, -50%) rotate(54.18deg) scale(0.24); }
+  .original-scribble { transform: translate(-50%, -50%) rotate(54.18deg) scale(0.6); }
   .hero-preview[data-layout="scroll"] .preview-hero { margin-top: 64px; min-height: max(600px, calc(100svh - 136px)); }
   .hero-preview[data-layout="scroll"] .preview-copy { margin-top: 28px; }
-  .scribble-below .scribble-stage { aspect-ratio: 1000 / 920; }
-  .scribble-below .original-scribble { transform: translate(-50%, -50%) rotate(81.48deg) scale(0.25); }
+  .scribble-below .scribble-stage { width: 190%; margin-left: -45%; }
+  .scribble-below .original-scribble { transform: translate(-50%, -50%) rotate(81.48deg) scale(0.5); }
   .preview-controls { bottom: 12px; max-width: calc(100% - 24px); }
   .preview-controls a, .preview-controls button { padding: 10px 12px; font-size: 12px; }
 }

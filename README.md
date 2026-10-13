@@ -71,14 +71,16 @@ Static validation does not establish visual fidelity or accessibility compliance
 
 Two separate preview pages implement the owner's updated Figma ideas, leaving the current homepage available for comparison:
 
-- [Scribble in the hero](https://melissa958.github.io/great-big-yarn/previews/hero-inline.html), based on Desktop - New Version 2 (`100:1669`). The copy is left aligned and the scribble is smaller beside it. Following the owner's written brief, the animated artwork fits its own column instead of overlapping the text as the Figma placeholder does. On tablets and phones, the scribble stacks after the copy.
-- [Scribble after the hero](https://melissa958.github.io/great-big-yarn/previews/hero-scroll.html), based on Desktop - New Version 1 (`95:43`). The copy is centered; the scribble begins after the first viewport so it is revealed by scrolling. The unused blank remainder of the Figma canvas is not implemented as a new section.
+- [Scribble in the hero](https://melissa958.github.io/great-big-yarn/previews/hero-inline.html), based on Desktop - New Version 2 (`100:1669`). Following the owner's size correction, the artwork uses Figma's large overlapping crop: a 1244 × 1171px stage at x=460 / y=-132 on a 1440px desktop, extending past the right screen edge behind the left-aligned copy. On tablets and phones, the scribble stacks after the copy at 180% of the viewport width, with both sides cropped.
+- [Scribble after the hero](https://melissa958.github.io/great-big-yarn/previews/hero-scroll.html), based on Desktop - New Version 1 (`95:43`). The copy is centered; the scribble begins after the first viewport so it is revealed by scrolling. Artwork is 140.38% of the page width, matching Figma's approximately 2021px-wide gesture on a 1440px canvas, and 190% on phones. Both edges extend beyond the screen. The unused blank remainder of the Figma canvas is not implemented as a new section.
 
 Both use the Figma paper color `#f4ecdc`, black original logo layers, black text, and the black button with white copy. The headline uses the actual Be Vietnam Pro Light (300) font from the updated Figma, self-hosted with its license; supporting copy retains Be Vietnam Light (300). Desktop type is capped at the Figma size rather than continuing the original homepage's large-screen scaling.
 
 The animated experiment uses six newly authored continuous vector gestures, informed by the owner's Cy Twombly reference. Colors are Bright Amber, Laser Blue, Blazing Flame, Emerald, Turquoise, and Violet from the supplied palette. The textured lines draw for 2.4 seconds, hold for 1.6 seconds, erase for 1.8 seconds, and leave a 0.3-second gap before the next gesture. The full loop lasts 36.6 seconds. Animation pauses when outside the viewport or the tab is hidden. Reduced-motion and JavaScript-disabled visitors see the original Figma vector scribble instead.
 
 The preview controls allow layout switching, pause/resume, and advancing to the next scribble. They are comparison controls for these test pages. Navigation labels and the contact button remain inactive until their approved page designs are ready. Preview pages are marked `noindex`.
+
+The enlarged artwork is clipped at the page boundaries, so its intentional cropping does not introduce horizontal scrolling. Static reduced-motion and JavaScript-disabled artwork uses the same oversized treatment.
 
 ## Future work
 
