@@ -4,8 +4,8 @@ A progressively built brand and content website, using approved Figma designs.
 
 - Repository: https://github.com/melissa958/great-big-yarn
 - Live Pages address: https://melissa958.github.io/great-big-yarn/
-- Design: https://www.figma.com/design/oIV91BuTH2ouyVi5pHCDDv/Brand-Assets?node-id=62-5
-- Stack: semantic HTML and CSS, self-hosted fonts, no runtime dependencies or JavaScript required for the current hero.
+- Design: https://www.figma.com/design/oIV91BuTH2ouyVi5pHCDDv/Brand-Assets?node-id=95-43
+- Stack: semantic HTML and CSS, self-hosted fonts, and minimal JavaScript for the scribble loop; static artwork remains available without JavaScript.
 
 ## Project layout
 
@@ -27,7 +27,15 @@ node scripts/validate.mjs
 
 Review the Actions result and deployed website after each push. Do not assume a successful push means publishing succeeded. GitHub Actions provides the actual deployment URL. To undo a published change, revert its commit and push the revert; do not force push.
 
-## Current scope and approved adaptations
+## Current homepage — October 13, 2026
+
+The owner selected the **After scroll** version as the main homepage. It uses the approved centered copy, off-white background, black logo and typography, and oversized animated scribbles immediately after the copy. The second paragraph sentence begins on a new line. Red opens the loop, blue finishes it, and only blue is lowered by 75 CSS pixels. The approved geometry and timing match the After scroll preview.
+
+The homepage has a small keyboard-accessible Pause/Resume control, without the preview layout selector or Next button. Reduced-motion and JavaScript-disabled visitors see static artwork; the pause control is hidden when animation is unavailable. The page retains the original title and description and is indexable. Preview pages remain available separately for comparison and retain their `noindex` metadata.
+
+Navigation and the contact button remain inactive until their approved page designs are ready. Tablet and mobile retain the selected preview's responsive layout. Relative asset paths work at the GitHub Pages project subpath and at a future domain root.
+
+## Original hero and approved adaptations (historical)
 
 - The desktop hero is the only supplied, ready design.
 - Original background texture and all four logo layers are downloaded from Figma.
@@ -69,7 +77,7 @@ Static validation does not establish visual fidelity or accessibility compliance
 
 ## Hero experiments — October 13, 2026
 
-Two separate preview pages implement the owner's updated Figma ideas, leaving the current homepage available for comparison:
+Two separate preview pages implement the owner's updated Figma ideas. The owner subsequently selected the After scroll layout for the homepage:
 
 - [Scribble in the hero](https://melissa958.github.io/great-big-yarn/previews/hero-inline.html), based on Desktop - New Version 2 (`100:1669`). Following the owner's size correction, the artwork uses Figma's large overlapping crop: a 1244 × 1171px stage at x=460 / y=-132 on a 1440px desktop, extending past the right screen edge behind the left-aligned copy. On tablets and phones, the scribble stacks after the copy at 180% of the viewport width, with both sides cropped.
 - [Scribble after the hero](https://melissa958.github.io/great-big-yarn/previews/hero-scroll.html), based on Desktop - New Version 1 (`95:43`). The copy is centered; following the owner's spacing feedback, the scribble starts directly after the copy with a slight 16px overlap, with the copy layered above the artwork. Each gesture's empty top margin is cropped to its ink bounds and the static fallback is aligned to the top of its stage. Artwork is 140.38% of the page width, matching Figma's approximately 2021px-wide gesture on a 1440px canvas, and 190% on phones. Both edges extend beyond the screen. The unused blank remainder of the Figma canvas is not implemented as a new section.

@@ -1,5 +1,5 @@
 // Six authored, continuous gestures. Every curve follows the same draw / hold /
-// erase rhythm; the paths and palette are shared by both layout experiments.
+// erase rhythm; the paths and palette are shared by the homepage and previews.
 const gestures = [
   { color: '#fdce08', d: 'M 156 330 C 50 132 289 104 533 244 C 841 421 967 212 729 146 C 499 83 613 566 866 442 C 1019 366 814 267 520 299 C 101 345 1 513 241 583 C 454 648 809 526 687 364 C 554 190 177 264 171 464 C 164 668 449 731 798 562 C 1042 444 817 338 501 429 C 176 523 320 684 598 572 C 909 447 633 250 405 320 C 190 386 290 562 783 386 C 929 333 842 244 645 293 C 424 348 407 506 649 484 C 822 468 724 414 495 522' },
   // Broad, open blue loops use a similar amount of line to red and green,
@@ -85,18 +85,18 @@ function sync() {
   const motionAllowed = !reducedMotion.matches;
   stage.classList.toggle('is-animated', motionAllowed);
   if (motionAllowed) render();
-  pauseButton.hidden = !motionAllowed;
-  nextButton.hidden = !motionAllowed;
+  if (pauseButton) pauseButton.hidden = !motionAllowed;
+  if (nextButton) nextButton.hidden = !motionAllowed;
   if (motionAllowed && visible && !paused && !document.hidden) frame = requestAnimationFrame(tick);
 }
 
-pauseButton.addEventListener('click', () => {
+pauseButton?.addEventListener('click', () => {
   paused = !paused;
   pauseButton.textContent = paused ? 'Resume' : 'Pause';
   pauseButton.setAttribute('aria-label', paused ? 'Resume scribble animation' : 'Pause scribble animation');
   sync();
 });
-nextButton.addEventListener('click', () => {
+nextButton?.addEventListener('click', () => {
   elapsed = (Math.floor(elapsed / cycleDuration) + 1) * cycleDuration + drawDuration;
   lastTime = null;
   render();

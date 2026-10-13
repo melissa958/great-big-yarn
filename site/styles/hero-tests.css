@@ -156,6 +156,18 @@ body.hero-preview {
 .preview-controls [aria-current="page"] { background: var(--ink); color: white; }
 .preview-controls a:hover, .preview-controls button:hover { box-shadow: inset 0 0 0 1px currentColor; }
 .preview-controls [hidden] { display: none; }
+.animation-controls { position: fixed; z-index: 10; right: 20px; bottom: 20px; }
+.animation-controls button {
+  border: 1px solid rgb(0 0 0 / 20%);
+  border-radius: 999px;
+  padding: 10px 16px;
+  background: var(--paper);
+  color: var(--ink);
+  font: 500 13px / 20px var(--font);
+  cursor: pointer;
+}
+.animation-controls button:hover { border-color: var(--ink); }
+.animation-controls [hidden] { display: none; }
 @media (max-width: 1199px) {
   .hero-preview .site-header, .preview-hero { width: calc(100% - 64px); }
   .preview-hero { margin-top: 100px; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }

@@ -3,55 +3,64 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#0a5fe6">
+    <meta name="theme-color" content="#f4ecdc">
     <meta name="description" content="I’m in the business of explaining complicated things, clearly. I learn how your company works, find what makes it special, and bring it to life through words and images.">
     <title>Great Big Yarn</title>
-    <link rel="preload" href="./assets/fonts/BeVietnam-ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="./assets/fonts/BeVietnamPro-Light.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="preload" href="./assets/fonts/BeVietnam-Light.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/hero-tests.css">
+    <script type="module" src="./scripts/hero-scribbles.js"></script>
   </head>
-  <body>
+  <body class="hero-preview" data-layout="scroll">
     <a class="skip-link" href="#main">Skip to content</a>
-    <div class="hero-stage">
-      <div class="yarn-art" aria-hidden="true">
-        <img src="./assets/images/yarn-texture.png" alt="" fetchpriority="high">
-      </div>
-
+    <div class="preview-canvas">
       <header class="site-header">
         <a class="brand" href="./" aria-label="Great Big Yarn home">
-          <img class="brand-great" src="./assets/images/logo-great.svg" width="20.3165" height="48.7122" alt="">
-          <img class="brand-big" src="./assets/images/logo-big.svg" width="52.3551" height="27.4425" alt="">
-          <img class="brand-yarn" src="./assets/images/logo-yarn.svg" width="51.8956" height="18.0893" alt="">
-          <img class="brand-symbol" src="./assets/images/logo-symbol.svg" width="60.9535" height="50" alt="">
+          <img class="brand-great" src="./assets/images/hero-tests/logo-great.svg" width="20.3165" height="48.7122" alt="">
+          <img class="brand-big" src="./assets/images/hero-tests/logo-big.svg" width="52.3551" height="27.4425" alt="">
+          <img class="brand-yarn" src="./assets/images/hero-tests/logo-yarn.svg" width="51.8956" height="18.0893" alt="">
+          <img class="brand-symbol" src="./assets/images/hero-tests/logo-symbol.svg" width="60.9535" height="50" alt="">
         </a>
-
         <nav class="site-navigation" aria-label="Main navigation">
           <ul>
-            <li><span aria-disabled="true" title="Approach — coming soon">Approach</span></li>
-            <li><span aria-disabled="true" title="Projects — coming soon">Projects</span></li>
-            <li><span aria-disabled="true" title="About — coming soon">About</span></li>
-            <li><span aria-disabled="true" title="Insights — coming soon">Insights</span></li>
+            <li><span aria-disabled="true">Approach</span></li>
+            <li><span aria-disabled="true">Projects</span></li>
+            <li><span aria-disabled="true">About</span></li>
+            <li><span aria-disabled="true">Insights</span></li>
           </ul>
         </nav>
-
-        <!-- Approved inactive state until the contact-page design is ready. -->
         <button class="contact-button" type="button" disabled aria-label="Let's chat — contact page coming soon">Let’s chat <span aria-hidden="true">→</span></button>
       </header>
-
       <main id="main" tabindex="-1">
-        <section class="hero-panel" aria-labelledby="hero-title">
-          <h1 id="hero-title" aria-label="You’re in the messy middle of something.">
-            <span class="headline-mask"><span class="headline-line">You’re in the</span></span>
-            <span class="headline-mask"><span class="headline-line"><span class="messy"><span class="letter-m">m</span><span class="letter-e">e</span><span class="letter-s-first">s</span><span class="letter-s-second">s</span><span class="letter-y">y</span></span> middle of</span></span>
-            <span class="headline-mask"><span class="headline-line">something.</span></span>
-          </h1>
-          <div class="hero-copy">
-            <p>It's where I do my best work.</p>
-            <p>I’m in the business of explaining complicated things, clearly. I learn how your company works, find what makes it special, and bring it to life through words and images.</p>
+        <section class="preview-hero" aria-labelledby="hero-title">
+          <div class="preview-words">
+            <h1 id="hero-title">You’re in the messy middle of something.</h1>
+            <div class="preview-copy">
+              <p>It's where I do my best work.</p>
+              <p>I’m in the business of explaining complicated things, clearly.<br> I learn how your company works, find what makes it special, and bring it to life through words and images.</p>
+            </div>
           </div>
+
         </section>
+        <div class="scribble-below"><div class="scribble-stage" aria-hidden="true">
+            <div class="original-scribble"><img src="./assets/images/hero-tests/yarn-blue.svg" alt="" width="1270.75" height="1853.64"></div>
+            <svg viewBox="0 90 1000 670" xmlns="http://www.w3.org/2000/svg" focusable="false">
+              <defs>
+                <filter id="pencil-texture" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+                  <feTurbulence type="fractalNoise" baseFrequency=".22" numOctaves="3" seed="9" result="noise"/>
+                  <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+                  <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 2.5 0 0 0 .1" result="grain"/>
+                  <feComposite in="rough" in2="grain" operator="in"/>
+                </filter>
+              </defs>
+              <path class="scribble-line" filter="url(#pencil-texture)"/>
+            </svg>
+          </div></div>
       </main>
     </div>
-    <div class="hero-wipe" aria-hidden="true"></div>
+    <aside class="animation-controls" aria-label="Scribble animation controls">
+      <button type="button" data-pause hidden aria-label="Pause scribble animation">Pause</button>
+    </aside>
   </body>
 </html>
