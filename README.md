@@ -11,7 +11,7 @@ A progressively built brand and content website, using approved Figma designs.
 
 `site/` contains the publishable website. `site/styles/main.css` holds the reusable design tokens and responsive styles. `site/assets/` contains the original Figma artwork and licensed fonts. `scripts/validate.mjs` checks local references, empty assets, basic HTML requirements, and temporary development markers.
 
-`scripts/build.mjs` copies `site/` into an ignored `dist/` directory and versions the stylesheet URL using its content hash. Only `dist/` is uploaded to Pages. Project documentation and workflow files are not part of the deployed site. The build uses only Node.js built-ins; no dependency installation is needed.
+`scripts/build.mjs` copies `site/` into an ignored `dist/` directory and versions local stylesheet and script URLs on every HTML page using content hashes. Only `dist/` is uploaded to Pages. Project documentation and workflow files are not part of the deployed site. The build uses only Node.js built-ins; no dependency installation is needed.
 
 ## Publishing
 
@@ -66,6 +66,19 @@ Static validation does not establish visual fidelity or accessibility compliance
 - The initial 2560 × 1440 pass used a 2015 × 1013px panel. The owner subsequently requested more breathing room; the revised target is approximately 1700 × 855px, centered at (1280, 720), with a 174px headline and 30px supporting copy.
 - A 1440 × 600 window scrolls to fit the hero while keeping it below the header. All five images and three font weights loaded; the keyboard skip link moved focus to main content. No browser errors or warnings were reported.
 - After reviewing a second preview inspired by https://noho.ink/, the owner selected the **Noho-inspired reveal**, replacing **MESSY settles**. The CSS-only entrance opens with a blue curtain lifting away, the header and panel rise into place, headline lines reveal through masks, and Medium supporting copy follows. The sequence finishes in 2.05 seconds and plays once per page load. Reduced-motion visitors see the static hero immediately; keyboard focus clears the curtain, and the skip link bypasses delayed content. Headline and supporting-copy fonts are preloaded. The final sizing, centering, original assets, and text are preserved.
+
+## Hero experiments — October 13, 2026
+
+Two separate preview pages implement the owner's updated Figma ideas, leaving the current homepage available for comparison:
+
+- [Scribble in the hero](https://melissa958.github.io/great-big-yarn/previews/hero-inline.html), based on Desktop - New Version 2 (`100:1669`). The copy is left aligned and the scribble is smaller beside it. Following the owner's written brief, the animated artwork fits its own column instead of overlapping the text as the Figma placeholder does. On tablets and phones, the scribble stacks after the copy.
+- [Scribble after the hero](https://melissa958.github.io/great-big-yarn/previews/hero-scroll.html), based on Desktop - New Version 1 (`95:43`). The copy is centered; the scribble begins after the first viewport so it is revealed by scrolling. The unused blank remainder of the Figma canvas is not implemented as a new section.
+
+Both use the Figma paper color `#f4ecdc`, black original logo layers, black text, and the black button with white copy. The headline uses the actual Be Vietnam Pro Light (300) font from the updated Figma, self-hosted with its license; supporting copy retains Be Vietnam Light (300). Desktop type is capped at the Figma size rather than continuing the original homepage's large-screen scaling.
+
+The animated experiment uses six newly authored continuous vector gestures, informed by the owner's Cy Twombly reference. Colors are Bright Amber, Laser Blue, Blazing Flame, Emerald, Turquoise, and Violet from the supplied palette. The textured lines draw for 2.4 seconds, hold for 1.6 seconds, erase for 1.8 seconds, and leave a 0.3-second gap before the next gesture. The full loop lasts 36.6 seconds. Animation pauses when outside the viewport or the tab is hidden. Reduced-motion and JavaScript-disabled visitors see the original Figma vector scribble instead.
+
+The preview controls allow layout switching, pause/resume, and advancing to the next scribble. They are comparison controls for these test pages. Navigation labels and the contact button remain inactive until their approved page designs are ready. Preview pages are marked `noindex`.
 
 ## Future work
 

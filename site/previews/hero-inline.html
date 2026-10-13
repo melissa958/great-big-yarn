@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4ecdc">
+    <meta name="robots" content="noindex">
+    <title>Great Big Yarn — Scribble in the hero</title>
+    <link rel="preload" href="../assets/fonts/BeVietnamPro-Light.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="../assets/fonts/BeVietnam-Light.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/hero-tests.css">
+    <script type="module" src="../scripts/hero-scribbles.js"></script>
+  </head>
+  <body class="hero-preview" data-layout="inline">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="../" aria-label="Great Big Yarn home">
+        <img class="brand-great" src="../assets/images/hero-tests/logo-great.svg" width="20.3165" height="48.7122" alt="">
+        <img class="brand-big" src="../assets/images/hero-tests/logo-big.svg" width="52.3551" height="27.4425" alt="">
+        <img class="brand-yarn" src="../assets/images/hero-tests/logo-yarn.svg" width="51.8956" height="18.0893" alt="">
+        <img class="brand-symbol" src="../assets/images/hero-tests/logo-symbol.svg" width="60.9535" height="50" alt="">
+      </a>
+      <nav class="site-navigation" aria-label="Main navigation">
+        <ul>
+          <li><span aria-disabled="true">Approach</span></li>
+          <li><span aria-disabled="true">Projects</span></li>
+          <li><span aria-disabled="true">About</span></li>
+          <li><span aria-disabled="true">Insights</span></li>
+        </ul>
+      </nav>
+      <button class="contact-button" type="button" disabled aria-label="Let's chat — contact page coming soon">Let’s chat <span aria-hidden="true">→</span></button>
+    </header>
+    <main id="main" tabindex="-1">
+      <section class="preview-hero" aria-labelledby="hero-title">
+        <div class="preview-words">
+          <h1 id="hero-title">You’re in the messy middle of something.</h1>
+          <div class="preview-copy">
+            <p>It's where I do my best work.</p>
+            <p>I’m in the business of explaining complicated things, clearly. I learn how your company works, find what makes it special, and bring it to life through words and images.</p>
+          </div>
+        </div>
+        <div class="scribble-stage" aria-hidden="true">
+          <div class="original-scribble"><img src="../assets/images/hero-tests/yarn-yellow.svg" alt="" width="703.648" height="1026.41"></div>
+          <svg viewBox="0 0 1000 760" xmlns="http://www.w3.org/2000/svg" focusable="false">
+            <defs>
+              <filter id="pencil-texture" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+                <feTurbulence type="fractalNoise" baseFrequency=".22" numOctaves="3" seed="9" result="noise"/>
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+                <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 2.5 0 0 0 .1" result="grain"/>
+                <feComposite in="rough" in2="grain" operator="in"/>
+              </filter>
+            </defs>
+            <path class="scribble-line" filter="url(#pencil-texture)"/>
+          </svg>
+        </div>
+      </section>
+      
+    </main>
+    <aside class="preview-controls" aria-label="Hero preview controls">
+      <a href="./hero-inline.html" aria-current="page">In hero</a>
+      <a href="./hero-scroll.html">After scroll</a>
+      <button type="button" data-pause hidden aria-label="Pause scribble animation">Pause</button>
+      <button type="button" data-next hidden aria-label="Show the next scribble">Next</button>
+    </aside>
+  </body>
+</html>
