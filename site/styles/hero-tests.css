@@ -98,13 +98,20 @@ body.hero-preview {
 .original-scribble img { display: block; }
 .hero-preview[data-layout="scroll"] .preview-hero {
   display: block;
+  z-index: 1;
   margin-top: 98px;
   min-height: 0;
   text-align: center;
 }
 .hero-preview[data-layout="scroll"] h1 { max-width: 950px; margin: 0 auto; }
 .hero-preview[data-layout="scroll"] .preview-copy { margin: 40px auto 0; }
-.scribble-below { width: 100%; margin: 24px auto 0; overflow: clip; }
+.scribble-below {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  margin: -16px auto 0;
+  overflow: clip;
+}
 /* Match the 2021px-wide Figma gesture on a 1440px canvas. Clip only at
    the page edges, leaving the drawing itself free to cross those edges. */
 .scribble-below .scribble-stage {
