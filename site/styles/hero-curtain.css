@@ -118,3 +118,52 @@
 @media (prefers-reduced-motion: reduce) {
   .messy-section { position: relative; animation: none; }
 }
+
+/* Short, one-time entrances settle into the existing layout. */
+@media (prefers-reduced-motion: no-preference) {
+  .curtain-preview .site-header .brand,
+  .curtain-preview .site-navigation li,
+  .curtain-preview .site-header .contact-button {
+    animation: navigation-enter 650ms cubic-bezier(.22, 1, .36, 1) backwards;
+  }
+  .curtain-preview .site-header .brand { animation-delay: 80ms; }
+  .curtain-preview .site-navigation li:nth-child(1) { animation-delay: 160ms; }
+  .curtain-preview .site-navigation li:nth-child(2) { animation-delay: 220ms; }
+  .curtain-preview .site-navigation li:nth-child(3) { animation-delay: 280ms; }
+  .curtain-preview .site-navigation li:nth-child(4) { animation-delay: 340ms; }
+  .curtain-preview .site-header .contact-button { animation-delay: 400ms; }
+  .frosted-panel { animation: glass-enter 1100ms cubic-bezier(.22, 1, .36, 1) 120ms backwards; }
+  .frosted-panel h1 { animation: copy-enter 850ms cubic-bezier(.22, 1, .36, 1) 350ms backwards; }
+  .frosted-panel .preview-copy p { animation: copy-enter 750ms cubic-bezier(.22, 1, .36, 1) backwards; }
+  .frosted-panel .preview-copy p:first-child { animation-delay: 620ms; }
+  .frosted-panel .preview-copy p + p { animation-delay: 760ms; }
+
+  .scroll-reveal:not(.is-revealed) { opacity: 0; transform: translateY(24px); }
+  .scroll-reveal.is-revealed { animation: copy-enter 850ms cubic-bezier(.22, 1, .36, 1) backwards; }
+  .messy-copy p:nth-child(2).is-revealed { animation-delay: 70ms; }
+  .messy-copy p:nth-child(3).is-revealed { animation-delay: 140ms; }
+
+  .curtain-preview.animations-paused :is(.brand, .site-navigation li, .contact-button, .frosted-panel, .frosted-panel h1, .preview-copy p, .scroll-reveal) {
+    animation-play-state: paused;
+  }
+  /* Keyboard focus exposes content immediately during an entrance. */
+  .curtain-preview .site-header:focus-within :is(.brand, .site-navigation li, .contact-button),
+  .curtain-preview main:focus :is(.frosted-panel, .frosted-panel h1, .preview-copy p),
+  .curtain-preview .messy-section:focus-within .scroll-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes navigation-enter {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes glass-enter {
+  from { opacity: 0; transform: translateY(28px) scale(.985); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes copy-enter {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}

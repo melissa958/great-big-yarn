@@ -102,6 +102,8 @@ The second section begins yellow and transitions gradually through Blush Pop, Vi
 
 Responsive adaptations: the glass panel follows its content on tablets and phones, typography wraps, and artwork remains oversized. The second section expands to at least the viewport height for the reveal and grows further where its text needs room; shorter windows can continue scrolling to read all of it. Large screens center the glass panel without growing the hero beyond the larger of the Figma height and viewport height.
 
+The preview also has one-time load entrances: logo and navigation stagger in, the glass panel gently rises and settles, and the headline and two supporting paragraphs follow. The sequence finishes within 1.51 seconds. Second-section headings and paragraphs fade upward only after the curtain uncovers their actual positions, with a small stagger between paragraphs. Entrances remain completed when scrolling back. Pause/Resume also controls these animations; keyboard focus exposes content immediately, and reduced-motion visitors see content without entrances. The main homepage remains unchanged.
+
 Local validation, production build, and Edge browser checks passed at 1440 × 900, 1440 × 1196, 2560 × 1440, 768 × 1024, 390 × 844, 320 × 700, and 1440 × 600. Checks covered panel geometry, native curtain movement, palette states, pausing, asset and font loading, keyboard skip navigation, reduced motion, no-JavaScript fallback, and horizontal overflow. Other browser engines remain unverified.
 
 ## Future work
