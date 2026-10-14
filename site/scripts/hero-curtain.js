@@ -5,6 +5,15 @@ const hero = document.querySelector('.curtain-hero');
 const section = document.querySelector('.messy-section');
 const pause = document.querySelector('[data-pause]');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const mobile = matchMedia('(max-width: 599px)');
+const stage = hero.querySelector('.scribble-stage');
+const svg = stage.querySelector('svg');
+const line = stage.querySelector('.scribble-line');
+const menuToggle = document.querySelector('.menu-toggle');
+const navigation = document.querySelector('#preview-navigation');
+const header = hero.querySelector('.site-header');
+let menuOpen = false;
+document.body.classList.add('has-mobile-menu');
 const revealItems = [...section.querySelectorAll('h2, .messy-copy p')];
 for (const item of revealItems) item.classList.add('scroll-reveal');
 let paused = false;
@@ -39,10 +48,47 @@ function queueSync() {
 
 function scaleArtwork() {
   // Scale the wrapper while preserving the original Figma SVG dimensions.
-  const width = hero.querySelector('.scribble-stage').getBoundingClientRect().width;
-  hero.style.setProperty('--art-scale', String(width / 2021.4758));
+  const bounds = stage.getBoundingClientRect();
+  const scale = mobile.matches ? Math.max(bounds.width / 2021.4758, bounds.height / 1531.3885) : bounds.width / 2021.4758;
+  hero.style.setProperty('--art-scale', String(scale));
+  frameMobileScribble();
   sync();
 }
+
+function frameMobileScribble() {
+  if (!mobile.matches) {
+    svg.setAttribute('viewBox', '0 0 1000 757.56');
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+    return;
+  }
+  svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+  if (!stage.classList.contains('is-animated')) return;
+  const bounds = line.getBBox();
+  if (bounds.height) svg.setAttribute('viewBox', `0 ${bounds.y - 12} 1000 ${bounds.height + 24}`);
+}
+
+function syncMenu() {
+  menuToggle.hidden = !mobile.matches;
+  navigation.hidden = mobile.matches && !menuOpen;
+  menuToggle.setAttribute('aria-expanded', String(mobile.matches && menuOpen));
+  menuToggle.setAttribute('aria-label', menuOpen ? 'Close navigation menu' : 'Open navigation menu');
+}
+function closeMenu(returnFocus = false) {
+  menuOpen = false;
+  syncMenu();
+  if (returnFocus && mobile.matches) menuToggle.focus();
+}
+menuToggle.addEventListener('click', () => { menuOpen = !menuOpen; syncMenu(); });
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && menuOpen) closeMenu(true);
+});
+document.addEventListener('click', event => {
+  if (menuOpen && !header.contains(event.target)) closeMenu();
+});
+mobile.addEventListener('change', () => { closeMenu(); scaleArtwork(); });
+new ResizeObserver(scaleArtwork).observe(hero);
+new MutationObserver(frameMobileScribble).observe(line, { attributes: true, attributeFilter: ['d'] });
+new MutationObserver(frameMobileScribble).observe(stage, { attributes: true, attributeFilter: ['class'] });
 
 pause.addEventListener('click', () => {
   paused = !paused;
@@ -53,3 +99,4 @@ addEventListener('resize', scaleArtwork);
 document.addEventListener('visibilitychange', sync);
 reducedMotion.addEventListener('change', sync);
 scaleArtwork();
+syncMenu();

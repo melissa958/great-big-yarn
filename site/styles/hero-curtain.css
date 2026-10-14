@@ -10,6 +10,8 @@
   isolation: isolate;
   padding: 0;
 }
+.curtain-preview .menu-toggle, .curtain-preview .mobile-contact { display: none; }
+.curtain-preview .site-navigation[hidden] { display: none; }
 .curtain-hero {
   position: relative;
   z-index: 2;
@@ -106,8 +108,51 @@
   .messy-section { min-height: 100svh; padding: 100px 32px; }
 }
 @media (max-width: 599px) {
-  .curtain-hero { --art-scale: .3667; padding-bottom: 48px; }
-  .curtain-hero .scribble-stage { width: 190%; left: -45%; }
+  .curtain-hero { --art-scale: 1; padding-bottom: 48px; }
+  .curtain-hero .scribble-stage {
+    width: 100%;
+    height: calc(100% + 150px);
+    aspect-ratio: auto;
+    left: 0;
+    top: -75px;
+    transform: none;
+  }
+  .has-mobile-menu .site-header { flex-wrap: nowrap; }
+  .has-mobile-menu .site-header > .contact-button { display: none; }
+  .curtain-preview .menu-toggle {
+    display: flex;
+    flex: 0 0 44px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    border: 1px solid rgb(0 0 0 / 30%);
+    border-radius: 50%;
+    background: var(--paper);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .curtain-preview .menu-toggle[hidden] { display: none; }
+  .menu-toggle span { width: 22px; height: 2px; background: currentColor; transition: transform 180ms ease; }
+  .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(4px) rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-4px) rotate(-45deg); }
+  .has-mobile-menu .site-navigation {
+    position: absolute;
+    top: calc(100% + 16px);
+    left: 0;
+    right: 0;
+    padding: 24px;
+    border: 1px solid rgb(0 0 0 / 15%);
+    border-radius: 16px;
+    background: var(--paper);
+    box-shadow: 0 12px 28px rgb(0 0 0 / 10%);
+  }
+  .has-mobile-menu .site-navigation ul { flex-direction: column; align-items: flex-start; gap: 18px; }
+  .has-mobile-menu .site-navigation span { font-size: 16px; }
+  .has-mobile-menu .site-navigation .mobile-contact { display: inline-flex; margin-top: 24px; }
   .frosted-panel { width: calc(100% - 32px); margin-top: 48px; padding: 40px 20px; border-radius: 16px; }
   .curtain-preview .frosted-panel .preview-copy { margin-top: 28px; }
   .messy-section { padding: 80px 24px; }
@@ -117,16 +162,19 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .messy-section { position: relative; animation: none; }
+  .menu-toggle span { transition: none; }
 }
 
 /* Short, one-time entrances settle into the existing layout. */
 @media (prefers-reduced-motion: no-preference) {
   .curtain-preview .site-header .brand,
   .curtain-preview .site-navigation li,
-  .curtain-preview .site-header .contact-button {
+  .curtain-preview .site-header .contact-button,
+  .curtain-preview .site-header .menu-toggle {
     animation: navigation-enter 650ms cubic-bezier(.22, 1, .36, 1) backwards;
   }
   .curtain-preview .site-header .brand { animation-delay: 80ms; }
+  .curtain-preview .site-header .menu-toggle { animation-delay: 160ms; }
   .curtain-preview .site-navigation li:nth-child(1) { animation-delay: 160ms; }
   .curtain-preview .site-navigation li:nth-child(2) { animation-delay: 220ms; }
   .curtain-preview .site-navigation li:nth-child(3) { animation-delay: 280ms; }
@@ -143,11 +191,11 @@
   .messy-copy p:nth-child(2).is-revealed { animation-delay: 70ms; }
   .messy-copy p:nth-child(3).is-revealed { animation-delay: 140ms; }
 
-  .curtain-preview.animations-paused :is(.brand, .site-navigation li, .contact-button, .frosted-panel, .frosted-panel h1, .preview-copy p, .scroll-reveal) {
+  .curtain-preview.animations-paused :is(.brand, .site-navigation li, .contact-button, .menu-toggle, .frosted-panel, .frosted-panel h1, .preview-copy p, .scroll-reveal) {
     animation-play-state: paused;
   }
   /* Keyboard focus exposes content immediately during an entrance. */
-  .curtain-preview .site-header:focus-within :is(.brand, .site-navigation li, .contact-button),
+  .curtain-preview .site-header:focus-within :is(.brand, .site-navigation li, .contact-button, .menu-toggle),
   .curtain-preview main:focus :is(.frosted-panel, .frosted-panel h1, .preview-copy p),
   .curtain-preview .messy-section:focus-within .scroll-reveal {
     animation: none;

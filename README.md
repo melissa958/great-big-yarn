@@ -104,6 +104,8 @@ Responsive adaptations: the glass panel follows its content on tablets and phone
 
 The preview also has one-time load entrances: logo and navigation stagger in, the glass panel gently rises and settles, and the headline and two supporting paragraphs follow. The sequence finishes within 1.51 seconds. Second-section headings and paragraphs fade upward only after the curtain uncovers their actual positions, with a small stagger between paragraphs. Entrances remain completed when scrolling back. Pause/Resume also controls these animations; keyboard focus exposes content immediately, and reduced-motion visitors see content without entrances. The main homepage remains unchanged.
 
+Below 600px, the scribbles cover the full hero height with proportional cropping at the sides. Each animated gesture is framed to its ink bounds, with extra coverage preserving the blue-only 75px offset; static artwork is scaled through its wrapper. A hamburger button opens the four existing navigation labels and the disabled Let's chat button in a compact panel. It supports Space/Enter, Escape with focus return, outside clicks, and resets when crossing the desktop breakpoint. Without JavaScript, the navigation remains visible. Desktop artwork and navigation retain their existing layout.
+
 Local validation, production build, and Edge browser checks passed at 1440 × 900, 1440 × 1196, 2560 × 1440, 768 × 1024, 390 × 844, 320 × 700, and 1440 × 600. Checks covered panel geometry, native curtain movement, palette states, pausing, asset and font loading, keyboard skip navigation, reduced motion, no-JavaScript fallback, and horizontal overflow. Other browser engines remain unverified.
 
 ## Future work
