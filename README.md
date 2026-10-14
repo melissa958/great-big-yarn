@@ -90,6 +90,20 @@ The preview controls allow layout switching, pause/resume, and advancing to the 
 
 The enlarged artwork is clipped at the page boundaries, so its intentional cropping does not introduce horizontal scrolling. Static reduced-motion and JavaScript-disabled artwork uses the same oversized treatment.
 
+## Frosted hero and curtain preview — October 14, 2026
+
+[Separate preview](https://melissa958.github.io/great-big-yarn/previews/hero-curtain.html) implements the owner's updated Desktop - New Version 1 frame (`95:43`), including the new second section (`116:2493`). The current homepage and previous previews are unchanged. This page is marked `noindex` and uses its own stylesheet and controller while reusing the approved scribble loop.
+
+The scribbles now sit behind the hero copy. At 1440px, the frosted panel is approximately 1086 × 611px at x=177 / y=176, with Figma's 32% white fill, 21.226px backdrop blur, and 18.097px corner radius. The original violet Figma vector is the static fallback. The existing red-first, blue-last animated loop retains its shapes, timing, and blue-only 75px offset.
+
+The hero scrolls upward over a sticky second section, revealing it from underneath without intercepting scrolling. The section retains Figma's actual copy, Be Vietnam Pro Light heading, Be Vietnam Light body, and Be Vietnam SemiBold Italic emphasis on “live.” The italic font is self-hosted under the existing Be Vietnam license.
+
+The second section begins yellow and transitions gradually through Blush Pop, Violet, and Turquoise in an 80-second cycle. Color changes run only while the section is revealed and the tab is visible. Pause/Resume controls both animations. Reduced-motion visitors see static violet artwork, a static yellow second section, and ordinary sequential scrolling. Without JavaScript, static artwork and the native CSS curtain reveal remain available.
+
+Responsive adaptations: the glass panel follows its content on tablets and phones, typography wraps, and artwork remains oversized. The second section expands to at least the viewport height for the reveal and grows further where its text needs room; shorter windows can continue scrolling to read all of it. Large screens center the glass panel without growing the hero beyond the larger of the Figma height and viewport height.
+
+Local validation, production build, and Edge browser checks passed at 1440 × 900, 1440 × 1196, 2560 × 1440, 768 × 1024, 390 × 844, 320 × 700, and 1440 × 600. Checks covered panel geometry, native curtain movement, palette states, pausing, asset and font loading, keyboard skip navigation, reduced motion, no-JavaScript fallback, and horizontal overflow. Other browser engines remain unverified.
+
 ## Future work
 
 Implement new sections and pages only when their designs are supplied. Replace inactive navigation with real destinations as those pages become available. Connect the custom domain only when explicitly requested; DNS and custom-domain settings have not been configured.

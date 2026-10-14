@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4ecdc">
+    <meta name="robots" content="noindex">
+    <meta name="description" content="I’m in the business of explaining complicated things, clearly. I learn how your company works, find what makes it special, and bring it to life through words and images.">
+    <title>Great Big Yarn — Frosted hero and curtain preview</title>
+    <link rel="preload" href="../assets/fonts/BeVietnamPro-Light.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="../assets/fonts/BeVietnam-Light.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/hero-tests.css">
+    <link rel="stylesheet" href="../styles/hero-curtain.css">
+    <script type="module" src="../scripts/hero-curtain.js"></script>
+  </head>
+  <body class="hero-preview curtain-preview" data-layout="curtain">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <main id="main" tabindex="-1" class="curtain-stack">
+      <section class="curtain-hero" aria-labelledby="hero-title">
+        <div class="scribble-stage" aria-hidden="true">
+            <div class="original-scribble"><img src="../assets/images/hero-tests/yarn-violet.svg" alt="" width="1270.75" height="1853.64"></div>
+            <svg viewBox="0 0 1000 757.56" xmlns="http://www.w3.org/2000/svg" focusable="false">
+              <defs>
+                <filter id="pencil-texture" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+                  <feTurbulence type="fractalNoise" baseFrequency=".22" numOctaves="3" seed="9" result="noise"/>
+                  <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+                  <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 2.5 0 0 0 .1" result="grain"/>
+                  <feComposite in="rough" in2="grain" operator="in"/>
+                </filter>
+              </defs>
+              <path class="scribble-line" filter="url(#pencil-texture)"/>
+            </svg>
+          </div>
+      <header class="site-header" role="banner">
+        <a class="brand" href="../" aria-label="Great Big Yarn home">
+          <img class="brand-great" src="../assets/images/hero-tests/logo-great.svg" width="20.3165" height="48.7122" alt="">
+          <img class="brand-big" src="../assets/images/hero-tests/logo-big.svg" width="52.3551" height="27.4425" alt="">
+          <img class="brand-yarn" src="../assets/images/hero-tests/logo-yarn.svg" width="51.8956" height="18.0893" alt="">
+          <img class="brand-symbol" src="../assets/images/hero-tests/logo-symbol.svg" width="60.9535" height="50" alt="">
+        </a>
+        <nav class="site-navigation" aria-label="Main navigation">
+          <ul>
+            <li><span aria-disabled="true">Approach</span></li>
+            <li><span aria-disabled="true">Projects</span></li>
+            <li><span aria-disabled="true">About</span></li>
+            <li><span aria-disabled="true">Insights</span></li>
+          </ul>
+        </nav>
+        <button class="contact-button" type="button" disabled aria-label="Let's chat — contact page coming soon">Let’s chat <span aria-hidden="true">→</span></button>
+      </header>
+        <div class="frosted-panel">
+          <div class="preview-words">
+            <h1 id="hero-title">You’re in the messy middle of something.</h1>
+            <div class="preview-copy">
+              <p>It's where I do my best work.</p>
+              <p>I’m in the business of explaining complicated things, clearly.<br> I learn how your company works, find what makes it special, and bring it to life through words and images.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="messy-section" aria-labelledby="messy-title">
+        <div class="messy-content">
+          <h2 id="messy-title">The messy middle is actually a wonderful place to be.</h2>
+          <div class="messy-copy">
+            <p>It’s also anxiety-inducing.</p>
+            <p>It brings panic and wonder and late nights spent asking, “How will we ever figure this out?”<br>Those of us who work hard at being creative for a living know a thing or two about the messy middle. We <em>live</em> here. And right now, it feels a lot like working on the energy transition. There’s so much we haven’t figured out yet. But we will. We’ll invent new technologies, new companies, and new ways forward. And yes, there will be panic and wonder and late nights along the way.</p>
+            <p>I can’t think of a more exciting place to be.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <aside class="animation-controls" aria-label="Preview animation controls">
+      <button type="button" data-pause hidden aria-label="Pause all animations">Pause</button>
+    </aside>
+  </body>
+</html>
