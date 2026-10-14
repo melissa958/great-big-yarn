@@ -106,6 +106,10 @@ The preview also has one-time load entrances: logo and navigation stagger in, th
 
 Below 600px, the scribbles cover the full hero height with proportional cropping at the sides. Each animated gesture is framed to its ink bounds, with extra coverage preserving the blue-only 75px offset; static artwork is scaled through its wrapper. A hamburger button opens the four existing navigation labels and the disabled Let's chat button in a compact panel. It supports Space/Enter, Escape with focus return, outside clicks, and resets when crossing the desktop breakpoint. Without JavaScript, the navigation remains visible. Desktop artwork and navigation retain their existing layout.
 
+For mobile performance, the preview paints the same SVG paths and draw/erase progress into a canvas limited to 1.5× pixel density. A preloaded 128px grain tile supplies cached texture instead of recalculating the large SVG noise/displacement filter every frame. The bitmap is bounded to the visible hero width and skips redraws during unchanged hold/blank states. Path data, order, timing, blue offset, full-height coverage, and the frosted panel are retained. Desktop keeps the original SVG texture filter. The SVG remains the animation source and a fallback if the canvas or grain cannot load; reduced-motion/no-JavaScript visitors retain the original static Figma artwork.
+
+Windows WebKit tests at a simulated 390 × 844 / 3× density reproduced long stalls with the previous SVG filter, while the bounded canvas avoided those stalls. Edge checks also passed. These are browser-engine checks on the desktop test machine; actual iPhone frame rate still needs device review.
+
 Local validation, production build, and Edge browser checks passed at 1440 × 900, 1440 × 1196, 2560 × 1440, 768 × 1024, 390 × 844, 320 × 700, and 1440 × 600. Checks covered panel geometry, native curtain movement, palette states, pausing, asset and font loading, keyboard skip navigation, reduced motion, no-JavaScript fallback, and horizontal overflow. Other browser engines remain unverified.
 
 ## Future work

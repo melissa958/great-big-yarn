@@ -12,6 +12,7 @@
 }
 .curtain-preview .menu-toggle, .curtain-preview .mobile-contact { display: none; }
 .curtain-preview .site-navigation[hidden] { display: none; }
+.mobile-textured-scribble { display: none; position: absolute; inset: 0; width: 100%; height: 100%; }
 .curtain-hero {
   position: relative;
   z-index: 2;
@@ -116,7 +117,16 @@
     left: 0;
     top: -75px;
     transform: none;
+    contain: paint;
   }
+  /* Bake the grain once instead of rerunning SVG noise/displacement over
+     a large drawing beneath the frosted panel on every phone frame. */
+  .curtain-hero .scribble-line { filter: none; }
+  .curtain-hero .scribble-stage svg {
+    overflow: hidden;
+  }
+  .curtain-hero .scribble-stage.is-canvas svg { opacity: 0; }
+  .curtain-hero .scribble-stage.is-canvas .mobile-textured-scribble { display: block; }
   .has-mobile-menu .site-header { flex-wrap: nowrap; }
   .has-mobile-menu .site-header > .contact-button { display: none; }
   .curtain-preview .menu-toggle {
