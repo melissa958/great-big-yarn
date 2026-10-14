@@ -126,6 +126,7 @@
 }
 @media (min-width: 1920px) {
   .frosted-panel { max-width: 1320px; }
+  .curtain-preview .frosted-panel .preview-copy { max-width: 850px; }
   .curtain-preview .frosted-panel .preview-copy,
   .curtain-preview .messy-copy { font-size: 20px; }
 }
