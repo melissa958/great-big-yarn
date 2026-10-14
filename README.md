@@ -4,7 +4,7 @@ A progressively built brand and content website, using approved Figma designs.
 
 - Repository: https://github.com/melissa958/great-big-yarn
 - Live Pages address: https://melissa958.github.io/great-big-yarn/
-- Design: https://www.figma.com/design/oIV91BuTH2ouyVi5pHCDDv/Brand-Assets?node-id=95-43
+- Design: https://www.figma.com/design/oIV91BuTH2ouyVi5pHCDDv/Brand-Assets?node-id=126-2868
 - Stack: semantic HTML and CSS, self-hosted fonts, and minimal JavaScript for the scribble loop; static artwork remains available without JavaScript.
 
 ## Project layout
@@ -35,7 +35,11 @@ The homepage includes the mobile hamburger menu, full-height mobile artwork, and
 
 Navigation and the contact button remain inactive until their approved page designs are ready. Tablet and mobile retain the selected preview's responsive layout. Relative asset paths work at the GitHub Pages project subpath and at a future domain root.
 
-Following the owner's large-desktop refinement, at viewport widths of 1920px and above the frosted panel has the same 1320px maximum width and outer gutters as the header/navigation. Paragraphs in both the hero and second section use 20px type at those widths; the hero copy expands to 635px so its first sentence fits on one line and the explicit second-sentence break is preserved. Smaller desktop/laptop, tablet, and phone layouts retain their existing typography and panel sizing.
+Following the owner's large-desktop refinement, at viewport widths of 1920px and above the frosted panel has the same 1320px maximum width and outer gutters as the header/navigation. Paragraphs in both the hero and second section use 20px type at those widths. Smaller desktop/laptop, tablet, and phone layouts retain their existing panel sizing and body font sizes.
+
+The subsequent Romie update follows the ready frame `126:2868`: mixed-case Romie Bold (700) for both headings, Romie Bold Italic (700) for “wonderful place,” and Figma's alternate letterform settings on “messy.” The desktop hero heading is 105px with three lines; the second-section heading is 65px with two lines. Responsive sizes and natural wrapping fit smaller panels. Hero supporting copy now has an 813px maximum width, constrained by the panel's available space. The owner confirmed that its two sentences should flow continuously, replacing the earlier forced break. The second-section paragraph also retains the owner's continuous wording. Body copy remains Be Vietnam Light, with Be Vietnam SemiBold Italic on “live.”
+
+The two Romie WOFF2 files were supplied by the owner and are self-hosted unchanged. They are separate from the Be Vietnam fonts and are not covered by the Be Vietnam SIL Open Font License. Both heading font faces are preloaded on the homepage and curtain preview. The approved artwork, drawing timing, curtain behavior, 55-second palette cycle, and mobile rendering remain unchanged.
 
 ## Original hero and approved adaptations (historical)
 
@@ -98,7 +102,7 @@ The enlarged artwork is clipped at the page boundaries, so its intentional cropp
 
 The scribbles now sit behind the hero copy. At 1440px, the frosted panel is approximately 1086 × 611px at x=177 / y=176, with Figma's 32% white fill, 21.226px backdrop blur, and 18.097px corner radius. The original violet Figma vector is the static fallback. The existing red-first, blue-last animated loop retains its shapes, timing, and blue-only 75px offset.
 
-The hero scrolls upward over a sticky second section, revealing it from underneath without intercepting scrolling. The section retains Figma's actual copy, Be Vietnam Pro Light heading, Be Vietnam Light body, and Be Vietnam SemiBold Italic emphasis on “live.” The italic font is self-hosted under the existing Be Vietnam license.
+The hero scrolls upward over a sticky second section, revealing it from underneath without intercepting scrolling. The section originally used a Be Vietnam Pro Light heading; the subsequent Romie update is described above. It retains the supplied copy, Be Vietnam Light body, and Be Vietnam SemiBold Italic emphasis on “live.” The Be Vietnam italic font is self-hosted under its existing license.
 
 The second section begins yellow and transitions gradually through Blush Pop, Violet, and Turquoise in a 55-second cycle. Color changes run only while the section is revealed and the tab is visible. Pause/Resume controls both animations. Reduced-motion visitors see static violet artwork, a static yellow second section, and ordinary sequential scrolling. Without JavaScript, static artwork and the native CSS curtain reveal remain available.
 

@@ -5,6 +5,20 @@
   font-weight: 600;
   font-display: swap;
 }
+@font-face {
+  font-family: "Romie";
+  src: url("../assets/fonts/Romie-Bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Romie";
+  src: url("../assets/fonts/Romie-BoldItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+}
 
 .curtain-preview main.curtain-stack {
   isolation: isolate;
@@ -50,8 +64,20 @@
   backdrop-filter: blur(21.226px);
   text-align: center;
 }
-.frosted-panel h1 { max-width: 950px; margin: 0 auto; }
-.curtain-preview .frosted-panel .preview-copy { max-width: 571px; margin: 31px auto 0; }
+.curtain-preview .frosted-panel h1 {
+  max-width: 950px;
+  margin: 0 auto;
+  font-family: "Romie", Georgia, serif;
+  font-weight: 700;
+  font-synthesis: none;
+  font-size: clamp(56px, 7.2917vw, 105px);
+  line-height: 1;
+  letter-spacing: -.01em;
+  text-transform: none;
+}
+.romie-line { display: block; }
+.romie-messy { font-feature-settings: "ordn" 1, "ss06" 1, "ss11" 1, "ss12" 1, "ss13" 1, "ss14" 1, "ss15" 1, "ss18" 1, "ss19" 1, "ss20" 1, "dlig" 1; }
+.curtain-preview .frosted-panel .preview-copy { max-width: 813px; margin: 37px auto 0; }
 .messy-section {
   position: sticky;
   top: 0;
@@ -68,14 +94,19 @@
   animation: section-palette 55s ease-in-out infinite;
   animation-play-state: paused;
 }
-.messy-content { width: 100%; max-width: 884px; }
+.messy-content { width: 100%; max-width: 912px; }
 .messy-section h2 {
   margin: 0;
-  font-family: "Be Vietnam Pro", sans-serif;
-  font-size: 60px;
-  font-weight: 300;
-  line-height: 1.16;
+  font-family: "Romie", Georgia, serif;
+  font-size: 65px;
+  font-weight: 700;
+  font-synthesis: none;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+  font-feature-settings: "dlig" 1;
 }
+.romie-section-line { display: block; }
+.messy-section h2 em { font-weight: 700; letter-spacing: -.16px; }
 .messy-copy {
   max-width: 859px;
   margin: 54px auto 0;
@@ -95,7 +126,6 @@
 }
 @media (min-width: 1920px) {
   .frosted-panel { max-width: 1320px; }
-  .curtain-preview .frosted-panel .preview-copy { max-width: 635px; }
   .curtain-preview .frosted-panel .preview-copy,
   .curtain-preview .messy-copy { font-size: 20px; }
 }
@@ -106,7 +136,7 @@
 @media (max-width: 1199px) {
   .frosted-panel { width: calc(100% - 64px); min-height: 0; padding: 64px 40px; }
   .messy-section { padding: 120px 32px; }
-  .messy-section h2 { font-size: clamp(36px, 4.17vw, 60px); }
+  .messy-section h2 { font-size: clamp(36px, 4.514vw, 65px); }
 }
 @media (max-width: 899px) {
   .curtain-hero { --art-scale: .85; }
@@ -170,9 +200,11 @@
   .has-mobile-menu .site-navigation span { font-size: 16px; }
   .has-mobile-menu .site-navigation .mobile-contact { display: inline-flex; margin-top: 24px; }
   .frosted-panel { width: calc(100% - 32px); margin-top: 48px; padding: 40px 20px; border-radius: 16px; }
+  .curtain-preview .frosted-panel h1 { font-size: clamp(32px, 9.6vw, 44px); }
   .curtain-preview .frosted-panel .preview-copy { margin-top: 28px; }
   .messy-section { padding: 80px 24px; }
   .messy-section h2 { font-size: clamp(32px, 8.2vw, 44px); }
+  .romie-section-line { display: inline; }
   .messy-copy { margin-top: 36px; font-size: 16px; line-height: 1.5; }
   .messy-copy p + p { margin-top: 24px; }
 }

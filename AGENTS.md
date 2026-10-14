@@ -11,7 +11,7 @@
 
 ## Design
 - Implement only Figma designs identified as ready. Do not invent sections, pages, or marketing copy.
-- Current source: https://www.figma.com/design/oIV91BuTH2ouyVi5pHCDDv/Brand-Assets?node-id=95-43 (Desktop - New Version 1, inside Website page 59:2). On October 14, 2026, the owner approved promoting the frosted hero and second-section curtain preview to the homepage, including its mobile menu, animations, and iPhone-tested performance fix.
+- Current source: https://www.figma.com/design/oIV91BuTH2ouyVi5pHCDDv/Brand-Assets?node-id=126-2868 (Desktop - New Version with font change, inside Website page 59:2). On October 14, 2026, the owner approved Romie headings and 813px hero copy flowing continuously. Preserve the approved curtain homepage, mobile menu, animations, iPhone-tested performance fix, and the 1920px breakpoint for the wider glass panel and 20px paragraphs.
 - Use semantic HTML, CSS, and minimal JavaScript. Reuse existing assets and CSS tokens.
 - Read the Figma design-to-code skill before retrieving design context. Obtain a design screenshot, use original assets and actual font weights, and download assets locally.
 - Adapt desktop designs for tablet and mobile while preserving hierarchy; report significant adaptations.
