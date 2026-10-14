@@ -27,11 +27,11 @@ node scripts/validate.mjs
 
 Review the Actions result and deployed website after each push. Do not assume a successful push means publishing succeeded. GitHub Actions provides the actual deployment URL. To undo a published change, revert its commit and push the revert; do not force push.
 
-## Current homepage — October 13, 2026
+## Current homepage — October 14, 2026
 
-The owner selected the **After scroll** version as the main homepage. It uses the approved centered copy, off-white background, black logo and typography, and oversized animated scribbles immediately after the copy. The second paragraph sentence begins on a new line. Red opens the loop, blue finishes it, and only blue is lowered by 75 CSS pixels. The approved geometry and timing match the After scroll preview.
+After confirming that the optimized preview loads perfectly on her iPhone, the owner selected the **frosted hero and curtain reveal** page as the main homepage. It preserves the approved preview exactly: oversized scribbles behind the frosted copy, staggered page-load entrances, a curtain reveal into the second section, and the 55-second yellow / blush / violet / turquoise background cycle. Red opens the scribble loop, blue finishes it, and only blue is lowered by 75 CSS pixels.
 
-The homepage has a small keyboard-accessible Pause/Resume control, without the preview layout selector or Next button. Reduced-motion and JavaScript-disabled visitors see static artwork; the pause control is hidden when animation is unavailable. The page retains the original title and description and is indexable. Preview pages remain available separately for comparison and retain their `noindex` metadata.
+The homepage includes the mobile hamburger menu, full-height mobile artwork, and the cached-grain canvas renderer that the owner confirmed performs well on her iPhone with Chrome. Pause/Resume controls the animations; keyboard users can access content immediately. Reduced-motion and JavaScript-disabled visitors retain static artwork and readable content. The page retains the original title and description and is indexable. Preview pages remain available separately for comparison and retain their `noindex` metadata.
 
 Navigation and the contact button remain inactive until their approved page designs are ready. Tablet and mobile retain the selected preview's responsive layout. Relative asset paths work at the GitHub Pages project subpath and at a future domain root.
 
@@ -92,7 +92,7 @@ The enlarged artwork is clipped at the page boundaries, so its intentional cropp
 
 ## Frosted hero and curtain preview — October 14, 2026
 
-[Separate preview](https://melissa958.github.io/great-big-yarn/previews/hero-curtain.html) implements the owner's updated Desktop - New Version 1 frame (`95:43`), including the new second section (`116:2493`). The current homepage and previous previews are unchanged. This page is marked `noindex` and uses its own stylesheet and controller while reusing the approved scribble loop.
+[Separate preview](https://melissa958.github.io/great-big-yarn/previews/hero-curtain.html) implements the owner's updated Desktop - New Version 1 frame (`95:43`), including the new second section (`116:2493`). This was introduced as a separate experiment; the owner subsequently approved it as the homepage. This preview remains marked `noindex` and uses its own stylesheet and controller while reusing the approved scribble loop.
 
 The scribbles now sit behind the hero copy. At 1440px, the frosted panel is approximately 1086 × 611px at x=177 / y=176, with Figma's 32% white fill, 21.226px backdrop blur, and 18.097px corner radius. The original violet Figma vector is the static fallback. The existing red-first, blue-last animated loop retains its shapes, timing, and blue-only 75px offset.
 
@@ -102,13 +102,13 @@ The second section begins yellow and transitions gradually through Blush Pop, Vi
 
 Responsive adaptations: the glass panel follows its content on tablets and phones, typography wraps, and artwork remains oversized. The second section expands to at least the viewport height for the reveal and grows further where its text needs room; shorter windows can continue scrolling to read all of it. Large screens center the glass panel without growing the hero beyond the larger of the Figma height and viewport height.
 
-The preview also has one-time load entrances: logo and navigation stagger in, the glass panel gently rises and settles, and the headline and two supporting paragraphs follow. The sequence finishes within 1.51 seconds. Second-section headings and paragraphs fade upward only after the curtain uncovers their actual positions, with a small stagger between paragraphs. Entrances remain completed when scrolling back. Pause/Resume also controls these animations; keyboard focus exposes content immediately, and reduced-motion visitors see content without entrances. The main homepage remains unchanged.
+The preview also has one-time load entrances: logo and navigation stagger in, the glass panel gently rises and settles, and the headline and two supporting paragraphs follow. The sequence finishes within 1.51 seconds. Second-section headings and paragraphs fade upward only after the curtain uncovers their actual positions, with a small stagger between paragraphs. Entrances remain completed when scrolling back. Pause/Resume also controls these animations; keyboard focus exposes content immediately, and reduced-motion visitors see content without entrances. These approved entrances now also run on the main homepage.
 
 Below 600px, the scribbles cover the full hero height with proportional cropping at the sides. Each animated gesture is framed to its ink bounds, with extra coverage preserving the blue-only 75px offset; static artwork is scaled through its wrapper. A hamburger button opens the four existing navigation labels and the disabled Let's chat button in a compact panel. It supports Space/Enter, Escape with focus return, outside clicks, and resets when crossing the desktop breakpoint. Without JavaScript, the navigation remains visible. Desktop artwork and navigation retain their existing layout.
 
 For mobile performance, the preview paints the same SVG paths and draw/erase progress into a canvas limited to 1.5× pixel density. A preloaded 128px grain tile supplies cached texture instead of recalculating the large SVG noise/displacement filter every frame. The bitmap is bounded to the visible hero width and skips redraws during unchanged hold/blank states. Path data, order, timing, blue offset, full-height coverage, and the frosted panel are retained. Desktop keeps the original SVG texture filter. The SVG remains the animation source and a fallback if the canvas or grain cannot load; reduced-motion/no-JavaScript visitors retain the original static Figma artwork.
 
-Windows WebKit tests at a simulated 390 × 844 / 3× density reproduced long stalls with the previous SVG filter, while the bounded canvas avoided those stalls. Edge checks also passed. These are browser-engine checks on the desktop test machine; actual iPhone frame rate still needs device review.
+Windows WebKit tests at a simulated 390 × 844 / 3× density reproduced long stalls with the previous SVG filter, while the bounded canvas avoided those stalls. Edge checks also passed. These are browser-engine checks on the desktop test machine. The owner subsequently confirmed that the optimized page looks great and loads perfectly on her iPhone with Chrome.
 
 Local validation, production build, and Edge browser checks passed at 1440 × 900, 1440 × 1196, 2560 × 1440, 768 × 1024, 390 × 844, 320 × 700, and 1440 × 600. Checks covered panel geometry, native curtain movement, palette states, pausing, asset and font loading, keyboard skip navigation, reduced motion, no-JavaScript fallback, and horizontal overflow. Other browser engines remain unverified.
 
