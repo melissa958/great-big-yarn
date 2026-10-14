@@ -35,6 +35,8 @@ The homepage includes the mobile hamburger menu, full-height mobile artwork, and
 
 Navigation and the contact button remain inactive until their approved page designs are ready. Tablet and mobile retain the selected preview's responsive layout. Relative asset paths work at the GitHub Pages project subpath and at a future domain root.
 
+Following the owner's large-desktop refinement, at viewport widths of 1920px and above the frosted panel has the same 1320px maximum width and outer gutters as the header/navigation. Paragraphs in both the hero and second section use 20px type at those widths; the hero copy expands to 635px so its first sentence fits on one line and the explicit second-sentence break is preserved. Smaller desktop/laptop, tablet, and phone layouts retain their existing typography and panel sizing.
+
 ## Original hero and approved adaptations (historical)
 
 - The desktop hero is the only supplied, ready design.

@@ -93,6 +93,12 @@
   50% { background-color: var(--pink); }
   75% { background-color: var(--turquoise); }
 }
+@media (min-width: 1920px) {
+  .frosted-panel { max-width: 1320px; }
+  .curtain-preview .frosted-panel .preview-copy { max-width: 635px; }
+  .curtain-preview .frosted-panel .preview-copy,
+  .curtain-preview .messy-copy { font-size: 20px; }
+}
 @media (min-width: 1441px) {
   .frosted-panel { margin-top: max(92px, calc(50svh - 389.5px)); }
   .curtain-hero .scribble-stage { top: max(481.5px, 50svh); }
