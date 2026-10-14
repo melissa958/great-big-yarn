@@ -62,7 +62,7 @@
   background: var(--yellow);
   color: var(--ink);
   text-align: center;
-  animation: section-palette 80s ease-in-out infinite;
+  animation: section-palette 55s ease-in-out infinite;
   animation-play-state: paused;
 }
 .messy-content { width: 100%; max-width: 884px; }

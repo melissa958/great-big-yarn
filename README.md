@@ -98,7 +98,7 @@ The scribbles now sit behind the hero copy. At 1440px, the frosted panel is appr
 
 The hero scrolls upward over a sticky second section, revealing it from underneath without intercepting scrolling. The section retains Figma's actual copy, Be Vietnam Pro Light heading, Be Vietnam Light body, and Be Vietnam SemiBold Italic emphasis on “live.” The italic font is self-hosted under the existing Be Vietnam license.
 
-The second section begins yellow and transitions gradually through Blush Pop, Violet, and Turquoise in an 80-second cycle. Color changes run only while the section is revealed and the tab is visible. Pause/Resume controls both animations. Reduced-motion visitors see static violet artwork, a static yellow second section, and ordinary sequential scrolling. Without JavaScript, static artwork and the native CSS curtain reveal remain available.
+The second section begins yellow and transitions gradually through Blush Pop, Violet, and Turquoise in a 55-second cycle. Color changes run only while the section is revealed and the tab is visible. Pause/Resume controls both animations. Reduced-motion visitors see static violet artwork, a static yellow second section, and ordinary sequential scrolling. Without JavaScript, static artwork and the native CSS curtain reveal remain available.
 
 Responsive adaptations: the glass panel follows its content on tablets and phones, typography wraps, and artwork remains oversized. The second section expands to at least the viewport height for the reveal and grows further where its text needs room; shorter windows can continue scrolling to read all of it. Large screens center the glass panel without growing the hero beyond the larger of the Figma height and viewport height.
 
