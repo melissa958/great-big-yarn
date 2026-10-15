@@ -16,6 +16,7 @@
   font: 600 11px / 1 var(--font);
   letter-spacing: .99px;
   text-transform: uppercase;
+  text-align: center;
   text-wrap: balance;
 }
 .fish-scene {
@@ -85,10 +86,7 @@
 @media (max-width: 759px), (hover: none), (pointer: coarse) {
   .section-eyebrow { left: 24px; right: 24px; bottom: 10px; width: calc(100% - 48px); max-width: 459px; margin: 0 auto; padding: 6px 12px; line-height: 1.2; }
   .fish-scene { display: none; }
-}
-@media (max-width: 639px) {
-  /* Keep the fixed Pause control clear of the label text. */
-  .section-eyebrow { padding-right: 84px; }
+  .curtain-preview .animation-controls { display: none; }
 }
 @media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
   .fish-tail { animation: fish-tail-wag var(--fish-tail-duration, 1500ms) ease-in-out infinite; animation-play-state: var(--fish-play-state); }
