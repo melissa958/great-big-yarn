@@ -104,7 +104,7 @@
 }
 .romie-line { display: block; }
 .romie-messy { font-feature-settings: "ordn" 1, "ss06" 1, "ss11" 1, "ss12" 1, "ss13" 1, "ss14" 1, "ss15" 1, "ss18" 1, "ss19" 1, "ss20" 1, "dlig" 1; }
-.curtain-preview .frosted-panel .preview-copy { max-width: 813px; margin: 19px auto 0; }
+.curtain-preview .frosted-panel .preview-copy { max-width: 890px; margin: 19px auto 0; }
 .messy-section {
   position: sticky;
   top: 0;
@@ -156,7 +156,6 @@
 }
 @media (min-width: 1920px) {
   .frosted-panel { max-width: 1320px; }
-  .curtain-preview .frosted-panel .preview-copy { max-width: 850px; }
   .curtain-preview .frosted-panel .preview-copy,
   .curtain-preview .messy-copy { font-size: 20px; }
 }

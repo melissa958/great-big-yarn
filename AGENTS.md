@@ -11,7 +11,7 @@
 
 ## Design
 - Implement only Figma designs identified as ready. Do not invent sections, pages, or marketing copy.
-- Current source: https://www.figma.com/design/oIV91BuTH2ouyVi5pHCDDv/Brand-Assets?node-id=143-3846 (Desktop - New Version 2, inside Website page 59:2; replaces deleted frame 136:3410). On October 15, 2026, the owner refined the eyebrow to a transparent background, dashed border, and 11px type. Preserve the approved continuous hero copy, curtain homepage, mobile menu, animations, iPhone-tested performance fix, and the 1920px breakpoint for the wider glass panel, 850px hero copy, and 20px paragraphs. Hero copy is capped at 813px below that breakpoint.
+- Current source: https://www.figma.com/design/oIV91BuTH2ouyVi5pHCDDv/Brand-Assets?node-id=143-3846 (Desktop - New Version 2, inside Website page 59:2; replaces deleted frame 136:3410). On October 15, 2026, the owner refined the eyebrow to a transparent background, dashed border, and 11px type. Preserve the approved continuous hero copy, curtain homepage, mobile menu, animations, iPhone-tested performance fix, and the 1920px breakpoint for the wider glass panel and 20px paragraphs. The owner subsequently set hero copy to a maximum width of 890px, constrained by available space on smaller screens.
 - Use semantic HTML, CSS, and minimal JavaScript. Reuse existing assets and CSS tokens.
 - Read the Figma design-to-code skill before retrieving design context. Obtain a design screenshot, use original assets and actual font weights, and download assets locally.
 - Adapt desktop designs for tablet and mobile while preserving hierarchy; report significant adaptations.
