@@ -8,7 +8,7 @@ const CAT_CONFIG = {
   tracking: { distance: 420, pupilX: 2.1, pupilY: 2, headTilt: 1.1, response: 4, deadzone: 4 },
   reactions: { nearBodyLengths: 1.1, firstAfter: 3, cooldown: [10, 18], pawDuration: 1.25, pawLift: 4, pawAngle: 12, response: 9, pounceChance: .22, pounceCooldown: [38, 55], pounceDuration: 1, bounce: 3, crouch: .035 },
   idle: { blinkGap: [3.5, 7], blinkDuration: .18, tailGap: [6, 12], tailDuration: 1.2, tailSwing: 1.2, tailTipSwing: 7 },
-  yarn: { width: 44, overlap: 12, firstAfter: 5.5, gap: [14, 24], duration: 3.6, travel: 22, pawReach: 35, pawAngle: 40 },
+  yarn: { width: 44, overlap: 12, firstAfter: 5.5, gap: [14, 24], duration: 3.6, travel: 22, pawReach: 35, pawAngle: 40, hoverPadding: 8, hoverHysteresis: 12, hoverCooldown: 2 },
   bubble: { width: 180, sayings: ['wanna play?', 'feed me ideas and treats', 'i like it messy', 'ooh, a tangle'], firstAfter: 3.5, gap: [15, 25], duration: 5, fade: .45, catGap: 16, edge: 14, textGap: 12, placementHold: .3 },
 };
 
@@ -43,13 +43,13 @@ function createCat() {
   const inflate = (r, n) => ({ left: r.left - n, top: r.top - n, right: r.right + n, bottom: r.bottom + n });
   const staticMode = () => smallScreen.matches || reduced.matches || !finePointer.matches || coarsePointer.matches || navigator.maxTouchPoints > 0;
   const paused = () => document.hidden || document.body.classList.contains('animations-paused');
-  let geometry, pointer = null, active = false, frame = 0, layoutFrame = 0, lastTime = 0, clock = 0;
+  let geometry, pointer = null, hoverPointer = null, yarnHovered = false, active = false, frame = 0, layoutFrame = 0, lastTime = 0, clock = 0;
   let gaze = { x: 0, y: 0 }, paw = 0, pawSide = 1, yarnOffset = 0;
   let nextBlink = random(cfg.idle.blinkGap), blinkStart = -Infinity;
   let nextTail = random(cfg.idle.tailGap), tailStart = -Infinity;
   let nextReaction = cfg.reactions.firstAfter, pawStart = -Infinity, pounceStart = -Infinity;
   let nextPounce = random(cfg.reactions.pounceCooldown);
-  let nextPlay = cfg.yarn.firstAfter, playStart = -Infinity;
+  let nextPlay = cfg.yarn.firstAfter, playStart = -Infinity, nextHoverPlay = 0;
   let nextBubble = cfg.bubble.firstAfter, bubbleStart = -Infinity, sayingIndex = -1;
   let bubbleSide = 'left', sideChanged = -Infinity, bubblePosition = null;
 
@@ -109,9 +109,24 @@ function createCat() {
     const radius = toy.width / 48 * 14;
     yarnRoll.style.transform = `rotate(${(roll / Math.max(radius, 1) * 180 / Math.PI).toFixed(3)}deg)`;
   }
+  function startPlay() {
+    playStart = clock;
+    nextPlay = clock + cfg.yarn.duration + random(cfg.yarn.gap);
+    nextHoverPlay = clock + cfg.yarn.duration + cfg.yarn.hoverCooldown;
+  }
+  function updateYarnHover() {
+    // Proximity sensing keeps the illustration click-through. Use the ball's
+    // full rolling area plus an exit buffer so its movement cannot retrigger it.
+    const pad = cfg.yarn.hoverPadding + (yarnHovered ? cfg.yarn.hoverHysteresis : 0);
+    const x = hoverPointer ? hoverPointer.x - geometry.left : -Infinity;
+    const y = hoverPointer ? hoverPointer.y - geometry.top : -Infinity;
+    const near = [geometry.cat, geometry.toyBounds].some(r => x >= r.left - pad && x <= r.right + pad && y >= r.top - pad && y <= r.bottom + pad);
+    if (near && !yarnHovered && clock >= nextHoverPlay && clock - playStart >= cfg.yarn.duration) startPlay();
+    yarnHovered = near;
+  }
 
   function rest() {
-    gaze = { x: 0, y: 0 }; paw = 0; pointer = null;
+    gaze = { x: 0, y: 0 }; paw = 0; pointer = hoverPointer = null; yarnHovered = false;
     for (const el of [pose, head, eyes, pupils, tail, tip, ...paws]) el.style.transform = '';
     renderYarn(0);
     bubble.style.opacity = '0';
@@ -173,7 +188,8 @@ function createCat() {
     if (!active) return;
     const dt = lastTime ? Math.min((now - lastTime) / 1000, .05) : 0;
     lastTime = now; clock += dt;
-    if (clock >= nextPlay) { playStart = clock; nextPlay = clock + cfg.yarn.duration + random(cfg.yarn.gap); }
+    updateYarnHover();
+    if (clock >= nextPlay) startPlay();
     const play = (clock - playStart) / cfg.yarn.duration;
     const playing = play < 1;
     const ease = value => { const t = clamp(value, 0, 1); return t * t * (3 - 2 * t); };
@@ -224,9 +240,10 @@ function createCat() {
   section.addEventListener('pointermove', event => {
     if (event.pointerType === 'touch' || staticMode()) return;
     const next = { x: event.clientX, y: event.clientY };
+    hoverPointer = next;
     if (!pointer || Math.hypot(next.x - pointer.x, next.y - pointer.y) >= cfg.tracking.deadzone) pointer = next;
   }, { passive: true });
-  section.addEventListener('pointerleave', () => { pointer = null; });
+  section.addEventListener('pointerleave', () => { pointer = hoverPointer = null; yarnHovered = false; });
   addEventListener('scroll', scheduleMeasure, { passive: true });
   addEventListener('resize', scheduleMeasure, { passive: true });
   document.addEventListener('visibilitychange', syncActivity);
