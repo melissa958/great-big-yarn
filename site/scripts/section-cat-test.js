@@ -9,6 +9,7 @@ const CAT_CONFIG = {
   tracking: { distance: 420, pupilX: 2.1, pupilY: 2, headTilt: 1.1, response: 4, deadzone: 4 },
   reactions: { nearBodyLengths: 1.1, firstAfter: 3, cooldown: [10, 18], pawDuration: 1.25, pawLift: 4, pawAngle: 12, response: 9, pounceChance: .22, pounceCooldown: [38, 55], pounceDuration: 1, bounce: 3, crouch: .035 },
   idle: { blinkGap: [3.5, 7], blinkDuration: .18, tailGap: [6, 12], tailDuration: 1.2, tailSwing: 1.2, tailTipSwing: 7 },
+  touch: { enabled: true, tapSlop: 12, maxTapDuration: 450 },
   yarn: { width: 44, overlap: 12, firstAfter: 5.5, gap: [14, 24], duration: 3.6, travel: 22, pawReach: 35, pawAngle: 40, hoverPadding: 8, hoverHysteresis: 12, hoverCooldown: 2 },
   bubble: { width: 180, sayings: ['wanna play?', 'feed me ideas and treats', 'i like it messy', 'ooh, a tangle'], firstAfter: 3.5, gap: [15, 25], duration: 5, fade: .45, catGap: 16, edge: 14, textGap: 12, placementHold: .3 },
 };
@@ -46,7 +47,7 @@ function createCat() {
   const random = range => range[0] + Math.random() * (range[1] - range[0]);
   const overlaps = (a, b) => a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
   const inflate = (r, n) => ({ left: r.left - n, top: r.top - n, right: r.right + n, bottom: r.bottom + n });
-  const staticMode = () => reduced.matches || !finePointer.matches;
+  const staticMode = () => reduced.matches || (!finePointer.matches && !cfg.touch.enabled);
   const paused = () => document.hidden || document.body.classList.contains('animations-paused');
   let geometry, pointer = null, hoverPointer = null, yarnHovered = false, active = false, frame = 0, layoutFrame = 0, lastTime = 0, clock = 0;
   let gaze = { x: 0, y: 0 }, paw = 0, pawSide = 1, yarnOffset = 0;
@@ -57,6 +58,7 @@ function createCat() {
   let nextPlay = cfg.yarn.firstAfter, playStart = -Infinity, nextHoverPlay = 0;
   let nextBubble = cfg.bubble.firstAfter, bubbleStart = -Infinity, sayingIndex = -1;
   let bubbleSide = 'left', sideChanged = -Infinity, bubblePosition = null;
+  let touchStart = null;
 
   scene.style.setProperty('--cat-ink', cfg.colors.ink);
   scene.style.setProperty('--cat-cream', cfg.colors.cream);
@@ -66,11 +68,12 @@ function createCat() {
   // Cache layout only on scroll, resize, font/phrase changes; frames use transforms.
   function measure() {
     layoutFrame = 0;
-    const r = section.getBoundingClientRect();
+    document.body.classList.toggle('cat-motion-enabled', !staticMode());
     const small = innerWidth < cfg.size.smallBreakpoint;
     const tablet = innerWidth < cfg.size.tabletBreakpoint;
     section.style.setProperty('--cat-footer-gap', `${small ? cfg.home.smallGap : cfg.home.gap}px`);
     section.style.setProperty('--cat-test-width', `${small ? cfg.size.smallWidth : tablet ? cfg.size.tabletWidth : cfg.size.width}px`);
+    const r = section.getBoundingClientRect();
     // Walk offset parents so the flow footer and its large-screen absolute
     // placement share the same section-local coordinates. Reveal transforms
     // are deliberately excluded from these event-driven measurements.
@@ -134,19 +137,21 @@ function createCat() {
     nextPlay = clock + cfg.yarn.duration + random(cfg.yarn.gap);
     nextHoverPlay = clock + cfg.yarn.duration + cfg.yarn.hoverCooldown;
   }
+  function nearArtwork(point, pad) {
+    const x = point.x - geometry.left, y = point.y - geometry.top;
+    return [geometry.cat, geometry.toyBounds].some(r => x >= r.left - pad && x <= r.right + pad && y >= r.top - pad && y <= r.bottom + pad);
+  }
   function updateYarnHover() {
     // Proximity sensing keeps the illustration click-through. Use the ball's
     // full rolling area plus an exit buffer so its movement cannot retrigger it.
     const pad = cfg.yarn.hoverPadding + (yarnHovered ? cfg.yarn.hoverHysteresis : 0);
-    const x = hoverPointer ? hoverPointer.x - geometry.left : -Infinity;
-    const y = hoverPointer ? hoverPointer.y - geometry.top : -Infinity;
-    const near = [geometry.cat, geometry.toyBounds].some(r => x >= r.left - pad && x <= r.right + pad && y >= r.top - pad && y <= r.bottom + pad);
+    const near = hoverPointer && nearArtwork(hoverPointer, pad);
     if (near && !yarnHovered && clock >= nextHoverPlay && clock - playStart >= cfg.yarn.duration) startPlay();
     yarnHovered = near;
   }
 
   function rest() {
-    gaze = { x: 0, y: 0 }; paw = 0; pointer = hoverPointer = null; yarnHovered = false;
+    gaze = { x: 0, y: 0 }; paw = 0; pointer = hoverPointer = touchStart = null; yarnHovered = false;
     for (const el of [pose, head, eyes, pupils, tail, tip, ...paws]) el.style.transform = '';
     renderYarn(0);
     bubble.style.opacity = '0';
@@ -173,14 +178,15 @@ function createCat() {
     const v = geometry.visible, edge = cfg.bubble.edge;
     return r.left >= v.left + edge && r.right <= v.right - edge && r.top >= v.top + edge && r.bottom <= v.bottom - edge && !overlaps(r, inflate(geometry.cat, 6)) && !overlaps(r, inflate(geometry.toyBounds, 6)) && !geometry.protectedRects.some(o => overlaps(r, inflate(o, cfg.bubble.textGap)));
   }
+  function showBubble() {
+    sayingIndex = (sayingIndex + 1) % cfg.bubble.sayings.length;
+    bubbleText.textContent = cfg.bubble.sayings[sayingIndex];
+    bubbleStart = clock;
+    nextBubble = clock + cfg.bubble.duration + random(cfg.bubble.gap);
+    scheduleMeasure();
+  }
   function updateBubble(dt) {
-    if (clock >= nextBubble) {
-      sayingIndex = (sayingIndex + 1) % cfg.bubble.sayings.length;
-      bubbleText.textContent = cfg.bubble.sayings[sayingIndex];
-      bubbleStart = clock;
-      nextBubble = clock + cfg.bubble.duration + random(cfg.bubble.gap);
-      scheduleMeasure();
-    }
+    if (clock >= nextBubble) showBubble();
     const elapsed = clock - bubbleStart;
     if (elapsed > cfg.bubble.duration) { bubble.style.opacity = '0'; return; }
     const { home: c, cat, bubbleWidth: w, bubbleHeight: h } = geometry, gap = cfg.bubble.catGap;
@@ -257,13 +263,34 @@ function createCat() {
     frame = requestAnimationFrame(tick);
   }
 
+  // Observe a completed tap without capturing the pointer or cancelling any
+  // native clicks, selection, or scrolling. A drag/long press is never a tap.
+  section.addEventListener('pointerdown', event => {
+    if (event.pointerType !== 'touch') return;
+    touchStart = null;
+    if (!event.isPrimary || !cfg.touch.enabled || !active || staticMode()) return;
+    const point = { x: event.clientX, y: event.clientY };
+    if (nearArtwork(point, cfg.yarn.hoverPadding)) touchStart = { ...point, id: event.pointerId, time: event.timeStamp, scroll: scrollY };
+  }, { passive: true });
   section.addEventListener('pointermove', event => {
-    if (event.pointerType === 'touch' || staticMode()) return;
+    if (event.pointerType === 'touch') {
+      if (touchStart && Math.hypot(event.clientX - touchStart.x, event.clientY - touchStart.y) > cfg.touch.tapSlop) touchStart = null;
+      return;
+    }
+    if (!finePointer.matches || staticMode()) return;
     const next = { x: event.clientX, y: event.clientY };
     hoverPointer = next;
     if (!pointer || Math.hypot(next.x - pointer.x, next.y - pointer.y) >= cfg.tracking.deadzone) pointer = next;
   }, { passive: true });
-  section.addEventListener('pointerleave', () => { pointer = hoverPointer = null; yarnHovered = false; });
+  section.addEventListener('pointerup', event => {
+    if (event.pointerType !== 'touch' || !touchStart) return;
+    const start = touchStart; touchStart = null;
+    const point = { x: event.clientX, y: event.clientY };
+    if (event.pointerId !== start.id || !active || staticMode() || event.timeStamp - start.time > cfg.touch.maxTapDuration || Math.hypot(point.x - start.x, point.y - start.y) > cfg.touch.tapSlop || Math.abs(scrollY - start.scroll) > cfg.touch.tapSlop || !nearArtwork(point, cfg.yarn.hoverPadding)) return;
+    if (clock >= nextHoverPlay && clock - playStart >= cfg.yarn.duration) { startPlay(); showBubble(); }
+  }, { passive: true });
+  section.addEventListener('pointercancel', () => { touchStart = null; }, { passive: true });
+  section.addEventListener('pointerleave', () => { pointer = hoverPointer = touchStart = null; yarnHovered = false; });
   addEventListener('scroll', scheduleMeasure, { passive: true });
   addEventListener('resize', scheduleMeasure, { passive: true });
   document.addEventListener('visibilitychange', syncActivity);

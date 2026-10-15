@@ -64,6 +64,7 @@
 @media (max-width: 759px) {
   /* Let the larger cat and label follow the copy without squeezing the section. */
   .cat-layout-test { --cat-test-width: 160px; }
+  .cat-layout-test :is(.hero-eyebrow, .section-eyebrow) { line-height: 1.5; }
   .cat-layout-test .cat-test-footer { gap: var(--cat-footer-gap, 16px); }
   .cat-layout-test .cat-test-home {
     --cat-width: 160px;
@@ -82,9 +83,13 @@
 @media (max-width: 599px) {
   .cat-layout-test .messy-section { padding: 80px 24px; }
 }
-@media (prefers-reduced-motion: no-preference) and (any-hover: hover) and (any-pointer: fine) {
-  /* A touch-capable laptop can still have a mouse or trackpad. */
+@media (prefers-reduced-motion: no-preference) {
+  /* Touch uses completed taps; fine pointers retain hover and eye tracking. */
   .cat-layout-test .cat-bubble { display: block; }
+}
+@media (max-width: 759px) and (prefers-reduced-motion: no-preference) {
+  /* Reserve room for a two-line saying above the cat, clear of the main copy. */
+  .cat-layout-test.cat-motion-enabled .messy-group { gap: 96px; }
 }
 @media (min-width: 760px) and (any-hover: hover) and (any-pointer: fine) {
   .cat-layout-test .animation-controls { display: block; }
