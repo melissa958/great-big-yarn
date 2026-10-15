@@ -6,7 +6,7 @@ const FISH_CONFIG = {
   home: { offsetFromCenter: -306.5, bottom: 130.5, tabletBottom: 58, smallLeft: 66, smallBottom: 45 },
   swim: { speed: 132, response: 3.8, approach: 2.1, followDistance: 90, pointerDeadzone: 9, maxTilt: 10, turnResponse: 5, flipResponse: 14, bob: 2.5, bobPeriod: 3.4, edge: 8, textGap: 10 },
   tail: { period: 1500, swing: 6, finPeriod: 2100, finSwing: 4 },
-  bubble: { width: 180, sayings: ['just keep scrolling', 'it’s murky in the middle', 'we’ll find our way'], firstAfter: 3.5, duration: 5, fade: .45, gapMin: 15, gapMax: 25, fishGap: 14, edge: 14, textGap: 12, placementHold: .3 },
+  bubble: { width: 180, sayings: ['just keep scrolling', 'it’s murky in the middle', 'we’ll find our way'], hoverPadding: 24, hoverHysteresis: 12, cooldown: 2.5, duration: 5, fade: .45, fishGap: 14, edge: 14, textGap: 12, placementHold: .3 },
 };
 
 const section = document.querySelector('.messy-section');
@@ -28,6 +28,8 @@ function createFish() {
   const state = { x: 0, y: 0, vx: 0, vy: 0, angle: 0, facing: 1, mirror: 1 };
   let geometry;
   let pointer = null;
+  let hoverPointer = null;
+  let hovered = false;
   let inside = false;
   let initialized = false;
   let firstSeen = false;
@@ -38,7 +40,7 @@ function createFish() {
   let clock = 0;
   let needsPlan = true;
   let waypoints = [];
-  let nextBubble = cfg.bubble.firstAfter;
+  let nextHoverAt = 0;
   let bubbleStart = -Infinity;
   let bubbleSide = 'left';
   let sideChanged = -Infinity;
@@ -90,7 +92,9 @@ function createFish() {
     }
     // Do not pull a fish whose home is below the screen up into view.
     if (home.y >= bounds.top && home.y <= bounds.bottom) firstSeen = true;
-    if (pointer && !contains(visible, { x: pointer.x - r.left, y: pointer.y - r.top })) { inside = false; pointer = null; }
+    if (hoverPointer && !contains(visible, { x: hoverPointer.x - r.left, y: hoverPointer.y - r.top })) {
+      inside = hovered = false; pointer = hoverPointer = null;
+    }
     needsPlan = true;
     syncActivity();
   }
@@ -115,7 +119,7 @@ function createFish() {
       cancelAnimationFrame(frame);
       frame = 0;
       if (staticMode()) {
-        inside = false; pointer = null;
+        inside = hovered = false; pointer = hoverPointer = null;
         state.x = geometry.home.x; state.y = geometry.home.y;
         state.vx = state.vy = state.angle = 0; state.facing = state.mirror = 1;
         bubble.style.opacity = '0';
@@ -214,13 +218,20 @@ function createFish() {
   }
 
   function updateBubble(dt) {
-    if (clock >= nextBubble) {
+    // Proximity keeps the decorative fish click-through. Hysteresis prevents
+    // its gentle bob from repeatedly entering/leaving the hover area.
+    const padding = cfg.bubble.hoverPadding + (hovered ? cfg.bubble.hoverHysteresis : 0);
+    const dx = hoverPointer ? hoverPointer.x - geometry.left - state.x : Infinity;
+    const dy = hoverPointer ? hoverPointer.y - geometry.top - state.y : Infinity;
+    const near = inside && (dx / (geometry.width / 2 + padding)) ** 2 + (dy / (geometry.height / 2 + padding)) ** 2 <= 1;
+    if (near && !hovered && clock >= nextHoverAt) {
       sayingIndex = (sayingIndex + 1) % cfg.bubble.sayings.length;
       bubble.querySelector('p').textContent = cfg.bubble.sayings[sayingIndex];
       scheduleMeasure();
       bubbleStart = clock;
-      nextBubble = clock + cfg.bubble.duration + cfg.bubble.gapMin + Math.random() * (cfg.bubble.gapMax - cfg.bubble.gapMin);
+      nextHoverAt = clock + cfg.bubble.duration + cfg.bubble.cooldown;
     }
+    hovered = near;
     const elapsed = clock - bubbleStart;
     if (elapsed > cfg.bubble.duration) { bubble.style.opacity = '0'; return; }
     const w = geometry.bubbleWidth, h = geometry.bubbleHeight, gap = cfg.bubble.fishGap;
@@ -279,9 +290,10 @@ function createFish() {
     if (event.pointerType === 'touch' || staticMode()) return;
     inside = true;
     const next = { x: event.clientX, y: event.clientY };
+    hoverPointer = next;
     if (!pointer || distance(next, pointer) >= cfg.swim.pointerDeadzone) { pointer = next; needsPlan = true; }
   }, { passive: true });
-  section.addEventListener('pointerleave', () => { inside = false; pointer = null; needsPlan = true; });
+  section.addEventListener('pointerleave', () => { inside = hovered = false; pointer = hoverPointer = null; needsPlan = true; });
   addEventListener('scroll', scheduleMeasure, { passive: true });
   addEventListener('resize', scheduleMeasure, { passive: true });
   document.addEventListener('visibilitychange', syncActivity);
