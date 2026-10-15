@@ -62,21 +62,22 @@
   }
 }
 @media (max-width: 759px) {
-  /* Preserve the approved phone layout; only larger screens use the flow group. */
-  .cat-layout-test .messy-group, .cat-layout-test .cat-test-footer { display: contents; }
+  /* Let the larger cat and label follow the copy without squeezing the section. */
+  .cat-layout-test { --cat-test-width: 160px; }
+  .cat-layout-test .cat-test-footer { gap: var(--cat-footer-gap, 16px); }
   .cat-layout-test .cat-test-home {
-    display: contents;
-    --cat-width: 84px;
-    --cat-height: 56.147px;
-    --cat-scale: .442105;
-    --cat-home-x: calc(50% - .5px);
-    --cat-home-bottom: calc(10px + 40.4px + 8px + var(--cat-height) / 2);
+    --cat-width: 160px;
+    --cat-height: 106.947px;
+    --cat-scale: .842105;
   }
-  .cat-test-home .cat-position { left: var(--cat-home-x); top: calc(100% - var(--cat-home-bottom)); }
-  .cat-test-home .cat-yarn-position { left: calc(50% + 42px - 12px); top: calc(100% - var(--cat-home-bottom) + 28.0735px - 15.4px); }
+  .cat-test-home .cat-yarn-position {
+    left: calc(50% + 80px - 10.667px);
+    top: calc(50% + 53.4735px - 29.333px);
+    width: 39.111px;
+    height: 29.333px;
+    --yarn-scale: .814815;
+  }
   .cat-layout-test .messy-section { min-height: 100svh; padding: 100px 32px; }
-  .cat-layout-test .messy-content { top: var(--cat-copy-offset, -44px); }
-  .cat-layout-test .section-eyebrow { position: absolute; left: 24px; right: 24px; bottom: 10px; width: calc(100% - 48px); max-width: 459px; margin: 0 auto; }
 }
 @media (max-width: 599px) {
   .cat-layout-test .messy-section { padding: 80px 24px; }

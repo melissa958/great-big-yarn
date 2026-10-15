@@ -1,11 +1,11 @@
 // Responsive Cat test experiment; the published homepage keeps its approved controller.
 // Cat test tuning. Home coordinates are the center of the cat, in CSS pixels.
 // Owner's Cat test refinement: centered above the eyebrow, with a yarn ball.
-// Shorter layouts fit the footer within the existing section height.
+// The mobile group flows naturally and may extend beyond one viewport.
 const CAT_CONFIG = {
-  size: { width: 180, tabletWidth: 116, smallWidth: 84, tabletBreakpoint: 1200, smallBreakpoint: 760 },
+  size: { width: 180, tabletWidth: 116, smallWidth: 160, tabletBreakpoint: 1200, smallBreakpoint: 760 },
   colors: { ink: '#080808', cream: '#f4ecdc' },
-  home: { offsetFromLabelCenter: 0, gap: 10, smallGap: 8, edge: 12, textGap: 8, minContentTop: 32 },
+  home: { offsetFromLabelCenter: 0, gap: 10, smallGap: 16, edge: 12, textGap: 8, minContentTop: 32 },
   tracking: { distance: 420, pupilX: 2.1, pupilY: 2, headTilt: 1.1, response: 4, deadzone: 4 },
   reactions: { nearBodyLengths: 1.1, firstAfter: 3, cooldown: [10, 18], pawDuration: 1.25, pawLift: 4, pawAngle: 12, response: 9, pounceChance: .22, pounceCooldown: [38, 55], pounceDuration: 1, bounce: 3, crouch: .035 },
   idle: { blinkGap: [3.5, 7], blinkDuration: .18, tailGap: [6, 12], tailDuration: 1.2, tailSwing: 1.2, tailTipSwing: 7 },
@@ -69,6 +69,7 @@ function createCat() {
     const r = section.getBoundingClientRect();
     const small = innerWidth < cfg.size.smallBreakpoint;
     const tablet = innerWidth < cfg.size.tabletBreakpoint;
+    section.style.setProperty('--cat-footer-gap', `${small ? cfg.home.smallGap : cfg.home.gap}px`);
     section.style.setProperty('--cat-test-width', `${small ? cfg.size.smallWidth : tablet ? cfg.size.tabletWidth : cfg.size.width}px`);
     // Walk offset parents so the flow footer and its large-screen absolute
     // placement share the same section-local coordinates. Reveal transforms
@@ -85,7 +86,7 @@ function createCat() {
     if (slot) {
       section.style.setProperty('--cat-copy-offset', '0px');
     } else {
-      // Keep the approved compact phone spacing and static fallback.
+      // Fall back safely if the flow slot is unavailable.
       const previousShift = parseFloat(getComputedStyle(content).top) || 0;
       copy.top -= previousShift; copy.bottom -= previousShift;
       let available = eyebrow.top - gap - copy.bottom - cfg.home.textGap;
