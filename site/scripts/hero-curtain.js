@@ -4,6 +4,8 @@ import './hero-scribbles.js';
 const hero = document.querySelector('.curtain-hero');
 const section = document.querySelector('.messy-section');
 const pause = document.querySelector('[data-pause]');
+const heroOnly = pause.dataset.pauseScope === 'hero';
+const controls = pause.closest('.animation-controls');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const mobile = matchMedia('(max-width: 599px)');
 const stage = hero.querySelector('.scribble-stage');
@@ -21,11 +23,18 @@ let queued = false;
 
 function sync() {
   queued = false;
-  const bottom = hero.getBoundingClientRect().bottom;
+  const heroBounds = hero.getBoundingClientRect();
+  const bottom = heroBounds.bottom;
   const bounds = section.getBoundingClientRect();
   const revealed = bottom < innerHeight && bounds.bottom > 0 && bounds.top < innerHeight;
-  document.body.classList.toggle('colors-running', revealed && !paused && !document.hidden && !reducedMotion.matches);
-  document.body.classList.toggle('animations-paused', paused || document.hidden);
+  const globallyPaused = paused && !heroOnly;
+  document.body.classList.toggle('colors-running', revealed && !globallyPaused && !document.hidden && !reducedMotion.matches);
+  document.body.classList.toggle('animations-paused', globallyPaused || document.hidden);
+  hero.classList.toggle('hero-paused', heroOnly && paused);
+  if (heroOnly) {
+    controls.hidden = reducedMotion.matches || bottom <= 0 || heroBounds.top >= innerHeight;
+    pause.setAttribute('aria-pressed', String(paused));
+  }
   for (const item of revealItems) {
     if (item.classList.contains('is-revealed')) continue;
     const itemBounds = item.getBoundingClientRect();
@@ -33,11 +42,12 @@ function sync() {
     // Start each entrance only when the curtain has actually uncovered it.
     const uncovered = bottom <= itemBounds.top + Math.min(44, itemBounds.height * .35);
     const inView = itemBounds.top < innerHeight - 24 && itemBounds.bottom > 0;
-    if (reducedMotion.matches || (uncovered && inView && !paused && !document.hidden)) {
+    if (reducedMotion.matches || (uncovered && inView && !globallyPaused && !document.hidden)) {
       item.classList.add('is-revealed');
     }
   }
-  pause.setAttribute('aria-label', paused ? 'Resume all animations' : 'Pause all animations');
+  const scope = heroOnly ? 'hero animations' : 'all animations';
+  pause.setAttribute('aria-label', `${paused ? 'Resume' : 'Pause'} ${scope}`);
 }
 
 function queueSync() {

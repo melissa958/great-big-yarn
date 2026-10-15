@@ -172,6 +172,8 @@ Validation and the production build passed. Edge browser checks covered 320px, 3
 
 The subsequent desktop sizing and second curtain update passed validation and browser checks. Edge verified both native curtain reveals and their scroll release at 1366 × 768, 1440 × 900, 1920 × 1080, 2560 × 1440, 768 × 1024, 390 × 844, and 320 × 700; WebKit verified 1920 × 1080 and 390 × 844. The opportunity underlay fills the viewport on tall tablets during the reveal. Reduced motion restores sequential sections. Grid checks through 3840px confirmed 1320px alignment with the hero at large widths, viewport-height desktop sections, unchanged narrower card widths/internal spacing, and no overflow. Cat hover, tap-to-play, automatic play, cooldowns and reduced motion still pass; no-JavaScript content and static illustrations remain available.
 
+The homepage Pause button now controls only the hero scribble and hero/navigation entrance animations. The entire control hides after the hero scrolls out of view, and returns with its existing Pause/Resume state when the visitor scrolls back. Hero Pause does not stop the second-section palette or entrances, the cat, or the service illustrations. Hidden-tab/offscreen pausing and reduced-motion support remain independent. This is enabled by the homepage button’s data-pause-scope="hero" attribute; existing preview controls keep their original scope. The button remains hidden on mobile.
+
 ## Future work
 
 Implement new sections and pages only when their designs are supplied. Replace inactive navigation with real destinations as those pages become available. Connect the custom domain only when explicitly requested; DNS and custom-domain settings have not been configured.

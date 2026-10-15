@@ -33,6 +33,7 @@
 }
 .curtain-preview .menu-toggle, .curtain-preview .mobile-contact { display: none; }
 .curtain-preview .site-navigation[hidden] { display: none; }
+.curtain-preview .animation-controls[hidden] { display: none; }
 .mobile-textured-scribble { display: none; position: absolute; inset: 0; width: 100%; height: 100%; }
 .curtain-hero {
   position: relative;
@@ -270,7 +271,8 @@
   .messy-copy p:nth-child(2).is-revealed { animation-delay: 70ms; }
   .messy-copy p:nth-child(3).is-revealed { animation-delay: 140ms; }
 
-  .curtain-preview.animations-paused :is(.brand, .site-navigation li, .contact-button, .menu-toggle, .frosted-panel, .hero-eyebrow, .frosted-panel h1, .preview-copy p, .scroll-reveal) {
+  .curtain-preview.animations-paused :is(.brand, .site-navigation li, .contact-button, .menu-toggle, .frosted-panel, .hero-eyebrow, .frosted-panel h1, .preview-copy p, .scroll-reveal),
+  .curtain-preview .curtain-hero.hero-paused :is(.brand, .site-navigation li, .contact-button, .menu-toggle, .frosted-panel, .hero-eyebrow, .frosted-panel h1, .preview-copy p) {
     animation-play-state: paused;
   }
   /* Keyboard focus exposes content immediately during an entrance. */

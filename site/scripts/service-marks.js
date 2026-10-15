@@ -1,5 +1,5 @@
 // Figma supplies animated GIFs. Keep a first-frame fallback for reduced motion,
-// no JavaScript, offscreen cards, hidden tabs, and the existing Pause control.
+// no JavaScript, offscreen cards, and hidden tabs. Hero Pause is independent.
 const marks = [...document.querySelectorAll('[data-motion-src]')];
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 const visible = new Set();
