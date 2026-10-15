@@ -7,7 +7,7 @@ A progressively built brand and content website, using approved Figma designs.
 - Design: https://www.figma.com/design/oIV91BuTH2ouyVi5pHCDDv/Brand-Assets?node-id=143-3846
 - Stack: semantic HTML and CSS, self-hosted fonts, and minimal JavaScript for the scribble loop; static artwork remains available without JavaScript.
 
-The homepage now uses the approved cat version, including the centered cat and GBY-logo yarn ball, occasional and hover-triggered yarn play, and all four sayings. The Cat test preview remains available separately; the existing curtain preview retains the fish.
+The homepage now matches the latest approved Cat test: centered laptop content, touch-laptop cursor support, more desktop footer breathing room, a larger mobile cat, increased mobile eyebrow line-height, and mobile tap-to-play. It retains the centered cat and GBY-logo yarn ball, occasional and hover-triggered yarn play, all four sayings, and static reduced-motion support. The Cat test preview remains available separately; the existing curtain preview retains the fish.
 
 ## Project layout
 
@@ -132,7 +132,7 @@ Fine-pointer visitors can attract the fish while their pointer is within the sec
 
 The fish update was checked in Edge for cursor following, obstacle clearance, return-home motion, bubble placement, pausing, reduced motion, and overflow from 320px phones through desktop. Controlled-clock checks covered hover activation, all three sayings, the five-second duration, cooldown, held-hover suppression, click-through behavior, and paused time for offscreen and hidden-tab signals. WebKit checks confirmed the static SVG on simulated touch and with JavaScript disabled. Comparison against the prior homepage confirmed unchanged section height and main content geometry at desktop, short-desktop, and phone sizes.
 
-## Cat test preview — October 15, 2026
+## Original Cat test promotion — October 15, 2026 (historical snapshot)
 
 The owner promoted [Cat test](https://melissa958.github.io/great-big-yarn/previews/cat-test.html) to the [main homepage](https://melissa958.github.io/great-big-yarn/). Homepage markup matches the approved Cat test, with homepage-relative asset paths, the normal Great Big Yarn title, and no noindex restriction. The separate Cat test preview remains noindex. The fish implementation and [curtain preview](https://melissa958.github.io/great-big-yarn/previews/hero-curtain.html) remain available. The shared hero, navigation, copy, palette cycle, and curtain effects are preserved.
 
@@ -142,9 +142,9 @@ All creative settings are in CAT_CONFIG at the top of site/scripts/section-cat.j
 
 The preview passed static validation and the production build. Edge checks covered 1440 × 900, 1440 × 600, 2560 × 1440, 768 × 1024, 390 × 844, and 320 × 700: no overflow, cat/copy/label clearance, and unchanged section/page height against the original homepage. Desktop main-copy geometry is unchanged; compact mobile copy shifts upward only when necessary for the stacked footer. Controlled-clock checks covered tracking, return to rest, all four occasional reactions, yarn play and rolling, hover activation on both cat and ball, held-hover suppression, cooldown and active-play suppression, all four sayings, placement safety, offscreen/global pause, hidden-tab signals, and reduced motion. WebKit checks confirmed the static cat on simulated touch with JavaScript enabled and disabled. Desktop skip navigation and the phone keyboard menu also passed. These are desktop browser-engine simulations, not physical-device testing.
 
-## Cat test laptop refinement — October 15, 2026
+## Latest Cat homepage and preview — October 15, 2026
 
-The separate [Cat test](https://melissa958.github.io/great-big-yarn/previews/cat-test.html) now has an isolated responsive experiment; the main homepage and its approved cat controller/styles are unchanged. Preview-specific tuning is in CAT_CONFIG in site/scripts/section-cat-test.js, with layout in site/styles/cat-test-layout.css. The earlier promotion describes the homepage snapshot; subsequent preview changes require a new owner request before promotion.
+The owner approved promoting the latest [Cat test](https://melissa958.github.io/great-big-yarn/previews/cat-test.html) to the [main homepage](https://melissa958.github.io/great-big-yarn/). Both pages now share the responsive layout and interactions described below. Homepage markup differs only in its normal title, indexable metadata, and homepage-relative asset paths. Active tuning is in CAT_CONFIG in site/scripts/section-cat-test.js, with layout in site/styles/cat-test-layout.css and base styles in site/styles/section-cat.css. The separately named Cat test and fish curtain preview remain available.
 
 A hybrid-laptop simulation reproduced the static-cat bug: a fine mouse/trackpad, five touch points, reduced motion off, and an inactive cat. The old controller disabled all devices reporting touch support or any coarse pointer. The test controller checks for an available fine, hover-capable pointer instead, always honors reduced motion, and ignores touch pointer events. The owner later restored touch-only animation in this test: idle movements and occasional sayings run while the cat is visible; a completed tap on the cat or yarn triggers play and the next saying. Drags, long presses, cancelled touches, and repeated taps during a play/cooldown do not restart it. Native scrolling is preserved. Reduced motion still keeps the cat and yarn static without bubbles. Touch behavior is configurable in CAT_CONFIG.touch. Partly visible artwork remains active; fully offscreen artwork and hidden tabs still pause.
 
@@ -157,6 +157,8 @@ The larger mobile cat was checked in Edge and WebKit at 320 × 700, 390 × 844, 
 Both mobile eyebrows (hero and second section) use a 1.5 line-height below 760px. Animated mobile layouts reserve a 96px copy-to-cat gap, allowing the existing HTML speech bubble to sit above the cat without covering the copy; reduced-motion and no-JavaScript layouts retain the 36px gap. Desktop and laptop spacing are unchanged.
 
 The restored mobile interactions were checked in Edge and WebKit at 390px and 320px widths using native touch taps. All four sayings appeared above the cat, within the viewport and clear of the main copy, cat and label. Drag/long-press rejection, repeated-tap suppression, offscreen/hidden-tab pausing, and reduced-motion disablement passed. An Edge native touch-pan test scrolled the page without triggering play; WebKit gesture-filter checks used pointer signals alongside native tap tests. Automatic mobile play/sayings and the no-JavaScript static fallback also passed. Desktop hover, cooldown, and pause checks remain green. These checks simulate mobile browsers on the desktop test machine.
+
+The latest promotion passed validation and the production build. Homepage checks in Edge and WebKit confirmed mobile tap-to-play, safe bubble placement, both mobile eyebrow line-heights, and static reduced-motion behavior. Edge checks confirmed balanced laptop spacing, the raised large-desktop footer, no horizontal overflow at 320px, 1366px, and 2560px widths, hybrid-laptop hover and automatic yarn play, cooldowns, pausing, keyboard skip navigation, and the phone menu. The homepage retains its normal title and indexable metadata. These browser checks use simulated viewports and input capabilities.
 
 ## Future work
 

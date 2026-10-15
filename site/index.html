@@ -15,10 +15,11 @@
     <link rel="stylesheet" href="./styles/hero-curtain.css">
     <link rel="stylesheet" href="./styles/section-fish.css">
     <link rel="stylesheet" href="./styles/section-cat.css">
+    <link rel="stylesheet" href="./styles/cat-test-layout.css">
     <script type="module" src="./scripts/hero-curtain.js"></script>
-    <script type="module" src="./scripts/section-cat.js"></script>
+    <script type="module" src="./scripts/section-cat-test.js"></script>
   </head>
-  <body class="hero-preview curtain-preview cat-preview" data-layout="curtain">
+  <body class="hero-preview curtain-preview cat-preview cat-layout-test" data-layout="curtain">
     <a class="skip-link" href="#main">Skip to content</a>
     <main id="main" tabindex="-1" class="curtain-stack">
       <section class="curtain-hero" aria-labelledby="hero-title">
@@ -67,6 +68,7 @@
         </div>
       </section>
       <section class="messy-section" aria-labelledby="messy-title">
+        <div class="messy-group">
         <div class="messy-content">
           <h2 id="messy-title"><span class="romie-section-line">The messy middle is actually</span> <span class="romie-section-line">a <em>wonderful place</em> to be.</span></h2>
           <div class="messy-copy">
@@ -75,8 +77,8 @@
             <p>I can’t think of a more exciting place to be.</p>
           </div>
         </div>
-        <p class="section-eyebrow">So, how do we work together? Great question! Scroll forth.</p>
-        <div class="cat-scene" aria-hidden="true">
+        <div class="cat-test-footer">
+          <div class="cat-test-home" aria-hidden="true">
           <div class="cat-position"><div class="cat-pose">
             <svg class="editorial-cat" xmlns="http://www.w3.org/2000/svg" width="190" height="127" viewBox="0 0 190 127" focusable="false">
               <g class="cat-tail"><use href="./assets/images/editorial-cat.svg#cat-tail"/></g>
@@ -105,6 +107,11 @@
               </g>
             </svg>
           </div>
+          </div>
+          <p class="section-eyebrow">So, how do we work together? Great question! Scroll forth.</p>
+        </div>
+        </div>
+        <div class="cat-scene" aria-hidden="true">
           <div class="cat-bubble" data-side="left"><p>wanna play?</p></div>
         </div>
       </section>
