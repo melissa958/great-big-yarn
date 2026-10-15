@@ -1,14 +1,15 @@
 // Cat test tuning. Home coordinates are the center of the cat, in CSS pixels.
-// Figma 150:4722: 190 × 127 reference at (300, 613), in a 1440 × 836 section.
-// Shorter layouts keep the cat below the existing copy without adding height.
+// Owner's Cat test refinement: centered above the eyebrow, with a yarn ball.
+// Shorter layouts fit the footer within the existing section height.
 const CAT_CONFIG = {
   size: { width: 180, tabletWidth: 116, smallWidth: 84, tabletBreakpoint: 1200, smallBreakpoint: 760 },
   colors: { ink: '#080808', cream: '#f4ecdc' },
-  home: { offsetFromCenter: -325, bottom: 159.5, tabletBottom: 51, smallLeft: 66, smallBottom: 40, edge: 12, textGap: 8 },
+  home: { offsetFromLabelCenter: 0, gap: 10, smallGap: 8, edge: 12, textGap: 8, minContentTop: 32 },
   tracking: { distance: 420, pupilX: 2.1, pupilY: 2, headTilt: 1.1, response: 4, deadzone: 4 },
   reactions: { nearBodyLengths: 1.1, firstAfter: 3, cooldown: [10, 18], pawDuration: 1.25, pawLift: 4, pawAngle: 12, response: 9, pounceChance: .22, pounceCooldown: [38, 55], pounceDuration: 1, bounce: 3, crouch: .035 },
   idle: { blinkGap: [3.5, 7], blinkDuration: .18, tailGap: [6, 12], tailDuration: 1.2, tailSwing: 1.2, tailTipSwing: 7 },
-  bubble: { width: 180, sayings: ['let’s follow this thread', 'feed me ideas and treats'], firstAfter: 3.5, gap: [15, 25], duration: 5, fade: .45, catGap: 16, edge: 14, textGap: 12, placementHold: .3 },
+  yarn: { width: 44, overlap: 12, firstAfter: 5.5, gap: [14, 24], duration: 3.6, travel: 22, pawReach: 35, pawAngle: 40 },
+  bubble: { width: 180, sayings: ['wanna play?', 'feed me ideas and treats', 'i like it messy', 'ooh, a tangle'], firstAfter: 3.5, gap: [15, 25], duration: 5, fade: .45, catGap: 16, edge: 14, textGap: 12, placementHold: .3 },
 };
 
 const section = document.querySelector('.messy-section');
@@ -28,6 +29,8 @@ function createCat() {
   const tail = scene.querySelector('.cat-tail');
   const tip = scene.querySelector('.cat-tail-tip');
   const paws = [...scene.querySelectorAll('.cat-paw-left, .cat-paw-right')];
+  const yarn = scene.querySelector('.cat-yarn-position');
+  const yarnRoll = scene.querySelector('.cat-yarn-roll');
   const bubble = scene.querySelector('.cat-bubble');
   const bubbleText = bubble.querySelector('p');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
@@ -41,11 +44,12 @@ function createCat() {
   const staticMode = () => smallScreen.matches || reduced.matches || !finePointer.matches || coarsePointer.matches || navigator.maxTouchPoints > 0;
   const paused = () => document.hidden || document.body.classList.contains('animations-paused');
   let geometry, pointer = null, active = false, frame = 0, layoutFrame = 0, lastTime = 0, clock = 0;
-  let gaze = { x: 0, y: 0 }, paw = 0, pawSide = 1;
+  let gaze = { x: 0, y: 0 }, paw = 0, pawSide = 1, yarnOffset = 0;
   let nextBlink = random(cfg.idle.blinkGap), blinkStart = -Infinity;
   let nextTail = random(cfg.idle.tailGap), tailStart = -Infinity;
   let nextReaction = cfg.reactions.firstAfter, pawStart = -Infinity, pounceStart = -Infinity;
   let nextPounce = random(cfg.reactions.pounceCooldown);
+  let nextPlay = cfg.yarn.firstAfter, playStart = -Infinity;
   let nextBubble = cfg.bubble.firstAfter, bubbleStart = -Infinity, sayingIndex = -1;
   let bubbleSide = 'left', sideChanged = -Infinity, bubblePosition = null;
 
@@ -59,39 +63,57 @@ function createCat() {
     const r = section.getBoundingClientRect();
     const small = innerWidth < cfg.size.smallBreakpoint;
     const tablet = innerWidth < cfg.size.tabletBreakpoint;
-    const width = small ? cfg.size.smallWidth : tablet ? cfg.size.tabletWidth : cfg.size.width;
-    const height = width * 127 / 190;
+    let width = small ? cfg.size.smallWidth : tablet ? cfg.size.tabletWidth : cfg.size.width;
     const local = el => ({ left: el.offsetLeft, top: el.offsetTop, right: el.offsetLeft + el.offsetWidth, bottom: el.offsetTop + el.offsetHeight });
-    const protectedRects = [local(content), local(label)];
+    const copy = local(content), eyebrow = local(label);
+    // Recover the unshifted copy position so repeated measurements never drift.
+    const previousShift = parseFloat(getComputedStyle(content).top) || 0;
+    copy.top -= previousShift; copy.bottom -= previousShift;
+    const gap = small ? cfg.home.smallGap : cfg.home.gap;
+    let available = eyebrow.top - gap - copy.bottom - cfg.home.textGap;
+    const shift = small ? Math.min(Math.max(0, width * 127 / 190 - available), Math.max(0, copy.top - cfg.home.minContentTop)) : 0;
+    section.style.setProperty('--cat-copy-offset', `${-shift}px`);
+    copy.top -= shift; copy.bottom -= shift; available += shift;
+    width = Math.min(width, Math.max(0, available) * 190 / 127);
+    const height = width * 127 / 190;
+    const protectedRects = [copy, eyebrow];
     const home = {
-      x: clamp(small ? cfg.home.smallLeft : r.width / 2 + cfg.home.offsetFromCenter, width / 2 + cfg.home.edge, r.width - width / 2 - cfg.home.edge),
-      y: r.height - (small ? cfg.home.smallBottom : tablet ? cfg.home.tabletBottom : cfg.home.bottom),
+      x: clamp((eyebrow.left + eyebrow.right) / 2 + cfg.home.offsetFromLabelCenter, width / 2 + cfg.home.edge, r.width - width / 2 - cfg.home.edge),
+      y: eyebrow.top - gap - height / 2,
     };
-    // The reference's larger silhouette uses only existing footer space.
-    // Keep its full motion envelope clear of the paragraph and dashed label.
-    if (home.x + width / 2 > protectedRects[1].left && home.x - width / 2 < protectedRects[1].right) {
-      home.x = Math.max(width / 2 + cfg.home.edge, protectedRects[1].left - width / 2 - cfg.home.textGap);
-    }
-    if (home.x + width / 2 > protectedRects[0].left && home.x - width / 2 < protectedRects[0].right) {
-      home.y = Math.max(home.y, protectedRects[0].bottom + cfg.home.textGap + height / 2);
-    }
-    home.y = Math.min(home.y, r.height - cfg.home.edge - height / 2);
     const cat = { left: home.x - width / 2, right: home.x + width / 2, top: home.y - height / 2, bottom: home.y + height / 2 };
+    const toyScale = width / cfg.size.width;
+    const toyWidth = cfg.yarn.width * toyScale, toyHeight = toyWidth * 36 / 48;
+    const toy = { left: cat.right - cfg.yarn.overlap * toyScale, top: cat.bottom - toyHeight, width: toyWidth, height: toyHeight, travel: cfg.yarn.travel * toyScale };
+    const toyBounds = { left: toy.left, top: toy.top, right: toy.left + toy.width + toy.travel, bottom: cat.bottom };
     const visible = { left: Math.max(0, -r.left), right: Math.min(r.width, innerWidth - r.left), top: Math.max(0, -r.top, (hero?.getBoundingClientRect().bottom ?? 0) - r.top), bottom: Math.min(r.height, innerHeight - r.top) };
-    geometry = { width, height, home, cat, visible, protectedRects, top: r.top, left: r.left, bubbleWidth: bubble.offsetWidth, bubbleHeight: bubble.offsetHeight };
+    const rollFraction = geometry ? yarnOffset / (geometry.toy.travel || 1) : 0;
+    geometry = { width, height, home, cat, toy, toyBounds, visible, protectedRects, top: r.top, left: r.left, bubbleWidth: bubble.offsetWidth, bubbleHeight: bubble.offsetHeight };
     scene.style.setProperty('--cat-width', `${width}px`);
     scene.style.setProperty('--cat-height', `${height}px`);
     scene.style.setProperty('--cat-scale', width / 190);
     actor.style.left = actor.style.top = '0';
     actor.style.transform = `translate3d(${cat.left.toFixed(2)}px,${cat.top.toFixed(2)}px,0)`;
+    yarn.style.left = yarn.style.top = '0';
+    yarn.style.width = `${toy.width}px`; yarn.style.height = `${toy.height}px`;
+    yarn.style.setProperty('--yarn-scale', toy.width / 48);
+    renderYarn(rollFraction * toy.travel);
     syncActivity();
     if (active) updateBubble(0); // Immediately conceal an unsafe bubble during scrolling.
   }
   function scheduleMeasure() { if (!layoutFrame) layoutFrame = requestAnimationFrame(measure); }
+  function renderYarn(roll) {
+    yarnOffset = roll;
+    const toy = geometry.toy;
+    yarn.style.transform = `translate3d(${(toy.left + roll).toFixed(3)}px,${toy.top.toFixed(3)}px,0)`;
+    const radius = toy.width / 48 * 14;
+    yarnRoll.style.transform = `rotate(${(roll / Math.max(radius, 1) * 180 / Math.PI).toFixed(3)}deg)`;
+  }
 
   function rest() {
     gaze = { x: 0, y: 0 }; paw = 0; pointer = null;
     for (const el of [pose, head, eyes, pupils, tail, tip, ...paws]) el.style.transform = '';
+    renderYarn(0);
     bubble.style.opacity = '0';
   }
   function syncActivity() {
@@ -114,7 +136,7 @@ function createCat() {
   function bubbleSafe(p) {
     const r = { left: p.x, top: p.y, right: p.x + geometry.bubbleWidth, bottom: p.y + geometry.bubbleHeight };
     const v = geometry.visible, edge = cfg.bubble.edge;
-    return r.left >= v.left + edge && r.right <= v.right - edge && r.top >= v.top + edge && r.bottom <= v.bottom - edge && !overlaps(r, inflate(geometry.cat, 6)) && !geometry.protectedRects.some(o => overlaps(r, inflate(o, cfg.bubble.textGap)));
+    return r.left >= v.left + edge && r.right <= v.right - edge && r.top >= v.top + edge && r.bottom <= v.bottom - edge && !overlaps(r, inflate(geometry.cat, 6)) && !overlaps(r, inflate(geometry.toyBounds, 6)) && !geometry.protectedRects.some(o => overlaps(r, inflate(o, cfg.bubble.textGap)));
   }
   function updateBubble(dt) {
     if (clock >= nextBubble) {
@@ -151,9 +173,17 @@ function createCat() {
     if (!active) return;
     const dt = lastTime ? Math.min((now - lastTime) / 1000, .05) : 0;
     lastTime = now; clock += dt;
-    const dx = pointer ? pointer.x - geometry.left - geometry.home.x : 0;
-    const dy = pointer ? pointer.y - geometry.top - geometry.home.y : 0;
-    const d = Math.hypot(dx, dy), strength = pointer ? Math.min(1, d / cfg.tracking.distance) : 0;
+    if (clock >= nextPlay) { playStart = clock; nextPlay = clock + cfg.yarn.duration + random(cfg.yarn.gap); }
+    const play = (clock - playStart) / cfg.yarn.duration;
+    const playing = play < 1;
+    const ease = value => { const t = clamp(value, 0, 1); return t * t * (3 - 2 * t); };
+    const roll = playing ? geometry.toy.travel * ease((play - .16) / .4) * (1 - ease((play - .7) / .3)) : 0;
+    renderYarn(roll);
+    let dx = pointer ? pointer.x - geometry.left - geometry.home.x : 0;
+    let dy = pointer ? pointer.y - geometry.top - geometry.home.y : 0;
+    const near = pointer && Math.hypot(dx, dy) < geometry.width * cfg.reactions.nearBodyLengths;
+    if (playing && !near) { dx = geometry.toy.left + roll - geometry.home.x; dy = geometry.toy.top - geometry.home.y; }
+    const d = Math.hypot(dx, dy), strength = pointer || playing ? Math.min(1, d / cfg.tracking.distance) : 0;
     const blend = 1 - Math.exp(-cfg.tracking.response * dt);
     gaze.x += ((d ? dx / d * strength : 0) - gaze.x) * blend;
     gaze.y += ((d ? dy / d * strength : 0) - gaze.y) * blend;
@@ -170,8 +200,7 @@ function createCat() {
     tail.style.transform = `rotate(${(twitch * cfg.idle.tailSwing).toFixed(3)}deg)`;
     tip.style.transform = `rotate(${(twitch * cfg.idle.tailTipSwing).toFixed(3)}deg)`;
 
-    const near = pointer && d < geometry.width * cfg.reactions.nearBodyLengths;
-    if (near && clock >= nextReaction) {
+    if (!playing && near && clock >= nextReaction) {
       nextReaction = clock + random(cfg.reactions.cooldown);
       if (clock >= nextPounce && Math.random() < cfg.reactions.pounceChance) {
         pounceStart = clock;
@@ -179,9 +208,11 @@ function createCat() {
       } else { pawStart = clock; pawSide = dx < 0 ? 0 : 1; }
     }
     const reachTime = (clock - pawStart) / cfg.reactions.pawDuration;
-    const reach = pointer && reachTime < 1 ? Math.sin(reachTime * Math.PI) ** 2 : 0;
+    const toyReach = playing ? (play < .36 ? Math.sin(play / .36 * Math.PI) ** 2 : play > .7 ? .65 * Math.sin((play - .7) / .3 * Math.PI) ** 2 : 0) : 0;
+    const reach = playing ? toyReach : pointer && reachTime < 1 ? Math.sin(reachTime * Math.PI) ** 2 : 0;
+    if (playing) pawSide = 1;
     paw += (reach - paw) * (1 - Math.exp(-cfg.reactions.response * dt));
-    paws.forEach((el, i) => { el.style.transform = i === pawSide ? `translateY(${(-paw * cfg.reactions.pawLift).toFixed(3)}px) rotate(${(paw * cfg.reactions.pawAngle * (i ? -1 : 1)).toFixed(3)}deg)` : ''; });
+    paws.forEach((el, i) => { el.style.transform = i === pawSide ? `translate(${(playing ? paw * cfg.yarn.pawReach : 0).toFixed(3)}px,${(-paw * cfg.reactions.pawLift).toFixed(3)}px) rotate(${(paw * (playing ? cfg.yarn.pawAngle : cfg.reactions.pawAngle) * (i ? -1 : 1)).toFixed(3)}deg)` : ''; });
     const p = (clock - pounceStart) / cfg.reactions.pounceDuration;
     const crouch = p < .4 ? Math.sin(p / .4 * Math.PI) * cfg.reactions.crouch : 0;
     const jump = p >= .4 && p < 1 ? Math.sin((p - .4) / .6 * Math.PI) * cfg.reactions.bounce : 0;
