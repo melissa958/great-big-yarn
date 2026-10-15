@@ -4,7 +4,7 @@ A progressively built brand and content website, using approved Figma designs.
 
 - Repository: https://github.com/melissa958/great-big-yarn
 - Live Pages address: https://melissa958.github.io/great-big-yarn/
-- Design: https://www.figma.com/design/oIV91BuTH2ouyVi5pHCDDv/Brand-Assets?node-id=136-3410
+- Design: https://www.figma.com/design/oIV91BuTH2ouyVi5pHCDDv/Brand-Assets?node-id=143-3846
 - Stack: semantic HTML and CSS, self-hosted fonts, and minimal JavaScript for the scribble loop; static artwork remains available without JavaScript.
 
 ## Project layout
@@ -41,7 +41,7 @@ The subsequent Romie update follows the ready frame `126:2868`: mixed-case Romie
 
 The two Romie WOFF2 files were supplied by the owner and are self-hosted unchanged. They are separate from the Be Vietnam fonts and are not covered by the Be Vietnam SIL Open Font License. Both heading font faces are preloaded on the homepage and curtain preview. The approved artwork, drawing timing, curtain behavior, 55-second palette cycle, and mobile rendering remain unchanged.
 
-On October 15, the owner added the eyebrow “For the nerds and doers in energy and tech” in the replacement Figma frame `136:3410`. The homepage and curtain preview now show it in a paper-colored pill above the headline: 345 × 34px on desktop, Be Vietnam Semibold (600) at 10px, uppercase with 0.9px tracking. The exact normal Semibold font is self-hosted from the Google Fonts Be Vietnam v10 distribution under the included Be Vietnam license. At 1440px, the pill starts at y=220, the headline at y=280, and the supporting copy at y=614, matching Figma. The panel's 625px minimum height and spacing accommodate the addition while retaining the previously approved responsive widths. On narrow phones, the pill is constrained to the available content width and its label wraps. It joins the existing entrance, pause, keyboard, and reduced-motion behavior.
+On October 15, the owner added the eyebrow “For the nerds and doers in energy and tech,” then refined its styling in replacement Figma frame `143:3846`. The homepage and curtain preview show it in a transparent rectangular label above the headline: 334 × 36px on desktop, a 1px black dashed border, and Be Vietnam Semibold (600) at 11px, uppercase with 0.99px tracking. The exact normal Semibold font is self-hosted from the Google Fonts Be Vietnam v10 distribution under the included Be Vietnam license. At 1440px, the label starts at y=220, the headline at y=280, and the supporting copy at y=614, matching Figma. The panel's 625px minimum height and spacing accommodate the addition while retaining the previously approved responsive widths. On phones, the label is constrained to the available content width and its text wraps. It joins the existing entrance, pause, keyboard, and reduced-motion behavior.
 
 ## Original hero and approved adaptations (historical)
 
