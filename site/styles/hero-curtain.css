@@ -151,6 +151,9 @@
   50% { background-color: var(--pink); }
   75% { background-color: var(--turquoise); }
 }
+@media (min-width: 1200px) {
+  .messy-copy { max-width: 910px; }
+}
 @media (min-width: 1920px) {
   .frosted-panel { max-width: 1320px; }
   .curtain-preview .frosted-panel .preview-copy { max-width: 850px; }
