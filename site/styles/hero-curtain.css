@@ -1,5 +1,12 @@
 @font-face {
   font-family: "Be Vietnam";
+  src: url("../assets/fonts/BeVietnam-SemiBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Be Vietnam";
   src: url("../assets/fonts/BeVietnam-SemiBoldItalic.ttf") format("truetype");
   font-style: italic;
   font-weight: 600;
@@ -55,14 +62,30 @@
   z-index: 1;
   width: calc(100% - 120px);
   max-width: 1086.33px;
-  min-height: 611px;
-  margin: 92px auto 0;
-  padding: 80px 68px 76px;
+  min-height: 625px;
+  margin: 80px auto 0;
+  padding: 56px 68px 64px;
   border-radius: 18.097px;
   background: rgb(255 255 255 / 32%);
   -webkit-backdrop-filter: blur(21.226px);
   backdrop-filter: blur(21.226px);
   text-align: center;
+}
+.hero-eyebrow {
+  width: 345px;
+  max-width: 100%;
+  min-height: 34px;
+  margin: 0 auto 26px;
+  padding: 10px 18px;
+  border-radius: 49px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.38;
+  letter-spacing: .9px;
+  text-transform: uppercase;
 }
 .curtain-preview .frosted-panel h1 {
   max-width: 950px;
@@ -77,7 +100,7 @@
 }
 .romie-line { display: block; }
 .romie-messy { font-feature-settings: "ordn" 1, "ss06" 1, "ss11" 1, "ss12" 1, "ss13" 1, "ss14" 1, "ss15" 1, "ss18" 1, "ss19" 1, "ss20" 1, "dlig" 1; }
-.curtain-preview .frosted-panel .preview-copy { max-width: 813px; margin: 37px auto 0; }
+.curtain-preview .frosted-panel .preview-copy { max-width: 813px; margin: 19px auto 0; }
 .messy-section {
   position: sticky;
   top: 0;
@@ -131,7 +154,7 @@
   .curtain-preview .messy-copy { font-size: 20px; }
 }
 @media (min-width: 1441px) {
-  .frosted-panel { margin-top: max(92px, calc(50svh - 389.5px)); }
+  .frosted-panel { margin-top: max(80px, calc(50svh - 396.5px)); }
   .curtain-hero .scribble-stage { top: max(481.5px, 50svh); }
 }
 @media (max-width: 1199px) {
@@ -230,6 +253,7 @@
   .curtain-preview .site-navigation li:nth-child(4) { animation-delay: 340ms; }
   .curtain-preview .site-header .contact-button { animation-delay: 400ms; }
   .frosted-panel { animation: glass-enter 1100ms cubic-bezier(.22, 1, .36, 1) 120ms backwards; }
+  .hero-eyebrow { animation: copy-enter 750ms cubic-bezier(.22, 1, .36, 1) 260ms backwards; }
   .frosted-panel h1 { animation: copy-enter 850ms cubic-bezier(.22, 1, .36, 1) 350ms backwards; }
   .frosted-panel .preview-copy p { animation: copy-enter 750ms cubic-bezier(.22, 1, .36, 1) backwards; }
   .frosted-panel .preview-copy p:first-child { animation-delay: 620ms; }
@@ -240,12 +264,12 @@
   .messy-copy p:nth-child(2).is-revealed { animation-delay: 70ms; }
   .messy-copy p:nth-child(3).is-revealed { animation-delay: 140ms; }
 
-  .curtain-preview.animations-paused :is(.brand, .site-navigation li, .contact-button, .menu-toggle, .frosted-panel, .frosted-panel h1, .preview-copy p, .scroll-reveal) {
+  .curtain-preview.animations-paused :is(.brand, .site-navigation li, .contact-button, .menu-toggle, .frosted-panel, .hero-eyebrow, .frosted-panel h1, .preview-copy p, .scroll-reveal) {
     animation-play-state: paused;
   }
   /* Keyboard focus exposes content immediately during an entrance. */
   .curtain-preview .site-header:focus-within :is(.brand, .site-navigation li, .contact-button, .menu-toggle),
-  .curtain-preview main:focus :is(.frosted-panel, .frosted-panel h1, .preview-copy p),
+  .curtain-preview main:focus :is(.frosted-panel, .hero-eyebrow, .frosted-panel h1, .preview-copy p),
   .curtain-preview .messy-section:focus-within .scroll-reveal {
     animation: none;
     opacity: 1;

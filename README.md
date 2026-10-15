@@ -4,7 +4,7 @@ A progressively built brand and content website, using approved Figma designs.
 
 - Repository: https://github.com/melissa958/great-big-yarn
 - Live Pages address: https://melissa958.github.io/great-big-yarn/
-- Design: https://www.figma.com/design/oIV91BuTH2ouyVi5pHCDDv/Brand-Assets?node-id=126-2868
+- Design: https://www.figma.com/design/oIV91BuTH2ouyVi5pHCDDv/Brand-Assets?node-id=136-3410
 - Stack: semantic HTML and CSS, self-hosted fonts, and minimal JavaScript for the scribble loop; static artwork remains available without JavaScript.
 
 ## Project layout
@@ -40,6 +40,8 @@ Following the owner's large-desktop refinement, at viewport widths of 1920px and
 The subsequent Romie update follows the ready frame `126:2868`: mixed-case Romie Bold (700) for both headings, Romie Bold Italic (700) for “wonderful place,” and Figma's alternate letterform settings on “messy.” The desktop hero heading is 105px with three lines; the second-section heading is 65px with two lines. Responsive sizes and natural wrapping fit smaller panels. Hero supporting copy now has an 813px maximum width, constrained by the panel's available space. The owner confirmed that its two sentences should flow continuously, replacing the earlier forced break. The second-section paragraph also retains the owner's continuous wording. Body copy remains Be Vietnam Light, with Be Vietnam SemiBold Italic on “live.”
 
 The two Romie WOFF2 files were supplied by the owner and are self-hosted unchanged. They are separate from the Be Vietnam fonts and are not covered by the Be Vietnam SIL Open Font License. Both heading font faces are preloaded on the homepage and curtain preview. The approved artwork, drawing timing, curtain behavior, 55-second palette cycle, and mobile rendering remain unchanged.
+
+On October 15, the owner added the eyebrow “For the nerds and doers in energy and tech” in the replacement Figma frame `136:3410`. The homepage and curtain preview now show it in a paper-colored pill above the headline: 345 × 34px on desktop, Be Vietnam Semibold (600) at 10px, uppercase with 0.9px tracking. The exact normal Semibold font is self-hosted from the Google Fonts Be Vietnam v10 distribution under the included Be Vietnam license. At 1440px, the pill starts at y=220, the headline at y=280, and the supporting copy at y=614, matching Figma. The panel's 625px minimum height and spacing accommodate the addition while retaining the previously approved responsive widths. On narrow phones, the pill is constrained to the available content width and its label wraps. It joins the existing entrance, pause, keyboard, and reduced-motion behavior.
 
 ## Original hero and approved adaptations (historical)
 
