@@ -14,7 +14,7 @@ const navigation = document.querySelector('#preview-navigation');
 const header = hero.querySelector('.site-header');
 let menuOpen = false;
 document.body.classList.add('has-mobile-menu');
-const revealItems = [...section.querySelectorAll('h2, .messy-copy p')];
+const revealItems = [...section.querySelectorAll('h2, .messy-copy p, .section-eyebrow')];
 for (const item of revealItems) item.classList.add('scroll-reveal');
 let paused = false;
 let queued = false;
