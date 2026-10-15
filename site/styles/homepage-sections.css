@@ -1,5 +1,6 @@
-/* Bound the existing curtain to its two sections so later content scrolls normally. */
-.curtain-pair { position: relative; display: flow-root; }
+/* Nest the original reveal above a second curtain, ending before services. */
+.curtain-sequence { position: relative; display: flow-root; }
+.curtain-pair { position: relative; z-index: 2; display: flow-root; }
 .homepage-section {
   position: relative;
   z-index: 3;
@@ -10,6 +11,11 @@
 }
 .opportunity-section { min-height: 836px; padding-block: 154px 143px; }
 .services-section { min-height: 1075px; padding-block: 132px 131px; }
+.curtain-sequence > .opportunity-section { position: sticky; top: 0; bottom: 0; z-index: 1; }
+@media (prefers-reduced-motion: no-preference) {
+  /* The uncovered layer must fill the screen even on tall tablets. */
+  .curtain-sequence > .opportunity-section { min-height: max(836px, 100svh); }
+}
 .content-eyebrow {
   display: flex;
   align-items: center;
@@ -74,6 +80,17 @@
 .service-toolkits { background: var(--green); }
 .service-card:nth-child(n + 4) { padding-top: 28px; }
 .service-card:nth-child(n + 4) h3 { margin-top: 12px; }
+@media (min-width: 1000px) {
+  .homepage-section { display: flex; flex-direction: column; justify-content: center; }
+  .opportunity-section { min-height: max(836px, 100svh); }
+  .services-section { min-height: max(1075px, 100svh); }
+  .homepage-section :is(h2, .content-grid) { width: 100%; flex: none; }
+  .homepage-section .content-eyebrow { flex: none; }
+}
+@media (min-width: 1920px) {
+  /* Match the existing large-desktop hero panel and navigation width. */
+  .content-grid { max-width: 1320px; }
+}
 @media (max-width: 1199px) {
   .homepage-section { padding-inline: 32px; }
   .homepage-section h2 { font-size: clamp(36px, 4.514vw, 65px); }
@@ -100,4 +117,7 @@
   .content-grid { grid-template-columns: 1fr; gap: 20px; }
   .content-grid p { font-size: 16px; line-height: 1.5; }
   .service-card { min-height: 296px; padding-inline: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .curtain-sequence > .opportunity-section { position: relative; }
 }
