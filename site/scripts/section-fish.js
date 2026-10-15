@@ -25,6 +25,7 @@ function createFish() {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
   const coarsePointer = matchMedia('(any-pointer: coarse)');
+  const smallScreen = matchMedia(`(max-width: ${cfg.size.smallBreakpoint - 1}px)`);
   const state = { x: 0, y: 0, vx: 0, vy: 0, angle: 0, facing: 1, mirror: 1 };
   let geometry;
   let pointer = null;
@@ -60,7 +61,7 @@ function createFish() {
   const contains = (r, p) => p.x > r.left && p.x < r.right && p.y > r.top && p.y < r.bottom;
   const overlaps = (a, b) => a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
   const inflate = (r, x, y = x) => ({ left: r.left - x, right: r.right + x, top: r.top - y, bottom: r.bottom + y });
-  const staticMode = () => reduced.matches || !finePointer.matches || coarsePointer.matches || navigator.maxTouchPoints > 0;
+  const staticMode = () => smallScreen.matches || reduced.matches || !finePointer.matches || coarsePointer.matches || navigator.maxTouchPoints > 0;
   const paused = () => document.hidden || document.body.classList.contains('animations-paused');
 
   // Measurements are event-driven, never part of the swimming frame loop.
@@ -300,7 +301,7 @@ function createFish() {
   new MutationObserver(syncActivity).observe(document.body, { attributes: true, attributeFilter: ['class'] });
   const observer = new ResizeObserver(scheduleMeasure);
   for (const el of [section, content, label, bubble]) observer.observe(el);
-  for (const media of [reduced, finePointer, coarsePointer]) media.addEventListener('change', scheduleMeasure);
+  for (const media of [reduced, finePointer, coarsePointer, smallScreen]) media.addEventListener('change', scheduleMeasure);
   document.fonts.ready.then(scheduleMeasure);
   measure();
 }

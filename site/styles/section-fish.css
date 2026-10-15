@@ -82,9 +82,13 @@
   .section-eyebrow { bottom: 40px; }
   .fish-scene { --fish-home-bottom: 58px; }
 }
-@media (max-width: 759px) {
-  .section-eyebrow { left: auto; right: 24px; bottom: 10px; width: calc(100% - 150px); max-width: 459px; margin-left: 0; padding: 6px 12px; line-height: 1.2; }
-  .fish-scene { --fish-width: 84px; --fish-height: 49.5385px; --fish-home-x: 66px; --fish-home-bottom: 45px; --fish-scale: .7179487; }
+@media (max-width: 759px), (hover: none), (pointer: coarse) {
+  .section-eyebrow { left: 24px; right: 24px; bottom: 10px; width: calc(100% - 48px); max-width: 459px; margin: 0 auto; padding: 6px 12px; line-height: 1.2; }
+  .fish-scene { display: none; }
+}
+@media (max-width: 639px) {
+  /* Keep the fixed Pause control clear of the label text. */
+  .section-eyebrow { padding-right: 84px; }
 }
 @media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
   .fish-tail { animation: fish-tail-wag var(--fish-tail-duration, 1500ms) ease-in-out infinite; animation-play-state: var(--fish-play-state); }
