@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="190" height="127" viewBox="0 0 190 127" fill="none">
+  <g id="cat-tail" fill="var(--cat-ink, #080808)">
+    <path d="M91 112C72 116 62 112 48 101C34 90 22 95 20 104C16 115 31 121 49 120L45 123L66 121L65 124L83 120L96 121Z"/>
+    <path d="M40 117C20 121 6 109 9 94L5 96L10 83L6 85L17 72L13 71L27 65L23 62L38 62L35 58C58 63 62 81 56 93L58 88L60 100L64 98L64 111Z"/>
+    <path d="M19 88Q28 74 43 80M17 99Q21 88 36 88M23 110Q32 101 48 104M34 114Q43 109 55 113" stroke="var(--cat-cream, #f4ecdc)" stroke-width=".8" opacity=".65" stroke-linecap="round"/>
+  </g>
+  <g id="cat-tail-tip" fill="var(--cat-ink, #080808)">
+    <path d="M56 94C64 74 51 60 36 60L33 55L30 59L23 56L26 61L17 62L22 66L15 71C32 63 45 75 44 88Z"/>
+    <path d="M28 65Q44 65 49 78M32 62Q45 64 48 70" stroke="var(--cat-cream, #f4ecdc)" stroke-width=".8" opacity=".65" stroke-linecap="round"/>
+  </g>
+  <g id="cat-body" fill="var(--cat-ink, #080808)">
+    <path d="M77 51L70 59L65 57L66 65L60 64L61 73L55 73L58 82L53 85L57 92L53 96L59 98L56 105L62 106L61 112C67 122 86 121 99 121L98 123L116 122L116 124L130 121C150 122 173 119 176 108L180 110L177 99L182 100L177 89L181 90L175 78L180 79L172 69L175 67L165 58L166 53L153 48Z"/>
+    <path d="M70 76Q61 91 66 104M72 93L69 110M159 72Q173 91 166 108M161 93L160 113M80 110L78 114M151 111L148 116M88 78L85 87M149 77L154 85" stroke="var(--cat-cream, #f4ecdc)" stroke-width=".75" opacity=".55" stroke-linecap="round"/>
+  </g>
+  <g id="cat-head" fill="var(--cat-ink, #080808)">
+    <path d="M75 33L71 24L74 25L73 12L79 17L78 7L84 13L85 8L100 25L107 23L106 19L114 23L121 20L124 24L143 9L142 16L150 7L148 20L154 15L152 30L159 34L164 32L162 39L171 39L166 45L174 49L167 53L174 58L164 61L169 66L158 67L157 73L146 74C128 86 99 80 84 73L77 75L76 69L66 70L71 64L62 61L68 57L60 52L69 48L62 44L72 40L69 34Z"/>
+    <g stroke="var(--cat-cream, #f4ecdc)" stroke-linecap="round">
+      <path d="M81 22L89 32M82 29L87 33M145 23L137 32M146 29L141 33" stroke-width="1"/>
+      <path d="M87 57Q69 50 54 49M85 61Q65 59 50 63M87 64Q70 66 58 73M148 57Q167 50 181 49M151 61Q169 58 186 63M149 64Q168 66 180 74" stroke-width=".9"/>
+      <path d="M77 48L73 49M80 70L77 72M161 47L164 48M156 72L160 74" stroke-width=".7" opacity=".7"/>
+      <path d="M116.5 61L116 65M116 65L112 69M116 65L120 69" stroke-width="1.2"/>
+    </g>
+    <path d="M113 58Q116 56 120 58Q120 59 116.5 62Q113 60 113 58Z" fill="var(--cat-cream, #f4ecdc)"/>
+  </g>
+  <g id="cat-eyes" fill="var(--cat-cream, #f4ecdc)">
+    <path d="M83 49C83 39 90 35 99 36C109 37 112 43 110 52C108 61 98 63 91 60C86 58 82 55 83 49Z"/>
+    <path d="M124 50C123 41 130 36 138 36C148 36 154 44 152 52C151 62 139 64 131 60C127 58 124 55 124 50Z"/>
+  </g>
+  <g id="cat-pupils" fill="var(--cat-ink, #080808)">
+    <ellipse cx="102" cy="45.5" rx="4.1" ry="6.1"/>
+    <ellipse cx="140" cy="45.5" rx="4.1" ry="6.1"/>
+  </g>
+  <g id="cat-paw-left" fill="var(--cat-ink, #080808)">
+    <path d="M96 94Q92 103 93 113Q88 119 94 121L108 121Q114 118 108 113L106 94Z"/>
+    <path d="M97 114Q100 118 98 121M103 114Q106 118 104 121M96 97L101 111" stroke="var(--cat-cream, #f4ecdc)" stroke-width=".9" stroke-linecap="round"/>
+  </g>
+  <g id="cat-paw-right" fill="var(--cat-ink, #080808)">
+    <path d="M128 94L125 111Q119 118 125 121L140 121Q146 118 139 112L137 95Z"/>
+    <path d="M128 114Q125 118 127 121M134 114Q131 118 133 121M138 97L132 111" stroke="var(--cat-cream, #f4ecdc)" stroke-width=".9" stroke-linecap="round"/>
+  </g>
+</svg>

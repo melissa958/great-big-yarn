@@ -1,0 +1,75 @@
+/* Cat test only. The homepage and shared fish files remain unchanged. */
+.cat-scene {
+  --cat-width: 180px;
+  --cat-height: 120.316px;
+  --cat-scale: .947368;
+  --cat-home-x: calc(50% - 325px);
+  --cat-home-bottom: 110px;
+  --cat-ink: #080808;
+  --cat-cream: #f4ecdc;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: clip;
+  pointer-events: none;
+  user-select: none;
+}
+.cat-scene * { pointer-events: none; }
+.cat-position {
+  position: absolute;
+  left: var(--cat-home-x);
+  top: calc(100% - var(--cat-home-bottom));
+  width: var(--cat-width);
+  height: var(--cat-height);
+  transform: translate(-50%, -50%);
+}
+.cat-pose { width: 100%; height: 100%; transform-origin: 60% 96%; }
+.editorial-cat { display: block; overflow: visible; transform: scale(var(--cat-scale)); transform-origin: 0 0; }
+.cat-head { transform-origin: 117px 67px; }
+.cat-eyes { transform-origin: 117px 49px; }
+.cat-tail { transform-origin: 79px 115px; }
+.cat-tail-tip { transform-origin: 47px 87px; }
+.cat-paw-left { transform-origin: 103px 97px; }
+.cat-paw-right { transform-origin: 132px 97px; }
+.cat-bubble {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 180px;
+  max-width: calc(100% - 28px);
+  padding: 12px 18px;
+  border: 1.5px solid var(--cat-ink);
+  border-radius: 18px 23px 19px 24px / 20px 17px 23px 18px;
+  background: var(--cat-cream);
+  color: var(--cat-ink);
+  font: 500 13px / 1.4 var(--font);
+  text-align: center;
+  text-wrap: balance;
+  opacity: 0;
+}
+.cat-bubble p { margin: 0; }
+.cat-bubble::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--cat-cream);
+  border-right: 1.5px solid var(--cat-ink);
+  border-bottom: 1.5px solid var(--cat-ink);
+}
+.cat-bubble[data-side="left"]::after { right: -6px; top: calc(50% - 5px); transform: rotate(-45deg); }
+.cat-bubble[data-side="right"]::after { left: -6px; top: calc(50% - 5px); transform: rotate(135deg); }
+.cat-bubble[data-side="above"]::after { bottom: -6px; left: calc(50% - 5px); transform: rotate(45deg); }
+.cat-bubble[data-side="below"]::after { top: -6px; left: calc(50% - 5px); transform: rotate(225deg); }
+@media (max-width: 1199px) {
+  .cat-scene { --cat-width: 116px; --cat-height: 77.537px; --cat-scale: .610526; --cat-home-x: max(82px, calc(50% - 325px)); --cat-home-bottom: 51px; }
+}
+@media (max-width: 759px) {
+  /* Fit a static cat and the same centered label in the existing footer padding. */
+  .cat-scene { --cat-width: 84px; --cat-height: 56.147px; --cat-scale: .442105; --cat-home-x: 66px; --cat-home-bottom: 40px; }
+  .cat-preview .section-eyebrow { left: 126px; right: 24px; width: calc(100% - 150px); }
+  .cat-bubble { display: none; }
+}
+@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
+  .cat-bubble { display: none; }
+}
