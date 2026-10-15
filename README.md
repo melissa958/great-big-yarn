@@ -160,6 +160,16 @@ The restored mobile interactions were checked in Edge and WebKit at 390px and 32
 
 The latest promotion passed validation and the production build. Homepage checks in Edge and WebKit confirmed mobile tap-to-play, safe bubble placement, both mobile eyebrow line-heights, and static reduced-motion behavior. Edge checks confirmed balanced laptop spacing, the raised large-desktop footer, no horizontal overflow at 320px, 1366px, and 2560px widths, hybrid-laptop hover and automatic yarn play, cooldowns, pausing, keyboard skip navigation, and the phone menu. The homepage retains its normal title and indexable metadata. These browser checks use simulated viewports and input capabilities.
 
+## Homepage Sections 3 and 4 — October 15, 2026
+
+The owner approved the opportunity section (Figma `160:4730`) and services section (`160:4758`) in Desktop - New Version CAT (`150:4301`). The homepage now includes both, following the original hero and cat section. The black backgrounds, Romie headings, dashed eyebrows, three outlined opportunity cards, six palette-colored service cards, original illustrations, copy, bold emphasis, and corrected service headings follow the supplied design. Existing preview pages retain their prior content.
+
+At 1440px, the new sections use Figma’s 1108px card grid, three 352px columns, 26px column gaps, and original heading/eyebrow placement. The opportunity section is at least 836px tall and services at least 1075px. Cards grow with their content. Below 1000px, opportunity cards stack and services use two columns; below 600px, all cards stack, paragraph type grows to 16px, and the new eyebrows use the approved mobile 1.5 line-height. No service destinations were supplied, so these are informational cards.
+
+The first two sections sit inside a curtain-pair wrapper, keeping their reveal confined to the existing content and letting the new sections scroll normally. The Figma illustrations were supplied as six animated GIFs despite their download URLs ending in .png; they are preserved as GIFs with matching first-frame PNG fallbacks. The lightweight service-marks controller swaps to stills when offscreen, paused, hidden, or reduced-motion is requested; without JavaScript the illustrations remain static. The original hero, second-section layout, cat and yarn controller, and separate previews are retained.
+
+Validation and the production build passed. Edge browser checks covered 320px, 390px, 768px, 1024px, 1366px, 1440px, and 2560px widths; WebKit covered desktop and 390px touch layouts. Checks confirmed the Figma desktop grid and heading geometry, card/text clearance, all six original artwork slots and rendered sizes, normal scroll transitions, unchanged prior content layout against Cat test, no horizontal overflow, and static marks under Pause/reduced motion. Cat hover, mobile taps, automatic play, cooldowns, offscreen pausing, reduced motion, keyboard skip navigation, and the mobile menu also passed. Mobile testing uses browser simulations on the desktop machine.
+
 ## Future work
 
 Implement new sections and pages only when their designs are supplied. Replace inactive navigation with real destinations as those pages become available. Connect the custom domain only when explicitly requested; DNS and custom-domain settings have not been configured.

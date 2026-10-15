@@ -1,0 +1,103 @@
+/* Bound the existing curtain to its two sections so later content scrolls normally. */
+.curtain-pair { position: relative; display: flow-root; }
+.homepage-section {
+  position: relative;
+  z-index: 3;
+  background: var(--ink);
+  color: var(--white);
+  padding-inline: 60px;
+  text-align: center;
+}
+.opportunity-section { min-height: 836px; padding-block: 154px 143px; }
+.services-section { min-height: 1075px; padding-block: 132px 131px; }
+.content-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-width: 185px;
+  max-width: 100%;
+  min-height: 36px;
+  margin: 0 auto 30px;
+  padding: 11px 20px;
+  border: 1px dashed currentColor;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: .99px;
+  text-transform: uppercase;
+}
+.opportunity-section .content-eyebrow { width: 243px; }
+.homepage-section h2 {
+  max-width: 1060px;
+  margin: 0 auto;
+  font-family: "Romie", Georgia, serif;
+  font-size: 65px;
+  font-weight: 700;
+  font-synthesis: none;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+  font-feature-settings: "dlig" 1;
+}
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px 26px;
+  max-width: 1108px;
+  margin-inline: auto;
+  text-align: left;
+}
+.opportunity-grid { margin-top: 68px; }
+.services-grid { margin-top: 59px; }
+.homepage-section h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.38;
+}
+.content-grid p { margin: 0; font-size: 14px; font-weight: 300; line-height: 1.38; }
+.content-grid strong { font-weight: 700; }
+.opportunity-card { min-height: 255px; padding: 37px 24px; border: 1px solid var(--white); }
+.opportunity-card p { margin-top: 37px; color: #b7b7b7; }
+.service-card { min-height: 296px; padding: 16px 25px 32px; color: var(--ink); }
+.service-card p { margin-top: 20px; }
+.service-art { display: flex; align-items: center; height: 75px; margin-left: -7px; }
+.service-art img { display: block; flex: none; }
+.service-strategy .service-art, .service-presentations .service-art { margin-left: -4px; }
+.service-campaigns .service-art { margin-left: 0; }
+.service-toolkits .service-art { margin-left: -10px; }
+.service-identity { background: var(--yellow); }
+.service-strategy { background: var(--red); }
+.service-campaigns { background: var(--blush); }
+.service-websites { background: var(--pink); }
+.service-presentations { background: var(--turquoise); }
+.service-toolkits { background: var(--green); }
+.service-card:nth-child(n + 4) { padding-top: 28px; }
+.service-card:nth-child(n + 4) h3 { margin-top: 12px; }
+@media (max-width: 1199px) {
+  .homepage-section { padding-inline: 32px; }
+  .homepage-section h2 { font-size: clamp(36px, 4.514vw, 65px); }
+  .content-grid { gap: 20px; }
+  .homepage-section h3 { font-size: 18px; }
+  .opportunity-card { padding: 28px 22px; }
+}
+@media (max-width: 999px) {
+  .opportunity-section, .services-section { min-height: 0; padding-block: 100px; }
+  .opportunity-grid { grid-template-columns: 1fr; max-width: 620px; margin-top: 48px; }
+  .opportunity-card { min-height: 0; }
+  .opportunity-card p { margin-top: 20px; }
+  .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 48px; }
+  .service-card:nth-child(n) { padding-top: 20px; }
+  .service-card:nth-child(n) h3 { margin-top: 8px; }
+}
+@media (max-width: 759px) {
+  .content-eyebrow { line-height: 1.5; }
+}
+@media (max-width: 599px) {
+  .homepage-section { padding-inline: 24px; }
+  .opportunity-section, .services-section { padding-block: 80px; }
+  .homepage-section h2 { font-size: clamp(32px, 8.2vw, 44px); }
+  .content-grid { grid-template-columns: 1fr; gap: 20px; }
+  .content-grid p { font-size: 16px; line-height: 1.5; }
+  .service-card { min-height: 296px; padding-inline: 24px; }
+}
