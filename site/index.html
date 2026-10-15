@@ -14,10 +14,11 @@
     <link rel="stylesheet" href="./styles/hero-tests.css">
     <link rel="stylesheet" href="./styles/hero-curtain.css">
     <link rel="stylesheet" href="./styles/section-fish.css">
+    <link rel="stylesheet" href="./styles/section-cat.css">
     <script type="module" src="./scripts/hero-curtain.js"></script>
-    <script type="module" src="./scripts/section-fish.js"></script>
+    <script type="module" src="./scripts/section-cat.js"></script>
   </head>
-  <body class="hero-preview curtain-preview" data-layout="curtain">
+  <body class="hero-preview curtain-preview cat-preview" data-layout="curtain">
     <a class="skip-link" href="#main">Skip to content</a>
     <main id="main" tabindex="-1" class="curtain-stack">
       <section class="curtain-hero" aria-labelledby="hero-title">
@@ -75,15 +76,36 @@
           </div>
         </div>
         <p class="section-eyebrow">So, how do we work together? Great question! Scroll forth.</p>
-        <div class="fish-scene" aria-hidden="true">
-          <div class="fish-position"><div class="fish-turn"><div class="fish-facing">
-            <svg class="editorial-fish" xmlns="http://www.w3.org/2000/svg" width="117" height="69" viewBox="0 0 117 69" focusable="false">
-              <g class="fish-tail"><use href="./assets/images/editorial-fish.svg#fish-tail"/></g>
-              <g class="fish-body"><use href="./assets/images/editorial-fish.svg#fish-body"/></g>
-              <g class="fish-fin"><use href="./assets/images/editorial-fish.svg#fish-fin"/></g>
+        <div class="cat-scene" aria-hidden="true">
+          <div class="cat-position"><div class="cat-pose">
+            <svg class="editorial-cat" xmlns="http://www.w3.org/2000/svg" width="190" height="127" viewBox="0 0 190 127" focusable="false">
+              <g class="cat-tail"><use href="./assets/images/editorial-cat.svg#cat-tail"/></g>
+              <g class="cat-tail-tip"><use href="./assets/images/editorial-cat.svg#cat-tail-tip"/></g>
+              <g class="cat-body"><use href="./assets/images/editorial-cat.svg#cat-body"/></g>
+              <g class="cat-head">
+                <use href="./assets/images/editorial-cat.svg#cat-head"/>
+                <g class="cat-eyes">
+                  <use href="./assets/images/editorial-cat.svg#cat-eyes"/>
+                  <g class="cat-pupils"><use href="./assets/images/editorial-cat.svg#cat-pupils"/></g>
+                </g>
+              </g>
+              <g class="cat-paws">
+                <g class="cat-paw-left"><use href="./assets/images/editorial-cat.svg#cat-paw-left"/></g>
+                <g class="cat-paw-right"><use href="./assets/images/editorial-cat.svg#cat-paw-right"/></g>
+              </g>
             </svg>
-          </div></div></div>
-          <div class="fish-bubble" data-side="left"><p>just keep scrolling</p></div>
+          </div></div>
+          <div class="cat-yarn-position">
+            <svg class="editorial-yarn" xmlns="http://www.w3.org/2000/svg" width="48" height="36" viewBox="0 0 48 36" focusable="false" fill="none">
+              <path d="M27 28C31 34 34 32 37 30C40 27 44 28 46 31" stroke="var(--cat-ink)" stroke-width="1.1" stroke-linecap="round"/>
+              <g class="cat-yarn-roll">
+                <g transform="translate(0 3) scale(.58)">
+                  <use href="./assets/images/hero-tests/logo-symbol.svg#Vector"/>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <div class="cat-bubble" data-side="left"><p>wanna play?</p></div>
         </div>
       </section>
     </main>

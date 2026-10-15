@@ -7,6 +7,8 @@ A progressively built brand and content website, using approved Figma designs.
 - Design: https://www.figma.com/design/oIV91BuTH2ouyVi5pHCDDv/Brand-Assets?node-id=143-3846
 - Stack: semantic HTML and CSS, self-hosted fonts, and minimal JavaScript for the scribble loop; static artwork remains available without JavaScript.
 
+The homepage now uses the approved cat version, including the centered cat and GBY-logo yarn ball, occasional and hover-triggered yarn play, and all four sayings. The Cat test preview remains available separately; the existing curtain preview retains the fish.
+
 ## Project layout
 
 `site/` contains the publishable website. `site/styles/main.css` holds the reusable design tokens and responsive styles. `site/assets/` contains the original Figma artwork and licensed fonts. `scripts/validate.mjs` checks local references, empty assets, basic HTML requirements, and temporary development markers.
@@ -27,7 +29,7 @@ node scripts/validate.mjs
 
 Review the Actions result and deployed website after each push. Do not assume a successful push means publishing succeeded. GitHub Actions provides the actual deployment URL. To undo a published change, revert its commit and push the revert; do not force push.
 
-## Current homepage — October 14, 2026
+## Current homepage — October 15, 2026
 
 After confirming that the optimized preview loads perfectly on her iPhone, the owner selected the **frosted hero and curtain reveal** page as the main homepage. It preserves the approved preview exactly: oversized scribbles behind the frosted copy, staggered page-load entrances, a curtain reveal into the second section, and the 55-second yellow / blush / violet / turquoise background cycle. Red opens the scribble loop, blue finishes it, and only blue is lowered by 75 CSS pixels.
 
@@ -132,7 +134,7 @@ The fish update was checked in Edge for cursor following, obstacle clearance, re
 
 ## Cat test preview — October 15, 2026
 
-[Cat test](https://melissa958.github.io/great-big-yarn/previews/cat-test.html) is a separate copy of the approved homepage. The [original fish homepage](https://melissa958.github.io/great-big-yarn/) and its HTML, CSS, JavaScript, and SVG are unchanged. The preview retains the shared hero, navigation, copy, palette cycle, and curtain effects, and is marked noindex.
+The owner promoted [Cat test](https://melissa958.github.io/great-big-yarn/previews/cat-test.html) to the [main homepage](https://melissa958.github.io/great-big-yarn/). Homepage markup matches the approved Cat test, with homepage-relative asset paths, the normal Great Big Yarn title, and no noindex restriction. The separate Cat test preview remains noindex. The fish implementation and [curtain preview](https://melissa958.github.io/great-big-yarn/previews/hero-curtain.html) remain available. The shared hero, navigation, copy, palette cycle, and curtain effects are preserved.
 
 The cat is a lightweight SVG recreation of the owner's standalone illustration, with separate body, head, eyes, pupils, tail, tail-tip, and paw groups. The illustration is based on the cat reference in Figma's second section (150:4708). Following the owner's refinement, the cat is now centered directly above the footer eyebrow, with a small yarn ball beside its right paw. The ball reuses the original Great Big Yarn logo mark, preserving its irregular black loops and proportions, with a short loose strand. The label retains its full centered width and sits closer to the section bottom. Short desktop layouts scale the cat to the available footer space; compact phones rebalance the existing copy's vertical position only as needed to keep the static cat and yarn above the label. Section height, text sizes, and copy widths are preserved. Touch and reduced-motion visitors see the static cat without a bubble.
 
