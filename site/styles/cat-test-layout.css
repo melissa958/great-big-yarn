@@ -1,0 +1,90 @@
+/* Isolated Cat test refinement; the published homepage is unchanged. */
+.cat-layout-test { --cat-test-width: 180px; }
+.cat-layout-test .messy-section { min-height: 100svh; padding: 48px 60px; }
+.cat-layout-test .messy-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  width: 100%;
+}
+.cat-layout-test .messy-content { top: 0; }
+.cat-test-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--cat-footer-gap, 10px);
+  width: 459px;
+  max-width: 100%;
+}
+.cat-test-home {
+  --cat-width: 180px;
+  --cat-height: 120.316px;
+  --cat-scale: .947368;
+  --cat-ink: #080808;
+  --cat-cream: #f4ecdc;
+  position: relative;
+  width: var(--cat-test-width);
+  aspect-ratio: 190 / 127;
+  flex: none;
+}
+.cat-test-home, .cat-test-home * { pointer-events: none; user-select: none; }
+.cat-layout-test .section-eyebrow {
+  position: relative;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  flex: none;
+}
+/* Position the no-JavaScript cat in the same flow slot as the live overlay. */
+.cat-test-home .cat-position { left: 50%; top: 50%; }
+.cat-test-home .cat-yarn-position {
+  left: calc(50% + var(--cat-width) / 2 - 12px);
+  top: calc(50% + var(--cat-height) / 2 - 33px);
+}
+@media (max-width: 1199px) and (min-width: 760px) {
+  .cat-layout-test { --cat-test-width: 116px; }
+  .cat-test-home { --cat-width: 116px; --cat-height: 77.537px; --cat-scale: .610526; }
+  .cat-layout-test .messy-section { padding: 48px 32px; }
+  .cat-test-home .cat-yarn-position { top: calc(50% + var(--cat-height) / 2 - 21.267px); }
+}
+@media (min-width: 1920px) and (min-height: 1000px) {
+  /* Retain the spacious desktop copy placement, lifting the footer from 24px. */
+  .cat-layout-test .messy-group { display: contents; }
+  .cat-layout-test .cat-test-footer {
+    position: absolute;
+    left: calc(50% - 229.5px);
+    bottom: clamp(64px, 6.6667svh, 112px);
+    max-width: calc(100% - 120px);
+  }
+}
+@media (max-width: 759px) {
+  /* Preserve the approved phone layout; only larger screens use the flow group. */
+  .cat-layout-test .messy-group, .cat-layout-test .cat-test-footer { display: contents; }
+  .cat-layout-test .cat-test-home {
+    display: contents;
+    --cat-width: 84px;
+    --cat-height: 56.147px;
+    --cat-scale: .442105;
+    --cat-home-x: calc(50% - .5px);
+    --cat-home-bottom: calc(10px + 40.4px + 8px + var(--cat-height) / 2);
+  }
+  .cat-test-home .cat-position { left: var(--cat-home-x); top: calc(100% - var(--cat-home-bottom)); }
+  .cat-test-home .cat-yarn-position { left: calc(50% + 42px - 12px); top: calc(100% - var(--cat-home-bottom) + 28.0735px - 15.4px); }
+  .cat-layout-test .messy-section { min-height: 100svh; padding: 100px 32px; }
+  .cat-layout-test .messy-content { top: var(--cat-copy-offset, -44px); }
+  .cat-layout-test .section-eyebrow { position: absolute; left: 24px; right: 24px; bottom: 10px; width: calc(100% - 48px); max-width: 459px; margin: 0 auto; }
+}
+@media (max-width: 599px) {
+  .cat-layout-test .messy-section { padding: 80px 24px; }
+}
+@media (prefers-reduced-motion: no-preference) and (any-hover: hover) and (any-pointer: fine) {
+  /* A touch-capable laptop can still have a mouse or trackpad. */
+  .cat-layout-test .cat-bubble { display: block; }
+}
+@media (min-width: 760px) and (any-hover: hover) and (any-pointer: fine) {
+  .cat-layout-test .animation-controls { display: block; }
+}
