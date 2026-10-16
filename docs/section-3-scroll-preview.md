@@ -22,7 +22,9 @@ The Section 3 controller starts motion only when the circle intersects the viewp
 
 ## Running sneakers
 
-One decorative inline SVG sits directly above “The story has to catch up.” on the homepage and scroll preview. It shares the kaleidoscope's responsive square, left alignment and heading gap. Only two shoes are shown: a coral rear shoe and pink foreground shoe, with contrasting panels, cream chunky soles and simple laces. A shared SVG definition keeps the pair lightweight.
+One decorative inline SVG sits directly above “The story has to catch up.” on the homepage and scroll preview. It retains the kaleidoscope's responsive height, left alignment and heading gap. Two shoes are shown: a coral rear shoe and pink foreground shoe, with contrasting panels, cream chunky soles and simple laces. A shared SVG definition keeps the pair lightweight.
+
+A stationary roadside marquee sits ahead of the shoes, pointing right with “YOUR AUDIENCE →” in black Be Vietnam lettering on a cream face, a coral frame and a slightly crooked coral post. Twelve yellow bulbs gently chase around the edge over 3.6 seconds, without flashing the lettering or moving the sign. The scene's viewBox is 444×240, with width 1.85 times the original square art width: the shoes retain their exact original scale and animation, while art height, heading gap and surrounding content positions stay unchanged. The scene remains within the right column and mobile gutters. --sign-chase-cycle and --bulb-index control the lights; they share --sneaker-play for offscreen, curtain and hidden-tab pausing. Reduced motion/no JavaScript keep all bulbs steadily lit.
 
 The same one-second stride runs on both shoes, offset by half a cycle. A shoe lands heel-first, presses down, moves back through its stance, rolls onto the toe, then lifts and swings forward. The rear shoe's smaller scale and higher baseline convey depth; motion is confined to the art area. A small cream landing puff and trailing dashes appear every two strides. Tuning lives in opportunity-scroll.css, including --sneaker-cycle and the stride keyframes.
 
