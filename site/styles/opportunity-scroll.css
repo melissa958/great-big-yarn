@@ -44,8 +44,9 @@
 .opportunity-scroll .opportunity-card h3 { min-height: 0; }
 .opportunity-kaleidoscope, .opportunity-sneakers, .opportunity-hearts {
   --kaleido-play: paused;
+  --section-art-width: clamp(8rem, 12vw, 11rem);
   flex: none;
-  width: clamp(8rem, 12vw, 11rem);
+  width: var(--section-art-width);
   max-width: 100%;
   aspect-ratio: 1;
   margin: 0 0 36px;
@@ -145,12 +146,12 @@
 }
 
 @media (min-width: 1000px) and (max-height: 650px) {
-  .opportunity-kaleidoscope, .opportunity-sneakers, .opportunity-hearts { width: 7rem; margin-bottom: 24px; }
+  .opportunity-kaleidoscope, .opportunity-sneakers, .opportunity-hearts { --section-art-width: 7rem; margin-bottom: 24px; }
 }
 @media (max-width: 999px) {
-  .opportunity-kaleidoscope, .opportunity-sneakers, .opportunity-hearts { width: 8rem; margin-bottom: 28px; }
+  .opportunity-kaleidoscope, .opportunity-sneakers, .opportunity-hearts { --section-art-width: 8rem; margin-bottom: 28px; }
 }
-.opportunity-hearts { --heart-cycle: 14s; --heart-play: paused; --heart-stroke: 1.75px; background: var(--ink); }
+.opportunity-hearts { --heart-cycle: 14s; --heart-play: paused; --heart-stroke: 2.75px; width: calc(var(--section-art-width) * 1.1); background: var(--ink); }
 .opportunity-hearts svg { display: block; width: 100%; height: 100%; overflow: hidden; }
 .heart-wave, .heart-core { transform-box: view-box; transform-origin: 0 0; }
 .heart-wave {
