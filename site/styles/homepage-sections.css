@@ -48,7 +48,7 @@
 .content-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px 26px;
+  gap: 32px;
   max-width: 1108px;
   margin-inline: auto;
   font-family: var(--font);
@@ -58,18 +58,18 @@
 .services-grid { margin-top: 59px; }
 .homepage-section h3 {
   margin: 0;
-  font-size: 1.125rem;
+  font-size: 1.375rem;
   font-weight: 700;
-  line-height: 1.38;
+  line-height: 1.3;
 }
-.content-grid p { margin: 0; font-size: 1.125rem; font-weight: 300; line-height: 1.38; }
+.content-grid p { margin: 0; font-size: 1.125rem; font-weight: 300; line-height: 1.55; }
 .content-grid :is(h3, p) { overflow-wrap: anywhere; }
-.content-grid strong { font-weight: 700; }
-.opportunity-card { min-height: 255px; padding: 37px 24px; border: 1px solid var(--white); }
-.opportunity-card p { margin-top: 37px; color: #b7b7b7; }
-.service-card { min-height: 296px; padding: 16px 25px 32px; color: var(--ink); }
-.service-card p { margin-top: 20px; }
-.service-art { display: flex; align-items: center; height: 75px; margin-left: -7px; }
+.content-grid strong { font-weight: 600; }
+.opportunity-card { min-height: 255px; padding: 36px 32px; border: 1px solid var(--white); }
+.opportunity-card p { margin-top: 32px; color: #b7b7b7; }
+.service-card { min-height: 296px; padding: 36px 32px; color: var(--ink); }
+.service-card p { margin-top: 32px; }
+.service-art { display: flex; align-items: center; height: 75px; margin: 0 0 20px -7px; }
 .service-art img { display: block; flex: none; }
 .service-strategy .service-art, .service-presentations .service-art { margin-left: -4px; }
 .service-campaigns .service-art { margin-left: 0; }
@@ -80,8 +80,10 @@
 .service-websites { background: var(--pink); }
 .service-presentations { background: var(--turquoise); }
 .service-toolkits { background: var(--green); }
-.service-card:nth-child(n + 4) { padding-top: 28px; }
-.service-card:nth-child(n + 4) h3 { margin-top: 12px; }
+@media (min-width: 1200px) and (max-width: 1919px) {
+  /* Keep paragraph starts aligned when one opportunity heading wraps. */
+  .opportunity-card h3 { min-height: 2.6em; }
+}
 @media (min-width: 1000px) {
   .homepage-section { display: flex; flex-direction: column; justify-content: center; }
   .opportunity-section { min-height: max(836px, 100svh); }
@@ -92,21 +94,19 @@
 @media (min-width: 1920px) {
   /* Match the existing large-desktop hero panel and navigation width. */
   .content-grid { max-width: 1320px; }
+  .opportunity-card, .service-card { padding: 40px; }
 }
 @media (max-width: 1199px) {
   .homepage-section { padding-inline: 32px; }
   .homepage-section h2 { font-size: clamp(36px, 4.514vw, 65px); }
-  .content-grid { gap: 20px; }
-  .opportunity-card { padding: 28px 22px; }
+  .content-grid { gap: 24px; }
+  .opportunity-card, .service-card { padding: 32px; }
+  .opportunity-grid { grid-template-columns: 1fr; max-width: 620px; margin-top: 48px; }
+  .opportunity-card { min-height: 0; }
+  .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 48px; }
 }
 @media (max-width: 999px) {
   .opportunity-section, .services-section { min-height: 0; padding-block: 100px; }
-  .opportunity-grid { grid-template-columns: 1fr; max-width: 620px; margin-top: 48px; }
-  .opportunity-card { min-height: 0; }
-  .opportunity-card p { margin-top: 20px; }
-  .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 48px; }
-  .service-card:nth-child(n) { padding-top: 20px; }
-  .service-card:nth-child(n) h3 { margin-top: 8px; }
 }
 @media (max-width: 759px) {
   .content-eyebrow { line-height: 1.5; }
@@ -115,9 +115,8 @@
   .homepage-section { padding-inline: 24px; }
   .opportunity-section, .services-section { padding-block: 80px; }
   .homepage-section h2 { font-size: clamp(32px, 8.2vw, 44px); }
-  .content-grid { grid-template-columns: 1fr; gap: 20px; }
-  .content-grid p { line-height: 1.5; }
-  .service-card { min-height: 296px; padding-inline: 24px; }
+  .content-grid { grid-template-columns: 1fr; gap: 24px; }
+  .opportunity-card, .service-card { padding: 32px 24px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .curtain-sequence > .opportunity-section { position: relative; }
