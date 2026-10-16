@@ -10,6 +10,8 @@ At 1000px and wider, Section 3 has two columns within the existing 1108px / 1320
 
 The three article elements remain semantic HTML in reading order. Desktop opacity is calculated only on requested animation frames after scrolling/resizing. Tuning is grouped in OPPORTUNITY_SCROLL: a 1000px breakpoint, a fully visible region within .22 viewport heights of center, and a fade ending at .46 viewport heights. Only one point has visible opacity at a time. There is no timed slideshow, snapping, or scroll interception. Work pauses offscreen and in hidden tabs.
 
+The wrapper's reserved overflow uses fractional getBoundingClientRect heights for both the story and wrapper. Integer offsetHeight/clientHeight measurements introduced a half-pixel gap after the client logos, visible above the next section's portrait at 150% display scaling. Preserve precise measurement and the curtain sequence's ink backing; the following section starts exactly where this story ends.
+
 Reduced motion disables the fades and curtain wrapper; all points remain visible with natural scrolling. Without JavaScript, all content is visible in normal document flow. Mobile retains the original once-on-entry fades and accessible reading order. Shared styles and controllers retain the previous layout on other previews.
 
 ## Kaleidoscope

@@ -4,7 +4,7 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   min-height: max(820px, 100svh);
   padding: 0;
-  /* Keep fractional-pixel image edges from exposing the paper backing. */
+  /* The paper background belongs only to the text panel. */
   background: var(--ink);
   color: var(--ink);
   text-align: left;
@@ -45,11 +45,10 @@
 .studio-portrait { position: relative; min-width: 0; overflow: clip; background: var(--ink); }
 .studio-portrait img {
   position: absolute;
-  /* A 1px bleed is clipped by the portrait slot; its layout stays unchanged. */
-  inset: -1px;
+  inset: 0;
   display: block;
-  width: calc(100% + 2px);
-  height: calc(100% + 2px);
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 }

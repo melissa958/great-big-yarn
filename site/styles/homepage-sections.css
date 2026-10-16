@@ -1,5 +1,5 @@
 /* Nest the original reveal above a second curtain, ending before services. */
-.curtain-sequence { position: relative; display: flow-root; }
+.curtain-sequence { position: relative; display: flow-root; background: var(--ink); }
 .curtain-pair { position: relative; z-index: 2; display: flow-root; }
 .curtain-sequence .section-scroll-prompt { display: block; border: 0; }
 .section-scroll-prompt a { display: inline-block; text-decoration: underline; text-underline-offset: .2em; }

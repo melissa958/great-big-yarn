@@ -39,7 +39,10 @@ if (story) {
   }
   function measure() {
     wrapper.classList.add('opportunity-scroll-ready');
-    wrapper.style.setProperty('--opportunity-overflow', `${Math.max(0, story.offsetHeight - wrapper.clientHeight)}px`);
+    // Integer layout heights can reserve an extra half-pixel below the logos.
+    // Preserve fractional heights so the next section meets the story exactly.
+    const overflow = story.getBoundingClientRect().height - wrapper.getBoundingClientRect().height;
+    wrapper.style.setProperty('--opportunity-overflow', `${Math.max(0, overflow)}px`);
     syncArtwork();
     queue();
   }
