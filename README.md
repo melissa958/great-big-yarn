@@ -174,6 +174,8 @@ The subsequent desktop sizing and second curtain update passed validation and br
 
 The homepage Pause button now controls only the hero scribble and hero/navigation entrance animations. The entire control hides after the hero scrolls out of view, and returns with its existing Pause/Resume state when the visitor scrolls back. Hero Pause does not stop the second-section palette or entrances, the cat, or the service illustrations. Hidden-tab/offscreen pausing and reduced-motion support remain independent. This is enabled by the homepage button’s data-pause-scope="hero" attribute; existing preview controls keep their original scope. The button remains hidden on mobile.
 
+Section 4 was subsequently changed to paper cream (`#F4ECDC`) with a black main heading and black eyebrow text/dashed outline. Its card headings and paragraphs both use `1.125rem`, equivalent to 18px at the browser’s standard 16px root size. Bold headings and sentence emphasis, the six card colors, artwork sizes, and grid widths are retained. Cards grow to accommodate the larger text; the desktop section remains at least a viewport tall. Section 3 retains its prior styling. Edge checks at 320px, 390px, 768px, 1024px, 1366px, 1920px, and 2560px widths and WebKit checks at 390px/1920px confirmed colors, computed text sizes, card clearance, and no overflow. Doubling the root text size produced 36px card text and retained usable, unclipped layouts.
+
 ## Future work
 
 Implement new sections and pages only when their designs are supplied. Replace inactive navigation with real destinations as those pages become available. Connect the custom domain only when explicitly requested; DNS and custom-domain settings have not been configured.

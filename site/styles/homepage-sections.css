@@ -10,7 +10,7 @@
   text-align: center;
 }
 .opportunity-section { min-height: 836px; padding-block: 154px 143px; }
-.services-section { min-height: 1075px; padding-block: 132px 131px; }
+.services-section { min-height: 1075px; padding-block: 132px 131px; background: var(--paper); color: var(--ink); }
 .curtain-sequence > .opportunity-section { position: sticky; top: 0; bottom: 0; z-index: 1; }
 @media (prefers-reduced-motion: no-preference) {
   /* The uncovered layer must fill the screen even on tall tablets. */
@@ -67,6 +67,7 @@
 .opportunity-card p { margin-top: 37px; color: #b7b7b7; }
 .service-card { min-height: 296px; padding: 16px 25px 32px; color: var(--ink); }
 .service-card p { margin-top: 20px; }
+.services-section .service-card :is(h3, p) { font-size: 1.125rem; overflow-wrap: anywhere; }
 .service-art { display: flex; align-items: center; height: 75px; margin-left: -7px; }
 .service-art img { display: block; flex: none; }
 .service-strategy .service-art, .service-presentations .service-art { margin-left: -4px; }
