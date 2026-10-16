@@ -205,7 +205,8 @@
 .audience-sign-label {
   fill: var(--ink);
   font-family: var(--font);
-  font-size: 19px;
+  font-size: 21px;
+  font-style: italic;
   font-weight: 700;
   letter-spacing: .25px;
 }
@@ -220,7 +221,7 @@
 @media (prefers-reduced-motion: no-preference) {
   .opportunity-scroll-ready .audience-sign-bulbs circle {
     animation: audience-marquee var(--sign-chase-cycle) ease-in-out infinite;
-    animation-delay: calc(var(--bulb-index) * var(--sign-chase-cycle) / -12);
+    animation-delay: calc(var(--bulb-index) * var(--sign-chase-cycle) / -21);
     animation-play-state: var(--sneaker-play);
   }
   .sneaker-step {
