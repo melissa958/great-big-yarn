@@ -29,6 +29,8 @@
 - Paths must work at a GitHub Pages project subpath and a future domain root.
 
 ## Verification and handoff
+
+- The owner approved a separate case-study carousel preview based on their supplied screenshot, using Caban Energy, Ohmium, Ric Benefits, NextWave Energy Monitoring and Latitude Media in that order. Keep it separate at previews/case-studies.html until approved for the homepage. Use supplied project images, off-white #F4ECDC buttons with black copy, manual arrows/swiping and reduced-motion support. Case-study buttons stay inactive until real destination pages exist. The owner also approved a slow client-logo carousel below Section 3's cards and supplied ZETA, Caban, GreenieRE, Ric, Latitude, NextWave, Ohmium and Scale logos. Keep original logo colors on an off-white strip in the same preview, with hover/focus/Pause and reduced-motion static fallback. Details and image optimization figures are in docs/case-study-carousel.md.
 - Run `node scripts/validate.mjs` before committing deployable work.
 - Wait for GitHub Actions and verify the live URL before claiming deployment success.
 - Compare desktop and mobile renderings to Figma; check overflow, fonts, asset geometry, keyboard behavior, and links.

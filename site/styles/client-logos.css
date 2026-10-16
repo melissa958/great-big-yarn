@@ -1,0 +1,56 @@
+/* Preserve original logo colors on paper; this component is preview-only. */
+.client-strip {
+  --logo-duration: 65s;
+  --logo-width: 200px;
+  --logo-gap: 48px;
+  flex: none;
+  width: 100%;
+  max-width: 1108px;
+  margin: 72px auto 0;
+  padding: 28px 0 32px;
+  background: var(--paper);
+  color: #000;
+  text-align: center;
+}
+.client-strip-header { position: relative; margin: 0 24px 24px; padding: 8px 72px; }
+.client-strip-header p { margin: 0; font: 500 .6875rem/1.5 var(--font); letter-spacing: .06em; text-transform: uppercase; }
+.client-pause {
+  position: absolute;
+  right: 0;
+  top: 0;
+  min-height: 32px;
+  padding: 6px 8px;
+  border: 1px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: #000;
+  font: 500 .6875rem/1.5 var(--font);
+  cursor: pointer;
+}
+.client-pause:hover { border-color: currentColor; }
+.client-strip :focus-visible { outline: 2px solid #000; outline-offset: 2px; }
+.client-window { overflow: hidden; }
+.client-track { display: flex; }
+.client-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: center; gap: 24px; width: 100%; margin: 0; padding: 0 24px; list-style: none; }
+.client-list li { display: flex; align-items: center; justify-content: center; min-width: 0; height: 70px; }
+.client-list img { display: block; max-width: 170px; max-height: 56px; width: auto; height: auto; object-fit: contain; }
+.client-motion .client-window { mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent); }
+.client-motion .client-track { width: max-content; animation: client-drift var(--logo-duration) linear infinite; animation-play-state: paused; }
+.client-motion .client-list { display: flex; flex: none; gap: var(--logo-gap); width: auto; padding: 0 var(--logo-gap) 0 0; }
+.client-motion .client-list li { flex: none; width: var(--logo-width); }
+.client-motion.client-running .client-track { animation-play-state: running; }
+.client-motion:is(:hover, :focus-within, .client-paused) .client-track { animation-play-state: paused; }
+@keyframes client-drift { to { transform: translateX(-50%); } }
+@media (min-width: 1920px) { .client-strip { max-width: 1320px; } }
+@media (max-width: 999px) { .client-strip { --logo-width: 170px; --logo-gap: 32px; margin-top: 56px; } }
+@media (max-width: 599px) {
+  .client-strip { --logo-width: 146px; --logo-gap: 24px; --logo-duration: 60s; margin-top: 48px; padding-block: 24px; }
+  .client-strip-header { margin: 0 12px 16px; padding: 6px 56px 6px 0; text-align: left; }
+  .client-strip-header p { font-size: .625rem; }
+  .client-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding-inline: 16px; }
+  .client-list img { max-width: 120px; max-height: 44px; }
+  .client-list li { height: 60px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .client-motion .client-track { animation: none; transform: none; }
+}
