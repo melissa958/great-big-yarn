@@ -42,7 +42,7 @@
   border: 0;
 }
 .opportunity-scroll .opportunity-card h3 { min-height: 0; }
-.opportunity-kaleidoscope {
+.opportunity-kaleidoscope, .opportunity-sneakers {
   --kaleido-play: paused;
   flex: none;
   width: clamp(8rem, 12vw, 11rem);
@@ -145,10 +145,53 @@
 }
 
 @media (min-width: 1000px) and (max-height: 650px) {
-  .opportunity-kaleidoscope { width: 7rem; margin-bottom: 24px; }
+  .opportunity-kaleidoscope, .opportunity-sneakers { width: 7rem; margin-bottom: 24px; }
 }
 @media (max-width: 999px) {
-  .opportunity-kaleidoscope { width: 8rem; margin-bottom: 28px; }
+  .opportunity-kaleidoscope, .opportunity-sneakers { width: 8rem; margin-bottom: 28px; }
+}
+.opportunity-sneakers { --sneaker-cycle: 1s; --sneaker-play: paused; }
+.opportunity-sneakers svg { display: block; width: 100%; height: 100%; overflow: hidden; }
+.runner-shoe-back { color: var(--red); --shoe-accent: var(--blush); }
+.runner-shoe-front { color: var(--blush); --shoe-accent: var(--red); }
+.sneaker-step, .sneaker-puff, .sneaker-trails { transform-box: view-box; transform-origin: 0 0; }
+.sneaker-step-front { transform: translate(28px, 7px) rotate(-10deg); }
+.sneaker-step-back { transform: translate(-32px, -6px) rotate(28deg); }
+.sneaker-puff, .sneaker-trails { opacity: 0; }
+.opportunity-sneakers.sneakers-running { --sneaker-play: running; }
+@media (prefers-reduced-motion: no-preference) {
+  .sneaker-step {
+    animation: sneaker-stride var(--sneaker-cycle) ease-in-out infinite;
+    animation-play-state: var(--sneaker-play);
+  }
+  .sneaker-step-back { animation-delay: calc(var(--sneaker-cycle) * -.5); }
+  .sneaker-puff {
+    animation: sneaker-landing calc(var(--sneaker-cycle) * 2) ease-out infinite;
+    animation-play-state: var(--sneaker-play);
+  }
+  .sneaker-trails {
+    animation: sneaker-dashes calc(var(--sneaker-cycle) * 2) ease-out infinite;
+    animation-play-state: var(--sneaker-play);
+  }
+}
+@keyframes sneaker-stride {
+  0%, 100% { transform: translate(28px, 7px) rotate(-10deg); }
+  12% { transform: translate(14px, 12px) rotate(0deg); animation-timing-function: linear; }
+  36% { transform: translate(-26px, 8px) rotate(12deg); }
+  50% { transform: translate(-32px, -6px) rotate(28deg); }
+  65% { transform: translate(-14px, -38px) rotate(-10deg); }
+  80% { transform: translate(16px, -30px) rotate(-20deg); }
+}
+@keyframes sneaker-landing {
+  0% { opacity: 0; transform: translate(0, 0) scale(1); }
+  3% { opacity: .7; transform: translate(-2px, 0) scale(1); }
+  10% { opacity: 0; transform: translate(-7px, -3px) scale(1.03); }
+  100% { opacity: 0; transform: translate(-7px, -3px) scale(1.03); }
+}
+@keyframes sneaker-dashes {
+  0%, 18%, 32%, 100% { opacity: 0; transform: translateX(0); }
+  23% { opacity: .6; transform: translateX(-2px); }
+  30% { opacity: 0; transform: translateX(-7px); }
 }
 .opportunity-scroll .client-strip { margin-top: 0; }
 @media (min-width: 1920px) {

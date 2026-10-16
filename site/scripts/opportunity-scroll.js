@@ -6,14 +6,16 @@ if (story) {
   const points = [...story.querySelectorAll('.opportunity-card')];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const desktop = matchMedia(`(min-width: ${OPPORTUNITY_SCROLL.desktopWidth}px)`);
-  const kaleidoscope = story.querySelector('.opportunity-kaleidoscope');
+  const artwork = [...story.querySelectorAll('[data-section-motion]')];
   const curtain = document.querySelector('.curtain-pair');
-  let kaleidoscopeVisible = false;
+  const visibleArtwork = new Set();
   let frame = 0;
   let visible = false;
-  function syncKaleidoscope() {
-    const uncovered = kaleidoscopeVisible && (!curtain || curtain.getBoundingClientRect().bottom <= kaleidoscope.getBoundingClientRect().top);
-    kaleidoscope?.classList.toggle('kaleido-running', uncovered && !document.hidden && !reduced.matches);
+  function syncArtwork() {
+    for (const art of artwork) {
+      const uncovered = visibleArtwork.has(art) && (!curtain || curtain.getBoundingClientRect().bottom <= art.getBoundingClientRect().top);
+      art.classList.toggle(art.dataset.sectionMotion, uncovered && !document.hidden && !reduced.matches);
+    }
   }
   function update() {
     frame = 0;
@@ -30,7 +32,7 @@ if (story) {
       // Smoothstep softens the start/end; adjacent points never overlap fades.
       point.style.setProperty('--point-opacity', String(progress * progress * (3 - 2 * progress)));
     }
-    syncKaleidoscope();
+    syncArtwork();
   }
   function queue() {
     if (!frame && !document.hidden && visible) frame = requestAnimationFrame(update);
@@ -38,7 +40,7 @@ if (story) {
   function measure() {
     wrapper.classList.add('opportunity-scroll-ready');
     wrapper.style.setProperty('--opportunity-overflow', `${Math.max(0, story.offsetHeight - wrapper.clientHeight)}px`);
-    syncKaleidoscope();
+    syncArtwork();
     queue();
   }
   new ResizeObserver(measure).observe(story);
@@ -46,14 +48,17 @@ if (story) {
     visible = entries[0].isIntersecting;
     queue();
   }).observe(story);
-  if (kaleidoscope) new IntersectionObserver(entries => {
-    kaleidoscopeVisible = entries[0].isIntersecting;
-    syncKaleidoscope();
-  }).observe(kaleidoscope);
+  const artworkObserver = new IntersectionObserver(entries => {
+    for (const { target, isIntersecting } of entries) {
+      if (isIntersecting) visibleArtwork.add(target); else visibleArtwork.delete(target);
+    }
+    syncArtwork();
+  });
+  for (const art of artwork) artworkObserver.observe(art);
   addEventListener('scroll', queue, { passive: true });
   addEventListener('resize', measure, { passive: true });
   document.addEventListener('visibilitychange', () => {
-    syncKaleidoscope();
+    syncArtwork();
     if (document.hidden && frame) { cancelAnimationFrame(frame); frame = 0; }
     else queue();
   });
