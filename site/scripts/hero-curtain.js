@@ -20,7 +20,7 @@ const revealGroups = [
   { cover: hero, items: [...section.querySelectorAll('h2, .messy-copy p, .section-eyebrow')] },
   ...[...document.querySelectorAll('.homepage-section')].map(root => ({
     cover: root.classList.contains('opportunity-section') ? hero.closest('.curtain-pair') : null,
-    items: [...root.querySelectorAll('.content-eyebrow, h2, article')]
+    items: [...root.querySelectorAll(root.classList.contains('studio-section') ? '.studio-copy' : '.content-eyebrow, h2, article')]
   }))
 ];
 for (const { items } of revealGroups) for (const item of items) item.classList.add('scroll-reveal');

@@ -1,0 +1,67 @@
+/* Figma NEW Section 4: studio introduction, between client logos and services. */
+.studio-section {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-height: max(820px, 100svh);
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  text-align: left;
+}
+.studio-copy-panel {
+  display: grid;
+  align-items: center;
+  padding: 100px 64px;
+}
+.studio-copy {
+  position: relative;
+  left: clamp(0px, calc((100vw - 1200px) * .104167), 25px);
+  width: 100%;
+  max-width: 452px;
+  margin-inline: auto;
+}
+.studio-section .content-eyebrow {
+  width: 134px;
+  min-width: 0;
+  padding: 9px 8px;
+  margin: 0 0 25px;
+}
+.studio-section .studio-title {
+  max-width: 447px;
+  margin: 0 0 23px;
+  font-size: 2.1875rem;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+.studio-description {
+  margin: 0 0 40px;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.38;
+}
+.studio-read-more { margin: 0; }
+.studio-portrait { position: relative; min-width: 0; overflow: clip; }
+.studio-portrait img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+@media (max-width: 1199px) {
+  .studio-copy-panel { padding: 80px 40px; }
+}
+@media (max-width: 999px) {
+  .studio-section { grid-template-columns: 1fr; min-height: 0; }
+  .studio-copy-panel { padding: 80px 32px; }
+  .studio-copy { left: 0; max-width: 560px; }
+  .studio-section .studio-title { max-width: none; }
+  .studio-portrait { aspect-ratio: 716 / 820; }
+}
+@media (max-width: 599px) {
+  .studio-copy-panel { padding: 64px 24px; }
+  .studio-section .studio-title { font-size: 2rem; }
+  .studio-description { line-height: 1.5; }
+}
