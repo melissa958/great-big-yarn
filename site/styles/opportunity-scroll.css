@@ -1,0 +1,76 @@
+/* Isolated Section 3 experiment; the homepage retains its approved cards. */
+.opportunity-scroll {
+  display: block;
+  min-height: 0;
+  padding-block: 0 80px;
+  text-align: left;
+}
+.opportunity-story {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(64px, 7vw, 144px);
+  max-width: 1108px;
+  margin-inline: auto;
+}
+.opportunity-intro {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100svh;
+  padding-block: 48px;
+}
+.opportunity-scroll .content-eyebrow { margin: 0 0 32px; }
+.opportunity-scroll h2 {
+  font-size: clamp(2.5rem, 4.2vw, 4.0625rem);
+  line-height: 1.12;
+}
+.opportunity-scroll .opportunity-grid {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+.opportunity-scroll .opportunity-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: max(100svh, 32rem);
+  padding: 64px 0;
+  border: 0;
+}
+.opportunity-scroll .opportunity-card h3 { min-height: 0; }
+.opportunity-scroll .client-strip { margin-top: 0; }
+@media (min-width: 1920px) {
+  .opportunity-story { max-width: 1320px; }
+}
+@media (min-width: 1000px) and (prefers-reduced-motion: no-preference) {
+  /* The controller fades only one point at a time, without moving the scroll. */
+  .opportunity-scroll-ready .opportunity-card.scroll-reveal {
+    animation: none !important;
+    transform: none;
+    opacity: var(--point-opacity, 1) !important;
+    animation-delay: 0ms;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* A one-screen wrapper preserves the curtain over the first reading frame.
+     Its measured bottom margin reserves the full story and logo-strip height. */
+  .curtain-sequence > .opportunity-reveal.opportunity-scroll-ready {
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+    height: 100svh;
+    margin-bottom: var(--opportunity-overflow, 0px);
+  }
+}
+@media (max-width: 999px) {
+  .opportunity-scroll { padding-block: 80px 64px; }
+  .opportunity-story { display: block; max-width: 620px; }
+  .opportunity-intro { position: static; min-height: 0; padding: 0 0 56px; }
+  .opportunity-scroll h2 { font-size: clamp(2rem, 6vw, 3rem); }
+  .opportunity-scroll .opportunity-card { min-height: 0; padding: 48px 0; }
+  .opportunity-scroll .client-strip { margin-top: 40px; }
+}
