@@ -51,23 +51,24 @@
   gap: 20px 26px;
   max-width: 1108px;
   margin-inline: auto;
+  font-family: var(--font);
   text-align: left;
 }
 .opportunity-grid { margin-top: 68px; }
 .services-grid { margin-top: 59px; }
 .homepage-section h3 {
   margin: 0;
-  font-size: 20px;
+  font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.38;
 }
-.content-grid p { margin: 0; font-size: 14px; font-weight: 300; line-height: 1.38; }
+.content-grid p { margin: 0; font-size: 1.125rem; font-weight: 300; line-height: 1.38; }
+.content-grid :is(h3, p) { overflow-wrap: anywhere; }
 .content-grid strong { font-weight: 700; }
 .opportunity-card { min-height: 255px; padding: 37px 24px; border: 1px solid var(--white); }
 .opportunity-card p { margin-top: 37px; color: #b7b7b7; }
 .service-card { min-height: 296px; padding: 16px 25px 32px; color: var(--ink); }
 .service-card p { margin-top: 20px; }
-.services-section .service-card :is(h3, p) { font-size: 1.125rem; overflow-wrap: anywhere; }
 .service-art { display: flex; align-items: center; height: 75px; margin-left: -7px; }
 .service-art img { display: block; flex: none; }
 .service-strategy .service-art, .service-presentations .service-art { margin-left: -4px; }
@@ -96,7 +97,6 @@
   .homepage-section { padding-inline: 32px; }
   .homepage-section h2 { font-size: clamp(36px, 4.514vw, 65px); }
   .content-grid { gap: 20px; }
-  .homepage-section h3 { font-size: 18px; }
   .opportunity-card { padding: 28px 22px; }
 }
 @media (max-width: 999px) {
@@ -116,7 +116,7 @@
   .opportunity-section, .services-section { padding-block: 80px; }
   .homepage-section h2 { font-size: clamp(32px, 8.2vw, 44px); }
   .content-grid { grid-template-columns: 1fr; gap: 20px; }
-  .content-grid p { font-size: 16px; line-height: 1.5; }
+  .content-grid p { line-height: 1.5; }
   .service-card { min-height: 296px; padding-inline: 24px; }
 }
 @media (prefers-reduced-motion: reduce) {
