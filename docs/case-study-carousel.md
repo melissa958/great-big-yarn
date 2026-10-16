@@ -2,11 +2,13 @@
 
 Preview: `https://melissa958.github.io/great-big-yarn/previews/case-studies.html#case-studies`
 
-This is a copy of the approved four-section homepage, with selected work appended after the services cards and a client-logo strip below the Section 3 cards. It does not change the homepage or Cat test. After comparing three visual concepts, the owner selected the editorial grid to replace the initial project carousel. The existing preview URL is preserved.
+Homepage: `https://melissa958.github.io/great-big-yarn/`
+
+The owner approved promoting this complete page version to the homepage, including selected work after the services cards and the client-logo strip below the Section 3 cards. The preview remains available for comparison; Cat test is unchanged. After comparing three visual concepts, the owner selected the editorial grid to replace the initial project carousel. The homepage preserves the approved preview's content, layout, assets and interactions, with homepage metadata and root-level relative asset paths. Only the separate preview uses noindex.
 
 ## Content and links
 
-Project articles are in `site/previews/case-studies.html`, in this approved reading order:
+Project articles are in `site/index.html` and `site/previews/case-studies.html`, in this approved reading order:
 
 1. Caban Energy
 2. Ohmium

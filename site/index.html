@@ -20,6 +20,10 @@
     <script type="module" src="./scripts/hero-curtain.js"></script>
     <script type="module" src="./scripts/section-cat-test.js"></script>
     <script type="module" src="./scripts/service-marks.js"></script>
+    <link rel="stylesheet" href="./styles/case-study-grid.css">
+    <script type="module" src="./scripts/project-hover.js"></script>
+    <link rel="stylesheet" href="./styles/client-logos.css">
+    <script type="module" src="./scripts/client-logos.js"></script>
   </head>
   <body class="hero-preview curtain-preview cat-preview cat-layout-test" data-layout="curtain">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -137,6 +141,26 @@
             <p>I find the idea at the heart of your company and build the story and creative around it. So what makes you special becomes easier to understand, easier to remember, and harder to overlook.</p>
           </article>
         </div>
+        <div class="client-strip" role="region" aria-labelledby="client-strip-title">
+          <div class="client-strip-header">
+            <p id="client-strip-title">Select clients I’ve worked with</p>
+            <button class="client-pause" type="button" hidden aria-label="Pause client logo animation" aria-pressed="false">Pause <span aria-hidden="true">Ⅱ</span></button>
+          </div>
+          <div class="client-window">
+            <div class="client-track">
+              <ul class="client-list">
+              <li><img src="./assets/images/clients/zeta-dark.webp" width="510" height="116" alt="ZETA" loading="lazy" decoding="async"></li>
+              <li><img src="./assets/images/clients/caban-dark.webp" width="510" height="122" alt="Caban Energy" loading="lazy" decoding="async"></li>
+              <li><img src="./assets/images/clients/greeniere-dark.webp" width="510" height="130" alt="GreenieRE Coalition" loading="lazy" decoding="async"></li>
+              <li><img src="./assets/images/clients/ric-dark.webp" width="256" height="139" alt="Ric Benefits" loading="lazy" decoding="async"></li>
+              <li><img src="./assets/images/clients/latitude-dark.webp" width="510" height="77" alt="Latitude Media" loading="lazy" decoding="async"></li>
+              <li><img src="./assets/images/clients/nextwave-dark.webp" width="510" height="137" alt="NextWave Energy Monitoring" loading="lazy" decoding="async"></li>
+              <li><img src="./assets/images/clients/ohmium-dark.webp" width="510" height="75" alt="Ohmium" loading="lazy" decoding="async"></li>
+              <li><img src="./assets/images/clients/scale-dark.webp" width="510" height="85" alt="Scale" loading="lazy" decoding="async"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
       </div>
       <section class="services-section homepage-section" aria-labelledby="services-title">
@@ -172,6 +196,66 @@
             <div class="service-art"><img src="./assets/images/services/brand-systems.png" data-motion-src="./assets/images/services/brand-systems.gif" width="75" height="75" alt="" loading="lazy" decoding="async"></div>
             <h3>Toolkits + guidelines</h3>
             <p><strong>The brand works, but keeping it consistent gets harder as more people start using it.</strong> I create practical systems your team can actually work with.</p>
+          </article>
+        </div>
+      </section>
+      <section class="case-studies" id="case-studies" aria-labelledby="selected-work-label">
+        <p class="content-eyebrow" id="selected-work-label">Selected work</p>
+        <div class="case-grid">
+          <article class="case-project" aria-labelledby="case-caban-title">
+            <button class="case-photo" type="button" aria-disabled="true" aria-label="View Caban Energy project — coming soon">
+            <picture>
+              <img src="./assets/images/case-studies/caban-energy-1920.webp" srcset="./assets/images/case-studies/caban-energy-640.webp 640w, ./assets/images/case-studies/caban-energy-960.webp 960w, ./assets/images/case-studies/caban-energy-1440.webp 1440w, ./assets/images/case-studies/caban-energy-1920.webp 1920w" sizes="(min-width: 700px) 90vw, calc(100vw - 48px)" width="1920" height="1078" alt="An ocean wave at sunset with the Caban Energy brand mark." loading="lazy" decoding="async" draggable="false">
+            </picture>
+              <span class="case-hover-label" aria-hidden="true">view project</span>
+            </button>
+            <div class="case-caption">
+              <h2 id="case-caban-title">Caban Energy</h2>
+            </div>
+          </article>
+          <article class="case-project" aria-labelledby="case-ohmium-title">
+            <button class="case-photo" type="button" aria-disabled="true" aria-label="View Ohmium project — coming soon">
+            <picture>
+              <img src="./assets/images/case-studies/ohmium-1200.webp" srcset="./assets/images/case-studies/ohmium-640.webp 640w, ./assets/images/case-studies/ohmium-960.webp 960w, ./assets/images/case-studies/ohmium-1200.webp 1200w" sizes="(min-width: 1200px) calc(50vw - 80px), (min-width: 700px) calc(50vw - 48px), calc(100vw - 48px)" width="1200" height="627" alt="Ohmium green hydrogen messaging on the Barclays building in Times Square." loading="lazy" decoding="async" draggable="false">
+            </picture>
+              <span class="case-hover-label" aria-hidden="true">view project</span>
+            </button>
+            <div class="case-caption">
+              <h2 id="case-ohmium-title">Ohmium</h2>
+            </div>
+          </article>
+          <article class="case-project" aria-labelledby="case-ric-title">
+            <button class="case-photo" type="button" aria-disabled="true" aria-label="View Ric Benefits project — coming soon">
+            <picture>
+              <img src="./assets/images/case-studies/ric-benefits-1920.webp" srcset="./assets/images/case-studies/ric-benefits-640.webp 640w, ./assets/images/case-studies/ric-benefits-960.webp 960w, ./assets/images/case-studies/ric-benefits-1440.webp 1440w, ./assets/images/case-studies/ric-benefits-1920.webp 1920w" sizes="(min-width: 1200px) calc(50vw - 80px), (min-width: 700px) calc(50vw - 48px), calc(100vw - 48px)" width="1920" height="1440" alt="A Ric billboard featuring an illustrated otter under an umbrella and the words Built for weather like this." loading="lazy" decoding="async" draggable="false">
+            </picture>
+              <span class="case-hover-label" aria-hidden="true">view project</span>
+            </button>
+            <div class="case-caption">
+              <h2 id="case-ric-title">Ric Benefits</h2>
+            </div>
+          </article>
+          <article class="case-project" aria-labelledby="case-nextwave-title">
+            <button class="case-photo" type="button" aria-disabled="true" aria-label="View NextWave Energy Monitoring project — coming soon">
+            <picture>
+              <img src="./assets/images/case-studies/nextwave-1393.webp" srcset="./assets/images/case-studies/nextwave-640.webp 640w, ./assets/images/case-studies/nextwave-960.webp 960w, ./assets/images/case-studies/nextwave-1393.webp 1393w" sizes="(min-width: 1200px) calc(50vw - 80px), (min-width: 700px) calc(50vw - 48px), calc(100vw - 48px)" width="1393" height="1034" alt="The NextWave Energy Monitoring exhibition booth with illuminated branding and product displays." loading="lazy" decoding="async" draggable="false">
+            </picture>
+              <span class="case-hover-label" aria-hidden="true">view project</span>
+            </button>
+            <div class="case-caption">
+              <h2 id="case-nextwave-title">NextWave Energy Monitoring</h2>
+            </div>
+          </article>
+          <article class="case-project" aria-labelledby="case-latitude-title">
+            <button class="case-photo" type="button" aria-disabled="true" aria-label="View Latitude Media project — coming soon">
+            <picture>
+              <img src="./assets/images/case-studies/latitude-media-1541.webp" srcset="./assets/images/case-studies/latitude-media-640.webp 640w, ./assets/images/case-studies/latitude-media-960.webp 960w, ./assets/images/case-studies/latitude-media-1440.webp 1440w, ./assets/images/case-studies/latitude-media-1541.webp 1541w" sizes="(min-width: 1200px) calc(50vw - 80px), (min-width: 700px) calc(50vw - 48px), calc(100vw - 48px)" width="1541" height="866" alt="Speakers onstage in front of the Latitude Media Transition AI event backdrop." loading="lazy" decoding="async" draggable="false">
+            </picture>
+              <span class="case-hover-label" aria-hidden="true">view project</span>
+            </button>
+            <div class="case-caption">
+              <h2 id="case-latitude-title">Latitude Media</h2>
+            </div>
           </article>
         </div>
       </section>
