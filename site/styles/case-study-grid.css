@@ -46,12 +46,11 @@
   font-family: "Romie", Georgia, serif;
   font-weight: 700;
   font-synthesis: none;
-  font-size: clamp(28px, 2.4cqw, 36px);
+  font-size: clamp(1.75rem, 2.4cqw, 2.25rem);
   line-height: 1.1;
   letter-spacing: -.015em;
   overflow-wrap: anywhere;
 }
-.case-project:first-child h2 { font-size: clamp(32px, 3cqw, 42px); }
 .case-hover-label {
   position: absolute;
   z-index: 1;
@@ -92,6 +91,6 @@
   .case-photo, .case-project:nth-child(n+4) .case-photo { aspect-ratio: 1.6; }
   .case-project:first-child .case-photo { flex: none; min-height: 0; aspect-ratio: 1.25; }
   .case-caption { gap: 12px; padding-top: 14px; }
-  .case-caption h2, .case-project:first-child h2 { font-size: 28px; }
+  .case-caption h2 { font-size: 1.75rem; }
 }
 @media (prefers-reduced-motion: reduce) { .case-hover-label { transition: none; } }
