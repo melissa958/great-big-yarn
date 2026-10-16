@@ -14,13 +14,19 @@ Project articles are in `site/previews/case-studies.html`, in this approved read
 4. NextWave Energy Monitoring
 5. Latitude Media
 
-Case-study arrow buttons are disabled until real case-study pages are ready. Replace each button with a real link when its destination exists; do not create placeholder pages or dead links. No CMS has been connected. The static articles can later be generated from structured project content.
+Photo buttons use aria-disabled="true" until real case-study pages are ready. They support the visual hover prototype and keyboard focus without navigating to invented destinations. Replace each photo button with a real link when its destination exists. No CMS has been connected. The static articles can later be generated from structured project content.
 
 ## Editorial layout
 
-`site/styles/case-study-grid.css` gives the work the full available section width (max-width: 100%), retaining 60px desktop / 32px tablet / 24px phone outer gutters, beneath the dashed “SELECTED WORK” eyebrow. Caban anchors the left column across two rows; Ohmium and Ric stack beside it. NextWave and Latitude occupy two wider images on the next row. Black Romie titles and compact off-white arrow buttons sit below each image, leaving the photography unobscured. Desktop gaps are 44px between rows and 40px between columns, reducing to 36px/32px on tablets. The first picture flexes to align the top group's bottom captions while allowing titles to wrap.
+`site/styles/case-study-grid.css` gives the work the full available section width (max-width: 100%), retaining 60px desktop / 32px tablet / 24px phone outer gutters, beneath the dashed “SELECTED WORK” eyebrow. Caban anchors the left column across two rows; Ohmium and Ric stack beside it. NextWave and Latitude occupy two wider images on the next row. Black Romie titles sit below each image. The owner replaced the caption arrows with a black, cream-lettered “view project” label near the pointer over photos, inspired by the interaction at https://www.thetandemco.com/. Desktop gaps are 44px between rows and 40px between columns, reducing to 36px/32px on tablets. The first photo flexes to align the top group's bottom captions while allowing titles to wrap.
 
 Below 700px the five projects stack in their reading order with 24px outer gutters and 36px gaps. Caban retains a taller image; the remaining projects use landscape crops. The grid is semantic static HTML with no carousel script, horizontal dragging, clones, hidden projects or carousel announcements. All projects are available with or without JavaScript and under reduced motion. The older `case-studies.css` and `case-studies.js` remain unused by this preview; the client-logo carousel is independent and unchanged.
+
+## Photo hover interaction
+
+`site/scripts/project-hover.js` adds the cursor treatment without changing layout or handling navigation. The entire photo shows the native hand cursor. A decorative, pointer-transparent HTML span follows with an 18px offset, bounded inside both the photo and visible viewport with a 12px inset; it flips to the opposite side of the pointer near an edge. Position updates use transforms in requestAnimationFrame only when pointer/geometry events occur. Bounds are cached between scroll/resize/font changes and mouse entry. Pointer leave, browser blur and hidden tabs clear the follower; no perpetual animation loop is used.
+
+Fine-pointer detection uses any-hover and any-pointer so mouse use works on touch-capable laptops. Touch-only devices and no JavaScript show a fixed label at the photo's lower left. A touch on a hybrid laptop reveals that same static label. Keyboard focus also reveals a fixed label and visible outline. Reduced motion preserves the hover label but keeps it still, with no fade. Accessible names identify each project and its unavailable destination; the duplicate visual label is hidden from screen readers. Native scrolling and click handling remain unobstructed.
 
 ## Image optimization
 
