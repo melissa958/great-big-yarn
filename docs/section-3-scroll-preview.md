@@ -27,3 +27,11 @@ One decorative inline SVG sits directly above “The story has to catch up.” o
 The same one-second stride runs on both shoes, offset by half a cycle. A shoe lands heel-first, presses down, moves back through its stance, rolls onto the toe, then lifts and swings forward. The rear shoe's smaller scale and higher baseline convey depth; motion is confined to the art area. A small cream landing puff and trailing dashes appear every two strides. Tuning lives in opportunity-scroll.css, including --sneaker-cycle and the stride keyframes.
 
 The controller now observes both illustrations through data-section-motion, pausing each independently offscreen, behind the curtain, in hidden tabs and under reduced motion. The existing kaleidoscope behavior is preserved. Reduced motion/no JavaScript show the shoes in different, stationary phases of a running pose, without puffs or marks. Both illustrations remain decorative and pointer-transparent.
+
+## Radiating hearts
+
+One decorative inline SVG sits above “I bring what matters forward.” on the homepage and scroll preview. It shares the other two illustrations' responsive square, left alignment and heading gap, and scrolls/fades with the third article. A solid central heart pulses gently every two seconds. Seven staggered outlines emerge at its scale, expand over eight seconds, and fade before an invisible reset. A new outline launches every two seconds, leaving three to four visible at once. The complete color sequence repeats seamlessly over 14 seconds.
+
+The exact palette is #F73F12, #FDAACF, #FDCE08, #0ABE72, #00DED3, #0A5FE6 and #DC8AE7. Each outgoing outline retains one exact stroke color; the core transitions through the same sequence. Non-scaling SVG strokes keep every outline at 1.75px regardless of expansion. All hearts reuse a single path. CSS tuning is grouped in --heart-cycle, --heart-play and --heart-stroke, with related signal/pulse/palette keyframes in opportunity-scroll.css.
+
+The existing data-section-motion observer pauses this third illustration independently offscreen, behind the curtain and in hidden tabs. Reduced motion and no JavaScript show seven static nested colorful outlines around the solid center. The art is hidden from assistive technology, is unfocusable and pointer-transparent, and does not create scrollbars or layout shifts.
