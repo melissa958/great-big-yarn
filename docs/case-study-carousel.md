@@ -20,7 +20,7 @@ Case-study buttons are disabled until real case-study pages are ready. Replace e
 
 `site/scripts/case-studies.js` provides manual previous/next controls, edge looping, horizontal mouse/touch dragging and Left/Right/Home/End keys while the carousel viewport has focus. There is no autoplay. The adjacent edge copies are inert and hidden from screen readers, as are inactive originals; a live status announces the selected project. The controls have 44px or larger targets. Reduced motion removes slide transitions. Without JavaScript the five original slides remain available in a native horizontal scroll-snap strip.
 
-`site/styles/case-studies.css` contains preview-only styles. Central slides use 72vw on desktop, 84vw on tablet and 88vw on phones. The phone crop is taller to preserve legible project titles and buttons. Sizes grow naturally with text zoom; the main page never gains horizontal overflow.
+`site/styles/case-studies.css` contains preview-only styles. The owner subsequently requested a centered 1320px maximum carousel instead of a full-width strip, preceded by the dashed “SELECTED WORK” eyebrow. `.case-shell` caps the complete carousel, including the neighboring slide previews and arrow controls, at 1320px. Desktop side gutters are 60px until that cap is reached; tablets and phones retain the edge-to-edge swipe window. Central slides use 72% of that container on desktop, 84% on tablet and 88% on phones. Container-relative heights and type keep the image proportions balanced on large screens, and image `sizes` reflects the narrower window. The phone crop is taller to preserve legible project titles and buttons. Sizes grow naturally with text zoom; the main page never gains horizontal overflow.
 
 ## Image optimization
 
