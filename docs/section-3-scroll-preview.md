@@ -11,3 +11,11 @@ At 1000px and wider, Section 3 has two columns within the existing 1108px / 1320
 The three article elements remain semantic HTML in reading order. Desktop opacity is calculated only on requested animation frames after scrolling/resizing. Tuning is grouped in OPPORTUNITY_SCROLL: a 1000px breakpoint, a fully visible region within .22 viewport heights of center, and a fade ending at .46 viewport heights. Only one point has visible opacity at a time. There is no timed slideshow, snapping, or scroll interception. Work pauses offscreen and in hidden tabs.
 
 Reduced motion disables the fades and curtain wrapper; all points remain visible with natural scrolling. Without JavaScript, all content is visible in normal document flow. Mobile retains the original once-on-entry fades and accessible reading order. Shared styles and controllers retain the previous layout on other previews.
+
+## Kaleidoscope
+
+The homepage and scroll preview include one decorative inline SVG above the first point's heading, aligned to the text. Its responsive circle is 128–176px wide (112px on short desktop windows), with 36px below it on desktop, 28px on mobile, and 24px in short windows. It moves with the first article and shares its fade; other points do not repeat it.
+
+Four source shapes use the existing blush pink, yellow, coral/red and paper tokens against ink. Six mirrored pairs make twelve clipped wedges; a second circular clip contains the complete pattern. The cream circle outline does not rotate. CSS transforms turn the pattern over 80 seconds and shift its inner/outer fragments over 24/32 seconds, returning to matching endpoints without a reset jump. No raster assets or libraries are loaded. Shapes and timings are in opportunity-scroll.css and the inline SVG.
+
+The Section 3 controller starts motion only when the circle intersects the viewport and the preceding curtain has uncovered it. Hidden tabs and offscreen state pause CSS animation without resetting progress. Reduced motion and no JavaScript retain the static starting pattern. The decoration is hidden from assistive technology, is unfocusable, and does not intercept pointer input.

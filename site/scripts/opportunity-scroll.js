@@ -6,8 +6,15 @@ if (story) {
   const points = [...story.querySelectorAll('.opportunity-card')];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const desktop = matchMedia(`(min-width: ${OPPORTUNITY_SCROLL.desktopWidth}px)`);
+  const kaleidoscope = story.querySelector('.opportunity-kaleidoscope');
+  const curtain = document.querySelector('.curtain-pair');
+  let kaleidoscopeVisible = false;
   let frame = 0;
   let visible = false;
+  function syncKaleidoscope() {
+    const uncovered = kaleidoscopeVisible && (!curtain || curtain.getBoundingClientRect().bottom <= kaleidoscope.getBoundingClientRect().top);
+    kaleidoscope?.classList.toggle('kaleido-running', uncovered && !document.hidden && !reduced.matches);
+  }
   function update() {
     frame = 0;
     if (document.hidden || !visible) return;
@@ -23,6 +30,7 @@ if (story) {
       // Smoothstep softens the start/end; adjacent points never overlap fades.
       point.style.setProperty('--point-opacity', String(progress * progress * (3 - 2 * progress)));
     }
+    syncKaleidoscope();
   }
   function queue() {
     if (!frame && !document.hidden && visible) frame = requestAnimationFrame(update);
@@ -30,6 +38,7 @@ if (story) {
   function measure() {
     wrapper.classList.add('opportunity-scroll-ready');
     wrapper.style.setProperty('--opportunity-overflow', `${Math.max(0, story.offsetHeight - wrapper.clientHeight)}px`);
+    syncKaleidoscope();
     queue();
   }
   new ResizeObserver(measure).observe(story);
@@ -37,9 +46,14 @@ if (story) {
     visible = entries[0].isIntersecting;
     queue();
   }).observe(story);
+  if (kaleidoscope) new IntersectionObserver(entries => {
+    kaleidoscopeVisible = entries[0].isIntersecting;
+    syncKaleidoscope();
+  }).observe(kaleidoscope);
   addEventListener('scroll', queue, { passive: true });
   addEventListener('resize', measure, { passive: true });
   document.addEventListener('visibilitychange', () => {
+    syncKaleidoscope();
     if (document.hidden && frame) { cancelAnimationFrame(frame); frame = 0; }
     else queue();
   });
