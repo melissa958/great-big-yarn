@@ -4,7 +4,8 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   min-height: max(820px, 100svh);
   padding: 0;
-  background: var(--paper);
+  /* Keep fractional-pixel image edges from exposing the paper backing. */
+  background: var(--ink);
   color: var(--ink);
   text-align: left;
 }
@@ -12,6 +13,7 @@
   display: grid;
   align-items: center;
   padding: 100px 64px;
+  background: var(--paper);
 }
 .studio-copy {
   position: relative;
@@ -40,13 +42,14 @@
   line-height: 1.38;
 }
 .studio-read-more { margin: 0; }
-.studio-portrait { position: relative; min-width: 0; overflow: clip; }
+.studio-portrait { position: relative; min-width: 0; overflow: clip; background: var(--ink); }
 .studio-portrait img {
   position: absolute;
-  inset: 0;
+  /* A 1px bleed is clipped by the portrait slot; its layout stays unchanged. */
+  inset: -1px;
   display: block;
-  width: 100%;
-  height: 100%;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
   object-fit: cover;
   object-position: center;
 }

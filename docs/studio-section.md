@@ -8,4 +8,6 @@ The portrait uses the exact original Figma image, downloaded locally and encoded
 
 The complete copy group reuses the existing once-on-entry reveal, with reduced-motion, no-JavaScript and hidden-tab behavior retained. The Read more button remains disabled with an accessible coming-soon label because the About page has not been built. Other previews and existing section behavior are preserved.
 
+The photo slot has an ink backing and a clipped 1px image bleed on all edges, while only the text panel carries the paper background. This prevents a paper-colored seam from fractional-pixel edge rendering at display scaling without changing the section's layout or reserved image dimensions. Edge checks include 125% device scaling and odd viewport widths in Edge/WebKit.
+
 Validation includes the repository validator/build, browser checks in Edge and WebKit at 1440×820, 2560×1440, 1024×650, 768×1024, 390×844 and 320×700, plus reduced-motion and no-JavaScript views. Checks cover section order, exact copy, fonts, image loading/crop geometry, responsive stacking, vertical centering, and horizontal overflow. Desktop/mobile renderings are inspected against the Figma screenshot.
