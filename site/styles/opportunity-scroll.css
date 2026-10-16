@@ -53,28 +53,97 @@
 }
 .opportunity-kaleidoscope svg { display: block; width: 100%; height: 100%; overflow: hidden; border-radius: 50%; }
 .kaleido-frame { fill: none; stroke: var(--paper); stroke-opacity: .22; stroke-width: 1; }
-.kaleido-rotor { transform-box: view-box; transform-origin: 120px 120px; }
-.kaleido-inner, .kaleido-outer { transform-box: view-box; transform-origin: 0 0; }
+.kaleido-fragment { transform-box: view-box; transform-origin: 0 0; }
+.kaleido-cream { transform: translate(48.799px, 83.207px) rotate(0deg); }
+.kaleido-coral { transform: translate(48.468px, 47.949px) rotate(0deg); }
+.kaleido-yellow { transform: translate(28.074px, 12.594px) rotate(0deg); }
+.kaleido-pink { transform: translate(27.898px, 47.873px) rotate(0deg); }
+.kaleido-cream-alt { transform: translate(7.446px, 12.333px) rotate(0deg); }
+.kaleido-coral-alt { transform: translate(58.775px, 65.597px) rotate(0deg); }
+.kaleido-yellow-alt { transform: translate(38.219px, 65.616px) rotate(0deg); }
+.kaleido-pink-alt { transform: translate(38.181px, 30.035px) rotate(0deg); }
 .opportunity-kaleidoscope.kaleido-running { --kaleido-play: running; }
 @media (prefers-reduced-motion: no-preference) {
-  .kaleido-rotor { animation: kaleido-turn 96s linear infinite; animation-play-state: var(--kaleido-play); }
-  .kaleido-inner { animation: kaleido-inner-shift 32s ease-in-out infinite; animation-play-state: var(--kaleido-play); }
-  .kaleido-outer { animation: kaleido-outer-shift 32s ease-in-out infinite; animation-play-state: var(--kaleido-play); }
-  .kaleido-inner, .kaleido-outer { animation-delay: -4s; }
+  .kaleido-fragment {
+    animation-duration: var(--kaleido-cycle, 18s);
+    animation-timing-function: cubic-bezier(.22, .61, .36, 1);
+    animation-iteration-count: infinite;
+    animation-play-state: var(--kaleido-play);
+  }
+  .kaleido-cream { animation-name: kaleido-cream-travel; }
+  .kaleido-coral { animation-name: kaleido-coral-travel; }
+  .kaleido-yellow { animation-name: kaleido-yellow-travel; }
+  .kaleido-pink { animation-name: kaleido-pink-travel; }
+  .kaleido-cream-alt { animation-name: kaleido-cream-alt-travel; }
+  .kaleido-coral-alt { animation-name: kaleido-coral-alt-travel; }
+  .kaleido-yellow-alt { animation-name: kaleido-yellow-alt-travel; }
+  .kaleido-pink-alt { animation-name: kaleido-pink-alt-travel; }
 }
-@keyframes kaleido-turn { to { transform: rotate(360deg); } }
-@keyframes kaleido-inner-shift {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  /* Move through the mirror boundaries to form and dissolve central rosettes. */
-  30% { transform: translate(-28px, -7px) rotate(0deg); }
-  65% { transform: translate(12px, 12px) rotate(-12deg); }
+@keyframes kaleido-cream-travel {
+  0%, 100% { transform: translate(48.799px, 83.207px) rotate(0deg); }
+  16.6667% { transform: translate(73.038px, 0.218px) rotate(120deg); }
+  33.3333% { transform: translate(70.964px, 50.698px) rotate(0deg); }
+  50.0000% { transform: translate(51.065px, 17.879px) rotate(120deg); }
+  66.6667% { transform: translate(0px, 0px) rotate(0deg); }
+  83.3333% { transform: translate(70.634px, 50.622px) rotate(120deg); }
 }
-@keyframes kaleido-outer-shift {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  /* Clipping and reflection join the same shapes into changing star points. */
-  30% { transform: translate(-32px, -19px) rotate(10deg); }
-  65% { transform: translate(-12px, 6px) rotate(-9deg); }
+@keyframes kaleido-coral-travel {
+  0%, 100% { transform: translate(48.468px, 47.949px) rotate(0deg); }
+  16.6667% { transform: translate(0px, 0px) rotate(120deg); }
+  33.3333% { transform: translate(61.001px, 33.002px) rotate(0deg); }
+  50.0000% { transform: translate(61.595px, 0.3px) rotate(120deg); }
+  66.6667% { transform: translate(59.968px, 70.129px) rotate(0deg); }
+  83.3333% { transform: translate(50.18px, 14.554px) rotate(120deg); }
 }
+@keyframes kaleido-yellow-travel {
+  0%, 100% { transform: translate(28.074px, 12.594px) rotate(0deg); }
+  16.6667% { transform: translate(73.336px, 35.584px) rotate(120deg); }
+  33.3333% { transform: translate(50.354px, 50.783px) rotate(0deg); }
+  50.0000% { transform: translate(30.775px, 17.768px) rotate(120deg); }
+  66.6667% { transform: translate(100.791px, -0.937px) rotate(0deg); }
+  83.3333% { transform: translate(80.792px, 32.369px) rotate(120deg); }
+}
+@keyframes kaleido-pink-travel {
+  0%, 100% { transform: translate(27.898px, 47.873px) rotate(0deg); }
+  16.6667% { transform: translate(52.61px, 35.599px) rotate(120deg); }
+  33.3333% { transform: translate(71.203px, 15.331px) rotate(0deg); }
+  50.0000% { transform: translate(20.577px, 35.762px) rotate(120deg); }
+  66.6667% { transform: translate(90.678px, 16.909px) rotate(0deg); }
+  83.3333% { transform: translate(70.772px, 14.8px) rotate(120deg); }
+}
+@keyframes kaleido-cream-alt-travel {
+  0%, 100% { transform: translate(7.446px, 12.333px) rotate(0deg); }
+  16.6667% { transform: translate(32.233px, 0.056px) rotate(120deg); }
+  33.3333% { transform: translate(81.463px, 33.172px) rotate(0deg); }
+  50.0000% { transform: translate(41.071px, -0.065px) rotate(120deg); }
+  66.6667% { transform: translate(80.532px, 34.481px) rotate(0deg); }
+  83.3333% { transform: translate(60.333px, 32.551px) rotate(120deg); }
+}
+@keyframes kaleido-coral-alt-travel {
+  0%, 100% { transform: translate(58.775px, 65.597px) rotate(0deg); }
+  16.6667% { transform: translate(83.482px, 18.041px) rotate(120deg); }
+  33.3333% { transform: translate(50.76px, 15.486px) rotate(0deg); }
+  50.0000% { transform: translate(20.511px, -0.038px) rotate(120deg); }
+  66.6667% { transform: translate(39.505px, 69.932px) rotate(0deg); }
+  83.3333% { transform: translate(91.418px, 14.595px) rotate(120deg); }
+}
+@keyframes kaleido-yellow-alt-travel {
+  0%, 100% { transform: translate(38.219px, 65.616px) rotate(0deg); }
+  16.6667% { transform: translate(42.347px, 17.792px) rotate(120deg); }
+  33.3333% { transform: translate(40.646px, 33.004px) rotate(0deg); }
+  50.0000% { transform: translate(30.894px, 53.476px) rotate(120deg); }
+  66.6667% { transform: translate(70.236px, 52.314px) rotate(0deg); }
+  83.3333% { transform: translate(49.931px, 50.24px) rotate(120deg); }
+}
+@keyframes kaleido-pink-alt-travel {
+  0%, 100% { transform: translate(38.181px, 30.035px) rotate(0deg); }
+  16.6667% { transform: translate(93.47px, 0.411px) rotate(120deg); }
+  33.3333% { transform: translate(50.169px, 86.058px) rotate(0deg); }
+  50.0000% { transform: translate(10.215px, 17.796px) rotate(120deg); }
+  66.6667% { transform: translate(49.726px, 87.839px) rotate(0deg); }
+  83.3333% { transform: translate(49.598px, 86.083px) rotate(120deg); }
+}
+
 @media (min-width: 1000px) and (max-height: 650px) {
   .opportunity-kaleidoscope { width: 7rem; margin-bottom: 24px; }
 }
