@@ -1,4 +1,4 @@
-/* Isolated Section 3 experiment; the homepage retains its approved cards. */
+/* Approved Section 3 layout, shared by the homepage and scroll preview. */
 .opportunity-scroll {
   display: block;
   min-height: 0;

@@ -1,4 +1,4 @@
-// Preview tuning: desktop breakpoint and the fade's distance from screen center.
+// Section 3 tuning: desktop breakpoint and fade distances from screen center.
 const OPPORTUNITY_SCROLL = { desktopWidth: 1000, holdRadius: .22, fadeRadius: .46 };
 const wrapper = document.querySelector('.opportunity-reveal');
 const story = wrapper?.querySelector('.opportunity-scroll');

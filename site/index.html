@@ -22,6 +22,8 @@
     <script type="module" src="./scripts/service-marks.js"></script>
     <link rel="stylesheet" href="./styles/case-study-grid.css">
     <script type="module" src="./scripts/project-hover.js"></script>
+    <link rel="stylesheet" href="./styles/opportunity-scroll.css">
+    <script type="module" src="./scripts/opportunity-scroll.js"></script>
     <link rel="stylesheet" href="./styles/client-logos.css">
     <script type="module" src="./scripts/client-logos.js"></script>
   </head>
@@ -124,9 +126,13 @@
         </div>
       </section>
       </div>
-      <section class="opportunity-section homepage-section" id="opportunity" tabindex="-1" aria-labelledby="opportunity-title">
+      <div class="opportunity-reveal">
+      <section class="opportunity-section homepage-section opportunity-scroll" id="opportunity" tabindex="-1" aria-labelledby="opportunity-title">
+        <div class="opportunity-story">
+        <div class="opportunity-intro">
         <p class="content-eyebrow">The (great big) opportunity</p>
         <h2 id="opportunity-title">There’s a gap between what you’re building and what people see.</h2>
+        </div>
         <div class="content-grid opportunity-grid">
           <article class="opportunity-card">
             <h3>The business is changing.</h3>
@@ -140,6 +146,7 @@
             <h3>I bring what matters forward.</h3>
             <p>I find the idea at the heart of your company and build the story and creative around it. So what makes you special becomes easier to understand, easier to remember, and harder to overlook.</p>
           </article>
+        </div>
         </div>
         <div class="client-strip" role="region" aria-labelledby="client-strip-title" tabindex="0">
           <div class="client-strip-header">
@@ -161,6 +168,7 @@
           </div>
         </div>
       </section>
+      </div>
       </div>
       <section class="services-section homepage-section" aria-labelledby="services-title">
         <p class="content-eyebrow">What I do</p>

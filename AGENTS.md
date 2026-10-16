@@ -29,7 +29,7 @@
 - `Let's chat` is intended to lead to a contact page. The user approved leaving the button visible but inactive until that page's design is ready. Do not invent that page.
 - Paths must work at a GitHub Pages project subpath and a future domain root.
 
-- An isolated Section 3 scrolling experiment is available at previews/section-3-scroll.html#opportunity. It copies the homepage and only loads opportunity-scroll.css / opportunity-scroll.js there. At 1000px+, the left eyebrow/headline is sticky while the three borderless, viewport-height points scroll and fade one at a time on the right; the headline exits before the client logos. Below 1000px, content stacks in normal flow. A measured single-screen wrapper preserves the native Section 2 curtain reveal; reduced motion/no-JavaScript keep content visible. Keep this experiment separate until the owner approves promotion. Details are in docs/section-3-scroll-preview.md.
+- The owner approved promoting the Section 3 scrolling layout to the homepage on October 16. Both site/index.html and previews/section-3-scroll.html load opportunity-scroll.css / opportunity-scroll.js. The separate work and Cat test previews retain their previous layouts. At 1000px+, the left eyebrow/headline is sticky while the three borderless, viewport-height points scroll and fade one at a time on the right; the headline exits before the client logos. Below 1000px, content stacks in normal flow. A measured single-screen wrapper preserves the native Section 2 curtain reveal; reduced motion/no-JavaScript keep content visible. Preserve this approved homepage layout and keep the scroll preview available. Details are in docs/section-3-scroll-preview.md.
 
 ## Verification and handoff
 
