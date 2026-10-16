@@ -3,7 +3,7 @@
 .curtain-pair { position: relative; z-index: 2; display: flow-root; }
 @media (min-width: 1920px) and (min-height: 1000px) {
   /* Center the entire copy/cat/eyebrow group instead of pinning its footer. */
-  .curtain-sequence .messy-group { display: flex; gap: clamp(60px, calc(4svh + 24px), 88px); }
+  .curtain-sequence .messy-group { display: flex; gap: clamp(120px, calc(8svh + 48px), 176px); }
   .curtain-sequence .cat-test-footer { position: static; left: auto; bottom: auto; max-width: 100%; }
 }
 .homepage-section {
