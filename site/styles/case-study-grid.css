@@ -12,7 +12,7 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 44px 40px;
   width: 100%;
-  max-width: 1320px;
+  max-width: 100%;
   margin-inline: auto;
   container-type: inline-size;
 }
