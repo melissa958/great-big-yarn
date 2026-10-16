@@ -30,7 +30,7 @@ The controller now observes both illustrations through data-section-motion, paus
 
 ## Radiating hearts
 
-One decorative inline SVG sits above “I bring what matters forward.” on the homepage and scroll preview. It shares the other two illustrations' responsive square, left alignment and heading gap, and scrolls/fades with the third article. A solid central heart pulses gently every two seconds. Seven staggered outlines emerge at its scale, expand over eight seconds, and fade before an invisible reset. A new outline launches every two seconds, leaving three to four visible at once. The complete color sequence repeats seamlessly over 14 seconds.
+One decorative inline SVG sits above “I bring what matters forward.” on the homepage and scroll preview. It shares the other two illustrations' responsive square, left alignment and heading gap, and scrolls/fades with the third article. At the owner's request, the heart artwork is enlarged 12% inside its existing responsive slot, preserving the layout and heading gap. A solid central heart pulses gently every two seconds. Seven staggered outlines emerge at its scale, expand over eight seconds, and fade before an invisible reset. A new outline launches every two seconds, leaving three to four visible at once. The complete color sequence repeats seamlessly over 14 seconds.
 
 The exact palette is #F73F12, #FDAACF, #FDCE08, #0ABE72, #00DED3, #0A5FE6 and #DC8AE7. Each outgoing outline retains one exact stroke color; the core transitions through the same sequence. Non-scaling SVG strokes keep every outline at 1.75px regardless of expansion. All hearts reuse a single path. CSS tuning is grouped in --heart-cycle, --heart-play and --heart-stroke, with related signal/pulse/palette keyframes in opportunity-scroll.css.
 
