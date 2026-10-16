@@ -1,4 +1,4 @@
-/* Preserve original logo colors on paper; this component is preview-only. */
+/* Supplied dark-background logos share Section 3's ink background. */
 .client-strip {
   --logo-duration: 65s;
   --logo-width: 200px;
@@ -8,8 +8,8 @@
   max-width: 1108px;
   margin: 72px auto 0;
   padding: 28px 0 32px;
-  background: var(--paper);
-  color: #000;
+  background: var(--ink);
+  color: var(--white);
   text-align: center;
 }
 .client-strip-header { position: relative; margin: 0 24px 24px; padding: 8px 72px; }
@@ -23,12 +23,12 @@
   border: 1px solid transparent;
   border-radius: 0;
   background: transparent;
-  color: #000;
+  color: inherit;
   font: 500 .6875rem/1.5 var(--font);
   cursor: pointer;
 }
 .client-pause:hover { border-color: currentColor; }
-.client-strip :focus-visible { outline: 2px solid #000; outline-offset: 2px; }
+.client-strip :focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
 .client-window { overflow: hidden; }
 .client-track { display: flex; }
 .client-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: center; gap: 24px; width: 100%; margin: 0; padding: 0 24px; list-style: none; }
