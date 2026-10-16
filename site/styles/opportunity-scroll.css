@@ -203,9 +203,9 @@
 }
 .opportunity-sneakers svg { display: block; width: 100%; height: 100%; overflow: hidden; }
 .audience-sign-label {
-  fill: var(--ink);
+  fill: var(--paper);
   font-family: var(--font);
-  font-size: 21px;
+  font-size: 18px;
   font-style: italic;
   font-weight: 700;
   letter-spacing: .25px;
@@ -221,7 +221,7 @@
 @media (prefers-reduced-motion: no-preference) {
   .opportunity-scroll-ready .audience-sign-bulbs circle {
     animation: audience-marquee var(--sign-chase-cycle) ease-in-out infinite;
-    animation-delay: calc(var(--bulb-index) * var(--sign-chase-cycle) / -21);
+    animation-delay: calc(var(--bulb-index) * var(--sign-chase-cycle) / -20);
     animation-play-state: var(--sneaker-play);
   }
   .sneaker-step {
