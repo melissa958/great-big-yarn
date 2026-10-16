@@ -1,4 +1,4 @@
-/* Editorial work preview. The homepage and previous previews stay independent. */
+/* Shared editorial work grid, with a homepage-only desktop width. */
 .case-studies {
   position: relative;
   z-index: 3;
@@ -77,6 +77,9 @@
 .case-photo.is-following .case-hover-label { left: 0; top: 0; bottom: auto; transform: translate3d(var(--hover-x, 16px), var(--hover-y, 16px), 0); }
 .case-photo:focus-visible .case-hover-label { left: 16px; top: auto; bottom: 16px; transform: none; visibility: visible !important; }
 .case-studies :focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+@media (min-width: 1200px) {
+  .case-grid-home { max-width: 80%; }
+}
 @media (max-width: 1199px) {
   .case-studies { padding-inline: 32px; }
   .case-grid { gap: 36px 32px; }
