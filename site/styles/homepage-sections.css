@@ -1,6 +1,10 @@
 /* Nest the original reveal above a second curtain, ending before services. */
 .curtain-sequence { position: relative; display: flow-root; }
 .curtain-pair { position: relative; z-index: 2; display: flow-root; }
+.curtain-sequence .section-scroll-prompt { display: block; border: 0; }
+.section-scroll-prompt a { display: inline-block; text-decoration: underline; text-underline-offset: .2em; }
+.section-scroll-prompt a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+html:has(.section-scroll-prompt) { scroll-behavior: smooth; }
 @media (min-width: 1920px) and (min-height: 1000px) {
   /* Center the entire copy/cat/eyebrow group instead of pinning its footer. */
   .curtain-sequence .messy-group { display: flex; gap: clamp(120px, calc(8svh + 48px), 176px); }

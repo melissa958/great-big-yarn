@@ -27,6 +27,30 @@ for (const { items } of revealGroups) for (const item of items) item.classList.a
 let paused = false;
 let queued = false;
 
+// A sticky layer can sit at viewport top while its preceding curtain covers it.
+// Link to its normal-flow boundary so the destination is completely uncovered.
+const scrollForth = document.querySelector('.section-scroll-prompt a');
+const opportunity = document.querySelector('#opportunity');
+function revealOpportunity(behavior) {
+  const curtain = hero.closest('.curtain-pair');
+  if (!curtain || !opportunity) return;
+  const top = scrollY + curtain.getBoundingClientRect().bottom;
+  opportunity.focus({ preventScroll: true });
+  scrollTo({ top, behavior });
+}
+scrollForth?.addEventListener('click', event => {
+  if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  event.preventDefault();
+  if (location.hash !== scrollForth.hash) history.pushState(null, '', scrollForth.hash);
+  revealOpportunity(reducedMotion.matches ? 'instant' : 'smooth');
+});
+addEventListener('hashchange', () => {
+  if (opportunity && location.hash === '#opportunity') revealOpportunity('instant');
+});
+addEventListener('load', () => {
+  if (opportunity && location.hash === '#opportunity') revealOpportunity('instant');
+});
+
 function sync() {
   queued = false;
   const heroBounds = hero.getBoundingClientRect();
