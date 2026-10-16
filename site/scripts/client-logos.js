@@ -3,13 +3,11 @@ const strip = document.querySelector('.client-strip');
 if (strip) {
   const track = strip.querySelector('.client-track');
   const list = strip.querySelector('.client-list');
-  const button = strip.querySelector('.client-pause');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const cover = document.querySelector('.curtain-pair');
   let copy;
   let visible = false;
   let pending = false;
-  let manuallyPaused = false;
   const update = () => {
     pending = false;
     // Intersection alone also sees the sticky section while the curtain covers it.
@@ -26,7 +24,6 @@ if (strip) {
       copy?.remove();
       copy = null;
       strip.classList.remove('client-motion', 'client-running');
-      button.hidden = true;
     } else {
       if (!copy) {
         copy = list.cloneNode(true);
@@ -36,17 +33,9 @@ if (strip) {
         track.append(copy);
       }
       strip.classList.add('client-motion');
-      button.hidden = false;
       update();
     }
   };
-  button.addEventListener('click', () => {
-    manuallyPaused = !manuallyPaused;
-    strip.classList.toggle('client-paused', manuallyPaused);
-    button.setAttribute('aria-pressed', String(manuallyPaused));
-    button.setAttribute('aria-label', `${manuallyPaused ? 'Resume' : 'Pause'} client logo animation`);
-    button.innerHTML = `${manuallyPaused ? 'Resume' : 'Pause'} <span aria-hidden="true">${manuallyPaused ? '▷' : 'Ⅱ'}</span>`;
-  });
   new IntersectionObserver(entries => {
     visible = entries[0].isIntersecting;
     if (visible) strip.querySelectorAll('img').forEach(img => { img.loading = 'eager'; });
