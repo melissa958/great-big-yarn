@@ -16,8 +16,14 @@ const navigation = document.querySelector('#preview-navigation');
 const header = hero.querySelector('.site-header');
 let menuOpen = false;
 document.body.classList.add('has-mobile-menu');
-const revealItems = [...section.querySelectorAll('h2, .messy-copy p, .section-eyebrow')];
-for (const item of revealItems) item.classList.add('scroll-reveal');
+const revealGroups = [
+  { cover: hero, items: [...section.querySelectorAll('h2, .messy-copy p, .section-eyebrow')] },
+  ...[...document.querySelectorAll('.homepage-section')].map(root => ({
+    cover: root.classList.contains('opportunity-section') ? hero.closest('.curtain-pair') : null,
+    items: [...root.querySelectorAll('.content-eyebrow, h2, article')]
+  }))
+];
+for (const { items } of revealGroups) for (const item of items) item.classList.add('scroll-reveal');
 let paused = false;
 let queued = false;
 
@@ -35,15 +41,18 @@ function sync() {
     controls.hidden = reducedMotion.matches || bottom <= 0 || heroBounds.top >= innerHeight;
     pause.setAttribute('aria-pressed', String(paused));
   }
-  for (const item of revealItems) {
-    if (item.classList.contains('is-revealed')) continue;
-    const itemBounds = item.getBoundingClientRect();
-    // Sticky content intersects the viewport even while the hero covers it.
-    // Start each entrance only when the curtain has actually uncovered it.
-    const uncovered = bottom <= itemBounds.top + Math.min(44, itemBounds.height * .35);
-    const inView = itemBounds.top < innerHeight - 24 && itemBounds.bottom > 0;
-    if (reducedMotion.matches || (uncovered && inView && !globallyPaused && !document.hidden)) {
-      item.classList.add('is-revealed');
+  for (const { cover, items } of revealGroups) {
+    const coverBottom = cover?.getBoundingClientRect().bottom ?? -Infinity;
+    for (const item of items) {
+      if (item.classList.contains('is-revealed')) continue;
+      const itemBounds = item.getBoundingClientRect();
+      // Sticky content intersects the viewport while the previous section covers it.
+      // Reveal only after that curtain has uncovered the actual element.
+      const uncovered = coverBottom <= itemBounds.top + Math.min(44, itemBounds.height * .35);
+      const inView = itemBounds.top < innerHeight - 24 && itemBounds.bottom > 0;
+      if (reducedMotion.matches || (uncovered && inView && !globallyPaused && !document.hidden)) {
+        item.classList.add('is-revealed');
+      }
     }
   }
   const scope = heroOnly ? 'hero animations' : 'all animations';
@@ -111,6 +120,7 @@ reducedMotion.addEventListener('change', sync);
 scaleArtwork();
 syncMenu();
 createMobileScribble(stage, mobile);
+document.fonts.ready.then(queueSync);
 
 // Keep the approved SVG path/dash animation as the source of truth. On phones,
 // paint it into a bounded canvas with cached grain instead of an SVG filter.

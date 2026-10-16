@@ -121,3 +121,17 @@
 @media (prefers-reduced-motion: reduce) {
   .curtain-sequence > .opportunity-section { position: relative; }
 }
+@media (prefers-reduced-motion: no-preference) {
+  .homepage-section h2 { --section-reveal-delay: 70ms; }
+  .homepage-section .scroll-reveal.is-revealed { animation-delay: var(--section-reveal-delay, 0ms); }
+  .content-grid > :nth-child(3n + 2) { --section-reveal-delay: 80ms; }
+  .content-grid > :nth-child(3n) { --section-reveal-delay: 160ms; }
+  .curtain-preview .homepage-section:focus-within .scroll-reveal { animation: none; opacity: 1; transform: none; }
+}
+@media (max-width: 1199px) {
+  .content-grid > .opportunity-card, .service-card:nth-child(odd) { --section-reveal-delay: 0ms; }
+  .service-card:nth-child(even) { --section-reveal-delay: 80ms; }
+}
+@media (max-width: 599px) {
+  .homepage-section .content-grid > article { --section-reveal-delay: 0ms; }
+}
