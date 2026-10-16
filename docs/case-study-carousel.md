@@ -1,12 +1,12 @@
-# Case study carousel preview
+# Selected work preview
 
 Preview: `https://melissa958.github.io/great-big-yarn/previews/case-studies.html#case-studies`
 
-This is a copy of the approved four-section homepage, with a carousel appended after the services cards and a client-logo strip below the Section 3 cards. It does not change the homepage or Cat test. The owner's supplied screenshot is the reference for these components: a large central image, neighboring slides, cream gutters, lower image gradient, white project names and off-white buttons.
+This is a copy of the approved four-section homepage, with selected work appended after the services cards and a client-logo strip below the Section 3 cards. It does not change the homepage or Cat test. After comparing three visual concepts, the owner selected the editorial grid to replace the initial project carousel. The existing preview URL is preserved.
 
 ## Content and links
 
-Slides are in `site/previews/case-studies.html`, in this approved order:
+Project articles are in `site/previews/case-studies.html`, in this approved reading order:
 
 1. Caban Energy
 2. Ohmium
@@ -14,19 +14,19 @@ Slides are in `site/previews/case-studies.html`, in this approved order:
 4. NextWave Energy Monitoring
 5. Latitude Media
 
-Case-study buttons are disabled until real case-study pages are ready. Replace each button with a real link when its destination exists; do not create placeholder pages or dead links. No CMS has been connected. The static articles can later be generated from structured project content without changing the carousel controller.
+Case-study arrow buttons are disabled until real case-study pages are ready. Replace each button with a real link when its destination exists; do not create placeholder pages or dead links. No CMS has been connected. The static articles can later be generated from structured project content.
 
-## Interaction
+## Editorial layout
 
-`site/scripts/case-studies.js` provides manual previous/next controls, edge looping, horizontal mouse/touch dragging and Left/Right/Home/End keys while the carousel viewport has focus. There is no autoplay. The adjacent edge copies are inert and hidden from screen readers, as are inactive originals; a live status announces the selected project. The controls have 44px or larger targets. Reduced motion removes slide transitions. Without JavaScript the five original slides remain available in a native horizontal scroll-snap strip.
+`site/styles/case-study-grid.css` gives the work a centered 1320px maximum width beneath the dashed “SELECTED WORK” eyebrow. Caban anchors the left column across two rows; Ohmium and Ric stack beside it. NextWave and Latitude occupy two wider images on the next row. Black Romie titles and compact off-white arrow buttons sit below each image, leaving the photography unobscured. Desktop gaps are 44px between rows and 40px between columns, reducing to 36px/32px on tablets. The first picture flexes to align the top group's bottom captions while allowing titles to wrap.
 
-`site/styles/case-studies.css` contains preview-only styles. The owner subsequently requested a centered 1320px maximum carousel instead of a full-width strip, preceded by the dashed “SELECTED WORK” eyebrow. `.case-shell` caps the complete carousel, including the neighboring slide previews and arrow controls, at 1320px. Desktop side gutters are 60px until that cap is reached; tablets and phones retain the edge-to-edge swipe window. Central slides use 72% of that container on desktop, 84% on tablet and 88% on phones. Container-relative heights and type keep the image proportions balanced on large screens, and image `sizes` reflects the narrower window. The phone crop is taller to preserve legible project titles and buttons. Sizes grow naturally with text zoom; the main page never gains horizontal overflow.
+Below 700px the five projects stack in their reading order with 24px outer gutters and 36px gaps. Caban retains a taller image; the remaining projects use landscape crops. The grid is semantic static HTML with no carousel script, horizontal dragging, clones, hidden projects or carousel announcements. All projects are available with or without JavaScript and under reduced motion. The older `case-studies.css` and `case-studies.js` remain unused by this preview; the client-logo carousel is independent and unchanged.
 
 ## Image optimization
 
-The owner supplied all five images. Originals remain outside the published site. WebP derivatives were made with Sharp at quality 84, effort 6, normalized orientation and sRGB output, with metadata removed. No source was enlarged. Desktop derivatives retain their source proportions; portrait phone alternatives use a center crop at 3:4 to avoid downloading pixels that will be cropped offscreen.
+The owner supplied all five images. Originals remain outside the published site. WebP derivatives were made with Sharp at quality 84, effort 6, normalized orientation and sRGB output, with metadata removed. No source was enlarged. The grid reuses responsive landscape derivatives on every device; image `sizes` reflects each column and the taller Caban crop. Portrait alternatives from the earlier carousel remain available but are not requested by the grid.
 
-| Project | Original | Largest desktop WebP | Largest phone WebP |
+| Project | Original | Largest landscape WebP | Retained portrait alternative |
 | --- | ---: | ---: | ---: |
 | Caban Energy | 2,872,400 B | 144,644 B | 69,558 B |
 | Ohmium | 230,082 B | 223,816 B | 72,150 B |
@@ -35,7 +35,7 @@ The owner supplied all five images. Originals remain outside the published site.
 | Latitude Media | 1,850,340 B | 75,670 B | 41,658 B |
 | Total | 10,638,606 B | 1,036,340 B | 492,608 B |
 
-The largest desktop set is about 90% smaller than the originals; the largest phone set is about 95% smaller. Each browser chooses one suitable variant per image through `picture`, `srcset` and `sizes`, based on screen size and pixel density. These totals are comparisons, not an upfront page download: images are lazy-loaded below the fold, with adjacent slides warmed when the carousel approaches the viewport. Duplicate edge slides reuse the browser cache. Explicit image dimensions and reserved slide heights prevent image-related layout shifts.
+The largest landscape set is about 90% smaller than the originals. Each browser chooses one suitable variant per image through `srcset` and `sizes`, based on screen size and pixel density. These totals are comparisons, not an upfront page download: images are lazy-loaded below the fold. Explicit image dimensions and reserved picture proportions prevent image-related layout shifts.
 
 Ohmium's source is already WebP and only 1200px wide, so its full-size file has a smaller saving and cannot gain additional original detail on very large displays. Keep the original files for future case-study detail pages.
 
