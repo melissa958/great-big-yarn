@@ -1,10 +1,10 @@
-# Proposed homepage ending
+# Approved homepage ending
 
-Review preview: `previews/footer-cta.html#closing-cta`. This is a separate copy of the current homepage; the homepage has not been changed.
+The owner approved this ending and promoted it to the homepage on October 16, 2026. The separate preview remains at `previews/footer-cta.html#closing-cta`.
 
 The owner requested a black final contact CTA and general footer after selected work, and authorized proposed layout and wording for review.
 
-## Proposed copy
+## Approved copy
 
 **Something complicated?**
 
@@ -20,6 +20,6 @@ The black background continues from selected work. A fine horizontal rule introd
 
 The footer uses the original GBY logo in white, same-page links to About / Selected work / Back to top, a fine divider, and copyright. No unconfirmed email, social destinations or policy pages have been invented.
 
-The contact button remains disabled because the contact page is not ready. Connect the CTA and existing header contact buttons together when the approved contact page is implemented. Copy and layout are proposals; do not promote without the owner's review.
+The contact button remains disabled because the contact page is not ready. Connect the CTA and existing header contact buttons together when the approved contact page is implemented. The owner may update the footer links later; retain the current links until requested.
 
-Styles: `site/styles/footer-preview.css`. The preview is a static snapshot of the homepage at the time it was created; it does not replace other previews.
+Styles: `site/styles/footer-preview.css`, shared by the homepage and preview. The preview is a static snapshot of the homepage at the time it was created; it does not replace other previews.
