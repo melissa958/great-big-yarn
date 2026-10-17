@@ -1,0 +1,66 @@
+/* Proposed homepage ending, scoped to the separate footer preview. */
+.closing-cta, .closing-footer {
+  position: relative;
+  z-index: 3;
+  padding-inline: 60px;
+  background: var(--ink);
+  color: var(--paper);
+}
+.closing-inner { width: 80%; margin-inline: auto; }
+.closing-cta .closing-inner {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  align-items: center;
+  gap: 80px;
+  border-top: 1px solid rgb(244 236 220 / 24%);
+  padding-block: 112px 120px;
+}
+.closing-title {
+  margin: 0;
+  font: 700 clamp(3rem, 4.4vw, 5.5rem)/1.08 "Romie", Georgia, serif;
+  font-synthesis: none;
+  letter-spacing: -.015em;
+  text-wrap: balance;
+}
+.closing-title span, .closing-title em { display: block; }
+.closing-title em { color: var(--blush); }
+.closing-invitation { max-width: 370px; }
+.closing-invitation p { margin: 0 0 32px; font-size: 1.125rem; font-weight: 300; line-height: 1.6; }
+.closing-cta .closing-button {
+  margin: 0;
+  background: var(--paper);
+  border-color: var(--paper);
+  color: var(--ink);
+}
+.closing-footer .closing-inner { border-top: 1px solid rgb(244 236 220 / 24%); padding-block: 48px 40px; }
+.closing-footer-top { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+.closing-footer .brand { flex: 0 0 140.143px; }
+.closing-footer .brand img { filter: invert(1); }
+.closing-footer ul { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 32px; padding: 0; margin: 0; list-style: none; }
+.closing-footer a { text-decoration: none; }
+.closing-footer nav a { display: inline-flex; align-items: center; min-height: 44px; font-size: .875rem; }
+.closing-footer a:hover { text-decoration: underline; text-underline-offset: .25em; }
+.closing-footer :focus-visible { outline-color: var(--paper); }
+.closing-copyright { margin: 40px 0 0; color: rgb(244 236 220 / 65%); font-size: .75rem; font-weight: 300; line-height: 1.5; }
+@media (max-width: 1199px) {
+  .closing-cta, .closing-footer { padding-inline: 32px; }
+  .closing-inner { width: 100%; }
+  .closing-cta .closing-inner { gap: 48px; padding-block: 96px; }
+}
+@media (max-width: 999px) {
+  .closing-cta .closing-inner { grid-template-columns: 1fr; gap: 32px; }
+  .closing-title { font-size: clamp(3rem, 6vw, 4.5rem); }
+  .closing-invitation { max-width: 480px; }
+}
+@media (max-width: 599px) {
+  .closing-cta, .closing-footer { padding-inline: 24px; }
+  .closing-cta .closing-inner { padding-block: 72px 80px; }
+  .closing-title { font-size: clamp(2.5rem, 10.2vw, 3.5rem); }
+  .closing-invitation p { font-size: 1rem; }
+  .closing-cta .closing-button { min-height: 50px; padding: 15px 24px; font-size: .875rem; }
+  .closing-footer .closing-inner { padding-block: 40px 32px; }
+  .closing-footer-top { align-items: flex-start; flex-direction: column; gap: 24px; }
+  .closing-footer .brand { flex-basis: 50px; }
+  .closing-footer ul { gap: 8px 24px; }
+  .closing-copyright { margin-top: 24px; }
+}
