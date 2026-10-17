@@ -65,6 +65,15 @@ html:has(.section-scroll-prompt) { scroll-behavior: smooth; }
 }
 .opportunity-grid { margin-top: 68px; }
 .services-grid { margin-top: 59px; }
+.services-section .services-approach {
+  align-self: center;
+  width: fit-content;
+  max-width: 100%;
+  margin: 56px auto 0;
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
 .homepage-section h3 {
   margin: 0;
   font-size: 1.375rem;
