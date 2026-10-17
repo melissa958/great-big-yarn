@@ -58,6 +58,13 @@
   letter-spacing: -.015em;
   overflow-wrap: anywhere;
 }
+.case-studies-home .case-caption h3 {
+  font-family: var(--font);
+  font-size: clamp(1.5rem, 2cqw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
 .case-hover-label {
   position: absolute;
   z-index: 1;
@@ -104,5 +111,6 @@
   .case-project:first-child .case-photo { flex: none; min-height: 0; aspect-ratio: 1.25; }
   .case-caption { gap: 12px; padding-top: 14px; }
   .case-caption :is(h2, h3) { font-size: 1.75rem; }
+  .case-studies-home .case-caption h3 { font-size: 1.375rem; }
 }
 @media (prefers-reduced-motion: reduce) { .case-hover-label { transition: none; } }
