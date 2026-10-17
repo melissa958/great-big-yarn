@@ -16,7 +16,7 @@
   min-height: max(668px, 100svh);
   padding: 56px 60px;
   color: var(--ink);
-  background: linear-gradient(90deg, var(--yellow), var(--blush) 47.115%, var(--green));
+  background: linear-gradient(var(--testimonial-gradient-direction, 90deg), var(--yellow), var(--blush) 47.115%, var(--green));
 }
 .testimonials-content { width: 100%; max-width: 1320px; }
 .testimonials-header { margin-bottom: 40px; text-align: center; }
@@ -100,7 +100,7 @@
   .testimonials-layout { min-height: 340px; }
 }
 @media (max-width: 599px) {
-  .testimonials-section { padding: 48px 24px; }
+  .testimonials-section { --testimonial-gradient-direction: 180deg; padding: 48px 24px; }
   .testimonials-panel { padding: 32px 24px; }
   .testimonial-slide { grid-template-columns: 1fr; gap: 24px; }
   .testimonial-avatar { width: 96px; height: 96px; }
