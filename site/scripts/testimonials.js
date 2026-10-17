@@ -2,7 +2,7 @@
 const section = document.querySelector('.testimonials-section');
 if (section) {
   const pair = section.closest('.studio-testimonial-pair');
-  const panel = section.querySelector('.testimonials-panel');
+  const content = section.querySelector('.testimonials-content');
   const studio = pair.querySelector('.studio-section');
   const controls = [...section.querySelectorAll('.testimonial-control')];
   const slides = [...section.querySelectorAll('.testimonial-slide')];
@@ -18,7 +18,7 @@ if (section) {
   function measure() {
     frame = 0;
     const style = getComputedStyle(section);
-    const required = panel.getBoundingClientRect().height + parseFloat(style.paddingTop) + parseFloat(style.paddingBottom);
+    const required = content.getBoundingClientRect().height + parseFloat(style.paddingTop) + parseFloat(style.paddingBottom);
     // Tall cards scroll in ordinary flow so small screens never lose content.
     pair.classList.toggle('testimonials-curtain-ready', !reduced.matches && required <= innerHeight + .05);
   }
@@ -70,7 +70,7 @@ if (section) {
     if (document.hidden && frame) { cancelAnimationFrame(frame); frame = 0; }
     else if (!document.hidden) queueMeasure();
   });
-  new ResizeObserver(queueMeasure).observe(panel);
+  new ResizeObserver(queueMeasure).observe(content);
   addEventListener('resize', queueMeasure, { passive: true });
   reduced.addEventListener('change', queueMeasure);
   addEventListener('hashchange', revealHash);

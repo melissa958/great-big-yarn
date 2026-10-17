@@ -43,7 +43,7 @@ html:has(.section-scroll-prompt) { scroll-behavior: smooth; }
   text-transform: uppercase;
 }
 .opportunity-section .content-eyebrow { width: 243px; }
-.homepage-section h2 {
+.homepage-section h2, .testimonials-heading {
   max-width: 1060px;
   margin: 0 auto;
   font-family: "Romie", Georgia, serif;
@@ -107,7 +107,7 @@ html:has(.section-scroll-prompt) { scroll-behavior: smooth; }
 }
 @media (max-width: 1199px) {
   .homepage-section { padding-inline: 32px; }
-  .homepage-section h2 { font-size: clamp(36px, 4.514vw, 65px); }
+  .homepage-section h2, .testimonials-heading { font-size: clamp(36px, 4.514vw, 65px); }
   .content-grid { gap: 24px; }
   .opportunity-card, .service-card { padding: 32px; }
   .opportunity-grid { grid-template-columns: 1fr; max-width: 620px; margin-top: 48px; }
@@ -123,7 +123,7 @@ html:has(.section-scroll-prompt) { scroll-behavior: smooth; }
 @media (max-width: 599px) {
   .homepage-section { padding-inline: 24px; }
   .opportunity-section, .services-section { padding-block: 80px; }
-  .homepage-section h2 { font-size: clamp(32px, 8.2vw, 44px); }
+  .homepage-section h2, .testimonials-heading { font-size: clamp(32px, 8.2vw, 44px); }
   .content-grid { grid-template-columns: 1fr; gap: 24px; }
   .opportunity-card, .service-card { padding: 32px 24px; }
 }
