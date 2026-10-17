@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="./styles/cat-test-layout.css">
     <link rel="stylesheet" href="./styles/homepage-sections.css">
     <link rel="stylesheet" href="./styles/studio-section.css">
+    <link rel="stylesheet" href="./styles/testimonials.css">
+    <script type="module" src="./scripts/testimonials.js"></script>
     <script type="module" src="./scripts/hero-curtain.js"></script>
     <script type="module" src="./scripts/section-cat-test.js"></script>
     <script type="module" src="./scripts/service-marks.js"></script>
@@ -328,6 +330,7 @@
       </section>
       </div>
       </div>
+      <div class="studio-testimonial-pair">
       <section class="studio-section homepage-section" id="studio" aria-labelledby="studio-title">
         <div class="studio-copy-panel">
           <div class="studio-copy">
@@ -341,6 +344,73 @@
           <img src="./assets/images/studio/melissa-stafford-woodruff-1105.webp" srcset="./assets/images/studio/melissa-stafford-woodruff-480.webp 480w, ./assets/images/studio/melissa-stafford-woodruff-768.webp 768w, ./assets/images/studio/melissa-stafford-woodruff-1105.webp 1105w" sizes="(max-width: 999px) 100vw, 50vw" width="1105" height="1424" alt="Melissa Stafford-Woodruff in a blue sweater and red trousers, seated in a colorful studio." loading="lazy" decoding="async">
         </div>
       </section>
+      <section class="testimonials-section" id="testimonials" tabindex="-1" aria-label="Client testimonials">
+        <div class="testimonials-panel">
+          <div class="testimonials-layout">
+            <nav class="testimonial-controls" aria-label="Choose a testimonial" hidden>
+              <button class="testimonial-control" type="button" aria-label="Show testimonial 1 of 5" aria-controls="testimonial-1" aria-pressed="true"><span class="testimonial-control-line" aria-hidden="true"><img src="./assets/images/testimonials/line-active.svg" width="70" height="2" alt=""></span><span>01</span></button>
+              <button class="testimonial-control" type="button" aria-label="Show testimonial 2 of 5" aria-controls="testimonial-2" aria-pressed="false"><span class="testimonial-control-line" aria-hidden="true"><img src="./assets/images/testimonials/line-inactive.svg" width="70" height="2" alt=""></span><span>02</span></button>
+              <button class="testimonial-control" type="button" aria-label="Show testimonial 3 of 5" aria-controls="testimonial-3" aria-pressed="false"><span class="testimonial-control-line" aria-hidden="true"><img src="./assets/images/testimonials/line-inactive.svg" width="70" height="2" alt=""></span><span>03</span></button>
+              <button class="testimonial-control" type="button" aria-label="Show testimonial 4 of 5" aria-controls="testimonial-4" aria-pressed="false"><span class="testimonial-control-line" aria-hidden="true"><img src="./assets/images/testimonials/line-inactive.svg" width="70" height="2" alt=""></span><span>04</span></button>
+              <button class="testimonial-control" type="button" aria-label="Show testimonial 5 of 5" aria-controls="testimonial-5" aria-pressed="false"><span class="testimonial-control-line" aria-hidden="true"><img src="./assets/images/testimonials/line-inactive.svg" width="70" height="2" alt=""></span><span>05</span></button>
+            </nav>
+            <div class="testimonial-slides">
+              <figure class="testimonial-slide" id="testimonial-1">
+                <img class="testimonial-avatar" src="./assets/images/testimonials/scott-clavenna-150.webp" srcset="./assets/images/testimonials/scott-clavenna-150.webp 150w, ./assets/images/testimonials/scott-clavenna-204.webp 204w" sizes="(max-width: 599px) 96px, 150px" width="150" height="150" alt="Scott Clavenna" loading="lazy" decoding="async">
+                <div class="testimonial-quotation">
+                  <img class="testimonial-quote-mark" src="./assets/images/testimonials/quote-mark.svg" width="51" height="51" alt="" aria-hidden="true" loading="lazy" decoding="async">
+                  <div class="testimonial-words">
+                    <blockquote><p>Melissa from the DG+ team was great to work with on this critical project. She took in all our input and ongoing feedback, and created a design and deck that was well beyond our expectations and something we were confident to bring out to market as a first-class representation of our brand and ambitions.</p></blockquote>
+                    <figcaption><strong>Scott Clavenna</strong><span><em>CEO + Co-Founder, </em><span class="testimonial-company">Latitude Media</span></span></figcaption>
+                  </div>
+                </div>
+              </figure>
+              <figure class="testimonial-slide" id="testimonial-2" hidden>
+                <img class="testimonial-avatar" src="./assets/images/testimonials/scott-clavenna-150.webp" srcset="./assets/images/testimonials/scott-clavenna-150.webp 150w, ./assets/images/testimonials/scott-clavenna-204.webp 204w" sizes="(max-width: 599px) 96px, 150px" width="150" height="150" alt="Scott Clavenna" loading="lazy" decoding="async">
+                <div class="testimonial-quotation">
+                  <img class="testimonial-quote-mark" src="./assets/images/testimonials/quote-mark.svg" width="51" height="51" alt="" aria-hidden="true" loading="lazy" decoding="async">
+                  <div class="testimonial-words">
+                    <blockquote><p>Melissa from the DG+ team was great to work with on this critical project. She took in all our input and ongoing feedback, and created a design and deck that was well beyond our expectations and something we were confident to bring out to market as a first-class representation of our brand and ambitions.</p></blockquote>
+                    <figcaption><strong>Scott Clavenna</strong><span><em>CEO + Co-Founder, </em><span class="testimonial-company">Latitude Media</span></span></figcaption>
+                  </div>
+                </div>
+              </figure>
+              <figure class="testimonial-slide" id="testimonial-3" hidden>
+                <img class="testimonial-avatar" src="./assets/images/testimonials/scott-clavenna-150.webp" srcset="./assets/images/testimonials/scott-clavenna-150.webp 150w, ./assets/images/testimonials/scott-clavenna-204.webp 204w" sizes="(max-width: 599px) 96px, 150px" width="150" height="150" alt="Scott Clavenna" loading="lazy" decoding="async">
+                <div class="testimonial-quotation">
+                  <img class="testimonial-quote-mark" src="./assets/images/testimonials/quote-mark.svg" width="51" height="51" alt="" aria-hidden="true" loading="lazy" decoding="async">
+                  <div class="testimonial-words">
+                    <blockquote><p>Melissa from the DG+ team was great to work with on this critical project. She took in all our input and ongoing feedback, and created a design and deck that was well beyond our expectations and something we were confident to bring out to market as a first-class representation of our brand and ambitions.</p></blockquote>
+                    <figcaption><strong>Scott Clavenna</strong><span><em>CEO + Co-Founder, </em><span class="testimonial-company">Latitude Media</span></span></figcaption>
+                  </div>
+                </div>
+              </figure>
+              <figure class="testimonial-slide" id="testimonial-4" hidden>
+                <img class="testimonial-avatar" src="./assets/images/testimonials/scott-clavenna-150.webp" srcset="./assets/images/testimonials/scott-clavenna-150.webp 150w, ./assets/images/testimonials/scott-clavenna-204.webp 204w" sizes="(max-width: 599px) 96px, 150px" width="150" height="150" alt="Scott Clavenna" loading="lazy" decoding="async">
+                <div class="testimonial-quotation">
+                  <img class="testimonial-quote-mark" src="./assets/images/testimonials/quote-mark.svg" width="51" height="51" alt="" aria-hidden="true" loading="lazy" decoding="async">
+                  <div class="testimonial-words">
+                    <blockquote><p>Melissa from the DG+ team was great to work with on this critical project. She took in all our input and ongoing feedback, and created a design and deck that was well beyond our expectations and something we were confident to bring out to market as a first-class representation of our brand and ambitions.</p></blockquote>
+                    <figcaption><strong>Scott Clavenna</strong><span><em>CEO + Co-Founder, </em><span class="testimonial-company">Latitude Media</span></span></figcaption>
+                  </div>
+                </div>
+              </figure>
+              <figure class="testimonial-slide" id="testimonial-5" hidden>
+                <img class="testimonial-avatar" src="./assets/images/testimonials/scott-clavenna-150.webp" srcset="./assets/images/testimonials/scott-clavenna-150.webp 150w, ./assets/images/testimonials/scott-clavenna-204.webp 204w" sizes="(max-width: 599px) 96px, 150px" width="150" height="150" alt="Scott Clavenna" loading="lazy" decoding="async">
+                <div class="testimonial-quotation">
+                  <img class="testimonial-quote-mark" src="./assets/images/testimonials/quote-mark.svg" width="51" height="51" alt="" aria-hidden="true" loading="lazy" decoding="async">
+                  <div class="testimonial-words">
+                    <blockquote><p>Melissa from the DG+ team was great to work with on this critical project. She took in all our input and ongoing feedback, and created a design and deck that was well beyond our expectations and something we were confident to bring out to market as a first-class representation of our brand and ambitions.</p></blockquote>
+                    <figcaption><strong>Scott Clavenna</strong><span><em>CEO + Co-Founder, </em><span class="testimonial-company">Latitude Media</span></span></figcaption>
+                  </div>
+                </div>
+              </figure>
+            </div>
+          </div>
+          <p class="testimonial-status" aria-live="polite" aria-atomic="true"></p>
+        </div>
+      </section>
+      </div>
       <section class="services-section homepage-section" aria-labelledby="services-title">
         <p class="content-eyebrow">What I do</p>
         <h2 id="services-title">Here’s how we can work together</h2>
