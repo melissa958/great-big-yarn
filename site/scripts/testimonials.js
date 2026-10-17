@@ -1,4 +1,4 @@
-// Five editable figures live in index.html. Selection is visitor-controlled.
+// Four editable figures live in index.html. Selection is visitor-controlled.
 const section = document.querySelector('.testimonials-section');
 if (section) {
   const pair = section.closest('.studio-testimonial-pair');
