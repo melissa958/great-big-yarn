@@ -9,7 +9,7 @@ const status = controls.querySelector('.art-status');
 const hint = controls.querySelector('.art-hint');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 const finePointer = matchMedia('(any-hover: hover) and (any-pointer: fine)');
-const names = { dispersion: 'Dispersion +30%', 'dispersion-fast': 'Dispersion +60%', 'dispersion-mix': 'Mouse mix' };
+const names = { 'yarn-color-fields': 'Yarn color fields +30%', 'yarn-color-fields-fast': 'Yarn color fields +60%', 'yarn-color-fields-mix': 'Mouse mix' };
 let paused = false;
 let frame = 0;
 let mixEnabled = false;
@@ -77,7 +77,7 @@ function sync() {
   const rect = section.getBoundingClientRect();
   const uncovered = hero.getBoundingClientRect().bottom < innerHeight - 1;
   const visible = uncovered && rect.bottom > 80 && rect.top < innerHeight - 80;
-  const mixing = section.dataset.art === 'dispersion-mix';
+  const mixing = section.dataset.art === 'yarn-color-fields-mix';
   const running = visible && !paused && !reduced.matches && !document.hidden;
   mixBox = rect;
   mixEnabled = mixing && running && finePointer.matches;
@@ -95,7 +95,8 @@ function sync() {
 }
 function queue() { if (!frame) frame = requestAnimationFrame(sync); }
 function select(key, updateURL = false) {
-  if (!Object.hasOwn(names, key)) key = 'dispersion';
+  // Preserve bookmarked treatment variants when a previous URL uses another base name.
+  if (!Object.hasOwn(names, key)) key = key?.endsWith('-fast') ? 'yarn-color-fields-fast' : key?.endsWith('-mix') ? 'yarn-color-fields-mix' : 'yarn-color-fields';
   section.dataset.art = key;
   for (const layer of layers) layer.hidden = layer.dataset.artLayer !== key;
   for (const button of options) button.setAttribute('aria-pressed', String(button.dataset.study === key));

@@ -1,5 +1,5 @@
-/* Shared approved Dispersion artwork and Section 2 layout. */
-.dispersion-page .art-section {
+/* Shared approved Yarn color fields artwork and Section 2 layout. */
+.yarn-color-fields-page .art-section {
   isolation: isolate;
   overflow: clip;
   min-height: max(775px, 100svh);
@@ -7,7 +7,7 @@
   background: var(--paper);
   animation: none;
 }
-.dispersion-page .messy-group {
+.yarn-color-fields-page .messy-group {
   position: relative;
   z-index: 1;
   display: flex;
@@ -16,7 +16,7 @@
   width: 100%;
   gap: 56px;
 }
-.dispersion-page .section-scroll-prompt {
+.yarn-color-fields-page .section-scroll-prompt {
   position: static;
   width: fit-content;
   max-width: 100%;
@@ -41,21 +41,21 @@
 }
 .art-layer > div { position: absolute; }
 
-/* Shared Dispersion composition: only the speed differs between examples. */
-.art-dispersion { background: var(--paper); }
-.art-dispersion { --dispersion-speed: 1.3; }
-.art-dispersion-fast { --dispersion-speed: 1.6; }
-.dispersion-surface { inset: -8%; overflow: visible; }
-.art-dispersion::before {
+/* Shared Yarn color fields composition: only the speed differs between examples. */
+.art-yarn-color-fields { background: var(--paper); }
+.art-yarn-color-fields { --yarn-color-fields-speed: 1.3; }
+.art-yarn-color-fields-fast { --yarn-color-fields-speed: 1.6; }
+.yarn-color-fields-surface { inset: -8%; overflow: visible; }
+.art-'yarn-color-fields'::before {
   content: "";
   position: absolute;
   z-index: 1;
   inset: 0;
   background: radial-gradient(ellipse 55% 47% at 50% 48%, var(--paper) 0%, rgb(244 236 220 / 97%) 38%, rgb(244 236 220 / 79%) 61%, rgb(244 236 220 / 30%) 82%, transparent 100%);
 }
-.art-dispersion::after { z-index: 2; opacity: .52; filter: contrast(1.3); }
-/* Dispersion: grainy vertical traces stretch, merge and pass one another. */
-.dispersion-ribbon {
+.art-'yarn-color-fields'::after { z-index: 2; opacity: .52; filter: contrast(1.3); }
+/* Yarn color fields: grainy vertical traces stretch, merge and pass one another. */
+.yarn-color-fields-ribbon {
   position: absolute;
   left: var(--ribbon-x);
   top: -25%;
@@ -66,8 +66,8 @@
   opacity: .8;
   filter: blur(clamp(12px, 1.8vw, 28px));
   mix-blend-mode: multiply;
-  animation: pigment-dispersion calc(var(--ribbon-cycle, 30s) / var(--dispersion-speed)) ease-in-out infinite;
-  animation-delay: calc(var(--ribbon-phase, 0s) / var(--dispersion-speed));
+  animation: yarn-color-fields-drift calc(var(--ribbon-cycle, 30s) / var(--yarn-color-fields-speed)) ease-in-out infinite;
+  animation-delay: calc(var(--ribbon-phase, 0s) / var(--yarn-color-fields-speed));
 }
 .ribbon-one { --ribbon-x: -7%; --ribbon-a: var(--red); --ribbon-b: var(--pink); --ribbon-c: var(--yellow); --ribbon-phase: -9s; }
 .ribbon-two { --ribbon-x: 1%; --ribbon-a: var(--turquoise); --ribbon-b: var(--blush); --ribbon-c: var(--blue); --ribbon-phase: -22s; --ribbon-width: 12%; --ribbon-cycle: 26s; }
@@ -80,7 +80,7 @@
 .ribbon-nine { --ribbon-x: 76%; --ribbon-a: var(--blue); --ribbon-b: var(--blush); --ribbon-c: var(--red); --ribbon-phase: -3s; --ribbon-width: 11%; --ribbon-cycle: 36s; }
 .ribbon-ten { --ribbon-x: 84%; --ribbon-a: var(--yellow); --ribbon-b: var(--red); --ribbon-c: var(--green); --ribbon-phase: -18s; }
 .ribbon-eleven { --ribbon-x: 95%; --ribbon-a: var(--pink); --ribbon-b: var(--blue); --ribbon-c: var(--turquoise); --ribbon-phase: -12s; --ribbon-cycle: 26s; }
-@keyframes pigment-dispersion {
+@keyframes yarn-color-fields-drift {
   0%,100% { transform: translate(-5%, -12%) scale(.9, .94); }
   40% { transform: translate(8%, 12%) scale(1.2, 1.08); }
   75% { transform: translate(-9%, 3%) scale(.96, 1.14); }
@@ -88,32 +88,32 @@
 
 /* Only the selected, uncovered study runs. No JavaScript = a static composition. */
 .art-motion { animation-play-state: paused; }
-.art-running .art-layer:not([hidden]):not(.art-dispersion-mix) .art-motion { animation-play-state: running; }
+.art-running .art-layer:not([hidden]):not(.art-yarn-color-fields-mix) .art-motion { animation-play-state: running; }
 
 @media (min-width: 1920px) and (min-height: 1000px) {
-  .dispersion-page .curtain-sequence .messy-group { gap: 72px; }
+  .yarn-color-fields-page .curtain-sequence .messy-group { gap: 72px; }
 }
 @media (max-width: 1199px) {
-  .dispersion-page .art-section { padding-inline: 32px; }
+  .yarn-color-fields-page .art-section { padding-inline: 32px; }
 }
 @media (max-width: 759px) {
-  .dispersion-page .art-section { padding: 80px 24px 180px; }
-  .dispersion-page .messy-group { gap: 40px; }
-  .dispersion-page .messy-copy { line-height: 1.5; }
-  .art-dispersion::before {
+  .yarn-color-fields-page .art-section { padding: 80px 24px 180px; }
+  .yarn-color-fields-page .messy-group { gap: 40px; }
+  .yarn-color-fields-page .messy-copy { line-height: 1.5; }
+  .art-'yarn-color-fields'::before {
     background: radial-gradient(ellipse 70% 60% at 50% 48%, var(--paper) 0%, rgb(244 236 220 / 97%) 56%, rgb(244 236 220 / 85%) 75%, rgb(244 236 220 / 20%) 100%, transparent 112%);
   }
 }
 /* The homepage has no comparison toolbar, so it needs no reserved toolbar space. */
-.dispersion-home .art-section { padding-bottom: 100px; }
-.dispersion-pause {
+.yarn-color-fields-home .art-section { padding-bottom: 100px; }
+.yarn-color-fields-pause {
   position: absolute;
   z-index: 3;
   right: 20px;
   bottom: 20px;
 }
 /* One shared homepage treatment for the hero and Section 2 Pause controls. */
-.dispersion-home :is(.animation-controls button, .dispersion-pause) {
+.yarn-color-fields-home :is(.animation-controls button, .yarn-color-fields-pause) {
   min-width: 74px;
   min-height: 44px;
   padding: 10px 16px;
@@ -124,13 +124,13 @@
   font: 500 13px/20px var(--font);
   cursor: pointer;
 }
-.dispersion-home :is(.animation-controls button, .dispersion-pause):hover { border-color: var(--ink); }
-.dispersion-home :is(.animation-controls button, .dispersion-pause):focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
-.dispersion-pause[hidden] { display: none; }
+.yarn-color-fields-home :is(.animation-controls button, .yarn-color-fields-pause):hover { border-color: var(--ink); }
+.yarn-color-fields-home :is(.animation-controls button, .yarn-color-fields-pause):focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.yarn-color-fields-pause[hidden] { display: none; }
 @media (max-width: 759px) {
-  .dispersion-home .art-section { padding-bottom: 80px; }
-  .dispersion-pause { right: 16px; bottom: 16px; }
+  .yarn-color-fields-home .art-section { padding-bottom: 80px; }
+  .yarn-color-fields-pause { right: 16px; bottom: 16px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .dispersion-page .art-motion { animation: none; }
+  .yarn-color-fields-page .art-motion { animation: none; }
 }

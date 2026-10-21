@@ -6,7 +6,7 @@ const section = document.querySelector('.messy-section');
 const pause = document.querySelector('[data-pause]');
 const heroOnly = pause.dataset.pauseScope === 'hero';
 // Match the homepage background control's handoff, including fractional scroll rounding.
-const pauseExitBoundary = document.body.classList.contains('dispersion-home') ? 1 : 0;
+const pauseExitBoundary = document.body.classList.contains('yarn-color-fields-home') ? 1 : 0;
 const controls = pause.closest('.animation-controls');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const mobile = matchMedia('(max-width: 599px)');

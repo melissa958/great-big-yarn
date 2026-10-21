@@ -1,7 +1,7 @@
-// Homepage Dispersion: CSS draws the approved +60% loop; JS only gates its visibility.
-const section = document.querySelector('.dispersion-home .art-section');
+// Homepage Yarn color fields: CSS draws the approved +60% loop; JS only gates its visibility.
+const section = document.querySelector('.yarn-color-fields-home .art-section');
 const hero = document.querySelector('.curtain-hero');
-const pause = section.querySelector('.dispersion-pause');
+const pause = section.querySelector('.yarn-color-fields-pause');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 let paused = false;
 let frame = 0;
