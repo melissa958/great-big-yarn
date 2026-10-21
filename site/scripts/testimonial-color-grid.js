@@ -77,7 +77,7 @@ async function loadArtwork() {
   sync();
   const name = portrait.matches ? 'portrait' : 'landscape';
   try {
-    const response = await fetch(new URL(`../assets/images/testimonials/color-grid-${name}.svg`, import.meta.url));
+    const response = await fetch(new URL(`../assets/images/testimonials/color-grid-${name}.svg?v=yellow-20261021`, import.meta.url));
     if (!response.ok) return;
     const art = new DOMParser().parseFromString(await response.text(), 'image/svg+xml').documentElement;
     if (id !== loadId || art.localName !== 'svg') return;
