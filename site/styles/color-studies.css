@@ -88,7 +88,19 @@
 
 /* Only the selected, uncovered study runs. No JavaScript = a static composition. */
 .art-motion { animation-play-state: paused; }
-.art-running .art-layer:not([hidden]) .art-motion { animation-play-state: running; }
+.art-running .art-layer:not([hidden]):not(.art-dispersion-mix) .art-motion { animation-play-state: running; }
+
+/* Mouse mixing moves the static ribbons only in response to pointer travel. */
+.mixer-ribbon {
+  position: absolute;
+  left: var(--ribbon-x);
+  top: -25%;
+  width: var(--ribbon-width, 17%);
+  height: 150%;
+  transform-origin: center;
+  mix-blend-mode: multiply;
+}
+.mixer-ribbon > .dispersion-ribbon { left: 0; top: 0; width: 100%; height: 100%; mix-blend-mode: normal; }
 
 /* Temporary comparison controls, separate from the site design. */
 .art-controls {
@@ -97,7 +109,8 @@
   left: 50%;
   bottom: max(20px, env(safe-area-inset-bottom));
   transform: translateX(-50%);
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto auto;
   align-items: center;
   gap: 12px;
   width: max-content;
@@ -119,6 +132,8 @@
 .art-controls button:focus-visible { outline: 2px solid var(--yellow); outline-offset: 2px; }
 .art-controls .art-pause { border-left: 1px solid #494744; border-radius: 0; }
 .art-pause:disabled { color: #b8b4ad; cursor: default; }
+.art-hint { grid-column: 1 / -1; text-align: center; font-size: 11px; color: #b8b4ad; }
+.art-hint[hidden] { display: none; }
 .art-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (min-width: 1920px) and (min-height: 1000px) {
   .art-preview .curtain-sequence .messy-group { gap: 72px; }
@@ -126,13 +141,15 @@
 @media (max-width: 1199px) {
   .art-preview .art-section { padding-inline: 32px; }
   .art-controls-label { display: none; }
+  .art-controls { grid-template-columns: minmax(0, 1fr) auto; }
 }
 @media (max-width: 759px) {
   .art-preview .art-section { padding: 80px 24px 180px; }
   .art-preview .messy-group { gap: 40px; }
   .art-preview .messy-copy { line-height: 1.5; }
-  .art-controls { gap: 4px; width: 410px; padding: 8px; flex-wrap: wrap; justify-content: center; bottom: max(12px, env(safe-area-inset-bottom)); }
-  .art-options { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); flex: 1; }
+  .art-controls { gap: 4px; width: 410px; padding: 8px; bottom: max(12px, env(safe-area-inset-bottom)); }
+  .art-options { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .art-options button:last-child { grid-column: 1 / -1; }
   .art-controls button { padding-inline: 8px; font-size: 11px; }
   .art-controls .art-pause { min-width: 62px; margin-left: 4px; }
   .art-dispersion::before {
