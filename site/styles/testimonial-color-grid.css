@@ -1,7 +1,7 @@
 /* Draft-only painted color grid. The approved homepage gradient stays unchanged. */
 .testimonial-grid-preview .testimonials-section {
   isolation: isolate;
-  background: var(--paper) url("../assets/images/testimonials/color-grid-landscape.svg?v=yellow-20261021") center / cover no-repeat;
+  background: var(--paper) url("../assets/images/testimonials/color-grid-landscape.svg?v=yellow-tones-20261021") center / cover no-repeat;
 }
 .testimonial-grid-preview .testimonials-section::before,
 .testimonial-grid-preview .testimonials-section::after {
@@ -42,7 +42,7 @@
 @media (max-width: 599px) {
   .testimonial-grid-pause { bottom: 4px; right: 24px; }
   .testimonial-grid-preview .testimonials-section {
-    background-image: url("../assets/images/testimonials/color-grid-portrait.svg?v=yellow-20261021");
+    background-image: url("../assets/images/testimonials/color-grid-portrait.svg?v=yellow-tones-20261021");
   }
   .testimonial-grid-preview .testimonials-section::before {
     background: radial-gradient(ellipse 100% 52% at 50% 20%, rgb(244 236 220 / 54%), rgb(244 236 220 / 12%) 74%, transparent 100%);
