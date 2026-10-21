@@ -109,20 +109,24 @@
 .dispersion-pause {
   position: absolute;
   z-index: 3;
-  right: 24px;
-  bottom: 24px;
-  min-width: 64px;
+  right: 20px;
+  bottom: 20px;
+}
+/* One shared homepage treatment for the hero and Section 2 Pause controls. */
+.dispersion-home :is(.animation-controls button, .dispersion-pause) {
+  min-width: 74px;
   min-height: 44px;
-  padding: 10px 14px;
-  border: 1px solid rgb(8 8 8 / 25%);
-  border-radius: 7px;
-  background: var(--ink);
-  color: var(--paper);
-  font: 500 11px/1.4 var(--font);
+  padding: 10px 16px;
+  border: 1px solid rgb(0 0 0 / 20%);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font: 500 13px/20px var(--font);
   cursor: pointer;
 }
+.dispersion-home :is(.animation-controls button, .dispersion-pause):hover { border-color: var(--ink); }
+.dispersion-home :is(.animation-controls button, .dispersion-pause):focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 .dispersion-pause[hidden] { display: none; }
-.dispersion-pause:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 @media (max-width: 759px) {
   .dispersion-home .art-section { padding-bottom: 80px; }
   .dispersion-pause { right: 16px; bottom: 16px; }

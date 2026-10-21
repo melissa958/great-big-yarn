@@ -9,11 +9,13 @@ let frame = 0;
 function sync() {
   frame = 0;
   const bounds = section.getBoundingClientRect();
-  const uncovered = hero.getBoundingClientRect().bottom < innerHeight - 1;
+  const heroBottom = hero.getBoundingClientRect().bottom;
+  const uncovered = heroBottom < innerHeight - 1;
   // Ignore tiny residual strips at fractional sticky boundaries, matching the approved preview.
   const visible = uncovered && bounds.bottom > 80 && bounds.top < innerHeight - 80;
   document.body.classList.toggle('art-running', visible && !paused && !reduced.matches && !document.hidden);
-  pause.hidden = !visible || reduced.matches;
+  // The hero owns its control until it fully exits; never show both during the curtain reveal.
+  pause.hidden = !visible || reduced.matches || heroBottom > 1;
   pause.textContent = paused ? 'Resume' : 'Pause';
   pause.setAttribute('aria-pressed', String(paused));
   pause.setAttribute('aria-label', `${paused ? 'Resume' : 'Pause'} background animation`);

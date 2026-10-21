@@ -5,6 +5,8 @@ const hero = document.querySelector('.curtain-hero');
 const section = document.querySelector('.messy-section');
 const pause = document.querySelector('[data-pause]');
 const heroOnly = pause.dataset.pauseScope === 'hero';
+// Match the homepage background control's handoff, including fractional scroll rounding.
+const pauseExitBoundary = document.body.classList.contains('dispersion-home') ? 1 : 0;
 const controls = pause.closest('.animation-controls');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const mobile = matchMedia('(max-width: 599px)');
@@ -62,7 +64,7 @@ function sync() {
   document.body.classList.toggle('animations-paused', globallyPaused || document.hidden);
   hero.classList.toggle('hero-paused', heroOnly && paused);
   if (heroOnly) {
-    controls.hidden = reducedMotion.matches || bottom <= 0 || heroBounds.top >= innerHeight;
+    controls.hidden = reducedMotion.matches || bottom <= pauseExitBoundary || heroBounds.top >= innerHeight;
     pause.setAttribute('aria-pressed', String(paused));
   }
   for (const { cover, items } of revealGroups) {
