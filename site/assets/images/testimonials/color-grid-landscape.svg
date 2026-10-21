@@ -4,9 +4,9 @@
   <rect x="80" y="0" width="80" height="80" fill="#f2d5a5"/>
   <rect x="160" y="0" width="80" height="80" fill="#f2d295"/>
   <rect x="240" y="0" width="80" height="80" fill="#f1cf89"/>
-  <rect x="320" y="0" width="80" height="80" fill="#f0cf82"/>
+  <rect x="320" y="0" width="80" height="80" fill="#FDCE08"/>
   <rect x="400" y="0" width="80" height="80" fill="#eccd77"/>
-  <rect x="480" y="0" width="80" height="80" fill="#e8d07c"/>
+  <rect x="480" y="0" width="80" height="80" fill="#FDCE08"/>
   <rect x="560" y="0" width="80" height="80" fill="#e0cc71"/>
   <rect x="640" y="0" width="80" height="80" fill="#d3c865"/>
   <rect x="720" y="0" width="80" height="80" fill="#cdcc73"/>
@@ -23,11 +23,11 @@
   <rect x="0" y="80" width="80" height="80" fill="#ead3b4"/>
   <rect x="80" y="80" width="80" height="80" fill="#eacca3"/>
   <rect x="160" y="80" width="80" height="80" fill="#eccfa4"/>
-  <rect x="240" y="80" width="80" height="80" fill="#eccf9f"/>
+  <rect x="240" y="80" width="80" height="80" fill="#FDCE08"/>
   <rect x="320" y="80" width="80" height="80" fill="#eaca8e"/>
-  <rect x="400" y="80" width="80" height="80" fill="#e7ca8a"/>
+  <rect x="400" y="80" width="80" height="80" fill="#FDCE08"/>
   <rect x="480" y="80" width="80" height="80" fill="#e2c985"/>
-  <rect x="560" y="80" width="80" height="80" fill="#d8c67b"/>
+  <rect x="560" y="80" width="80" height="80" fill="#FDCE08"/>
   <rect x="640" y="80" width="80" height="80" fill="#d0c77f"/>
   <rect x="720" y="80" width="80" height="80" fill="#c2c57b"/>
   <rect x="800" y="80" width="80" height="80" fill="#b2c377"/>
