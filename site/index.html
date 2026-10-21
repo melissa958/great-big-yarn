@@ -14,14 +14,11 @@
     <link rel="stylesheet" href="./styles/hero-tests.css">
     <link rel="stylesheet" href="./styles/hero-curtain.css">
     <link rel="stylesheet" href="./styles/section-fish.css">
-    <link rel="stylesheet" href="./styles/section-cat.css">
-    <link rel="stylesheet" href="./styles/cat-test-layout.css">
     <link rel="stylesheet" href="./styles/homepage-sections.css">
     <link rel="stylesheet" href="./styles/studio-section.css">
     <link rel="stylesheet" href="./styles/testimonials.css">
     <script type="module" src="./scripts/testimonials.js"></script>
     <script type="module" src="./scripts/hero-curtain.js"></script>
-    <script type="module" src="./scripts/section-cat-test.js"></script>
     <script type="module" src="./scripts/service-marks.js"></script>
     <link rel="stylesheet" href="./styles/case-study-grid.css">
     <script type="module" src="./scripts/project-hover.js"></script>
@@ -30,8 +27,10 @@
     <link rel="stylesheet" href="./styles/client-logos.css">
     <script type="module" src="./scripts/client-logos.js"></script>
     <link rel="stylesheet" href="./styles/footer-preview.css">
+    <link rel="stylesheet" href="./styles/dispersion.css">
+    <script type="module" src="./scripts/dispersion.js"></script>
   </head>
-  <body class="hero-preview curtain-preview cat-preview cat-layout-test" data-layout="curtain">
+  <body class="hero-preview curtain-preview dispersion-page dispersion-home" data-layout="curtain">
     <a class="skip-link" href="#main">Skip to content</a>
     <main id="main" tabindex="-1" class="curtain-stack">
       <div class="curtain-sequence">
@@ -81,9 +80,26 @@
           </div>
         </div>
       </section>
-      <section class="messy-section" aria-labelledby="messy-title">
+      <section class="messy-section art-section" id="color-study" tabindex="-1" aria-labelledby="messy-title" data-art="dispersion-fast">
+        <div class="art-stage" aria-hidden="true">
+          <div class="art-layer art-dispersion art-dispersion-fast" data-art-layer="dispersion-fast">
+            <div class="dispersion-surface">
+              <div class="dispersion-ribbon ribbon-one art-motion"></div>
+              <div class="dispersion-ribbon ribbon-two art-motion"></div>
+              <div class="dispersion-ribbon ribbon-three art-motion"></div>
+              <div class="dispersion-ribbon ribbon-four art-motion"></div>
+              <div class="dispersion-ribbon ribbon-five art-motion"></div>
+              <div class="dispersion-ribbon ribbon-six art-motion"></div>
+              <div class="dispersion-ribbon ribbon-seven art-motion"></div>
+              <div class="dispersion-ribbon ribbon-eight art-motion"></div>
+              <div class="dispersion-ribbon ribbon-nine art-motion"></div>
+              <div class="dispersion-ribbon ribbon-ten art-motion"></div>
+              <div class="dispersion-ribbon ribbon-eleven art-motion"></div>
+            </div>
+          </div>
+        </div>
         <div class="messy-group">
-        <div class="messy-content">
+          <div class="messy-content">
           <h2 id="messy-title"><span class="romie-section-line">The messy middle is actually</span> <span class="romie-section-line">a <em>wonderful place</em> to be.</span></h2>
           <div class="messy-copy">
             <p>It’s also anxiety-inducing.</p>
@@ -91,43 +107,9 @@
             <p>I can’t think of a more exciting place to be.</p>
           </div>
         </div>
-        <div class="cat-test-footer">
-          <div class="cat-test-home" aria-hidden="true">
-          <div class="cat-position"><div class="cat-pose">
-            <svg class="editorial-cat" xmlns="http://www.w3.org/2000/svg" width="190" height="127" viewBox="0 0 190 127" focusable="false">
-              <g class="cat-tail"><use href="./assets/images/editorial-cat.svg#cat-tail"/></g>
-              <g class="cat-tail-tip"><use href="./assets/images/editorial-cat.svg#cat-tail-tip"/></g>
-              <g class="cat-body"><use href="./assets/images/editorial-cat.svg#cat-body"/></g>
-              <g class="cat-head">
-                <use href="./assets/images/editorial-cat.svg#cat-head"/>
-                <g class="cat-eyes">
-                  <use href="./assets/images/editorial-cat.svg#cat-eyes"/>
-                  <g class="cat-pupils"><use href="./assets/images/editorial-cat.svg#cat-pupils"/></g>
-                </g>
-              </g>
-              <g class="cat-paws">
-                <g class="cat-paw-left"><use href="./assets/images/editorial-cat.svg#cat-paw-left"/></g>
-                <g class="cat-paw-right"><use href="./assets/images/editorial-cat.svg#cat-paw-right"/></g>
-              </g>
-            </svg>
-          </div></div>
-          <div class="cat-yarn-position">
-            <svg class="editorial-yarn" xmlns="http://www.w3.org/2000/svg" width="48" height="36" viewBox="0 0 48 36" focusable="false" fill="none">
-              <path d="M27 28C31 34 34 32 37 30C40 27 44 28 46 31" stroke="var(--cat-ink)" stroke-width="1.1" stroke-linecap="round"/>
-              <g class="cat-yarn-roll">
-                <g transform="translate(0 3) scale(.58)">
-                  <use href="./assets/images/hero-tests/logo-symbol.svg#Vector"/>
-                </g>
-              </g>
-            </svg>
-          </div>
-          </div>
           <p class="section-eyebrow section-scroll-prompt">SO, HOW DO WE WORK TOGETHER? GREAT QUESTION. <a href="#opportunity">SCROLL FORTH!</a></p>
         </div>
-        </div>
-        <div class="cat-scene" aria-hidden="true">
-          <div class="cat-bubble" data-side="left"><p>wanna play?</p></div>
-        </div>
+        <button class="dispersion-pause" type="button" hidden aria-label="Pause background animation" aria-pressed="false">Pause</button>
       </section>
       </div>
       <div class="opportunity-reveal">

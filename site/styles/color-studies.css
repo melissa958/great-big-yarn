@@ -1,95 +1,4 @@
-/* Section 2 experiments only. The published homepage keeps its cat and palette. */
-.art-preview .art-section {
-  isolation: isolate;
-  overflow: clip;
-  min-height: max(775px, 100svh);
-  padding: 100px 60px 140px;
-  background: var(--paper);
-  animation: none;
-}
-.art-preview .messy-group {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  gap: 56px;
-}
-.art-preview .section-scroll-prompt {
-  position: static;
-  width: fit-content;
-  max-width: 100%;
-  min-height: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: 600 11px/1.5 var(--font);
-  letter-spacing: .99px;
-}
-.art-stage, .art-layer { position: absolute; inset: 0; overflow: clip; pointer-events: none; }
-.art-stage { z-index: 0; contain: paint; }
-.art-layer[hidden] { display: none; }
-.art-layer::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("../assets/images/color-studies/grain.webp") repeat;
-  background-size: 192px;
-  opacity: .12;
-  mix-blend-mode: soft-light;
-}
-.art-layer > div { position: absolute; }
-
-/* Shared Dispersion composition: only the speed differs between examples. */
-.art-dispersion { background: var(--paper); }
-.art-dispersion { --dispersion-speed: 1.3; }
-.art-dispersion-fast { --dispersion-speed: 1.6; }
-.dispersion-surface { inset: -8%; overflow: visible; }
-.art-dispersion::before {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  background: radial-gradient(ellipse 55% 47% at 50% 48%, var(--paper) 0%, rgb(244 236 220 / 97%) 38%, rgb(244 236 220 / 79%) 61%, rgb(244 236 220 / 30%) 82%, transparent 100%);
-}
-.art-dispersion::after { z-index: 2; opacity: .52; filter: contrast(1.3); }
-/* Dispersion: grainy vertical traces stretch, merge and pass one another. */
-.dispersion-ribbon {
-  position: absolute;
-  left: var(--ribbon-x);
-  top: -25%;
-  width: var(--ribbon-width, 17%);
-  height: 150%;
-  border-radius: 43% 57% 52% 48%;
-  background: linear-gradient(180deg, transparent 0%, var(--ribbon-a) 18%, var(--ribbon-b) 47%, var(--ribbon-c) 72%, transparent 100%);
-  opacity: .8;
-  filter: blur(clamp(12px, 1.8vw, 28px));
-  mix-blend-mode: multiply;
-  animation: pigment-dispersion calc(var(--ribbon-cycle, 30s) / var(--dispersion-speed)) ease-in-out infinite;
-  animation-delay: calc(var(--ribbon-phase, 0s) / var(--dispersion-speed));
-}
-.ribbon-one { --ribbon-x: -7%; --ribbon-a: var(--red); --ribbon-b: var(--pink); --ribbon-c: var(--yellow); --ribbon-phase: -9s; }
-.ribbon-two { --ribbon-x: 1%; --ribbon-a: var(--turquoise); --ribbon-b: var(--blush); --ribbon-c: var(--blue); --ribbon-phase: -22s; --ribbon-width: 12%; --ribbon-cycle: 26s; }
-.ribbon-three { --ribbon-x: 11%; --ribbon-a: var(--blush); --ribbon-b: var(--red); --ribbon-c: var(--yellow); --ribbon-phase: -17s; --ribbon-cycle: 34s; }
-.ribbon-four { --ribbon-x: 23%; --ribbon-a: var(--blue); --ribbon-b: var(--green); --ribbon-c: var(--pink); --ribbon-phase: -4s; --ribbon-width: 13%; }
-.ribbon-five { --ribbon-x: 33%; --ribbon-a: var(--yellow); --ribbon-b: var(--pink); --ribbon-c: var(--red); --ribbon-phase: -11s; --ribbon-cycle: 24s; }
-.ribbon-six { --ribbon-x: 44%; --ribbon-a: var(--blush); --ribbon-b: var(--blue); --ribbon-c: var(--turquoise); --ribbon-phase: -21s; }
-.ribbon-seven { --ribbon-x: 54%; --ribbon-a: var(--green); --ribbon-b: var(--red); --ribbon-c: var(--yellow); --ribbon-phase: -7s; --ribbon-width: 13%; --ribbon-cycle: 32s; }
-.ribbon-eight { --ribbon-x: 65%; --ribbon-a: var(--pink); --ribbon-b: var(--turquoise); --ribbon-c: var(--blush); --ribbon-phase: -15s; --ribbon-cycle: 28s; }
-.ribbon-nine { --ribbon-x: 76%; --ribbon-a: var(--blue); --ribbon-b: var(--blush); --ribbon-c: var(--red); --ribbon-phase: -3s; --ribbon-width: 11%; --ribbon-cycle: 36s; }
-.ribbon-ten { --ribbon-x: 84%; --ribbon-a: var(--yellow); --ribbon-b: var(--red); --ribbon-c: var(--green); --ribbon-phase: -18s; }
-.ribbon-eleven { --ribbon-x: 95%; --ribbon-a: var(--pink); --ribbon-b: var(--blue); --ribbon-c: var(--turquoise); --ribbon-phase: -12s; --ribbon-cycle: 26s; }
-@keyframes pigment-dispersion {
-  0%,100% { transform: translate(-5%, -12%) scale(.9, .94); }
-  40% { transform: translate(8%, 12%) scale(1.2, 1.08); }
-  75% { transform: translate(-9%, 3%) scale(.96, 1.14); }
-}
-
-/* Only the selected, uncovered study runs. No JavaScript = a static composition. */
-.art-motion { animation-play-state: paused; }
-.art-running .art-layer:not([hidden]):not(.art-dispersion-mix) .art-motion { animation-play-state: running; }
-
+/* Preview-only Mouse mix geometry and comparison controls. */
 /* Mouse mixing moves the static ribbons only in response to pointer travel. */
 .mixer-ribbon {
   position: absolute;
@@ -135,27 +44,14 @@
 .art-hint { grid-column: 1 / -1; text-align: center; font-size: 11px; color: #b8b4ad; }
 .art-hint[hidden] { display: none; }
 .art-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-@media (min-width: 1920px) and (min-height: 1000px) {
-  .art-preview .curtain-sequence .messy-group { gap: 72px; }
-}
 @media (max-width: 1199px) {
-  .art-preview .art-section { padding-inline: 32px; }
   .art-controls-label { display: none; }
   .art-controls { grid-template-columns: minmax(0, 1fr) auto; }
 }
 @media (max-width: 759px) {
-  .art-preview .art-section { padding: 80px 24px 180px; }
-  .art-preview .messy-group { gap: 40px; }
-  .art-preview .messy-copy { line-height: 1.5; }
   .art-controls { gap: 4px; width: 410px; padding: 8px; bottom: max(12px, env(safe-area-inset-bottom)); }
   .art-options { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); }
   .art-options button:last-child { grid-column: 1 / -1; }
   .art-controls button { padding-inline: 8px; font-size: 11px; }
   .art-controls .art-pause { min-width: 62px; margin-left: 4px; }
-  .art-dispersion::before {
-    background: radial-gradient(ellipse 70% 60% at 50% 48%, var(--paper) 0%, rgb(244 236 220 / 97%) 56%, rgb(244 236 220 / 85%) 75%, rgb(244 236 220 / 20%) 100%, transparent 112%);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .art-preview .art-motion { animation: none; }
 }
