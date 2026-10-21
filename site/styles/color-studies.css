@@ -43,6 +43,7 @@
 
 /* 05 — Pigment pools: color collects, overlaps and wanders through a working surface. */
 .art-pigment, .art-dispersion { background: var(--paper); }
+.art-dispersion { --dispersion-speed: 1.3; }
 .pigment-surface, .dispersion-surface { inset: -8%; overflow: visible; }
 .art-pigment::before, .art-dispersion::before {
   content: "";
@@ -87,8 +88,8 @@
   opacity: .8;
   filter: blur(clamp(12px, 1.8vw, 28px));
   mix-blend-mode: multiply;
-  animation: pigment-dispersion var(--ribbon-cycle, 30s) ease-in-out infinite;
-  animation-delay: var(--ribbon-phase, 0s);
+  animation: pigment-dispersion calc(var(--ribbon-cycle, 30s) / var(--dispersion-speed)) ease-in-out infinite;
+  animation-delay: calc(var(--ribbon-phase, 0s) / var(--dispersion-speed));
 }
 .ribbon-one { --ribbon-x: -7%; --ribbon-a: var(--red); --ribbon-b: var(--pink); --ribbon-c: var(--yellow); --ribbon-phase: -9s; }
 .ribbon-two { --ribbon-x: 1%; --ribbon-a: var(--turquoise); --ribbon-b: var(--blush); --ribbon-c: var(--blue); --ribbon-phase: -22s; --ribbon-width: 12%; --ribbon-cycle: 26s; }
