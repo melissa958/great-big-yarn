@@ -4,7 +4,7 @@
   overflow: clip;
   min-height: max(775px, 100svh);
   padding: 100px 60px 140px;
-  background: #edb8a9;
+  background: var(--paper);
   animation: none;
 }
 .art-preview .messy-group {
@@ -41,31 +41,71 @@
 }
 .art-layer > div { position: absolute; }
 
-/* 01 — Color fields: feathered bands breathe independently, like veils of pigment. */
-.art-fields { background: #d4a6b6; }
-.field-top { inset: -12% -4% 51%; background: #f7bc79; filter: blur(18px); border-radius: 8% 5% 13% 4%; animation: field-top 34s ease-in-out infinite; }
-.field-middle { inset: 26% 2% 21%; background: #f5beb8; filter: blur(15px); border-radius: 6% 3% 8% 4%; animation: field-middle 38s ease-in-out infinite; }
-.field-bottom { inset: 80% -3% -13%; background: #86bcb8; filter: blur(17px); border-radius: 5% 9% 0 0; animation: field-bottom 42s ease-in-out infinite; }
-.field-edge { inset: -8% 92% -8% -9%; background: #9994b9; filter: blur(25px); animation: field-edge 46s ease-in-out infinite; }
-@keyframes field-top { 0%,100% { transform: translateY(-2%) scaleX(1.02); } 50% { transform: translateY(10%) scaleX(.98); opacity: .84; } }
-@keyframes field-middle { 0%,100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(1%, -3%) scale(1.04, 1.1); } }
-@keyframes field-bottom { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-18%) scaleX(1.06); opacity: .86; } }
-@keyframes field-edge { 0%,100% { transform: translateX(-8%); } 50% { transform: translateX(35%); opacity: .8; } }
+/* 05 — Pigment pools: color collects, overlaps and wanders through a working surface. */
+.art-pigment, .art-dispersion { background: var(--paper); }
+.pigment-surface, .dispersion-surface { inset: -8%; overflow: visible; }
+.art-pigment::before, .art-dispersion::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: radial-gradient(ellipse 55% 47% at 50% 48%, var(--paper) 0%, rgb(244 236 220 / 97%) 38%, rgb(244 236 220 / 79%) 61%, rgb(244 236 220 / 30%) 82%, transparent 100%);
+}
+.art-pigment::after, .art-dispersion::after { z-index: 2; opacity: .52; filter: contrast(1.3); }
+.pigment {
+  position: absolute;
+  border-radius: 44% 57% 37% 62% / 55% 38% 64% 46%;
+  background: var(--pigment-color);
+  opacity: .86;
+  filter: blur(clamp(18px, 2.4vw, 46px));
+  animation: pigment-wander var(--pigment-cycle, 28s) ease-in-out infinite;
+  animation-delay: var(--pigment-phase, 0s);
+}
+.pigment-blue { --pigment-color: var(--blue); left: 13%; top: -11%; width: 38%; height: 48%; --pigment-phase: -7s; }
+.pigment-red { --pigment-color: var(--red); left: 58%; top: -8%; width: 16%; height: 27%; --pigment-cycle: 24s; --pigment-phase: -16s; }
+.pigment-turquoise { --pigment-color: var(--turquoise); left: -9%; top: 26%; width: 34%; height: 34%; --pigment-cycle: 32s; --pigment-phase: -13s; }
+.pigment-violet { --pigment-color: var(--pink); left: -4%; top: 63%; width: 28%; height: 37%; --pigment-cycle: 30s; --pigment-phase: -23s; }
+.pigment-yellow { --pigment-color: var(--yellow); left: 35%; top: 77%; width: 35%; height: 35%; --pigment-cycle: 26s; --pigment-phase: -9s; }
+.pigment-green { --pigment-color: var(--green); left: 78%; top: 66%; width: 35%; height: 44%; --pigment-cycle: 34s; --pigment-phase: -19s; }
+.pigment-blush { --pigment-color: var(--blush); left: 76%; top: 11%; width: 34%; height: 47%; --pigment-cycle: 22s; --pigment-phase: -5s; }
+.pigment-yellow-small { --pigment-color: var(--yellow); left: -6%; top: -12%; width: 29%; height: 32%; --pigment-cycle: 30s; --pigment-phase: -3s; }
+@keyframes pigment-wander {
+  0%,100% { transform: translate(-5%, 0) rotate(-6deg) scale(.94, 1.03); }
+  35% { transform: translate(9%, 13%) rotate(7deg) scale(1.13, .91); }
+  70% { transform: translate(-8%, -9%) rotate(-3deg) scale(.95, 1.14); }
+}
 
-/* 02 — Nested color: off-center squares change the relationships between colors. */
-.art-squares { background: #eadba8; }
-.square-composition { width: max(112svh, 84vw); aspect-ratio: 1; left: 50%; top: 54%; transform: translate(-50%, -50%); }
-.square { position: absolute; }
-.square-one { inset: 0; background: #e1a373; animation: square-one 48s ease-in-out infinite; }
-.square-two { inset: 9% 10% 6%; background: #f0bb71; animation: square-two 40s ease-in-out infinite; }
-.square-three { inset: 20% 19% 13%; background: #f7d68f; animation: square-three 44s ease-in-out infinite; }
-.square-four { inset: 30% 29% 21%; background: #f4e8bf; animation: square-four 52s ease-in-out infinite; }
-.square-line { inset: 25% 24% 17%; border: 1px solid rgb(255 249 221 / 75%); animation: square-line 56s ease-in-out infinite; }
-@keyframes square-one { 0%,100% { transform: scale(1); } 50% { transform: scale(1.04) translateY(-1.5%); } }
-@keyframes square-two { 0%,100% { transform: translate(0, 0); background-color: #f0bb71; } 50% { transform: translate(-2%, -3%) scale(.97); background-color: #edb58a; } }
-@keyframes square-three { 0%,100% { transform: translate(0, 0); background-color: #f7d68f; } 50% { transform: translate(3%, 2%) scale(1.06); background-color: #eadb9c; } }
-@keyframes square-four { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-5%) scale(.94, 1.06); } }
-@keyframes square-line { 0%,100% { transform: translateY(0); } 50% { transform: translateY(3%) scale(1.04); opacity: .5; } }
+/* 06 — Dispersion: grainy vertical traces stretch, merge and pass one another. */
+.dispersion-ribbon {
+  position: absolute;
+  left: var(--ribbon-x);
+  top: -25%;
+  width: var(--ribbon-width, 17%);
+  height: 150%;
+  border-radius: 43% 57% 52% 48%;
+  background: linear-gradient(180deg, transparent 0%, var(--ribbon-a) 18%, var(--ribbon-b) 47%, var(--ribbon-c) 72%, transparent 100%);
+  opacity: .8;
+  filter: blur(clamp(12px, 1.8vw, 28px));
+  mix-blend-mode: multiply;
+  animation: pigment-dispersion var(--ribbon-cycle, 30s) ease-in-out infinite;
+  animation-delay: var(--ribbon-phase, 0s);
+}
+.ribbon-one { --ribbon-x: -7%; --ribbon-a: var(--red); --ribbon-b: var(--pink); --ribbon-c: var(--yellow); --ribbon-phase: -9s; }
+.ribbon-two { --ribbon-x: 1%; --ribbon-a: var(--turquoise); --ribbon-b: var(--blush); --ribbon-c: var(--blue); --ribbon-phase: -22s; --ribbon-width: 12%; --ribbon-cycle: 26s; }
+.ribbon-three { --ribbon-x: 11%; --ribbon-a: var(--blush); --ribbon-b: var(--red); --ribbon-c: var(--yellow); --ribbon-phase: -17s; --ribbon-cycle: 34s; }
+.ribbon-four { --ribbon-x: 23%; --ribbon-a: var(--blue); --ribbon-b: var(--green); --ribbon-c: var(--pink); --ribbon-phase: -4s; --ribbon-width: 13%; }
+.ribbon-five { --ribbon-x: 33%; --ribbon-a: var(--yellow); --ribbon-b: var(--pink); --ribbon-c: var(--red); --ribbon-phase: -11s; --ribbon-cycle: 24s; }
+.ribbon-six { --ribbon-x: 44%; --ribbon-a: var(--blush); --ribbon-b: var(--blue); --ribbon-c: var(--turquoise); --ribbon-phase: -21s; }
+.ribbon-seven { --ribbon-x: 54%; --ribbon-a: var(--green); --ribbon-b: var(--red); --ribbon-c: var(--yellow); --ribbon-phase: -7s; --ribbon-width: 13%; --ribbon-cycle: 32s; }
+.ribbon-eight { --ribbon-x: 65%; --ribbon-a: var(--pink); --ribbon-b: var(--turquoise); --ribbon-c: var(--blush); --ribbon-phase: -15s; --ribbon-cycle: 28s; }
+.ribbon-nine { --ribbon-x: 76%; --ribbon-a: var(--blue); --ribbon-b: var(--blush); --ribbon-c: var(--red); --ribbon-phase: -3s; --ribbon-width: 11%; --ribbon-cycle: 36s; }
+.ribbon-ten { --ribbon-x: 84%; --ribbon-a: var(--yellow); --ribbon-b: var(--red); --ribbon-c: var(--green); --ribbon-phase: -18s; }
+.ribbon-eleven { --ribbon-x: 95%; --ribbon-a: var(--pink); --ribbon-b: var(--blue); --ribbon-c: var(--turquoise); --ribbon-phase: -12s; --ribbon-cycle: 26s; }
+@keyframes pigment-dispersion {
+  0%,100% { transform: translate(-5%, -12%) scale(.9, .94); }
+  40% { transform: translate(8%, 12%) scale(1.2, 1.08); }
+  75% { transform: translate(-9%, 3%) scale(.96, 1.14); }
+}
 
 /* 03 — Moving planes: crisp color bars slide along the edge of a quiet field. */
 .art-planes { background: var(--paper); }
@@ -144,11 +184,12 @@
   .art-options { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); flex: 1; }
   .art-controls button { padding-inline: 8px; font-size: 11px; }
   .art-controls .art-pause { min-width: 62px; margin-left: 4px; }
+  .art-pigment::before, .art-dispersion::before {
+    background: radial-gradient(ellipse 70% 60% at 50% 48%, var(--paper) 0%, rgb(244 236 220 / 97%) 56%, rgb(244 236 220 / 85%) 75%, rgb(244 236 220 / 20%) 100%, transparent 112%);
+  }
   .plane-left { width: 5%; }
   .plane-right { width: 6%; }
   .plane-line { left: 4%; }
-  .square-composition { width: max(78svh, 112vw); }
-  .art-fields .field-edge { opacity: .55; }
 }
 @media (prefers-reduced-motion: reduce) {
   .art-preview .art-motion { animation: none; }

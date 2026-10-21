@@ -7,7 +7,7 @@ const layers = [...section.querySelectorAll('[data-art-layer]')];
 const pause = controls.querySelector('.art-pause');
 const status = controls.querySelector('.art-status');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-const names = { fields: 'Color fields', squares: 'Nested color', planes: 'Moving planes', stains: 'Stained color' };
+const names = { planes: 'Moving planes', stains: 'Stained color', pigment: 'Pigment pools', dispersion: 'Dispersion' };
 let paused = false;
 let frame = 0;
 
@@ -25,7 +25,7 @@ function sync() {
 }
 function queue() { if (!frame) frame = requestAnimationFrame(sync); }
 function select(key, updateURL = false) {
-  if (!Object.hasOwn(names, key)) key = 'fields';
+  if (!Object.hasOwn(names, key)) key = 'pigment';
   section.dataset.art = key;
   for (const layer of layers) layer.hidden = layer.dataset.artLayer !== key;
   for (const button of options) button.setAttribute('aria-pressed', String(button.dataset.study === key));
@@ -51,7 +51,8 @@ function revealStudy() {
   scrollTo({ top: scrollY + hero.getBoundingClientRect().bottom, behavior: 'instant' });
   sync();
 }
-select(new URL(location.href).searchParams.get('art'));
+const requested = new URL(location.href).searchParams.get('art');
+select(requested, requested !== null && !Object.hasOwn(names, requested));
 addEventListener('hashchange', revealStudy);
 addEventListener('load', () => document.fonts.ready.then(revealStudy));
 if (document.readyState === 'complete') document.fonts.ready.then(revealStudy);

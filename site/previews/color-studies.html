@@ -80,17 +80,33 @@
           </div>
         </div>
       </section>
-      <section class="messy-section art-section" id="color-study" tabindex="-1" aria-labelledby="messy-title" data-art="fields">
+      <section class="messy-section art-section" id="color-study" tabindex="-1" aria-labelledby="messy-title" data-art="pigment">
         <div class="art-stage" aria-hidden="true">
-          <div class="art-layer art-fields" data-art-layer="fields">
-            <div class="field-top art-motion"></div><div class="field-middle art-motion"></div>
-            <div class="field-bottom art-motion"></div><div class="field-edge art-motion"></div>
+          <div class="art-layer art-pigment" data-art-layer="pigment">
+            <div class="pigment-surface">
+              <div class="pigment pigment-blue art-motion"></div>
+              <div class="pigment pigment-red art-motion"></div>
+              <div class="pigment pigment-turquoise art-motion"></div>
+              <div class="pigment pigment-violet art-motion"></div>
+              <div class="pigment pigment-yellow art-motion"></div>
+              <div class="pigment pigment-green art-motion"></div>
+              <div class="pigment pigment-blush art-motion"></div>
+              <div class="pigment pigment-yellow-small art-motion"></div>
+            </div>
           </div>
-          <div class="art-layer art-squares" data-art-layer="squares" hidden>
-            <div class="square-composition">
-              <div class="square square-one art-motion"></div><div class="square square-two art-motion"></div>
-              <div class="square square-three art-motion"></div><div class="square square-four art-motion"></div>
-              <div class="square square-line art-motion"></div>
+          <div class="art-layer art-dispersion" data-art-layer="dispersion" hidden>
+            <div class="dispersion-surface">
+              <div class="dispersion-ribbon ribbon-one art-motion"></div>
+              <div class="dispersion-ribbon ribbon-two art-motion"></div>
+              <div class="dispersion-ribbon ribbon-three art-motion"></div>
+              <div class="dispersion-ribbon ribbon-four art-motion"></div>
+              <div class="dispersion-ribbon ribbon-five art-motion"></div>
+              <div class="dispersion-ribbon ribbon-six art-motion"></div>
+              <div class="dispersion-ribbon ribbon-seven art-motion"></div>
+              <div class="dispersion-ribbon ribbon-eight art-motion"></div>
+              <div class="dispersion-ribbon ribbon-nine art-motion"></div>
+              <div class="dispersion-ribbon ribbon-ten art-motion"></div>
+              <div class="dispersion-ribbon ribbon-eleven art-motion"></div>
             </div>
           </div>
           <div class="art-layer art-planes" data-art-layer="planes" hidden>
@@ -528,10 +544,10 @@
     <aside class="art-controls" aria-label="Compare Section 2 background ideas" hidden>
       <span class="art-controls-label">Section 2 studies</span>
       <div class="art-options" role="group" aria-label="Background direction">
-        <button type="button" data-study="fields" aria-pressed="true">01 Color fields</button>
-        <button type="button" data-study="squares" aria-pressed="false">02 Nested color</button>
         <button type="button" data-study="planes" aria-pressed="false">03 Moving planes</button>
         <button type="button" data-study="stains" aria-pressed="false">04 Stained color</button>
+        <button type="button" data-study="pigment" aria-pressed="true">05 Pigment pools</button>
+        <button type="button" data-study="dispersion" aria-pressed="false">06 Dispersion</button>
       </div>
       <button class="art-pause" type="button" aria-pressed="false" aria-label="Pause background animation">Pause</button>
       <span class="art-status" role="status" aria-live="polite"></span>
