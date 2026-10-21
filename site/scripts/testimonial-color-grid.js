@@ -1,17 +1,12 @@
-// Draft-only, sparse color changes. The static SVG remains the no-JS/failure fallback.
-const section = document.querySelector('.testimonial-grid-preview #testimonials');
+// Sparse color changes shared by the homepage and retained preview. The static SVG remains the no-JS/failure fallback.
+const section = document.querySelector('.testimonial-color-grid #testimonials');
 const studio = section.closest('.studio-testimonial-pair').querySelector('.studio-section');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 const portrait = matchMedia('(max-width: 599px)');
 const layer = document.createElement('div');
 layer.className = 'testimonial-grid-art';
 layer.setAttribute('aria-hidden', 'true');
-const control = document.createElement('button');
-control.type = 'button';
-control.className = 'testimonial-grid-pause';
-control.hidden = true;
 section.prepend(layer);
-section.append(control);
 
 const palette = ['#F73F12', '#FDAACF', '#FDCE08', '#0ABE72', '#00DED3', '#0A5FE6', '#DC8AE7'];
 const rgb = hex => hex.match(/[a-f\d]{2}/gi).map(value => parseInt(value, 16));
@@ -20,7 +15,6 @@ let tiles = [];
 let timer = 0;
 let frame = 0;
 let running = false;
-let paused = false;
 let loadId = 0;
 
 function changeSquare() {
@@ -51,11 +45,7 @@ function sync() {
   const bounds = section.getBoundingClientRect();
   const studioBottom = studio.getBoundingClientRect().bottom;
   const visible = bounds.top < innerHeight - 80 && bounds.bottom > 80 && studioBottom < innerHeight - 80;
-  const next = visible && !paused && !document.hidden && !reduced.matches && tiles.length > 0;
-  control.hidden = !visible || studioBottom > 1 || reduced.matches || tiles.length === 0;
-  control.textContent = paused ? 'Resume' : 'Pause';
-  control.setAttribute('aria-label', `${paused ? 'Resume' : 'Pause'} background color changes`);
-  control.setAttribute('aria-pressed', String(paused));
+  const next = visible && !document.hidden && !reduced.matches && tiles.length > 0;
   if (reduced.matches) {
     active.forEach(animation => animation.cancel());
     active.clear();
@@ -90,7 +80,6 @@ async function loadArtwork() {
 }
 
 function queue() { if (!frame) frame = requestAnimationFrame(sync); }
-control.addEventListener('click', () => { paused = !paused; sync(); });
 addEventListener('scroll', queue, { passive: true });
 addEventListener('resize', queue, { passive: true });
 document.addEventListener('visibilitychange', sync);

@@ -1,50 +1,33 @@
-/* Draft-only painted color grid. The approved homepage gradient stays unchanged. */
-.testimonial-grid-preview .testimonials-section {
+/* Approved painted color grid, shared by the homepage and its retained preview. */
+.testimonial-color-grid .testimonials-section {
   isolation: isolate;
   background: var(--paper) url("../assets/images/testimonials/color-grid-landscape.svg?v=yellow-tones-20261021") center / cover no-repeat;
 }
-.testimonial-grid-preview .testimonials-section::before,
-.testimonial-grid-preview .testimonials-section::after {
+.testimonial-color-grid .testimonials-section::before,
+.testimonial-color-grid .testimonials-section::after {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
-.testimonial-grid-preview .testimonials-section::before {
+.testimonial-color-grid .testimonials-section::before {
   z-index: 1;
   background: radial-gradient(ellipse 64% 55% at 50% 34%, rgb(244 236 220 / 46%), rgb(244 236 220 / 12%) 68%, transparent 100%);
 }
-.testimonial-grid-preview .testimonials-section::after {
+.testimonial-color-grid .testimonials-section::after {
   z-index: 2;
   background: url("../assets/images/color-studies/grain.webp") 0 0 / 192px repeat;
   opacity: .32;
   mix-blend-mode: soft-light;
 }
-.testimonial-grid-preview .testimonials-content { position: relative; z-index: 3; }
+.testimonial-color-grid .testimonials-content { position: relative; z-index: 3; }
 .testimonial-grid-art { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
 .testimonial-grid-art svg { display: block; width: 100%; height: 100%; }
-.testimonial-grid-pause {
-  position: absolute;
-  right: 20px;
-  bottom: 16px;
-  z-index: 4;
-  min-height: 44px;
-  padding: 10px 18px;
-  border: 0;
-  border-radius: 999px;
-  background: var(--paper);
-  color: var(--ink);
-  font: 400 13px/1.3 var(--font);
-  cursor: pointer;
-}
-.testimonial-grid-pause[hidden] { display: none; }
-.testimonial-grid-pause:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 @media (max-width: 599px) {
-  .testimonial-grid-pause { bottom: 4px; right: 24px; }
-  .testimonial-grid-preview .testimonials-section {
+  .testimonial-color-grid .testimonials-section {
     background-image: url("../assets/images/testimonials/color-grid-portrait.svg?v=yellow-tones-20261021");
   }
-  .testimonial-grid-preview .testimonials-section::before {
+  .testimonial-color-grid .testimonials-section::before {
     background: radial-gradient(ellipse 100% 52% at 50% 20%, rgb(244 236 220 / 54%), rgb(244 236 220 / 12%) 74%, transparent 100%);
   }
 }
