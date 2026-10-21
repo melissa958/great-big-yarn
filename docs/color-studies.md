@@ -1,32 +1,28 @@
-# Section 2: animated color studies
+# Section 2: Dispersion speed comparison
 
-Preview: `previews/color-studies.html?art=pigment#color-study`.
+Preview: `previews/color-studies.html?art=dispersion#color-study`.
 
-The owner requested several experimental backgrounds for the second homepage section, using supplied abstract-art references as inspiration, with the cat removed. This is a separate, full-page preview. The published homepage and earlier previews remain unchanged.
+The owner chose Dispersion from the abstract-art experiments and requested removing every other study. The separate full-page preview now compares two speeds of the same grainy GBY composition, with the cat removed. The main homepage and earlier previews remain unchanged.
 
-## Four directions
+## Two speeds
 
-- **03 Moving planes** (`art=planes`): GBY Blazing Flame, Blush Pop, Bright Amber and Laser Blue edge bars, with an Emerald hairline, slowly slide around the site's calm paper field (`#F4ECDC`). Inspired by the Knoebel references, it gives the typography the quietest background.
-- **04 Stained color** (`art=stains`): original irregular SVG washes using GBY Blush Pop, Bright Amber, Turquoise and Violet, with a Blazing Flame line. Translucent shapes drift and overlap around the same paper center (`#F4ECDC`), exploring the Frankenthaler direction.
-- **05 Pigment pools** (`art=pigment`, default): eight irregular, softly blurred pools using the exact GBY palette collect and overlap around an open paper reading area. Different phases, scales and 22–34-second movements suggest a working surface whose color remains unresolved. Stronger grain responds to the owner's latest soft-pigment reference.
-- **06 Dispersion** (`art=dispersion`): eleven translucent vertical ribbons stretch, drift and blend through different color sequences, responding to the owner's subsequent vertical-dispersion reference. The owner requested slightly faster motion: `--dispersion-speed: 1.3` divides the original 24–36-second cycles and their phase offsets, making movement 30% faster (about 18.5–27.7-second loops) while preserving the initial composition. Grain is stronger and the paper center remains quiet.
+- **Dispersion +30%** (`art=dispersion`, default): the previously reviewed speed. The original 24–36-second loops run at approximately 18.5–27.7 seconds (speed multiplier 1.3).
+- **Dispersion +60%** (`art=dispersion-fast`): 60% faster than the original, approximately 15–22.5-second loops (multiplier 1.6). This is about 23% faster than the +30% example, allowing a meaningful comparison without a large jump.
 
-The owner explicitly requested keeping directions 3 and 4 unchanged while removing 1 and 2. Their HTML geometry, palette and motion CSS were compared byte-for-byte before publishing. The new references refined the proposed working-canvas direction into 5 and 6. Directions 1 and 2 are removed from the selector, HTML and CSS. Old query links fall back to Pigment pools. The main homepage remains unchanged.
+Both examples share eleven vertical ribbons, exact GBY color tokens, translucent blending, static grain, original keyframes and a calm #F4ECDC reading center. Their durations and negative phase offsets are divided by the multiplier, keeping their initial composition identical. Moving planes, Stained color and Pigment pools are removed from the selector, HTML and CSS. Old study URLs fall back to Dispersion +30% and are canonicalized.
 
-No reference paintings or attachment images are published or used as backgrounds. All compositions are original CSS/SVG geometry with a 9,192-byte neutral grain tile generated once locally. No external animation libraries, remote runtime dependencies or continuous JavaScript rendering loop are needed.
+No reference paintings or attachment images are published or used as backgrounds. The composition uses original CSS geometry and a 9,192-byte neutral grain tile generated once locally. No animation library or continuous JavaScript rendering loop is needed.
 
 ## Preview behavior
 
-The lower comparison toolbar selects one treatment at a time and has a separate Pause/Resume control. It updates the `art` query parameter so each direction has a shareable link. These are temporary review controls, not part of the homepage design. They appear only while Section 2 is uncovered and visible. The existing hero Pause control keeps its original scope.
+The lower toolbar selects one speed at a time and has an independent Pause/Resume control. The art query parameter supplies shareable links. These are temporary review controls, visible only while Section 2 is uncovered and on screen. The existing hero Pause control retains its scope.
 
-The cat, yarn, speech bubble, cat controller and cat-only stylesheet references are removed from this preview. The heading, paragraphs, scroll-forth copy, existing fonts, hero and subsequent sections are preserved. The copy/footer group is centered in ordinary flex flow without reserving the former cat slot.
+The preview preserves the original heading, paragraphs, scroll-forth link, fonts, hero and later sections. The copy group is centered in normal flex flow without reserving the former cat slot. Motion pauses when covered by the hero, offscreen, explicitly paused, or in a hidden browser tab. Reduced motion shows a static composition, disables Pause and keeps both choices available. Without JavaScript, Dispersion +30% is static and the toolbar is hidden. Scrolling and curtain reveals remain native.
 
-The animation runs only for the selected visible layer, pauses behind the hero curtain, offscreen, when explicitly paused, or when the browser tab is hidden. Reduced motion shows a static composition, disables motion controls and keeps all four choices available. Without JavaScript, Pigment pools remains static and the preview toolbar is hidden. Scrolling and both earlier curtain reveals remain native.
-
-Mobile uses 24px content gutters, a more compact selector and bottom clearance so the toolbar can coexist with the copy. Long sections scroll naturally.
+Mobile keeps 24px content gutters, a compact selector and bottom clearance. Long sections scroll naturally; the paper veil is stronger for legibility.
 
 Files: `site/previews/color-studies.html`, `site/styles/color-studies.css`, `site/scripts/color-studies.js`, `site/assets/images/color-studies/grain.webp`.
 
 ## Tuning
 
-Each treatment has a dedicated CSS block containing its colors, shape geometry, keyframe poses and slow looping durations. CSS `.art-running` gates all motion. The controller contains the four human-readable names, URL selection and visibility/pause logic. No changes should be promoted to `site/index.html` until the owner chooses a direction.
+`--dispersion-speed` controls the speed ratio for each .art-dispersion layer. Shared ribbon rules contain colors, geometry, keyframes and original cycle lengths. The .art-running class gates active motion. The controller handles the two speed labels, URL selection and visibility/pause logic. Keep this as a preview until the owner requests promotion to `site/index.html`.

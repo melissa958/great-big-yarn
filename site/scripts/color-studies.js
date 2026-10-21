@@ -7,7 +7,7 @@ const layers = [...section.querySelectorAll('[data-art-layer]')];
 const pause = controls.querySelector('.art-pause');
 const status = controls.querySelector('.art-status');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-const names = { planes: 'Moving planes', stains: 'Stained color', pigment: 'Pigment pools', dispersion: 'Dispersion' };
+const names = { dispersion: 'Dispersion +30%', 'dispersion-fast': 'Dispersion +60%' };
 let paused = false;
 let frame = 0;
 
@@ -25,7 +25,7 @@ function sync() {
 }
 function queue() { if (!frame) frame = requestAnimationFrame(sync); }
 function select(key, updateURL = false) {
-  if (!Object.hasOwn(names, key)) key = 'pigment';
+  if (!Object.hasOwn(names, key)) key = 'dispersion';
   section.dataset.art = key;
   for (const layer of layers) layer.hidden = layer.dataset.artLayer !== key;
   for (const button of options) button.setAttribute('aria-pressed', String(button.dataset.study === key));

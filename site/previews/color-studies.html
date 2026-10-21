@@ -80,21 +80,9 @@
           </div>
         </div>
       </section>
-      <section class="messy-section art-section" id="color-study" tabindex="-1" aria-labelledby="messy-title" data-art="pigment">
+      <section class="messy-section art-section" id="color-study" tabindex="-1" aria-labelledby="messy-title" data-art="dispersion">
         <div class="art-stage" aria-hidden="true">
-          <div class="art-layer art-pigment" data-art-layer="pigment">
-            <div class="pigment-surface">
-              <div class="pigment pigment-blue art-motion"></div>
-              <div class="pigment pigment-red art-motion"></div>
-              <div class="pigment pigment-turquoise art-motion"></div>
-              <div class="pigment pigment-violet art-motion"></div>
-              <div class="pigment pigment-yellow art-motion"></div>
-              <div class="pigment pigment-green art-motion"></div>
-              <div class="pigment pigment-blush art-motion"></div>
-              <div class="pigment pigment-yellow-small art-motion"></div>
-            </div>
-          </div>
-          <div class="art-layer art-dispersion" data-art-layer="dispersion" hidden>
+          <div class="art-layer art-dispersion" data-art-layer="dispersion">
             <div class="dispersion-surface">
               <div class="dispersion-ribbon ribbon-one art-motion"></div>
               <div class="dispersion-ribbon ribbon-two art-motion"></div>
@@ -109,19 +97,20 @@
               <div class="dispersion-ribbon ribbon-eleven art-motion"></div>
             </div>
           </div>
-          <div class="art-layer art-planes" data-art-layer="planes" hidden>
-            <div class="plane-left art-motion"></div><div class="plane-top art-motion"></div>
-            <div class="plane-right art-motion"></div><div class="plane-bottom art-motion"></div>
-            <div class="plane-line art-motion"></div>
-          </div>
-          <div class="art-layer art-stains" data-art-layer="stains" hidden>
-            <svg viewBox="0 0 1440 900" preserveAspectRatio="none" focusable="false">
-              <path class="stain-rose art-motion" d="M-100-70C94-134 234 8 404-7S812-71 887 47 789 180 665 169 456 248 323 191 148 231 59 329-87 270-100-70Z"/>
-              <path class="stain-amber art-motion" d="M876-72C1052 21 1121-60 1300-19S1600 37 1583 188 1498 355 1340 317 1178 348 1112 276 1013 202 961 133 844 80 876-72Z"/>
-              <path class="stain-teal art-motion" d="M1541 449C1377 376 1371 502 1322 586S1127 588 1064 676 902 719 786 774 542 778 472 875 777 1017 1072 966 1459 1026 1550 900Z"/>
-              <path class="stain-violet art-motion" d="M-112 464C-29 396 65 491 79 606S252 648 273 750 481 841 439 949 112 973-68 952Z"/>
-              <path class="stain-wisp art-motion" d="M-41 599C92 492 112 750 187 754S305 735 376 826 505 865 566 960"/>
-            </svg>
+          <div class="art-layer art-dispersion art-dispersion-fast" data-art-layer="dispersion-fast" hidden>
+            <div class="dispersion-surface">
+              <div class="dispersion-ribbon ribbon-one art-motion"></div>
+              <div class="dispersion-ribbon ribbon-two art-motion"></div>
+              <div class="dispersion-ribbon ribbon-three art-motion"></div>
+              <div class="dispersion-ribbon ribbon-four art-motion"></div>
+              <div class="dispersion-ribbon ribbon-five art-motion"></div>
+              <div class="dispersion-ribbon ribbon-six art-motion"></div>
+              <div class="dispersion-ribbon ribbon-seven art-motion"></div>
+              <div class="dispersion-ribbon ribbon-eight art-motion"></div>
+              <div class="dispersion-ribbon ribbon-nine art-motion"></div>
+              <div class="dispersion-ribbon ribbon-ten art-motion"></div>
+              <div class="dispersion-ribbon ribbon-eleven art-motion"></div>
+            </div>
           </div>
         </div>
         <div class="messy-group">
@@ -541,13 +530,11 @@
         <p class="closing-copyright">© 2026 Great Big Yarn</p>
       </div>
     </footer>
-    <aside class="art-controls" aria-label="Compare Section 2 background ideas" hidden>
-      <span class="art-controls-label">Section 2 studies</span>
-      <div class="art-options" role="group" aria-label="Background direction">
-        <button type="button" data-study="planes" aria-pressed="false">03 Moving planes</button>
-        <button type="button" data-study="stains" aria-pressed="false">04 Stained color</button>
-        <button type="button" data-study="pigment" aria-pressed="true">05 Pigment pools</button>
-        <button type="button" data-study="dispersion" aria-pressed="false">06 Dispersion</button>
+    <aside class="art-controls" aria-label="Compare Dispersion speeds" hidden>
+      <span class="art-controls-label">Dispersion speed</span>
+      <div class="art-options" role="group" aria-label="Dispersion speed">
+        <button type="button" data-study="dispersion" aria-pressed="true">Dispersion +30%</button>
+        <button type="button" data-study="dispersion-fast" aria-pressed="false">Dispersion +60%</button>
       </div>
       <button class="art-pause" type="button" aria-pressed="false" aria-label="Pause background animation">Pause</button>
       <span class="art-status" role="status" aria-live="polite"></span>
