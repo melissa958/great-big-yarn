@@ -46,14 +46,14 @@
 .art-yarn-color-fields { --yarn-color-fields-speed: 1.3; }
 .art-yarn-color-fields-fast { --yarn-color-fields-speed: 1.6; }
 .yarn-color-fields-surface { inset: -8%; overflow: visible; }
-.art-'yarn-color-fields'::before {
+.art-yarn-color-fields::before {
   content: "";
   position: absolute;
   z-index: 1;
   inset: 0;
   background: radial-gradient(ellipse 55% 47% at 50% 48%, var(--paper) 0%, rgb(244 236 220 / 97%) 38%, rgb(244 236 220 / 79%) 61%, rgb(244 236 220 / 30%) 82%, transparent 100%);
 }
-.art-'yarn-color-fields'::after { z-index: 2; opacity: .52; filter: contrast(1.3); }
+.art-yarn-color-fields::after { z-index: 2; opacity: .52; filter: contrast(1.3); }
 /* Yarn color fields: grainy vertical traces stretch, merge and pass one another. */
 .yarn-color-fields-ribbon {
   position: absolute;
@@ -100,7 +100,7 @@
   .yarn-color-fields-page .art-section { padding: 80px 24px 180px; }
   .yarn-color-fields-page .messy-group { gap: 40px; }
   .yarn-color-fields-page .messy-copy { line-height: 1.5; }
-  .art-'yarn-color-fields'::before {
+  .art-yarn-color-fields::before {
     background: radial-gradient(ellipse 70% 60% at 50% 48%, var(--paper) 0%, rgb(244 236 220 / 97%) 56%, rgb(244 236 220 / 85%) 75%, rgb(244 236 220 / 20%) 100%, transparent 112%);
   }
 }
