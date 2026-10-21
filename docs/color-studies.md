@@ -8,8 +8,10 @@ The owner requested several experimental backgrounds for the second homepage sec
 
 - **Color fields** (`art=fields`): feathered apricot, blush and turquoise bands, with a violet edge. Broad bands breathe slowly and independently, suggesting layered pigment and the supplied Rothko references.
 - **Nested color** (`art=squares`): off-center squares in amber, peach and cream, with a fine outline. Scale, position and subtle color relationships shift over 40–56-second loops, taking a geometric direction from the Albers references. The square is framed more tightly on phones so the nesting remains visible.
-- **Moving planes** (`art=planes`): coral, pink, yellow and blue edge bars slowly slide around an open pale-green field. Inspired by the Knoebel references, it gives the typography the quietest background.
-- **Stained color** (`art=stains`): original irregular SVG washes in rose, apricot, teal and violet. Translucent shapes drift and overlap around an open warm center, exploring the Frankenthaler direction.
+- **Moving planes** (`art=planes`): GBY Blazing Flame, Blush Pop, Bright Amber and Laser Blue edge bars, with an Emerald hairline, slowly slide around the site's calm paper field (`#F4ECDC`). Inspired by the Knoebel references, it gives the typography the quietest background.
+- **Stained color** (`art=stains`): original irregular SVG washes using GBY Blush Pop, Bright Amber, Turquoise and Violet, with a Blazing Flame line. Translucent shapes drift and overlap around the same paper center (`#F4ECDC`), exploring the Frankenthaler direction.
+
+The owner selected directions 3 and 4 for further exploration and requested the GBY palette with the existing off-white center. Both now reuse the exact shared brand tokens. Stains retain translucent layering; Violet opacity is .85. Directions 1 and 2, motion, geometry, copy and the main homepage remain unchanged.
 
 No reference paintings or attachment images are published or used as backgrounds. All compositions are original CSS/SVG geometry with a 9,192-byte neutral grain tile generated once locally. No external animation libraries, remote runtime dependencies or continuous JavaScript rendering loop are needed.
 

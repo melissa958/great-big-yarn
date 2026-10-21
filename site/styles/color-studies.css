@@ -68,12 +68,12 @@
 @keyframes square-line { 0%,100% { transform: translateY(0); } 50% { transform: translateY(3%) scale(1.04); opacity: .5; } }
 
 /* 03 — Moving planes: crisp color bars slide along the edge of a quiet field. */
-.art-planes { background: #e3e9ca; }
-.plane-left { left: -2%; top: -10%; width: 10%; height: 120%; background: #eda9b9; animation: plane-left 32s ease-in-out infinite; }
-.plane-top { left: 8%; top: -2%; width: 94%; height: 11%; background: #f28663; animation: plane-top 36s ease-in-out infinite; }
-.plane-right { right: -3%; top: 9%; width: 11%; height: 100%; background: #7a9dc7; animation: plane-right 40s ease-in-out infinite; }
-.plane-bottom { left: -6%; bottom: -3%; width: 98%; height: 13%; background: #f6cd44; animation: plane-bottom 38s ease-in-out infinite; }
-.plane-line { left: 10%; top: 14%; bottom: 16%; width: 1px; background: #7d9e96; opacity: .6; animation: plane-line 44s ease-in-out infinite; }
+.art-planes { background: var(--paper); }
+.plane-left { left: -2%; top: -10%; width: 10%; height: 120%; background: var(--blush); animation: plane-left 32s ease-in-out infinite; }
+.plane-top { left: 8%; top: -2%; width: 94%; height: 11%; background: var(--red); animation: plane-top 36s ease-in-out infinite; }
+.plane-right { right: -3%; top: 9%; width: 11%; height: 100%; background: var(--blue); animation: plane-right 40s ease-in-out infinite; }
+.plane-bottom { left: -6%; bottom: -3%; width: 98%; height: 13%; background: var(--yellow); animation: plane-bottom 38s ease-in-out infinite; }
+.plane-line { left: 10%; top: 14%; bottom: 16%; width: 1px; background: var(--green); opacity: .6; animation: plane-line 44s ease-in-out infinite; }
 @keyframes plane-left { 0%,100% { transform: translateX(0); } 50% { transform: translateX(16%); } }
 @keyframes plane-top { 0%,100% { transform: translateX(0); } 50% { transform: translateX(-8%) scaleY(.84); } }
 @keyframes plane-right { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12%) scaleX(.88); } }
@@ -81,13 +81,13 @@
 @keyframes plane-line { 0%,100% { transform: translateX(0); } 50% { transform: translateX(28px); } }
 
 /* 04 — Stained color: translucent, uneven washes overlap on an open canvas. */
-.art-stains { background: #f1dfc6; }
+.art-stains { background: var(--paper); }
 .art-stains svg { position: absolute; inset: -6%; width: 112%; height: 112%; overflow: visible; }
-.stain-rose { fill: #e9a4b2; animation: stain-rose 38s ease-in-out infinite; }
-.stain-amber { fill: #f3b772; opacity: .78; animation: stain-amber 42s ease-in-out infinite; }
-.stain-teal { fill: #8cbbb0; opacity: .8; animation: stain-teal 46s ease-in-out infinite; }
-.stain-violet { fill: #aca3c5; opacity: .55; animation: stain-violet 50s ease-in-out infinite; }
-.stain-wisp { fill: none; stroke: #c57e83; stroke-width: 1.2; opacity: .4; animation: stain-wisp 46s ease-in-out infinite; }
+.stain-rose { fill: var(--blush); animation: stain-rose 38s ease-in-out infinite; }
+.stain-amber { fill: var(--yellow); opacity: .78; animation: stain-amber 42s ease-in-out infinite; }
+.stain-teal { fill: var(--turquoise); opacity: .8; animation: stain-teal 46s ease-in-out infinite; }
+.stain-violet { fill: var(--pink); opacity: .85; animation: stain-violet 50s ease-in-out infinite; }
+.stain-wisp { fill: none; stroke: var(--red); stroke-width: 1.2; opacity: .4; animation: stain-wisp 46s ease-in-out infinite; }
 .art-stains .art-motion { transform-box: fill-box; transform-origin: center; }
 @keyframes stain-rose { 0%,100% { transform: translate(0,0) rotate(-2deg) scale(1); } 50% { transform: translate(5%, 8%) rotate(3deg) scale(1.06); } }
 @keyframes stain-amber { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-7%, 3%) scale(1.08, .95); } }
