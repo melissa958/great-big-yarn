@@ -24,6 +24,7 @@
 }
 .closing-title span, .closing-title em { display: block; }
 .closing-title em { color: var(--blush); }
+.homepage-finish .closing-title em { color: #FDCE08; }
 .closing-invitation { max-width: 370px; }
 .closing-invitation p { margin: 0 0 32px; font-size: 1.125rem; font-weight: 300; line-height: 1.6; }
 .closing-cta .closing-button {

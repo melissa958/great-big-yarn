@@ -27,6 +27,12 @@ const revealGroups = [
   ...[...document.querySelectorAll('.testimonial-color-grid .testimonials-section')].map(root => ({
     cover: root.closest('.studio-testimonial-pair').querySelector('.studio-section'),
     items: [...root.querySelectorAll('.content-eyebrow, .testimonials-heading, .testimonials-panel')]
+  })),
+  ...[...document.querySelectorAll('.homepage-finish :is(.case-studies-home, .closing-cta, .closing-footer)')].map(root => ({
+    cover: null,
+    items: [...root.querySelectorAll(root.classList.contains('case-studies-home')
+      ? '.selected-work-heading, .case-project'
+      : root.classList.contains('closing-cta') ? '.closing-title, .closing-invitation' : '.brand, nav, .closing-copyright')]
   }))
 ];
 for (const { items } of revealGroups) for (const item of items) item.classList.add('scroll-reveal');

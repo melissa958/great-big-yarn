@@ -22,6 +22,20 @@ html:has(.section-scroll-prompt) { scroll-behavior: smooth; }
 .services-section { min-height: 1075px; padding-block: 132px 131px; background: var(--paper); color: var(--ink); }
 .curtain-sequence > .opportunity-section { position: sticky; top: 0; bottom: 0; z-index: 1; }
 @media (prefers-reduced-motion: no-preference) {
+  .homepage-finish :is(.case-studies-home, .closing-cta, .closing-footer) .scroll-reveal.is-revealed {
+    animation-delay: var(--section-reveal-delay, 0ms);
+  }
+  .homepage-finish .selected-work-heading,
+  .homepage-finish .closing-invitation,
+  .homepage-finish .closing-footer nav { --section-reveal-delay: 70ms; }
+  .homepage-finish .case-project:nth-child(even) { --section-reveal-delay: 80ms; }
+  .homepage-finish .closing-copyright { --section-reveal-delay: 140ms; }
+  .homepage-finish :is(.case-project, .closing-cta, .closing-footer):focus-within .scroll-reveal,
+  .homepage-finish .case-project.scroll-reveal:focus-within {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
   /* The uncovered layer must fill the screen even on tall tablets. */
   .curtain-sequence > .opportunity-section { min-height: max(836px, 100svh); }
 }
@@ -135,6 +149,9 @@ html:has(.section-scroll-prompt) { scroll-behavior: smooth; }
   .homepage-section h2, .testimonials-heading, .selected-work-heading { font-size: clamp(32px, 8.2vw, 44px); }
   .content-grid { grid-template-columns: 1fr; gap: 24px; }
   .opportunity-card, .service-card { padding: 32px 24px; }
+}
+@media (max-width: 699px) {
+  .homepage-finish .case-project:nth-child(n) { --section-reveal-delay: 0ms; }
 }
 @media (prefers-reduced-motion: reduce) {
   .curtain-sequence > .opportunity-section { position: relative; }
