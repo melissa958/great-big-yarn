@@ -1,0 +1,22 @@
+/* Draft only: tonal fabric patches over the approved moving fields. */
+.quilted-color-fields .art-yarn-color-fields {
+  --quilt-cell: clamp(48px, 4.8vw, 88px);
+  --quilt-repeat: calc(var(--quilt-cell) * 2);
+}
+.quilt-patches {
+  inset: 0;
+  background-image: url("../assets/images/color-studies/quilt-patches.svg");
+  background-size: calc(var(--quilt-cell) * 4) calc(var(--quilt-cell) * 4);
+}
+.quilt-seams {
+  inset: 0;
+  background-image: url("../assets/images/color-studies/quilt-stitches.svg");
+  background-size: var(--quilt-repeat) var(--quilt-repeat);
+  opacity: .64;
+}
+/* Keep the existing paper veil and grain above every patch and seam. */
+.quilted-color-fields .art-yarn-color-fields::before { z-index: 1; }
+.quilted-color-fields .art-yarn-color-fields::after { z-index: 2; }
+@media (max-width: 759px) {
+  .quilted-color-fields .art-yarn-color-fields { --quilt-cell: 44px; }
+}
