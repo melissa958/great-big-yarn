@@ -23,6 +23,10 @@ const revealGroups = [
   ...[...document.querySelectorAll('.homepage-section')].map(root => ({
     cover: root.classList.contains('opportunity-section') ? hero.closest('.curtain-pair') : null,
     items: [...root.querySelectorAll(root.classList.contains('studio-section') ? '.studio-copy' : '.content-eyebrow, h2, article')]
+  })),
+  ...[...document.querySelectorAll('.testimonial-color-grid .testimonials-section')].map(root => ({
+    cover: root.closest('.studio-testimonial-pair').querySelector('.studio-section'),
+    items: [...root.querySelectorAll('.content-eyebrow, .testimonials-heading, .testimonials-panel')]
   }))
 ];
 for (const { items } of revealGroups) for (const item of items) item.classList.add('scroll-reveal');

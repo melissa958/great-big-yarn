@@ -23,6 +23,18 @@
 .testimonial-color-grid .testimonials-content { position: relative; z-index: 3; }
 .testimonial-grid-art { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
 .testimonial-grid-art svg { display: block; width: 100%; height: 100%; }
+@media (prefers-reduced-motion: no-preference) {
+  .testimonial-color-grid .testimonials-heading { --section-reveal-delay: 70ms; }
+  .testimonial-color-grid .testimonials-panel { --section-reveal-delay: 140ms; }
+  .testimonial-color-grid .testimonials-section .scroll-reveal.is-revealed {
+    animation-delay: var(--section-reveal-delay, 0ms);
+  }
+  .testimonial-color-grid .testimonials-section:focus-within .scroll-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
 @media (max-width: 599px) {
   .testimonial-color-grid .testimonials-section {
     background-image: url("../assets/images/testimonials/color-grid-portrait.svg?v=yellow-tones-20261021");
