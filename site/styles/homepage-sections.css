@@ -128,6 +128,7 @@ html:has(.section-scroll-prompt) { scroll-behavior: smooth; }
 @media (min-width: 1920px) {
   /* Match the existing large-desktop hero panel and navigation width. */
   .content-grid { max-width: 1320px; }
+  .homepage-finish .services-grid { max-width: 1600px; }
   .opportunity-card, .service-card { padding: 40px; }
 }
 @media (max-width: 1199px) {
