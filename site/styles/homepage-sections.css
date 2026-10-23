@@ -108,6 +108,8 @@ html:has(.section-scroll-prompt) { scroll-behavior: smooth; }
 .service-toolkits .service-art { margin-left: -10px; }
 .service-identity { background: var(--yellow); }
 .service-strategy { background: var(--red); }
+.services-strategy-first .service-strategy { background: var(--yellow); }
+.services-strategy-first .service-identity { background: var(--red); }
 .service-campaigns { background: var(--blush); }
 .service-websites { background: var(--pink); }
 .service-presentations { background: var(--turquoise); }
