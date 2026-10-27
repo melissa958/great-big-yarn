@@ -14,14 +14,16 @@ function sync() {
   // Ignore tiny residual strips at fractional sticky boundaries, matching the approved preview.
   const visible = uncovered && bounds.bottom > 80 && bounds.top < innerHeight - 80;
   document.body.classList.toggle('art-running', visible && !paused && !reduced.matches && !document.hidden);
-  // The hero owns its control until it fully exits; never show both during the curtain reveal.
-  pause.hidden = !visible || reduced.matches || heroBottom > 1;
-  pause.textContent = paused ? 'Resume' : 'Pause';
-  pause.setAttribute('aria-pressed', String(paused));
-  pause.setAttribute('aria-label', `${paused ? 'Resume' : 'Pause'} background animation`);
+  // The homepage has no Section 2 control; retained previews may still opt in.
+  if (pause) {
+    pause.hidden = !visible || reduced.matches || heroBottom > 1;
+    pause.textContent = paused ? 'Resume' : 'Pause';
+    pause.setAttribute('aria-pressed', String(paused));
+    pause.setAttribute('aria-label', `${paused ? 'Resume' : 'Pause'} background animation`);
+  }
 }
 function queue() { if (!frame) frame = requestAnimationFrame(sync); }
-pause.addEventListener('click', () => { paused = !paused; sync(); });
+pause?.addEventListener('click', () => { paused = !paused; sync(); });
 addEventListener('scroll', queue, { passive: true });
 addEventListener('resize', queue, { passive: true });
 document.addEventListener('visibilitychange', sync);
