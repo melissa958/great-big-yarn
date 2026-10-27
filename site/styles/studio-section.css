@@ -56,6 +56,7 @@
 /* Homepage Figma 214:196 / 226:2: full-bleed artwork and centered photo. */
 .studio-layered { display: grid; place-items: center; }
 .studio-layered .studio-background { position: absolute; inset: 0; }
+.studio-layered .studio-background img { object-fit: fill; object-position: center bottom; }
 .studio-layered .studio-headshot {
   position: relative;
   z-index: 1;
