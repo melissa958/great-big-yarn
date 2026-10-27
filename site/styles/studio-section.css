@@ -53,6 +53,28 @@
   object-fit: cover;
   object-position: center;
 }
+/* Homepage Figma 214:196 / 226:2: full-bleed artwork and centered photo. */
+.studio-layered { display: grid; place-items: center; }
+.studio-layered .studio-background { position: absolute; inset: 0; }
+.studio-layered .studio-headshot {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 57.083333%;
+  aspect-ratio: 411 / 331;
+  overflow: hidden;
+  box-shadow: 7px 6px 5.6px rgb(0 0 0 / 40%);
+}
+.studio-layered .studio-headshot img {
+  /* Preserve the source-image crop from Figma without modifying the image. */
+  inset: auto;
+  top: -6.06%;
+  left: .11%;
+  width: 138.42%;
+  height: 113.92%;
+  max-width: none;
+  object-fit: fill;
+}
 @media (max-width: 1199px) {
   .studio-copy-panel { padding: 80px 40px; }
 }
