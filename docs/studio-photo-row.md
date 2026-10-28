@@ -2,6 +2,8 @@
 
 On October 28 the owner selected the new layout in New Homepage 249:562, Section 4 249:776, with the sibling photo group 249:822. This supersedes the homepage's full right-hand portrait. Retain the earlier framed/scattered collage comparison and other snapshots separately.
 
+The owner subsequently removed the Read more button from the homepage section. Collapse its former space naturally; preserve the biography and photo-row gap. Earlier previews keep their existing buttons.
+
 At the 1440px design width, the upper content has a 454px heading column and a 528px biography column separated by 72px, centered in a 1054px group. The eyebrow begins at about x194/y98; the heading is 35px Romie and body is 16px Be Vietnam Light, line-height 1.38. The disabled Read more button sits under the biography. The copy matches the selected Figma version, ending “Art-making is messy!” The section keeps paper #F4ECDC and the original whole-copy entrance.
 
 The photo group begins about y496, below a 67px gap. Use all ten original Figma photos and their new row slots/crops, rather than the earlier collage slots. Their relative positions preserve the stagger, slight overlaps and original image proportions. The initial offset clips the headshot/street off the left edge, as in Figma; they appear later in the loop. The 2283px composition has a 48px end gap, producing a 2331px repeat period. Motion is a linear CSS transform, roughly 28px/second desktop or 22px/second mobile, with no per-frame JavaScript. Preserve its seam by translating exactly one repeat period from the original -421px offset.
