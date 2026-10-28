@@ -43,7 +43,8 @@
   left: calc(var(--photo-x) * 100% / 1440);
   top: calc(var(--photo-y) * 100% / 820);
   width: calc(var(--photo-w) * 100% / 1440);
-  height: calc(var(--photo-h) * 100% / 820);
+  height: auto;
+  aspect-ratio: var(--photo-w) / var(--photo-h);
   margin: 0;
   overflow: hidden;
 }
@@ -73,7 +74,7 @@
 .studio-collage .collage-making img { height:111.14%; top:.34%; object-fit:fill; }
 /* A fixed, loose composition: no changing positions or moving photos. */
 .studio-collage-preview[data-arrangement="scattered"] .studio-collage { min-height: max(1040px, 69.444444vw); }
-[data-arrangement="scattered"] .studio-collage figure { top: calc(var(--scatter-y) * 100% / 1000); left: calc(var(--scatter-x) * 100% / 1440); height: calc(var(--photo-h) * 100% / 1000); transform: rotate(var(--scatter-turn, 0deg)); }
+[data-arrangement="scattered"] .studio-collage figure { top: calc(var(--scatter-y) * 100% / 1000); left: calc(var(--scatter-x) * 100% / 1440); transform: rotate(var(--scatter-turn, 0deg)); }
 [data-arrangement="scattered"] .collage-portrait { --scatter-x:72; --scatter-y:180; --scatter-turn:-3deg; }
 [data-arrangement="scattered"] .collage-climber { --scatter-x:518; --scatter-y:40; --scatter-turn:3deg; }
 [data-arrangement="scattered"] .collage-night { --scatter-x:936; --scatter-y:60; --scatter-turn:-2deg; }
