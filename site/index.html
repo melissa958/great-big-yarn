@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="./styles/section-fish.css">
     <link rel="stylesheet" href="./styles/homepage-sections.css">
     <link rel="stylesheet" href="./styles/studio-section.css">
+    <link rel="stylesheet" href="./styles/studio-photo-row.css">
+    <script type="module" src="./scripts/studio-photo-row.js"></script>
     <link rel="stylesheet" href="./styles/testimonials.css">
     <script type="module" src="./scripts/testimonials.js"></script>
     <script type="module" src="./scripts/hero-curtain.js"></script>
@@ -317,20 +319,37 @@
       </div>
       </div>
       <div class="studio-testimonial-pair">
-      <section class="studio-section homepage-section" id="studio" aria-labelledby="studio-title">
+      <section class="studio-section homepage-section studio-row-section" id="studio" aria-labelledby="studio-title">
         <div class="studio-copy-panel">
           <div class="studio-copy">
-            <p class="content-eyebrow">Who am I?</p>
-            <h2 class="studio-title" id="studio-title">Great Big Yarn is the independent studio of Melissa Stafford-Woodruff.</h2>
-            <p class="studio-description">I created Great Big Yarn to bring together the work I’ve done across art, media, and clean energy. I spent a decade as a curator and gallery director, putting together more than 75 exhibitions, and five years leading creative work for climate and clean energy companies. I’ve also worked independently with media organizations including The Marshall Project and Library Journal. Together, this work has taught me a lot about how we connect with ideas.</p>
-            <p class="studio-description">There’s so much potential to create something beyond our wildest imaginations if we allow ourselves to be pushed out of our comfort zones. Make some mistakes. Improvise. Art-making is messy! We’ll find our way through, I promise.</p>
-            <button class="contact-button studio-read-more" type="button" disabled aria-label="Read more — About page coming soon">Read more <span aria-hidden="true">→</span></button>
+            <div class="studio-introduction">
+              <p class="content-eyebrow">Who am I?</p>
+              <h2 class="studio-title" id="studio-title">Great Big Yarn is the independent studio of Melissa Stafford-Woodruff.</h2>
+            </div>
+            <div class="studio-biography">
+              <p class="studio-description">I created Great Big Yarn to bring together the work I’ve done across art, media, and clean energy. I spent a decade as a curator and gallery director, putting together more than 75 exhibitions, and five years leading creative work for climate and clean energy companies. I’ve also worked independently with media organizations including The Marshall Project and Library Journal. Together, this work has taught me a lot about how we connect with ideas.</p>
+              <p class="studio-description">There’s so much potential to create something beyond our wildest imaginations if we allow ourselves to be pushed out of our comfort zones. Make some mistakes. Improvise. Art-making is messy!</p>
+              <button class="contact-button studio-read-more" type="button" disabled aria-label="Read more — About page coming soon">Read more <span aria-hidden="true">→</span></button>
+            </div>
           </div>
         </div>
-        <div class="studio-portrait studio-composite">
-          <picture>
-            <img src="./assets/images/studio/headshot-with-scribble-718.webp" srcset="./assets/images/studio/headshot-with-scribble-480.webp 480w, ./assets/images/studio/headshot-with-scribble-718.webp 718w" sizes="(min-width: 1000px) 50vw, 100vw" width="718" height="820" alt="Melissa Stafford-Woodruff in a cream blouse, with artwork and a plant behind her and a pink scribble across the lower-right corner." loading="lazy" decoding="async">
-          </picture>
+        <div class="studio-photo-row" tabindex="0" role="region" aria-label="Photos from my life and work; focus here to pause scrolling.">
+          <div class="studio-photo-window">
+            <div class="studio-photo-track">
+              <ul class="studio-photo-list">
+              <li class="studio-row-photo studio-row-portrait"><img src="./assets/images/studio/melissa-headshot-640.webp" srcset="./assets/images/studio/melissa-headshot-640.webp 640w" sizes="(min-width: 1920px) 340px, (max-width: 599px) 210px, 309px" width="640" height="425" alt="Melissa Stafford-Woodruff in a cream blouse, with artwork and a plant behind her." loading="lazy" decoding="async"></li>
+              <li class="studio-row-photo studio-row-street"><img src="./assets/images/studio/collage/spring-street-640.webp" srcset="./assets/images/studio/collage/spring-street-320.webp 320w, ./assets/images/studio/collage/spring-street-640.webp 640w" sizes="(min-width: 1920px) 340px, (max-width: 599px) 210px, 309px" width="640" height="760" alt="A tree-lined residential street in spring." loading="lazy" decoding="async"></li>
+              <li class="studio-row-photo studio-row-climber"><img src="./assets/images/studio/collage/blue-climber-640.webp" srcset="./assets/images/studio/collage/blue-climber-320.webp 320w, ./assets/images/studio/collage/blue-climber-640.webp 640w" sizes="(min-width: 1920px) 340px, (max-width: 599px) 210px, 309px" width="640" height="853" alt="A person climbing inside a bright blue installation." loading="lazy" decoding="async"></li>
+              <li class="studio-row-photo studio-row-gallery"><img src="./assets/images/studio/collage/gallery-room-640.webp" srcset="./assets/images/studio/collage/gallery-room-320.webp 320w, ./assets/images/studio/collage/gallery-room-640.webp 640w" sizes="(min-width: 1920px) 340px, (max-width: 599px) 210px, 309px" width="640" height="426" alt="Paintings displayed on white gallery walls." loading="lazy" decoding="async"></li>
+              <li class="studio-row-photo studio-row-charging"><img src="./assets/images/studio/collage/ev-charging-640.webp" srcset="./assets/images/studio/collage/ev-charging-320.webp 320w, ./assets/images/studio/collage/ev-charging-640.webp 640w" sizes="(min-width: 1920px) 340px, (max-width: 599px) 210px, 309px" width="640" height="853" alt="Electric-vehicle chargers beneath a vivid sunset." loading="lazy" decoding="async"></li>
+              <li class="studio-row-photo studio-row-wind"><img src="./assets/images/studio/collage/wind-road-640.webp" srcset="./assets/images/studio/collage/wind-road-320.webp 320w, ./assets/images/studio/collage/wind-road-640.webp 640w" sizes="(min-width: 1920px) 340px, (max-width: 599px) 210px, 309px" width="640" height="835" alt="Wind turbines beside a road." loading="lazy" decoding="async"></li>
+              <li class="studio-row-photo studio-row-people"><img src="./assets/images/studio/collage/gallery-people-640.webp" srcset="./assets/images/studio/collage/gallery-people-320.webp 320w, ./assets/images/studio/collage/gallery-people-640.webp 640w" sizes="(min-width: 1920px) 340px, (max-width: 599px) 210px, 309px" width="640" height="427" alt="Visitors standing together at an exhibition opening." loading="lazy" decoding="async"></li>
+              <li class="studio-row-photo studio-row-blue"><img src="./assets/images/studio/collage/blue-exhibition-640.webp" srcset="./assets/images/studio/collage/blue-exhibition-320.webp 320w, ./assets/images/studio/collage/blue-exhibition-640.webp 640w" sizes="(min-width: 1920px) 340px, (max-width: 599px) 210px, 309px" width="640" height="426" alt="Artworks displayed on a blue structure in a gallery." loading="lazy" decoding="async"></li>
+              <li class="studio-row-photo studio-row-making"><img src="./assets/images/studio/collage/art-making-640.webp" srcset="./assets/images/studio/collage/art-making-320.webp 320w, ./assets/images/studio/collage/art-making-640.webp 640w" sizes="(min-width: 1920px) 340px, (max-width: 599px) 210px, 309px" width="640" height="480" alt="A child making art at a table with paints." loading="lazy" decoding="async"></li>
+              <li class="studio-row-photo studio-row-night"><img src="./assets/images/studio/collage/night-projection-640.webp" srcset="./assets/images/studio/collage/night-projection-320.webp 320w, ./assets/images/studio/collage/night-projection-640.webp 640w" sizes="(min-width: 1920px) 340px, (max-width: 599px) 210px, 309px" width="640" height="428" alt="An artwork projected above a gallery building at night." loading="lazy" decoding="async"></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
       <section class="testimonials-section" id="testimonials" tabindex="-1" aria-labelledby="testimonials-title">
