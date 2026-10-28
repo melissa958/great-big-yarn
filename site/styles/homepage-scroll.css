@@ -1,0 +1,26 @@
+/* Approved homepage: Color bloom first, then ordinary flow into Section 3. */
+.hero-color-bloom .hero-bloom-stage { opacity: 0; }
+.hero-color-bloom .curtain-hero .hero-bloom-stage .art-layer:not([hidden]):not(.art-yarn-color-fields-mix) .art-motion { animation-play-state: paused; }
+.hero-color-bloom .curtain-hero.hero-bloom-running:not(.hero-paused) .hero-bloom-stage .art-layer:not([hidden]):not(.art-yarn-color-fields-mix) .art-motion { animation-play-state: running; }
+.hero-color-bloom .curtain-sequence > .opportunity-reveal.opportunity-scroll-ready {
+  position: relative;
+  top: auto;
+  bottom: auto;
+  height: auto;
+  margin-bottom: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-color-bloom.bloom-ready .curtain-hero {
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - var(--bloom-feather, 0px)), transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - var(--bloom-feather, 0px)), transparent 100%);
+  }
+  .hero-color-bloom.bloom-ready .hero-bloom-stage { opacity: var(--bloom-color, 0); }
+  .hero-color-bloom.bloom-ready .curtain-hero .scribble-stage { opacity: var(--bloom-scribble, 1); }
+  .hero-color-bloom.bloom-ready .frosted-panel {
+    background: rgb(255 255 255 / var(--bloom-glass, 32%));
+    border-radius: var(--bloom-radius, 18px);
+  }
+  .hero-color-bloom.bloom-ready .messy-section .scroll-reveal { animation: none; opacity: 1; transform: none; }
+  .hero-color-bloom.bloom-ready .messy-group { opacity: var(--bloom-copy, 0); }
+  .hero-color-bloom.bloom-ready .messy-section:focus-within .messy-group { opacity: 1; }
+}

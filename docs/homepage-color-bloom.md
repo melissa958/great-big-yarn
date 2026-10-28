@@ -1,0 +1,11 @@
+# Approved homepage scroll sequence
+
+On October 28 the owner selected Color bloom for the hero → Section 2 handoff, followed by ordinary scrolling from the color fields into Section 3's ink background. This supersedes the second curtain reveal on the homepage only. Other retained previews keep their earlier presentations.
+
+The homepage loads homepage-scroll.css and hero-color-bloom.js through the hero-color-bloom body opt-in. Bloom retains the approved comparison's geometry and timing: the original eleven-ribbon +60% artwork appears behind the hero, its scribble recedes, the glass softens, and a scroll-dependent feather blends the edge. Both copies keep the original reading veil and .52 grain. No comparison toolbar is shipped on the homepage.
+
+Section 2 remains within the hero's original two-section pair. After that pair, the homepage opportunity-reveal wrapper is in normal flow with auto height and zero reserved overflow margin. It therefore moves upward with the color-field boundary rather than being uncovered as a second curtain. Section 3 retains its existing viewport-height points, pinned left headline, artwork, one-at-a-time fades and entrance motion. The original opportunity-scroll controller continues serving all previews, measuring fractional heights without modification. Scroll Forth and direct Section 2/3 links keep their focus and destination behavior.
+
+The bloom controller is event-driven, schedules at most one frame per scroll/resize change, and pauses its duplicate artwork when covered/offscreen, in a hidden tab, under reduced motion or via the existing hero Pause control. There is no Section 2 Pause button. No-JavaScript and reduced-motion states remain readable without the bloom. The studio → testimonial curtain remains as previously approved; the current change concerns only the first three sections.
+
+Verification: local references/build, intermediate bloom frames, complete reveal, Pause/Resume, normal-flow black boundary, three pinned reading points, mobile stacking, anchor/focus behavior, fractional story-to-studio join and overflow in Edge and WebKit, plus reduced-motion/no-JavaScript fallbacks. The comparison at previews/hero-transitions.html remains available.
