@@ -53,40 +53,6 @@
   object-fit: cover;
   object-position: center;
 }
-/* Figma 241:539 / 238:231: Pink-Scribble beneath the portrait on paper. */
-.studio-section:has(.studio-scribble) { overflow: clip; background: var(--paper); }
-.studio-layered { display: grid; place-items: center; overflow: visible; background: var(--paper); }
-.studio-layered .studio-scribble {
-  position: absolute;
-  left: -13.472222%;
-  top: 4.634146%;
-  width: 113.472222%;
-  height: 91.321995%;
-  pointer-events: none;
-}
-.studio-layered .studio-scribble img { object-fit: fill; }
-.studio-layered .studio-headshot {
-  position: absolute;
-  left: 14.722222%;
-  top: 50.243902%;
-  transform: translateY(-50%);
-  z-index: 1;
-  display: block;
-  width: 57.083333%;
-  aspect-ratio: 411 / 331;
-  overflow: hidden;
-  box-shadow: 7px 6px 5.6px rgb(0 0 0 / 40%);
-}
-.studio-layered .studio-headshot img {
-  /* Preserve the source-image crop from Figma without modifying the image. */
-  inset: auto;
-  top: -6.06%;
-  left: .11%;
-  width: 138.42%;
-  height: 113.92%;
-  max-width: none;
-  object-fit: fill;
-}
 @media (max-width: 1199px) {
   .studio-copy-panel { padding: 80px 40px; }
 }
@@ -96,9 +62,7 @@
   .studio-copy { left: 0; max-width: 560px; }
   .studio-section .studio-title { max-width: none; }
   .studio-portrait { aspect-ratio: 716 / 820; }
-  .studio-layered { overflow: clip; }
-  .studio-layered .studio-scribble { left: 0; top: 50%; width: 100%; height: auto; aspect-ratio: 817 / 749; transform: translateY(-50%); }
-  .studio-layered .studio-headshot { left: 21.458333%; top: 50%; }
+  .studio-composite { aspect-ratio: 718 / 820; }
 }
 @media (max-width: 599px) {
   .studio-copy-panel { padding: 64px 24px; }
