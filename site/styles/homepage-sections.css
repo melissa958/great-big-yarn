@@ -101,6 +101,7 @@ html:has(.section-scroll-prompt) { scroll-behavior: smooth; }
 .opportunity-card p { margin-top: 32px; color: #b7b7b7; }
 .service-card { min-height: 296px; padding: 36px 32px; color: var(--ink); }
 .service-card p { margin-top: 32px; }
+.homepage-finish .services-grid p { font-size: 1rem; }
 .service-art { display: flex; align-items: center; height: 75px; margin: 0 0 20px -7px; }
 .service-art img { display: block; flex: none; }
 .service-strategy .service-art, .service-presentations .service-art { margin-left: -4px; }
