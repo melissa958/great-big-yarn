@@ -30,7 +30,8 @@ if (row) {
     while (copies.length < needed - 1) {
       const copy = list.cloneNode(true);
       copy.setAttribute('aria-hidden', 'true');
-      copy.inert = true;
+      // Repeats remain clickable; the gallery keeps them out of keyboard navigation.
+      copy.querySelectorAll('a').forEach(link => { link.tabIndex = -1; });
       copy.querySelectorAll('img').forEach(img => { img.alt = ''; });
       track.append(copy);
       copies.push(copy);
