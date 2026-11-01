@@ -79,16 +79,17 @@ reduced.addEventListener('change', queueReveals);
 document.fonts.ready.then(queueReveals);
 syncReveals();
 
-// A click/tap note keeps the musical reference available to touch and keyboard users.
-const noteTrigger = document.querySelector('.refresh-note-trigger');
-const note = document.querySelector('#big-ears-note');
-document.querySelector('.refresh-note-fallback').hidden = true;
-noteTrigger.hidden = false;
+// Click/tap notes share one controller, with only one open at a time.
+const notes = [...document.querySelectorAll('.refresh-note-trigger')].map(trigger => ({
+  trigger, note:document.getElementById(trigger.getAttribute('aria-controls'))
+}));
+let activeNote = null;
 let noteFrame = 0;
 function positionNote() {
   noteFrame = 0;
-  if (note.hidden) return;
-  const anchor = noteTrigger.getBoundingClientRect();
+  if (!activeNote) return;
+  const { trigger, note } = activeNote;
+  const anchor = trigger.getBoundingClientRect();
   if (anchor.bottom < 0 || anchor.top > innerHeight) { closeNote(); return; }
   const bounds = note.getBoundingClientRect();
   const left = Math.max(24, Math.min(anchor.left + anchor.width / 2 - bounds.width / 2, innerWidth - bounds.width - 24));
@@ -98,27 +99,40 @@ function positionNote() {
   note.style.setProperty('--note-top', `${top}px`);
 }
 function closeNote() {
-  note.hidden = true;
-  noteTrigger.setAttribute('aria-expanded', 'false');
+  if (activeNote) {
+    activeNote.note.hidden = true;
+    activeNote.trigger.setAttribute('aria-expanded', 'false');
+  }
+  activeNote = null;
   if (noteFrame) cancelAnimationFrame(noteFrame);
   noteFrame = 0;
 }
-noteTrigger.addEventListener('click', () => {
-  if (!note.hidden) { closeNote(); return; }
-  note.hidden = false;
-  noteTrigger.setAttribute('aria-expanded', 'true');
-  positionNote();
-});
+for (const entry of notes) {
+  const { trigger, note } = entry;
+  trigger.previousElementSibling.hidden = true;
+  trigger.hidden = false;
+  trigger.addEventListener('click', () => {
+    const wasOpen = activeNote === entry;
+    closeNote();
+    if (wasOpen) return;
+    activeNote = entry;
+    note.hidden = false;
+    trigger.setAttribute('aria-expanded', 'true');
+    positionNote();
+  });
+  new ResizeObserver(() => { if (activeNote === entry) queueNotePosition(); }).observe(note);
+}
 document.addEventListener('click', event => {
-  if (!note.hidden && !note.contains(event.target) && !noteTrigger.contains(event.target)) closeNote();
+  if (activeNote && !activeNote.note.contains(event.target) && !activeNote.trigger.contains(event.target)) closeNote();
 });
 document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && !note.hidden) {
+  if (event.key === 'Escape' && activeNote) {
+    const { trigger } = activeNote;
     closeNote();
-    noteTrigger.focus({ preventScroll:true });
+    trigger.focus({ preventScroll:true });
   }
 });
-function queueNotePosition() { if (!note.hidden && !noteFrame) noteFrame = requestAnimationFrame(positionNote); }
+function queueNotePosition() { if (activeNote && !noteFrame) noteFrame = requestAnimationFrame(positionNote); }
 addEventListener('scroll', queueNotePosition, { passive:true });
 addEventListener('resize', queueNotePosition, { passive:true });
 
