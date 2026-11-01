@@ -23,6 +23,9 @@ html:has(.homepage-refresh) { scroll-behavior:smooth; }
 .refresh-hero-copy { max-width:619px; min-height:97px; margin:50px auto 0; font-size:22px; font-weight:300; line-height:1.38; }
 .refresh-feature { height:308px; margin-top:40px; border-radius:15px; background:#E4DBCA; }
 .refresh-intro-copy { max-width:828px; min-height:100px; margin:50px auto 0; font-size:16px; font-weight:300; line-height:1.55; }
+.refresh-note-trigger { display:inline; padding:0; border:0; background:transparent; color:inherit; font:inherit; line-height:inherit; text-decoration:underline dotted; text-underline-offset:4px; cursor:pointer; }
+.refresh-note-trigger[hidden], .refresh-note-fallback[hidden], .refresh-note-popover[hidden] { display:none; }
+.refresh-note-popover { position:fixed; z-index:20; left:var(--note-left,24px); top:var(--note-top,24px); width:min(340px,calc(100vw - 48px)); max-height:calc(100svh - 48px); overflow:auto; padding:18px 20px; border:1px solid var(--ink); border-radius:8px; background:var(--paper); color:var(--ink); box-shadow:0 8px 24px rgb(0 0 0 / 12%); font:300 14px/1.55 var(--font); text-align:left; }
 .refresh-intro-actions { display:flex; justify-content:center; flex-wrap:wrap; gap:28px; margin-top:59px; }
 .refresh-intro-actions .contact-button { min-width:250px; padding-inline:16px; margin:0; }
 .homepage-refresh .refresh-outline-button { background:transparent; color:var(--ink); }

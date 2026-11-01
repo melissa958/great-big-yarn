@@ -79,6 +79,49 @@ reduced.addEventListener('change', queueReveals);
 document.fonts.ready.then(queueReveals);
 syncReveals();
 
+// A click/tap note keeps the musical reference available to touch and keyboard users.
+const noteTrigger = document.querySelector('.refresh-note-trigger');
+const note = document.querySelector('#big-ears-note');
+document.querySelector('.refresh-note-fallback').hidden = true;
+noteTrigger.hidden = false;
+let noteFrame = 0;
+function positionNote() {
+  noteFrame = 0;
+  if (note.hidden) return;
+  const anchor = noteTrigger.getBoundingClientRect();
+  if (anchor.bottom < 0 || anchor.top > innerHeight) { closeNote(); return; }
+  const bounds = note.getBoundingClientRect();
+  const left = Math.max(24, Math.min(anchor.left + anchor.width / 2 - bounds.width / 2, innerWidth - bounds.width - 24));
+  const top = anchor.bottom + 10 + bounds.height <= innerHeight - 24
+    ? anchor.bottom + 10 : Math.max(24, anchor.top - bounds.height - 10);
+  note.style.setProperty('--note-left', `${left}px`);
+  note.style.setProperty('--note-top', `${top}px`);
+}
+function closeNote() {
+  note.hidden = true;
+  noteTrigger.setAttribute('aria-expanded', 'false');
+  if (noteFrame) cancelAnimationFrame(noteFrame);
+  noteFrame = 0;
+}
+noteTrigger.addEventListener('click', () => {
+  if (!note.hidden) { closeNote(); return; }
+  note.hidden = false;
+  noteTrigger.setAttribute('aria-expanded', 'true');
+  positionNote();
+});
+document.addEventListener('click', event => {
+  if (!note.hidden && !note.contains(event.target) && !noteTrigger.contains(event.target)) closeNote();
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && !note.hidden) {
+    closeNote();
+    noteTrigger.focus({ preventScroll:true });
+  }
+});
+function queueNotePosition() { if (!note.hidden && !noteFrame) noteFrame = requestAnimationFrame(positionNote); }
+addEventListener('scroll', queueNotePosition, { passive:true });
+addEventListener('resize', queueNotePosition, { passive:true });
+
 // Approved bounded canvas rendering for phones, shared in behavior with the current hero.
 function createMobileScribble(stage, mobile) {
   const svg = stage.querySelector('svg');
