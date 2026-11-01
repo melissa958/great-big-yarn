@@ -96,6 +96,15 @@ const notes = [...document.querySelectorAll('.refresh-note-trigger')].map(trigge
 }));
 let activeNote = null;
 let noteFrame = 0;
+const noteMotion = notes.flatMap(({ note }) => [...note.querySelectorAll('[data-note-motion-src]')].map(image => ({
+  note, image, still:image.getAttribute('src')
+})));
+function syncNoteMotion() {
+  for (const { note, image, still } of noteMotion) {
+    const source = activeNote?.note === note && !document.hidden && !reduced.matches ? image.dataset.noteMotionSrc : still;
+    if (image.getAttribute('src') !== source) image.setAttribute('src', source);
+  }
+}
 function positionNote() {
   noteFrame = 0;
   if (!activeNote) return;
@@ -115,6 +124,7 @@ function closeNote() {
     activeNote.trigger.setAttribute('aria-expanded', 'false');
   }
   activeNote = null;
+  syncNoteMotion();
   if (noteFrame) cancelAnimationFrame(noteFrame);
   noteFrame = 0;
 }
@@ -129,6 +139,7 @@ for (const entry of notes) {
     activeNote = entry;
     note.hidden = false;
     trigger.setAttribute('aria-expanded', 'true');
+    syncNoteMotion();
     positionNote();
   });
   new ResizeObserver(() => { if (activeNote === entry) queueNotePosition(); }).observe(note);
@@ -146,6 +157,8 @@ document.addEventListener('keydown', event => {
 function queueNotePosition() { if (activeNote && !noteFrame) noteFrame = requestAnimationFrame(positionNote); }
 addEventListener('scroll', queueNotePosition, { passive:true });
 addEventListener('resize', queueNotePosition, { passive:true });
+reduced.addEventListener('change', syncNoteMotion);
+document.addEventListener('visibilitychange', syncNoteMotion);
 
 // Approved bounded canvas rendering for phones, shared in behavior with the current hero.
 function createMobileScribble(stage, mobile) {
