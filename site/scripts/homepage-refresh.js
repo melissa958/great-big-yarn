@@ -68,16 +68,27 @@ function syncReveals() {
     if (item.classList.contains('is-revealed')) continue;
     const bounds = item.getBoundingClientRect();
     const covered = item.closest('#testimonials') && studioBottom > bounds.top + Math.min(44, bounds.height * .35);
-    if (reduced.matches || (!document.hidden && !covered && bounds.top < innerHeight - 24 && bounds.bottom > 0)) item.classList.add('is-revealed');
+    const inset = item.classList.contains('service-card') && innerWidth >= 1200 ? Math.min(180, innerHeight * .25) : 24;
+    if (reduced.matches || (!document.hidden && !covered && bounds.top < innerHeight - inset && bounds.bottom > 0)) item.classList.add('is-revealed');
   }
 }
 function queueReveals() { if (!frame) frame = requestAnimationFrame(syncReveals); }
 addEventListener('scroll', queueReveals, { passive:true });
 addEventListener('resize', queueReveals, { passive:true });
-document.addEventListener('visibilitychange', queueReveals);
+document.addEventListener('visibilitychange', () => {
+  document.body.classList.toggle('refresh-hidden', document.hidden);
+  if (document.hidden && frame) { cancelAnimationFrame(frame); frame = 0; }
+  else if (!document.hidden) queueReveals();
+});
 reduced.addEventListener('change', queueReveals);
 document.fonts.ready.then(queueReveals);
 syncReveals();
+
+// Each row fans into its permanent grid slots once, pausing if it leaves view.
+const serviceVisibility = new IntersectionObserver(entries => {
+  for (const { target, isIntersecting } of entries) target.classList.toggle('service-fan-offscreen', !isIntersecting);
+});
+document.querySelectorAll('.service-card').forEach(card => serviceVisibility.observe(card));
 
 // Click/tap notes share one controller, with only one open at a time.
 const notes = [...document.querySelectorAll('.refresh-note-trigger')].map(trigger => ({
