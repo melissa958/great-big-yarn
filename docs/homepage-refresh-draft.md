@@ -17,3 +17,11 @@ Keep the existing CTA wording in a light-paper/dark-text treatment. The old hero
 Responsive adaptations: menu below 1000px; About stacks portrait above copy below 1000px; testimonials stack below 1000px; work stacks below 700px in the original order. The desktop headline wraps naturally on phones, buttons become full-width and gutters become 24px. No-JavaScript keeps navigation visible and all content readable. Entrances use the established 850ms/24px upward fade once, with hidden-tab pausing and immediate focus visibility.
 
 Validation/build passed. Edge checks at 2560, 1440, 768, 390 and 320px, and WebKit at 1440 and 390px covered all section links and focus, mobile-menu closing, image decoding and crop geometry, absence of horizontal overflow, three-column/stacked testimonials, 1rem service paragraphs, paper/dark CTA, reduced-motion fallbacks, phone canvas motion, Pause/Resume, offscreen stopping and no-JavaScript navigation/static artwork. Screenshots of desktop and phone layouts were inspected. Existing homepage source and shared controllers were left unchanged.
+
+## Ear image in the big ears note
+
+The owner requested an ear isolated on white alongside the jazz explanation. The draft now uses a 520px-maximum popover with a 140px square ear to the left of the text. At 599px and below, it becomes a 340px-maximum single column with a centered 128px ear above the unchanged text. Preserve the shared note controls and viewport bounds. The final asset is `site/assets/images/homepage-draft/ear-on-white.webp`, optimized to 320×320 (4,936 bytes) from the original generated square, with no cropping.
+
+Created with the built-in image generation tool. Final prompt:
+
+> Use case: photorealistic-natural. Asset type: small website tooltip image. Create one anatomically natural human outer ear, seen clearly from the side at a slight three-quarter angle, isolated on a pure white background. Clean studio photographic cutout with soft even lighting and natural warm skin tones. Center the entire ear in a square composition with a modest white margin. No face, head, hair, neck, jewelry, hands, text, labels or watermark. No injury, blood, or medical setting. Simple, friendly, crisp and readable at thumbnail size.
