@@ -121,7 +121,9 @@ html:has(.homepage-refresh) { scroll-behavior:smooth; }
 .refresh-quote figcaption strong { font-weight:700; }
 @media (min-width:1000px) { .refresh-quote figcaption { min-height:71px; } }
 .homepage-refresh .closing-cta { background:var(--paper); color:var(--ink); }
-.homepage-refresh .closing-cta .closing-inner { max-width:1320px; border-color:rgb(0 0 0 / 24%); }
+.homepage-refresh .closing-cta .closing-inner { max-width:1320px; grid-template-columns:minmax(0,1fr); justify-items:center; gap:40px; text-align:center; border-color:rgb(0 0 0 / 24%); }
+.homepage-refresh .closing-title { max-width:1000px; }
+.homepage-refresh .closing-invitation { max-width:480px; }
 .homepage-refresh .closing-title em { color:var(--ink); }
 .homepage-refresh .closing-cta .closing-button { background:var(--ink); color:var(--paper); border-color:var(--ink); }
 .refresh-footer { background:var(--paper); color:var(--ink); }

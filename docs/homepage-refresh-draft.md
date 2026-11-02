@@ -62,3 +62,5 @@ Verified in Edge and WebKit at 1440px and 390px: GIF frame changes, original 500
 ## Closing CTA copy
 
 The owner replaced the draft closing heading with “Life is short. Let’s design something good.” Retain the existing Romie heading, italic second phrase, paper/dark treatment, invitation and button, entrances and footer drawing animation. The main homepage and retained standalone CTA preview remain unchanged.
+
+The owner then requested a centered closing CTA. The draft-only closing-inner now uses one column, centered items/text and a 40px gap. Its heading has a 1000px maximum and invitation a 480px maximum; the existing button, typography, section padding, top rule, entrances and footer remain intact.
