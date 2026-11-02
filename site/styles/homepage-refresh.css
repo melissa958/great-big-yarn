@@ -126,6 +126,12 @@ html:has(.homepage-refresh) { scroll-behavior:smooth; }
 .homepage-refresh .closing-invitation { max-width:480px; }
 .homepage-refresh .closing-title em { color:var(--ink); }
 .homepage-refresh .closing-cta .closing-button { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+@media (min-width:1920px) {
+  .homepage-refresh .closing-title { width:100%; max-width:1320px; }
+  .homepage-refresh .closing-title em { white-space:nowrap; }
+  .homepage-refresh .closing-invitation { max-width:none; }
+  .homepage-refresh .closing-invitation p { white-space:nowrap; }
+}
 .refresh-footer { background:var(--paper); color:var(--ink); }
 .refresh-footer-art { position:relative; height:clamp(420px,46.111vw,800px); overflow:clip; }
 .refresh-footer-art .scribble-stage { position:absolute; width:140.38%; left:-20.19%; top:50%; aspect-ratio:1000/757.56; transform:translateY(-50%); }
