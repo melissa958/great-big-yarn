@@ -31,7 +31,7 @@ phone.addEventListener('change', frameArtwork);
 frameArtwork();
 createMobileScribble(stage, phone);
 
-const items = [...document.querySelectorAll('.refresh-intro > *, .refresh-work > h2, .case-project, .services-section > .content-eyebrow, .services-section > h2, .service-card, .refresh-about > *, .testimonials-header > *, .refresh-quote, .closing-title, .closing-invitation, .refresh-footer-meta')];
+const items = [...document.querySelectorAll('.refresh-intro > *, .refresh-work > h2, .case-project, .services-section > .content-eyebrow, .services-section > h2, .service-card, .refresh-about:not(.refresh-about-carousel) > *, .refresh-about-slide > *, .refresh-about-controls, .testimonials-header > *, .refresh-quote, .closing-title, .closing-invitation, .refresh-footer-meta')];
 items.forEach(item => item.classList.add('refresh-reveal'));
 let frame = 0;
 function syncReveals() {

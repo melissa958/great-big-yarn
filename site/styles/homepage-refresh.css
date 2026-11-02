@@ -229,3 +229,24 @@ html:has(.homepage-refresh) { scroll-behavior:smooth; }
   .refresh-footer-meta > p { margin-top:24px; }
 }
 @media (prefers-reduced-motion:reduce) { html:has(.homepage-refresh) { scroll-behavior:auto; } }
+
+/* Paired About slides: original Figma portrait and hand-drawn controls. */
+.refresh-about-carousel { gap:0 128px; }
+.refresh-about-slides, .refresh-about-slide { display:contents; }
+.refresh-about-slide[hidden] { display:none; }
+.refresh-about-carousel .refresh-portrait { grid-column:1; grid-row:1 / span 2; }
+.refresh-about-carousel .refresh-portrait img { inset:0; width:100%; height:100%; object-fit:cover; }
+.refresh-about-carousel .refresh-about-copy { grid-column:2; grid-row:1; padding-top:0; }
+.refresh-about-carousel .refresh-about-description { margin-top:30px; }
+.refresh-about-controls { display:flex; align-items:center; gap:31px; grid-column:2; grid-row:2; margin-top:25px; align-self:end; }
+.refresh-about-arrow { display:grid; place-items:center; flex:none; width:44px; height:44px; padding:0; border:0; border-radius:0; background:transparent; color:var(--ink); cursor:pointer; }
+.refresh-about-arrow:disabled { opacity:.35; cursor:default; }
+.refresh-about-next img { transform:rotate(-48.63deg); }
+.refresh-about-previous img { transform:rotate(-131.37deg) scaleY(-1); }
+.refresh-about-status { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+@media (min-width:1000px) and (max-width:1199px) { .refresh-about-carousel { column-gap:64px; } }
+@media (max-width:999px) {
+ .refresh-about-carousel { row-gap:36px; }
+ .refresh-about-carousel .refresh-portrait, .refresh-about-carousel .refresh-about-copy, .refresh-about-controls { grid-column:1; grid-row:auto; }
+ .refresh-about-controls { width:100%; max-width:613px; margin:0 auto; }
+}

@@ -1,0 +1,11 @@
+# About Me paired slides
+
+The November homepage and retained current preview use the updated Figma About section `274:282` on Website `59:2`. The portrait is the original image asset from `274:271`, saved as responsive 640/1000px WebPs. It fills the 613 × 449 desktop slot with centered cover sizing and 15px corners. This replaces the former stretched/oversized portrait crop only in these current pages.
+
+The original SVG arrow artwork is exported locally from `274:272` and `274:276`, preserving the root dimensions and Figma rotations inside 44px buttons. The section's copy starts level with the image. The two-column grid uses a 128px gap at 1440px; below 1000px, portrait, copy and arrows stack naturally. Copy height may grow on smaller screens. Existing one-time copy/image entrances remain intact, including reduced-motion and no-JavaScript visibility.
+
+Only the first image/copy pair is approved. Keep one `[data-about-slide]` article and both arrows disabled until the owner provides more content; do not duplicate the first pair or invent additional biographies. No autoplay, timers or empty slides.
+
+To add approved slides, append complete articles to `.refresh-about-slides` in both current homepage sources. Each article contains a `.refresh-portrait` with a responsive local image, then `.refresh-about-copy` with its eyebrow, heading and paragraph(s). Give heading IDs unique values and start additional articles with `hidden`. The fixed controls stay outside these articles. `about-carousel.js` enables the buttons when multiple articles exist and switches each full image/copy pair together, wrapping at the ends. The control group supports Left/Right/Home/End and announces the new slide number; button focus remains in place. There is no transition motion beyond the existing initial section entrance.
+
+Validation: Edge/WebKit at 1440px and 390px, desktop slot geometry, mobile stacking, no overflow, local portrait/arrows loaded, disabled single-slide controls, temporary two-slide next/previous/keyboard/wrap/live-status checks. The temporary second slide exists only in the browser test. Normal-motion entrances, reduced-motion and JavaScript-disabled first-slide visibility are checked separately.
