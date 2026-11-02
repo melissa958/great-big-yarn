@@ -5,7 +5,9 @@
 .refresh-contact-intro { text-align:center; margin-bottom:52px; }
 .refresh-contact-intro .content-eyebrow { min-width:113px; margin-bottom:30px; }
 .homepage-refresh .refresh-contact h1 { font-size:72px; }
-.refresh-contact-intro > p:last-child { max-width:580px; margin:30px auto 0; font-size:20px; font-weight:300; line-height:1.55; }
+.refresh-contact-intro > p:last-child { margin:30px auto 0; font-size:20px; font-weight:300; line-height:1.55; }
+.refresh-contact-direct { margin:40px auto 0; max-width:700px; font-size:16px; font-weight:300; line-height:1.55; text-align:center; }
+.refresh-contact-direct a { text-underline-offset:3px; overflow-wrap:anywhere; }
 .refresh-contact-form { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; }
 .refresh-contact-form fieldset { display:contents; padding:0; margin:0; border:0; }
 .refresh-contact-field { display:flex; flex-direction:column; gap:10px; min-width:0; }
