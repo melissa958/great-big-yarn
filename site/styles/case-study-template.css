@@ -24,6 +24,10 @@
 .case-study-credits dt { font-weight:500; }
 .case-study-credits dd { margin:4px 0 0; }
 .case-study-gallery { display:grid; gap:56px; margin-top:88px; }
+.case-study-text { width:100%; max-width:740px; margin:24px 0; overflow-wrap:anywhere; }
+.case-study-text h2 { margin:0 0 24px; font:700 36px/1.2 "Romie", Georgia, serif; font-synthesis:none; text-wrap:balance; }
+.case-study-text p { margin:0; font-size:18px; font-weight:300; line-height:1.6; }
+.case-study-text p + p { margin-top:24px; }
 .case-study-image { min-width:0; margin:0; }
 .case-study-image img { display:block; width:100%; height:auto; }
 .case-study-image figcaption { margin-top:14px; color:#525050; font-size:14px; font-weight:300; line-height:1.55; }
@@ -44,5 +48,8 @@
   .case-study-description { font-size:16px; }
   .case-study-information { margin-top:28px; }
   .case-study-gallery { margin-top:48px; gap:32px; }
+  .case-study-text { margin-block:12px; }
+  .case-study-text h2 { margin-bottom:20px; font-size:28px; }
+  .case-study-text p { font-size:16px; }
   .case-study-image figcaption { margin-top:12px; font-size:13px; }
 }

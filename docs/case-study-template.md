@@ -12,6 +12,12 @@ Each image is a figure with an img and, optionally, a figcaption. Add as many fi
 
 To create a real project page, copy this index into `site/work/project-slug/index.html`, replace title, metadata, description, services, credits and images with owner-supplied material, and remove the preview noindex directive. Both locations are two directories below site root, so their existing asset/navigation paths work without rebasing. The resulting URL is `/work/project-slug/`. Current projects are already linked to their in-progress destinations at the owner’s request; replace their pending content as it is supplied.
 
-The content structure maps directly to future CMS fields: project title; description paragraphs; services list; credits role/name list; ordered images with source, dimensions, alt and optional caption. No CMS or account is set up as part of this template.
+The content structure maps directly to future CMS fields: project title; description paragraphs; services list; credits role/name list; an ordered sequence of image blocks (source, dimensions, alt, optional caption) and text blocks (subheading and body paragraphs). No CMS or account is set up as part of this template.
 
 Validation/build and Edge (1920, 1440, 768, 390, 320px) / WebKit (1440, 390px) checks passed for exact image column widths, original image ratios, optional captions, Credits keyboard/focus behavior, no-JavaScript expansion, clean contact/navigation paths and horizontal overflow. Desktop/mobile screenshots were inspected.
+
+## Subheadings and body copy throughout
+
+The owner requested repeatable subheading/body-copy sections in addition to captions. Insert `.case-study-text` sections anywhere among `.case-study-gallery` figures. Each has an h2 with a unique ID, referenced by aria-labelledby, followed by one or more body paragraphs. No JavaScript or CMS is required to add or reorder these blocks. They may appear before the first image, between images or after the last image. Do not insert empty placeholder blocks into client pages.
+
+Text uses a left-aligned 740px maximum reading width inside the unchanged 1320px image container. Subheadings are Romie Bold at 36px/1.2, body is Be Vietnam Light at 18px/1.6 with 24px paragraph gaps. Below 600px, subheadings become 28px and paragraphs 16px. Generous block spacing distinguishes the story copy from the smaller image captions. The template demonstrates a two-paragraph section between the images and a second section after them, using generic placeholder text. Its gallery landmark is labeled Project story to include both content types.

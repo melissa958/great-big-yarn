@@ -28,3 +28,5 @@ For each project, supply:
 Replace pending copy and image(s) project by project; update title/description metadata and alt text, then remove the in-progress label/noindex once the content is ready. Keep the approved 1320px image column, optional figcaptions and native Credits accordion. The separate generic template remains at `/previews/case-study-template/` for layout reference.
 
 The owner also supplied replacement copy for all six Services paragraphs. Both current homepage sources use those exact paragraphs with the existing 1rem font size, weight 300, 1.55 line height, original marks/colors and card motion. No introductory bold text is added.
+
+For the rest of the project story, supply subheadings and body copy in the desired sequence with the images: for example Image 01 + optional caption, then a subheading with two paragraphs, then Image 02. These text sections can be repeated before, between or after images. They are independent of image captions and can be as long as the supplied content requires.
