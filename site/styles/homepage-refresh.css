@@ -82,7 +82,7 @@ html:has(.refresh-menu-open), body.refresh-menu-open { overflow:hidden; }
 .refresh-work .refresh-project-latitude img { height:155.24%; top:-19.85%; object-fit:fill; }
 .refresh-work .refresh-project-ric img { height:153.97%; top:-17.02%; object-fit:fill; }
 .refresh-work .refresh-project-nextwave img { height:141.75%; top:-30.22%; object-fit:fill; }
-.refresh-work .refresh-project-greeniere img { height:153.97%; top:-54.04%; object-fit:fill; }
+.refresh-work .refresh-project-greeniere img { height:100%; top:0; object-fit:cover; }
 .homepage-refresh .services-section { min-height:0; padding-block:106px 132px; }
 .homepage-refresh .services-section .content-eyebrow { min-width:153px; margin-bottom:29px; }
 .homepage-refresh .services-grid { gap:40px 32px; }
