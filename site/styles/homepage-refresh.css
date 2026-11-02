@@ -14,15 +14,24 @@ html:has(.homepage-refresh) { scroll-behavior:smooth; }
 .refresh-mobile-contact { display:none; }
 .refresh-menu-toggle[hidden], .refresh-navigation[hidden] { display:none; }
 .refresh-menu-toggle { min-height:44px; padding:8px 14px; border:1px solid currentColor; background:transparent; font:500 14px var(--font); }
-.refresh-intro { width:calc(100% - 120px); max-width:1320px; margin:100px auto 0; padding-bottom:96px; text-align:center; }
+.refresh-intro { width:calc(100% - 120px); max-width:1320px; margin:100px auto 0; padding-bottom:71px; text-align:center; }
 .refresh-intro > .content-eyebrow { min-width:0; width:252px; margin-bottom:34px; }
 .homepage-refresh h1 {
-  max-width:1320px; margin:0; font:700 80px/1.06 "Romie", Georgia, serif;
+  max-width:1213px; margin:0 auto; font:700 80px/1.06 "Romie", Georgia, serif;
   letter-spacing:-.01em; font-synthesis:none; text-transform:none; text-wrap:balance;
 }
-.refresh-hero-copy { max-width:619px; min-height:97px; margin:50px auto 0; font-size:22px; font-weight:300; line-height:1.38; }
-.refresh-feature { height:308px; margin-top:40px; border-radius:15px; background:#E4DBCA; }
-.refresh-intro-copy { max-width:828px; min-height:100px; margin:50px auto 0; font-size:16px; font-weight:300; line-height:1.55; }
+.refresh-hero-copy { max-width:960px; margin:53px auto 0; font-size:22px; font-weight:300; line-height:1.54; }
+.refresh-hero-gallery { position:relative; max-width:886.239px; margin:65px auto 0; }
+.refresh-hero-photos { position:relative; aspect-ratio:886.239/680; }
+.refresh-hero-office { position:absolute; left:0; top:0; width:58.246%; height:100%; overflow:hidden; }
+.refresh-hero-office img { display:block; position:absolute; left:-.03%; top:0; width:100.06%; height:101.22%; max-width:none; }
+.refresh-hero-portrait { position:absolute; left:52.582%; top:12.5%; width:47.418%; height:74.9%; }
+.refresh-hero-portrait img { display:block; width:100%; height:100%; object-fit:contain; object-position:bottom; }
+.refresh-office-note { position:absolute; z-index:1; left:64.542%; top:1.618%; width:14.782%; margin:0; font:400 16px/1.16 "Segoe Script", "Bradley Hand", cursive; text-align:left; }
+.refresh-office-arrow { position:absolute; left:-106px; top:26px; width:80px; height:16px; transform:rotate(163.92deg) scaleY(-1); }
+.refresh-office-arrow img { display:block; max-width:none; margin:-1px; }
+.refresh-hero-footnote { position:absolute; top:89.559%; right:0; max-width:47.418%; margin:0; color:#525050; font-size:13px; font-weight:300; line-height:1.4; letter-spacing:-.01em; text-align:right; }
+.refresh-intro-copy { max-width:853px; min-height:100px; margin:71px auto 0; font-size:16px; font-weight:300; line-height:1.55; }
 .refresh-note-trigger { display:inline; padding:0; border:0; background:transparent; color:inherit; font:inherit; line-height:inherit; text-decoration:underline dotted; text-underline-offset:4px; cursor:pointer; }
 .refresh-note-trigger[hidden], .refresh-note-fallback[hidden], .refresh-note-popover[hidden] { display:none; }
 .refresh-note-popover { position:fixed; z-index:20; left:var(--note-left,24px); top:var(--note-top,24px); width:min(340px,calc(100vw - 48px)); max-height:calc(100svh - 48px); overflow:auto; padding:18px 20px; border:1px solid var(--ink); border-radius:8px; background:var(--paper); color:var(--ink); box-shadow:0 8px 24px rgb(0 0 0 / 12%); font:300 14px/1.55 var(--font); text-align:left; }
@@ -160,7 +169,8 @@ html:has(.homepage-refresh) { scroll-behavior:smooth; }
   .refresh-menu-ready .refresh-menu-toggle { display:block; justify-self:start; grid-column:1; grid-row:1; }
   .refresh-menu-ready .refresh-header-contact { display:none; }
   .refresh-intro { margin-top:80px; padding-bottom:64px; }
-  .refresh-feature { height:250px; }
+  .refresh-office-note { font-size:14px; }
+  .refresh-office-arrow { left:-90px; transform:rotate(163.92deg) scaleY(-1) scale(.85); }
   .refresh-hero-copy { font-size:20px; }
   .refresh-intro-copy { max-width:700px; }
   .homepage-refresh .refresh-work { padding-top:64px; padding-bottom:80px; }
@@ -184,9 +194,11 @@ html:has(.homepage-refresh) { scroll-behavior:smooth; }
   .refresh-intro { width:calc(100% - 48px); margin-top:64px; }
   .refresh-intro > .content-eyebrow { margin-bottom:28px; }
   .homepage-refresh h1 { font-size:clamp(40px,8.8vw,58px); }
-  .refresh-desktop-break { display:none; }
   .refresh-hero-copy { font-size:18px; line-height:1.5; margin-top:32px; }
-  .refresh-feature { height:180px; margin-top:32px; }
+  .refresh-hero-gallery { margin-top:40px; }
+  .refresh-office-note { position:relative; left:auto; top:auto; width:60%; max-width:200px; margin:0 0 20px auto; font-size:14px; }
+  .refresh-office-arrow { left:-76px; top:20px; transform:rotate(163.92deg) scaleY(-1) scale(.75); }
+  .refresh-hero-footnote { position:static; max-width:none; margin:16px 0 0; font-size:13px; line-height:1.5; }
   .refresh-intro-copy { margin-top:32px; }
   .refresh-intro-actions { gap:16px; margin-top:32px; }
   .refresh-intro-actions .contact-button { width:100%; min-width:0; min-height:50px; font-size:14px; }
