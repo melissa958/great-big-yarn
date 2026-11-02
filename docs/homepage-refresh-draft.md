@@ -40,6 +40,12 @@ Desktop positions match the 1440px target to about 1px: heading top 254, office 
 
 Verified Edge at 2560/1440/768/390/320px and WebKit at 1440/390px: full heading/copy, exact desktop slots, original image sources/decoded dimensions, office crop, portrait proportions, arrow dimensions, no horizontal overflow, and Edna note open/Escape behavior. Desktop/phone screenshots were inspected. Existing homepage remains unchanged.
 
+## Hero annotation swap
+
+The owner then revised the hero in New Homepage 268:173 (the prior 261:71 frame was deleted). Read updated design context and screenshot in the same Figma session. This supersedes the annotation positions above: footnote 268:251 now sits at desktop x833/y729 above the portrait; office note 268:255 sits at x917/y1305, width 200px, with the original revised arrow 268:256 starting x819/y1310. The portrait starts 63px below the office photo rather than 85px. Match the new 15px image corners and -4px/4px/11.4px 25%-black portrait shadow. Preserve image sources, crops, dimensions, all wording and the rest of the draft.
+
+The gallery uses the same 886.239 by 680 composition. Above 700px, footnote top is 5%, office note left 72.215% / top 89.706% / width 22.567%, portrait top 9.265%. Below 700px, DOM and visual order is footnote, overlapping photos, office note/arrow, with natural-flow gaps. Tablet footnote type scales slightly to avoid collision with the raised portrait. The revised arrow retains its 82x18 SVG root and original transform. Edge checks at 1440/768/700/390/320 and WebKit at 1440/390 verified the notes clear the portrait, correct desktop offsets, preserved decoded assets and no horizontal overflow. Desktop/phone screenshots were inspected.
+
 ## Images in the big ears note
 
 The owner replaced the generated ear with the supplied Mose Allison album cover, Mose In Your Ear. The current asset is `site/assets/images/homepage-draft/mose-in-your-ear.webp`, 420×420 (28,820 bytes), preserving the complete supplied square image. Keep the 520px-maximum popover with a 140px image left of the original jazz explanation. At 599px and below, use a 340px-maximum single column with a centered 128px image above the unchanged copy. Preserve the shared note controls and viewport bounds. The earlier generated `ear-on-white.webp` remains an unused historical asset.
