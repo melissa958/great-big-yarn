@@ -1,13 +1,16 @@
-/* Reusable project layout; placeholder content is isolated to the preview. */
+/* Shared case-study layout for the template and current project pages. */
 .case-study-content { width:calc(100% - 120px); max-width:1320px; margin:96px auto 112px; }
 .case-study-back { display:inline-flex; align-items:center; min-height:44px; font-size:14px; font-weight:300; text-decoration:none; }
 .case-study-back:hover { text-decoration:underline; text-underline-offset:4px; }
 .homepage-refresh .case-study-intro h1 { max-width:1100px; margin:24px 0 0; text-align:left; overflow-wrap:anywhere; }
+.case-study-status { margin:18px 0 0; color:#525050; font-size:14px; font-weight:300; line-height:1.55; }
 .case-study-information { display:grid; grid-template-columns:minmax(0,2fr) minmax(0,1fr); gap:112px; margin-top:52px; }
 .case-study-description { max-width:740px; font-size:18px; font-weight:300; line-height:1.6; }
 .case-study-description p { margin:0; }
 .case-study-description p + p { margin-top:24px; }
 .case-study-meta h2 { margin:0 0 16px; font-size:14px; font-weight:500; line-height:1.5; }
+.case-study-meta p { margin:0; font-size:16px; font-weight:300; line-height:1.55; }
+.case-study-credits > p { padding-bottom:20px; font-size:14px; }
 .case-study-services { display:grid; gap:6px; margin:0; padding:0; list-style:none; font-size:16px; font-weight:300; line-height:1.55; }
 .case-study-credits { margin-top:28px; border-top:1px solid rgb(0 0 0 / 28%); }
 .case-study-credits summary { display:flex; align-items:center; justify-content:space-between; gap:24px; min-height:56px; padding-block:14px; list-style:none; cursor:pointer; font-size:16px; font-weight:500; }

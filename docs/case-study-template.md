@@ -1,6 +1,6 @@
 # Case study template
 
-Preview: `/previews/case-study-template/`, sourced from `site/previews/case-study-template/index.html` and `site/styles/case-study-template.css`. This is a reusable placeholder template requested by the owner, not a published client case study. Keep it noindex until real project content is supplied. Homepage project buttons are unchanged.
+Preview: `/previews/case-study-template/`, sourced from `site/previews/case-study-template/index.html` and `site/styles/case-study-template.css`. This is a reusable placeholder template requested by the owner, not a published client case study. Keep it noindex until real project content is supplied. The owner subsequently requested the five clean project URLs; current homepage project photos now link to their explicitly in-progress pages. See case-study-content-workflow.md.
 
 The page reuses the current site header, logo, responsive navigation, cream/black palette, Romie title, Be Vietnam copy and compact footer. The logo returns to the public homepage and section navigation returns to the public homepage anchors. Contact uses the clean `/contact/` route. No case-study-specific JavaScript is needed.
 
@@ -10,7 +10,7 @@ Images follow all introductory content in a single 1320px-maximum column. The in
 
 Each image is a figure with an img and, optionally, a figcaption. Add as many figures as needed. Omit figcaption entirely when there is no caption, avoiding an empty caption gap. Supply accurate alt text and intrinsic width/height for real images; use responsive optimized local assets and lazy loading for later images. The first example includes a caption and the second deliberately does not.
 
-To create a real project page, copy this index into `site/work/project-slug/index.html`, replace title, metadata, description, services, credits and images with owner-supplied material, and remove the preview noindex directive. Both locations are two directories below site root, so their existing asset/navigation paths work without rebasing. The resulting URL is `/work/project-slug/`. Connect the homepage project only once its real destination/content is ready.
+To create a real project page, copy this index into `site/work/project-slug/index.html`, replace title, metadata, description, services, credits and images with owner-supplied material, and remove the preview noindex directive. Both locations are two directories below site root, so their existing asset/navigation paths work without rebasing. The resulting URL is `/work/project-slug/`. Current projects are already linked to their in-progress destinations at the owner’s request; replace their pending content as it is supplied.
 
 The content structure maps directly to future CMS fields: project title; description paragraphs; services list; credits role/name list; ordered images with source, dimensions, alt and optional caption. No CMS or account is set up as part of this template.
 

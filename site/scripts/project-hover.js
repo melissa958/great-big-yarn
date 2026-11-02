@@ -1,5 +1,4 @@
-// Visual prototype: replace aria-disabled photo buttons with real project links
-// when their case-study pages are ready. No placeholder destinations are used.
+// Photo hover labels for project links and retained visual prototypes.
 const section = document.querySelector('.case-studies');
 if (section) {
   const photos = [...section.querySelectorAll('.case-photo')];
