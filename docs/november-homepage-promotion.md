@@ -1,5 +1,7 @@
 # November homepage promotion
 
+Current routing update: the public contact page now lives at site/contact/index.html (/contact/); the current previews also use directory index files. Old .html files forward to clean routes. See clean-page-urls.md for the authoritative file mapping.
+
 On November 2, 2026, the owner approved publishing the complete current homepage-refresh design as the main homepage, including its connected contact page. This approval supersedes older draft-only instructions and the previous main homepage presentation. Older independent previews and assets remain available.
 
 `site/index.html` is copied from the approved `site/previews/homepage-refresh.html`, with asset/style/script paths rebased from ../ to ./, a public page title/description, and the preview robots directive removed. The public homepage preserves every selected element: latest hero headline without asterisk, office and portrait with office annotation, Samwise/Hermione/big ears notes, five selected projects, overlapping Services with pointer motion, About, three supplied testimonials, centered CTA and footer drawing animation. Both header variants and the closing CTA link to contact.html.
