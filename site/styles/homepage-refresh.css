@@ -36,7 +36,7 @@ html:has(.homepage-refresh) { scroll-behavior:smooth; }
 .refresh-note-trigger[hidden], .refresh-note-fallback[hidden], .refresh-note-popover[hidden] { display:none; }
 .refresh-note-popover { position:fixed; z-index:20; left:var(--note-left,24px); top:var(--note-top,24px); width:min(340px,calc(100vw - 48px)); max-height:calc(100svh - 48px); overflow:auto; padding:18px 20px; border:1px solid var(--ink); border-radius:8px; background:var(--paper); color:var(--ink); box-shadow:0 8px 24px rgb(0 0 0 / 12%); font:300 14px/1.55 var(--font); text-align:left; }
 .refresh-note-image { padding:8px; }
-.refresh-note-edna { width:min(340px,calc(100vw - 48px)); }
+.refresh-note-hermione { width:min(340px,calc(100vw - 48px)); }
 .refresh-note-image img { display:block; width:100%; height:auto; max-height:min(360px,calc(100svh - 72px)); object-fit:contain; border-radius:4px; }
 .refresh-note-ears { display:grid; grid-template-columns:140px minmax(0,1fr); gap:20px; align-items:center; width:min(520px,calc(100vw - 48px)); }
 .refresh-note-ears > img { display:block; width:140px; height:140px; object-fit:contain; border-radius:4px; background:#fff; }

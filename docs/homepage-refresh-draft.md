@@ -53,3 +53,8 @@ The owner replaced the generated ear with the supplied Mose Allison album cover,
 Earlier ear image created with the built-in image generation tool. Archived prompt:
 
 > Use case: photorealistic-natural. Asset type: small website tooltip image. Create one anatomically natural human outer ear, seen clearly from the side at a slight three-quarter angle, isolated on a pure white background. Clean studio photographic cutout with soft even lighting and natural warm skin tones. Center the entire ear in a square composition with a modest white margin. No face, head, hair, neck, jewelry, hands, text, labels or watermark. No injury, blood, or medical setting. Simple, friendly, crisp and readable at thumbnail size.
+
+## Hermione note
+
+The owner replaced the hero’s Edna/Elastigirl comparison with “The Hermione to your Harry.” The Hermione button now controls hermione-note, using the supplied giphy (5).gif unchanged as hermione-animation.gif (500x208, 15 frames, 120ms per frame, 1,017,827 bytes). Its first-frame WebP is hermione-animation-still.webp. The existing shared note controller runs the GIF only while the note is open, visible and motion is allowed. Preserve the 340px landscape note, full image proportions, keyboard/touch activation, focus return, Escape/outside/toggle dismissal and plain-text no-JavaScript fallback. Samwise and big ears remain unchanged. The earlier Edna assets are unused but retained.
+Verified in Edge and WebKit at 1440px and 390px: GIF frame changes, original 500/208 proportions, viewport fit, keyboard opening and Escape/focus return, still frame after closing and for reduced motion, and one note open at a time. Validation and build passed.
