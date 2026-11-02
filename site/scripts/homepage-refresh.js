@@ -84,11 +84,71 @@ reduced.addEventListener('change', queueReveals);
 document.fonts.ready.then(queueReveals);
 syncReveals();
 
-// Each row fans into its permanent grid slots once, pausing if it leaves view.
+// Each row fans into its overlapping slots once, pausing if it leaves view.
+const serviceCards = [...document.querySelectorAll('.service-card')];
+const servicePointer = matchMedia('(min-width:1200px) and (any-hover:hover) and (any-pointer:fine)');
+let activeService = null;
+let serviceFrame = 0;
+let servicePoint = null;
+let serviceBounds = null;
+function resetServices() {
+  if (!activeService && !serviceFrame) return;
+  if (serviceFrame) cancelAnimationFrame(serviceFrame);
+  serviceFrame = 0;
+  activeService = servicePoint = serviceBounds = null;
+  for (const card of serviceCards) {
+    card.classList.remove('is-service-active');
+    for (const key of ['x', 'y', 'turn']) card.style.removeProperty(`--service-hover-${key}`);
+  }
+}
+function swayServices() {
+  serviceFrame = 0;
+  if (!activeService || !servicePoint || !serviceBounds) return;
+  const x = Math.max(-1, Math.min(1, (servicePoint.x - serviceBounds.left) / serviceBounds.width * 2 - 1));
+  const y = Math.max(-1, Math.min(1, (servicePoint.y - serviceBounds.top) / serviceBounds.height * 2 - 1));
+  activeService.style.setProperty('--service-hover-x', `${x * 12}px`);
+  activeService.style.setProperty('--service-hover-y', `${-22 + y * 6}px`);
+  activeService.style.setProperty('--service-hover-turn', `${x * 3.5}deg`);
+}
+for (const [index, card] of serviceCards.entries()) {
+  card.addEventListener('pointerenter', event => {
+    if (event.pointerType === 'touch' || !servicePointer.matches || reduced.matches || document.hidden) return;
+    resetServices();
+    activeService = card;
+    serviceBounds = card.getBoundingClientRect();
+    card.classList.add('is-service-active');
+    const rowStart = Math.floor(index / 3) * 3;
+    for (let i = rowStart; i < rowStart + 3; i++) {
+      if (i === index) continue;
+      const direction = Math.sign(i - index);
+      const distance = Math.abs(i - index);
+      serviceCards[i].style.setProperty('--service-hover-x', `${direction * (distance === 1 ? 28 : 16)}px`);
+      serviceCards[i].style.setProperty('--service-hover-turn', `${direction * 1.5}deg`);
+    }
+    servicePoint = { x:event.clientX, y:event.clientY };
+    serviceFrame = requestAnimationFrame(swayServices);
+  });
+  card.addEventListener('pointermove', event => {
+    if (activeService !== card || event.pointerType === 'touch') return;
+    servicePoint = { x:event.clientX, y:event.clientY };
+    if (!serviceFrame) serviceFrame = requestAnimationFrame(swayServices);
+  });
+  card.addEventListener('pointerleave', () => { if (activeService === card) resetServices(); });
+  card.addEventListener('pointercancel', resetServices);
+}
+addEventListener('scroll', resetServices, { passive:true });
+addEventListener('resize', resetServices, { passive:true });
+addEventListener('blur', resetServices);
+servicePointer.addEventListener('change', resetServices);
+reduced.addEventListener('change', resetServices);
+document.addEventListener('visibilitychange', () => { if (document.hidden) resetServices(); });
 const serviceVisibility = new IntersectionObserver(entries => {
-  for (const { target, isIntersecting } of entries) target.classList.toggle('service-fan-offscreen', !isIntersecting);
+  for (const { target, isIntersecting } of entries) {
+    target.classList.toggle('service-fan-offscreen', !isIntersecting);
+    if (!isIntersecting && activeService === target) resetServices();
+  }
 });
-document.querySelectorAll('.service-card').forEach(card => serviceVisibility.observe(card));
+serviceCards.forEach(card => serviceVisibility.observe(card));
 
 // Click/tap notes share one controller, with only one open at a time.
 const notes = [...document.querySelectorAll('.refresh-note-trigger')].map(trigger => ({
