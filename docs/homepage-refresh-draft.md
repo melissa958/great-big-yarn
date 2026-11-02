@@ -10,7 +10,7 @@ The owner subsequently replaced Edna's portrait with the supplied giphy (3).gif.
 
 Checked animated frame changes in Edge and WebKit, plus 1440/390/320px proportions and viewport fit, switching reduced-motion preferences while open, the static source after closing, and removal of the draft Services Approach button. All six service cards remain present.
 
-At 1440px the design has 60px gutters, a 1320px maximum, centered 140×50 logo between navigation and contact, and 80px Romie hero heading. Preserve the supplied hero and introductory copy. The original warm feature placeholder has now been replaced by the supplied hero photos described below. Both introductory buttons link to homepage sections. About, Work, Services and Kind words navigation (including the footer and mobile menu) goes to #studio, #case-studies, #services and #testimonials. Contact and Approach remain disabled until their pages are ready.
+At 1440px the design has 60px gutters, a 1320px maximum, centered 140×50 logo between navigation and contact, and 80px Romie hero heading. Preserve the supplied hero and introductory copy. The original warm feature placeholder has now been replaced by the supplied hero photos described below. Both introductory buttons link to homepage sections. About, Work, Services and Kind words navigation (including the footer and mobile menu) goes to #studio, #case-studies, #services and #testimonials. Contact links now lead to the separate contact-page draft described below; other unfinished destinations stay inactive.
 
 The owner subsequently removed the See my approach button below the six Services cards from this draft. Let its normal-flow space collapse; preserve section padding and all six cards. The original homepage and older previews keep their buttons.
 
@@ -66,3 +66,7 @@ The owner replaced the draft closing heading with “Life is short. Let’s desi
 The owner then requested a centered closing CTA. The draft-only closing-inner now uses one column, centered items/text and a 40px gap. Its heading has a 1000px maximum and invitation a 480px maximum; the existing button, typography, section padding, top rule, entrances and footer remain intact.
 
 At the existing 1920px large-desktop breakpoint, the owner requested both the italic CTA phrase and the invitation sentence remain on one line. The heading uses the full available width (1320px maximum), the invitation loses its 480px maximum, and both phrases use nowrap at that breakpoint only. Smaller screens retain the centered responsive wrapping.
+
+## Contact-page draft
+
+The owner selected a separate contact page. All three draft Let’s chat links (desktop header, mobile navigation, closing CTA) now go to contact.html. Shared navigation moved into refresh-navigation.js; preserve the mobile-contact selector specificity so only the correct header link is visible. Contact navigation returns to the matching draft homepage sections. The main homepage remains unchanged. See contact-refresh-draft.md.

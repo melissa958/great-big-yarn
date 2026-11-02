@@ -11,7 +11,7 @@ html:has(.homepage-refresh) { scroll-behavior:smooth; }
 .refresh-navigation a { display:inline-flex; align-items:center; min-height:44px; font-size:16px; font-weight:500; white-space:nowrap; text-decoration:none; }
 .refresh-navigation a:hover, .refresh-footer nav a:hover { text-decoration:underline; text-underline-offset:4px; }
 .refresh-header-contact { justify-self:end; }
-.refresh-mobile-contact { display:none; }
+.refresh-navigation .refresh-mobile-contact { display:none; font-weight:700; }
 .refresh-menu-toggle[hidden], .refresh-navigation[hidden] { display:none; }
 .refresh-menu-toggle { min-height:44px; padding:8px 14px; border:1px solid currentColor; background:transparent; font:500 14px var(--font); }
 .refresh-intro { width:calc(100% - 120px); max-width:1320px; margin:100px auto 0; padding-bottom:71px; text-align:center; }
@@ -171,7 +171,7 @@ html:has(.homepage-refresh) { scroll-behavior:smooth; }
 @media (max-width:999px) {
   .homepage-refresh .site-header { grid-template-columns:1fr 140.143px 1fr; gap:16px; }
   .refresh-navigation { grid-column:1/-1; grid-row:2; justify-content:center; flex-wrap:wrap; }
-  .refresh-mobile-contact { display:inline-flex; margin:0; }
+  .refresh-navigation .refresh-mobile-contact { display:inline-flex; margin:0; }
   .site-header > .brand { grid-column:2; grid-row:1; }
   .refresh-header-contact { grid-column:3; grid-row:1; min-width:0; padding-inline:14px; font-size:13px; }
   .refresh-menu-ready .refresh-menu-toggle { display:block; justify-self:start; grid-column:1; grid-row:1; }
