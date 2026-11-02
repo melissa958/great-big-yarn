@@ -1,4 +1,4 @@
-// Shared navigation for the homepage refresh and its contact-page draft.
+// Shared navigation for the homepage, contact page and retained previews.
 const mobileMenu = matchMedia('(max-width:999px)');
 const toggle = document.querySelector('.refresh-menu-toggle');
 const navigation = document.querySelector('.refresh-navigation');

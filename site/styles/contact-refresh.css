@@ -1,4 +1,4 @@
-/* Separate contact-page draft; shared header and footer follow the homepage. */
+/* Contact page and retained preview; shared header and footer match the homepage. */
 .homepage-refresh .refresh-contact {
   width:calc(100% - 120px); max-width:760px; margin:100px auto 112px;
 }

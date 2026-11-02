@@ -1,4 +1,4 @@
-/* Separate November homepage draft. The published homepage keeps its layout. */
+/* Approved November homepage, shared with the retained refresh preview. */
 .homepage-refresh { --paper:#F4ECDC; --ink:#000; --blush:#FDAACF; }
 html:has(.homepage-refresh) { scroll-behavior:smooth; }
 .homepage-refresh main { display:block; min-height:0; padding:0; }

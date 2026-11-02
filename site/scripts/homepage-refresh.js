@@ -1,4 +1,4 @@
-// Restrained entrances and footer framing for this draft only.
+// Entrances and footer framing for the homepage and retained preview.
 const phone = matchMedia('(max-width:599px)');
 const reduced = matchMedia('(prefers-reduced-motion:reduce)');
 

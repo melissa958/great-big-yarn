@@ -1,6 +1,6 @@
 # November homepage draft
 
-Preview: `previews/homepage-refresh.html`. This is a separate draft; `site/index.html` remains the published homepage until the owner selects the draft.
+Current status: the owner approved promoting this complete design on November 2. `site/index.html` is now the published homepage and `site/contact.html` its contact page. `previews/homepage-refresh.html` remains a noindex preview. This approval supersedes earlier draft-only restrictions in the historical notes below; see november-homepage-promotion.md.
 
 The source is the updated New Homepage frame 249:562 on Website 59:2 in Figma file oIV91BuTH2ouyVi5pHCDDv. Read design context with screenshot on November 1, 2026 (session 1088be20-1df4-4196-ba5e-49223179789b). Implemented as semantic HTML with draft-only homepage-refresh.css / .js, reusing existing typography, service cards and project hover interactions.
 
