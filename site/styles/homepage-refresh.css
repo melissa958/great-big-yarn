@@ -15,7 +15,24 @@ html:has(.homepage-refresh) { scroll-behavior:smooth; }
 .refresh-header-contact { justify-self:end; }
 .refresh-navigation .refresh-mobile-contact { display:none; font-weight:700; }
 .refresh-menu-toggle[hidden], .refresh-navigation[hidden] { display:none; }
-.refresh-menu-toggle { min-height:44px; padding:8px 14px; border:1px solid currentColor; background:transparent; font:500 14px var(--font); }
+.refresh-menu-toggle { display:grid; place-items:center; width:44px; height:44px; padding:10px; border:0; border-radius:0; background:transparent; color:var(--ink); cursor:pointer; -webkit-appearance:none; appearance:none; }
+.refresh-menu-icon { position:relative; display:block; width:24px; height:2px; background:currentColor; }
+.refresh-menu-icon::before, .refresh-menu-icon::after { content:""; position:absolute; left:0; width:24px; height:2px; background:currentColor; }
+.refresh-menu-icon::before { top:-7px; }
+.refresh-menu-icon::after { top:7px; }
+.is-menu-open .refresh-menu-icon { background:transparent; }
+.is-menu-open .refresh-menu-icon::before { top:0; transform:rotate(45deg); }
+.is-menu-open .refresh-menu-icon::after { top:0; transform:rotate(-45deg); }
+.refresh-mobile-menu-panel { position:fixed; inset:0; width:100%; max-width:none; height:100vh; height:100dvh; max-height:none; margin:0; padding:72px 24px; border:0; background:var(--paper); color:var(--ink); overflow-y:auto; overscroll-behavior:contain; transform:translateX(100%); transition:transform 420ms cubic-bezier(.22,1,.36,1); }
+.refresh-mobile-menu-panel[open] { display:flex; align-items:center; justify-content:center; }
+.refresh-mobile-menu-panel.is-open { transform:translateX(0); }
+.refresh-mobile-menu-panel::backdrop { background:rgb(0 0 0 / 15%); }
+.refresh-mobile-menu-panel .refresh-menu-toggle { display:grid; position:fixed; top:max(24px,env(safe-area-inset-top)); right:max(24px,env(safe-area-inset-right)); }
+.refresh-mobile-menu-panel .refresh-navigation { display:flex; flex-direction:column; flex-wrap:nowrap; align-items:center; justify-content:center; gap:24px; width:100%; margin:auto; text-align:center; }
+.refresh-mobile-menu-panel .refresh-navigation a { justify-content:center; font-size:clamp(24px,4vw,32px); line-height:1.3; }
+.refresh-mobile-menu-panel .refresh-navigation .refresh-mobile-contact { display:inline-flex; margin-top:12px; font-size:16px; }
+html:has(.refresh-menu-open), body.refresh-menu-open { overflow:hidden; }
+@media (prefers-reduced-motion:reduce) { .refresh-mobile-menu-panel { transition:none; } }
 .refresh-intro { width:calc(100% - 120px); max-width:1320px; margin:100px auto 0; padding-bottom:71px; text-align:center; }
 .refresh-intro > .content-eyebrow { min-width:0; width:252px; margin-bottom:34px; }
 .homepage-refresh h1 {
@@ -175,7 +192,7 @@ html:has(.homepage-refresh) { scroll-behavior:smooth; }
   .refresh-navigation .refresh-mobile-contact { display:inline-flex; margin:0; }
   .site-header > .brand { grid-column:2; grid-row:1; }
   .refresh-header-contact { grid-column:3; grid-row:1; min-width:0; padding-inline:14px; font-size:13px; }
-  .refresh-menu-ready .refresh-menu-toggle { display:block; justify-self:start; grid-column:1; grid-row:1; }
+  .refresh-menu-ready .refresh-menu-toggle { display:grid; justify-self:end; grid-column:3; grid-row:1; }
   .refresh-menu-ready .refresh-header-contact { display:none; }
   .refresh-intro { margin-top:80px; padding-bottom:64px; }
   .refresh-office-note { font-size:14px; }
@@ -205,7 +222,7 @@ html:has(.homepage-refresh) { scroll-behavior:smooth; }
   .homepage-refresh h1 { font-size:clamp(40px,8.8vw,58px); }
   .refresh-hero-copy { font-size:18px; line-height:1.5; margin-top:32px; }
   .refresh-hero-gallery { margin-top:40px; }
-  .refresh-office-note { position:relative; left:auto; top:auto; width:60%; max-width:200px; margin:20px 0 0 auto; font-size:14px; }
+  .refresh-office-note { display:none; }
   .refresh-office-arrow { left:-76px; top:20px; transform:rotate(163.92deg) scaleY(-1) scale(.75); }
   .refresh-intro-copy { margin-top:32px; }
   .refresh-intro-actions { gap:16px; margin-top:32px; }
