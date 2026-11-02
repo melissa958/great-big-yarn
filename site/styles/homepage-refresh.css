@@ -3,6 +3,8 @@
 html:has(.homepage-refresh) { scroll-behavior:smooth; }
 .homepage-refresh main { display:block; min-height:0; padding:0; }
 .homepage-refresh :is(section, main)[tabindex="-1"] { scroll-margin-top:32px; }
+/* Anchor destinations keep focus without outlining an entire page section. */
+.homepage-refresh :is(section, main)[tabindex="-1"]:focus { outline:none; }
 .homepage-refresh .site-header {
   display:grid; grid-template-columns:1fr 140.143px 1fr; align-items:center;
   gap:32px; width:calc(100% - 120px); max-width:1320px; margin:34px auto 0;
