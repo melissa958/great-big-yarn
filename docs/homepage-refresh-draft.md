@@ -70,3 +70,5 @@ At the existing 1920px large-desktop breakpoint, the owner requested both the it
 ## Contact-page draft
 
 The owner selected a separate contact page. All three draft Let’s chat links (desktop header, mobile navigation, closing CTA) now go to contact.html. Shared navigation moved into refresh-navigation.js; preserve the mobile-contact selector specificity so only the correct header link is visible. Contact navigation returns to the matching draft homepage sections. The main homepage remains unchanged. See contact-refresh-draft.md.
+
+The owner subsequently removed the hero headline’s asterisk and its corresponding “I mean, probably…” note above the portrait. The footnote markup and unused CSS are removed; preserve the photo composition, office note, Hermione/Samwise/big ears tooltips and other sections. This supersedes earlier footnote instructions.
