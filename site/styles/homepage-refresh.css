@@ -16,6 +16,9 @@ html:has(.homepage-refresh) { scroll-behavior:smooth; }
 .refresh-navigation .refresh-mobile-contact { display:none; font-weight:700; }
 .refresh-menu-toggle[hidden], .refresh-navigation[hidden] { display:none; }
 .refresh-menu-toggle { display:grid; place-items:center; width:44px; height:44px; padding:10px; border:0; border-radius:0; background:transparent; color:var(--ink); cursor:pointer; -webkit-appearance:none; appearance:none; }
+.refresh-menu-toggle:focus-visible { outline:2px solid var(--ink); outline-offset:4px; }
+.refresh-menu-toggle.is-pointer-focus:focus { outline:none; }
+.refresh-mobile-menu-panel :focus-visible { outline-color:var(--ink); }
 .refresh-menu-icon { position:relative; display:block; width:24px; height:2px; background:currentColor; }
 .refresh-menu-icon::before, .refresh-menu-icon::after { content:""; position:absolute; left:0; width:24px; height:2px; background:currentColor; }
 .refresh-menu-icon::before { top:-7px; }

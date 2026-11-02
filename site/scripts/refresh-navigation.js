@@ -53,7 +53,14 @@ function openMenu() {
   openFrame = requestAnimationFrame(() => panel.classList.add('is-open'));
   toggle.focus({ preventScroll:true });
 }
-toggle.addEventListener('click', () => panel.open ? closeMenu() : openMenu());
+// Pointer-opened dialogs can inherit a browser focus ring after showModal().
+// Suppress it only on this control until the next keyboard interaction.
+document.addEventListener('pointerdown', () => toggle.classList.add('is-pointer-focus'), { passive:true });
+document.addEventListener('keydown', () => toggle.classList.remove('is-pointer-focus'));
+toggle.addEventListener('click', event => {
+  if (event.detail === 0) toggle.classList.remove('is-pointer-focus');
+  panel.open ? closeMenu() : openMenu();
+});
 navigation.addEventListener('click', event => {
   if (event.target.closest('a')) closeMenu({ animate:false, returnFocus:false });
 });
