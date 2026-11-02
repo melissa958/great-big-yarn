@@ -58,3 +58,7 @@ Earlier ear image created with the built-in image generation tool. Archived prom
 
 The owner replaced the hero’s Edna/Elastigirl comparison with “The Hermione to your Harry.” The Hermione button now controls hermione-note, using the supplied giphy (5).gif unchanged as hermione-animation.gif (500x208, 15 frames, 120ms per frame, 1,017,827 bytes). Its first-frame WebP is hermione-animation-still.webp. The existing shared note controller runs the GIF only while the note is open, visible and motion is allowed. Preserve the 340px landscape note, full image proportions, keyboard/touch activation, focus return, Escape/outside/toggle dismissal and plain-text no-JavaScript fallback. Samwise and big ears remain unchanged. The earlier Edna assets are unused but retained.
 Verified in Edge and WebKit at 1440px and 390px: GIF frame changes, original 500/208 proportions, viewport fit, keyboard opening and Escape/focus return, still frame after closing and for reduced motion, and one note open at a time. Validation and build passed.
+
+## Closing CTA copy
+
+The owner replaced the draft closing heading with “Life is short. Let’s design something good.” Retain the existing Romie heading, italic second phrase, paper/dark treatment, invitation and button, entrances and footer drawing animation. The main homepage and retained standalone CTA preview remain unchanged.
