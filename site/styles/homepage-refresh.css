@@ -146,6 +146,7 @@ html:has(.refresh-menu-open), body.refresh-menu-open { overflow:hidden; }
 .homepage-refresh .closing-title em { color:var(--ink); }
 .homepage-refresh .closing-cta .closing-button { background:var(--ink); color:var(--paper); border-color:var(--ink); }
 @media (min-width:1920px) {
+  .refresh-work .case-grid { max-width:1600px; }
   .refresh-intro-copy { max-width:940px; font-size:18px; }
   .homepage-refresh .closing-title { width:100%; max-width:1320px; }
   .homepage-refresh .closing-title em { white-space:nowrap; }
