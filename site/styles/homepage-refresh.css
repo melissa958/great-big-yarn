@@ -47,8 +47,9 @@ html:has(.refresh-menu-open), body.refresh-menu-open { overflow:hidden; }
 .refresh-hero-photos { position:relative; aspect-ratio:886.239/680; }
 .refresh-hero-office { position:absolute; left:0; top:0; width:58.246%; height:100%; overflow:hidden; border-radius:15px; }
 .refresh-hero-office img { display:block; position:absolute; left:-.03%; top:0; width:100.06%; height:101.22%; max-width:none; }
-.refresh-hero-portrait { position:absolute; left:52.582%; top:9.265%; width:47.418%; height:74.9%; border-radius:15px; background:var(--paper); box-shadow:-4px 4px 11.4px rgb(0 0 0 / 25%); }
-.refresh-hero-portrait img { display:block; width:100%; height:100%; object-fit:cover; object-position:bottom; border-radius:inherit; }
+.refresh-hero-portrait { position:absolute; left:52.582%; top:9.265%; width:47.418%; height:74.9%; overflow:hidden; border-radius:15px; background:var(--paper); box-shadow:-4px 4px 11.4px rgb(0 0 0 / 25%); }
+/* Trim the supplied photo’s transparent bottom/right pixel edges inside the frame. */
+.refresh-hero-portrait img { display:block; position:absolute; inset:-2px; width:calc(100% + 4px); height:calc(100% + 4px); max-width:none; object-fit:cover; object-position:bottom; }
 .refresh-intro-copy { max-width:853px; min-height:100px; margin:71px auto 0; font-size:16px; font-weight:300; line-height:1.55; }
 .refresh-note-trigger { display:inline; padding:0; border:0; background:transparent; color:inherit; font:inherit; line-height:inherit; text-decoration:underline dotted; text-underline-offset:4px; cursor:pointer; }
 .refresh-note-trigger[hidden], .refresh-note-fallback[hidden], .refresh-note-popover[hidden] { display:none; }
