@@ -47,11 +47,8 @@ html:has(.refresh-menu-open), body.refresh-menu-open { overflow:hidden; }
 .refresh-hero-photos { position:relative; aspect-ratio:886.239/680; }
 .refresh-hero-office { position:absolute; left:0; top:0; width:58.246%; height:100%; overflow:hidden; border-radius:15px; }
 .refresh-hero-office img { display:block; position:absolute; left:-.03%; top:0; width:100.06%; height:101.22%; max-width:none; }
-.refresh-hero-portrait { position:absolute; left:52.582%; top:9.265%; width:47.418%; height:74.9%; border-radius:15px; background:#0ABE72; box-shadow:-4px 4px 11.4px rgb(0 0 0 / 25%); }
+.refresh-hero-portrait { position:absolute; left:52.582%; top:9.265%; width:47.418%; height:74.9%; border-radius:15px; background:var(--paper); box-shadow:-4px 4px 11.4px rgb(0 0 0 / 25%); }
 .refresh-hero-portrait img { display:block; width:100%; height:100%; object-fit:cover; object-position:bottom; border-radius:inherit; }
-.refresh-office-note { position:absolute; z-index:1; left:72.215%; top:89.706%; width:22.567%; margin:0; font:400 16px/1.16 "Segoe Script", "Bradley Hand", cursive; text-align:left; }
-.refresh-office-arrow { position:absolute; left:-98px; top:24px; width:80px; height:16px; transform:rotate(163.92deg) scaleY(-1); }
-.refresh-office-arrow img { display:block; max-width:none; margin:-1px; }
 .refresh-intro-copy { max-width:853px; min-height:100px; margin:71px auto 0; font-size:16px; font-weight:300; line-height:1.55; }
 .refresh-note-trigger { display:inline; padding:0; border:0; background:transparent; color:inherit; font:inherit; line-height:inherit; text-decoration:underline dotted; text-underline-offset:4px; cursor:pointer; }
 .refresh-note-trigger[hidden], .refresh-note-fallback[hidden], .refresh-note-popover[hidden] { display:none; }
@@ -199,8 +196,6 @@ html:has(.refresh-menu-open), body.refresh-menu-open { overflow:hidden; }
   .refresh-menu-ready .refresh-menu-toggle { display:grid; justify-self:end; grid-column:3; grid-row:1; }
   .refresh-menu-ready .refresh-header-contact { display:none; }
   .refresh-intro { margin-top:80px; padding-bottom:64px; }
-  .refresh-office-note { font-size:14px; }
-  .refresh-office-arrow { left:-90px; transform:rotate(163.92deg) scaleY(-1) scale(.85); }
   .refresh-hero-copy { font-size:20px; }
   .refresh-intro-copy { max-width:700px; }
   .homepage-refresh .refresh-work { padding-top:64px; padding-bottom:80px; }
@@ -226,8 +221,6 @@ html:has(.refresh-menu-open), body.refresh-menu-open { overflow:hidden; }
   .homepage-refresh h1 { font-size:clamp(40px,8.8vw,58px); }
   .refresh-hero-copy { font-size:18px; line-height:1.5; margin-top:32px; }
   .refresh-hero-gallery { margin-top:40px; }
-  .refresh-office-note { display:none; }
-  .refresh-office-arrow { left:-76px; top:20px; transform:rotate(163.92deg) scaleY(-1) scale(.75); }
   .refresh-intro-copy { margin-top:32px; }
   .refresh-intro-actions { gap:16px; margin-top:32px; }
   .refresh-intro-actions .contact-button { width:100%; min-width:0; min-height:50px; font-size:14px; }
