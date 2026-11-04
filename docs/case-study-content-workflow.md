@@ -30,3 +30,5 @@ Replace pending copy and image(s) project by project; update title/description m
 The owner also supplied replacement copy for all six Services paragraphs. Both current homepage sources use those exact paragraphs with the existing 1rem font size, weight 300, 1.55 line height, original marks/colors and card motion. No introductory bold text is added.
 
 For the rest of the project story, supply subheadings and body copy in the desired sequence with the images: for example Image 01 + optional caption, then a subheading with two paragraphs, then Image 02. These text sections can be repeated before, between or after images. They are independent of image captions and can be as long as the supplied content requires.
+
+Caban Energy is now the first completed case study, populated from the owner’s DOCX and ZIP plus credits supplied in chat. Its in-progress/noindex state is removed. The remaining four projects retain their pending copy and noindex. See caban-case-study.md for the exact source mapping and media behavior.
