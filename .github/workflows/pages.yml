@@ -46,7 +46,11 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Configure Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6.0.0
       - name: Deploy validated website
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5.0.1
+        env:
+          # Upstream bundled dependency: https://github.com/actions/deploy-pages/issues/413
+          # Suppress only this known warning; deployment errors remain visible.
+          NODE_OPTIONS: --disable-warning=DEP0040
