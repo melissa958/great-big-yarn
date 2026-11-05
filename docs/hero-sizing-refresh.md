@@ -11,6 +11,8 @@ Source: Figma Brand Assets, Website 59:2 → New Homepage 303:673. The requested
 
 Both current homepage sources share homepage-refresh.css. The larger heading is scoped to .refresh-intro; shared contact and case-study heading typography remains unchanged.
 
+The owner subsequently requested a 1600px maximum for the photo pair on large screens. At the existing 1920px breakpoint, widen both the gallery and its intro wrapper to 1600px. Text keeps its existing independent width limits. Preserve the image-pair aspect ratio and equal halves, and add 800px responsive image size hints. Below 1920px, retain the original gallery maximum and layouts.
+
 ## Assets
 
 The two original image assets were downloaded from the Figma context into ignored QA inputs and optimized as local WebPs. Office: hero-office-pair-400/-800 (original 800×1066). Portrait: hero-melissa-desk-360/-1024 (original 1024×768). The supplied portrait asset is already proportioned for Figma's fill sizing; preserve the specified fill behavior in the tall slot to match the reference. Keep the small edge overscan inside the clipped frame. No temporary Figma URLs are used at runtime. Older hero assets remain available for retained history/previews.
