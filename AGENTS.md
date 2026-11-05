@@ -10,6 +10,7 @@
 - Publish only the `dist/` copy produced from `site/` by `node scripts/build.mjs`. This adds automatic stylesheet cache versioning. Never publish the entire repository, documentation, or credentials.
 
 ## Design
+- The current homepage hero supporting copy begins “I create gutsy brands that help my clients get noticed, understood and remembered.” Put the existing Samwise/Hermione sentence on the next line, preserving both image tooltips and their static fallbacks.
 - The hero portrait is vertically centered against the office photo: its 74.9% height uses a 12.55% top inset in homepage-refresh.css. Preserve the existing overlap, responsive proportions and edge clipping.
 - The current homepage and retained homepage-refresh preview hero h1 reads “Distinctive design for the nerds and doers in energy and tech.” Preserve the existing Romie styling and responsive wrapping.
 - The owner requested the Caban video automatically play muted and loop with no native controls, and removed the GIF’s Play/Pause button. case-study-media.js now auto-runs both only when visible, the tab is active and reduced motion is off. Pause offscreen/hidden; reduced-motion and no-JavaScript start static. Retain muted/playsinline/loop, the video poster, GIF first-frame fallback and media captions. This supersedes the original manual video and GIF button behavior.
