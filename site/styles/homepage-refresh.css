@@ -276,3 +276,44 @@ html:has(.refresh-menu-open), body.refresh-menu-open { overflow:hidden; }
  .refresh-about-carousel .refresh-portrait, .refresh-about-carousel .refresh-about-copy, .refresh-about-controls { grid-column:1; grid-row:auto; }
  .refresh-about-controls { width:100%; max-width:613px; margin:0 auto; }
 }
+
+/* Two natural-scroll opening screens: headline, then photos and introduction. */
+.refresh-split-intro :is(.refresh-intro,.refresh-introduction) > .is-reveal-complete { animation:none; }
+.refresh-split-intro .refresh-intro {
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  min-height:calc(100vh - var(--refresh-header-space,84px));
+  min-height:calc(100svh - var(--refresh-header-space,84px));
+  margin:0 auto; padding-block:48px;
+}
+.refresh-split-intro .refresh-introduction {
+  --intro-photo-limit:1320px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  width:calc(100% - 120px); max-width:1320px;
+  min-height:100vh; min-height:100svh; margin:0 auto; padding:48px 0;
+  text-align:center;
+}
+.refresh-split-intro .refresh-introduction .refresh-hero-gallery {
+  flex:none; width:min(100%,var(--intro-photo-limit)); max-width:1320px; margin:0 auto;
+}
+.refresh-split-intro .refresh-introduction .refresh-intro-copy { width:100%; min-height:0; margin:32px auto 0; }
+.refresh-split-intro .refresh-introduction .refresh-intro-actions { width:100%; margin:28px auto 0; }
+@media (min-width:1920px) {
+  .refresh-split-intro .refresh-introduction { --intro-photo-limit:1600px; }
+  .refresh-split-intro .refresh-introduction,
+  .refresh-split-intro .refresh-introduction .refresh-hero-gallery { max-width:1600px; }
+}
+@media (max-width:1199px) {
+  .refresh-split-intro .refresh-introduction { width:calc(100% - 64px); }
+}
+@media (max-width:699px) {
+  .refresh-split-intro { --refresh-header-space:74px; }
+  .refresh-split-intro .refresh-intro { padding-block:32px; }
+  .refresh-split-intro .refresh-introduction { width:calc(100% - 48px); padding-block:32px; }
+  .refresh-split-intro .refresh-introduction .refresh-intro-copy,
+  .refresh-split-intro .refresh-introduction .refresh-intro-actions { margin-top:24px; }
+}
+@media (min-width:1000px) and (max-height:700px) {
+  .refresh-split-intro .refresh-intro { padding-block:24px; }
+  .refresh-split-intro .refresh-intro h1 { font-size:clamp(64px,12vh,84px); }
+  .refresh-split-intro .refresh-hero-copy { margin-top:24px; }
+}

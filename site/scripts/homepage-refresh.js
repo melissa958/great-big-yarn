@@ -31,8 +31,45 @@ phone.addEventListener('change', frameArtwork);
 frameArtwork();
 createMobileScribble(stage, phone);
 
-const items = [...document.querySelectorAll('.refresh-intro > *, .refresh-work > h2, .case-project, .services-section > .content-eyebrow, .services-section > h2, .service-card, .refresh-about:not(.refresh-about-carousel) > *, .refresh-about-slide > *, .refresh-about-controls, .testimonials-header > *, .refresh-quote, .closing-title, .closing-invitation, .refresh-footer-meta')];
+// Fit the complete second-screen group without cropping the original photos.
+// Short windows can grow naturally rather than shrinking the artwork to a sliver.
+if (document.body.classList.contains('refresh-split-intro')) {
+  const header = document.querySelector('.site-header');
+  const introduction = document.querySelector('.refresh-introduction');
+  const copy = introduction.querySelector('.refresh-intro-copy');
+  const actions = introduction.querySelector('.refresh-intro-actions');
+  let sizingFrame = 0;
+  function sizeOpeningSections() {
+    sizingFrame = 0;
+    const headerStyle = getComputedStyle(header);
+    const headerSpace = header.getBoundingClientRect().height + parseFloat(headerStyle.marginTop) + parseFloat(headerStyle.marginBottom);
+    document.body.style.setProperty('--refresh-header-space', `${headerSpace}px`);
+    const sectionStyle = getComputedStyle(introduction);
+    const copyStyle = getComputedStyle(copy);
+    const actionStyle = getComputedStyle(actions);
+    const contentSpace = copy.getBoundingClientRect().height + actions.getBoundingClientRect().height
+      + parseFloat(sectionStyle.paddingTop) + parseFloat(sectionStyle.paddingBottom)
+      + parseFloat(copyStyle.marginTop) + parseFloat(actionStyle.marginTop);
+    const photoHeight = Math.max(180, parseFloat(sectionStyle.minHeight) - contentSpace);
+    introduction.style.setProperty('--intro-photo-limit', `${Math.floor(photoHeight * 1320 / 863)}px`);
+  }
+  function queueOpeningSize() { if (!sizingFrame) sizingFrame = requestAnimationFrame(sizeOpeningSections); }
+  const openingResize = new ResizeObserver(queueOpeningSize);
+  [header, copy, actions].forEach(element => openingResize.observe(element));
+  addEventListener('resize', queueOpeningSize, { passive:true });
+  document.fonts.ready.then(queueOpeningSize);
+  sizeOpeningSections();
+}
+
+const items = [...document.querySelectorAll('.refresh-intro > *, .refresh-introduction > *, .refresh-work > h2, .case-project, .services-section > .content-eyebrow, .services-section > h2, .service-card, .refresh-about:not(.refresh-about-carousel) > *, .refresh-about-slide > *, .refresh-about-controls, .testimonials-header > *, .refresh-quote, .closing-title, .closing-invitation, .refresh-footer-meta')];
 items.forEach(item => item.classList.add('refresh-reveal'));
+for (const item of items.filter(element => element.matches('.refresh-intro > *, .refresh-introduction > *'))) {
+  // Keep a completed entrance from restarting when Safari moves button focus.
+  item.addEventListener('animationend', event => {
+    if (event.target === item && event.animationName === 'copy-enter') item.classList.add('is-reveal-complete');
+  });
+  item.addEventListener('focusin', () => item.classList.add('is-revealed', 'is-reveal-complete'));
+}
 let frame = 0;
 function syncReveals() {
   frame = 0;
