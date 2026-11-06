@@ -6,6 +6,8 @@ The owner requested a separate About page, then removed the entire About section
 
 ## Page and copy
 
+Latest revision: use “About Great Big Yarn” above the portrait in the left column, with three supplied paragraphs in the right column. The opening paragraph begins “Great Big Yarn is the independent studio…”; the second begins “Melissa has spent 20 years…”; the last keeps the family details and now says “for her clients.” The old eyebrow and body Let’s chat button are removed. Desktop uses a 56px heading, 32px gap above the image, and 18px/300 body with 24px paragraph spacing. Mobile retains heading, copy, then portrait. Shared header contact links remain. This supersedes the first page layout described below.
+
 site/about/index.html provides the clean /about/ URL. It uses the existing studio heading, the two exact supplied biography paragraphs beginning “We focus on design, creative direction, and strategy…” and “These days, Melissa lives…”, and the approved about-portrait-640/-1000 WebPs. No additional biography or client claims were invented.
 
 The page uses the shared paper background, Romie/Be Vietnam typography, header, mobile menu and footer. The headline is centered above the portrait/bio grid. Desktop places the portrait left and copy right; below 1000px copy precedes the portrait, with 16px phone body text. Let’s chat links to ../contact/. about-page.css contains the page layout; there is no carousel or page-specific JavaScript.
