@@ -1,25 +1,23 @@
 # About page
 
-Updated November 6, 2026.
+Updated November 6, 2026, from Figma About page 316:2 / group 323:111 on Website 59:2 in Brand Assets (oIV91BuTH2ouyVi5pHCDDv).
 
-The owner requested a separate About page, then removed the entire About section from the homepage and retained current homepage-refresh preview. The homepage flows directly from Services to testimonials. Do not restore the previous biography section or its arrows/More button.
+## Current composition
 
-## Page and copy
+The owner requested matching the new Figma About composition and retaining the general site footer. At 1440px, the main content begins at x76/y180 and is 1288px wide: a 613px photo grouping, 96px column gap and 579px copy column. The heading and all text now occupy the right column.
 
-The current right column begins with the owner's first-person quotation about Adam Mastroianni and finding her work as a designer, with “writes” linked to the supplied Experimental History article. Its top aligns with the left heading. Use semantic blockquote markup, Romie 28px/1.4 (24px on phones), and 32px before the three biography paragraphs. The latest career paragraph begins “Melissa has worked in design for 20 years…” and includes freelance design, The Marshall Project and Caban. Preserve the exact source copy, existing light body styling, portrait and mobile order. This supersedes earlier career paragraphs below.
+The left grouping contains the portrait at 613×414, then a 41px gap and a 613×414 grid: projection photograph 373×414, with the EV-charger image 220×111 above the family image 220×287, separated by 20px horizontally / 16px vertically. All have 15px corners. Exact Figma source images, including the overlapping family layers, and the 579×1 divider SVG are downloaded to site/assets/images/about. Preserve the supplied image transforms/crops; do not replace them with generic cover crops. They are static, with descriptive alt text; the fully covered rear family layer is decorative.
 
-Latest revision: use “About Great Big Yarn” above the portrait in the left column, with three supplied paragraphs in the right column. The opening paragraph begins “Great Big Yarn is the independent studio…”; the second begins “Melissa has spent 20 years…”; the last keeps the family details and now says “for her clients.” The old eyebrow and body Let’s chat button are removed. Desktop uses a 56px heading, 32px gap above the image, and 18px/300 body with 24px paragraph spacing. Mobile retains heading, copy, then portrait. Shared header contact links remain. This supersedes the first page layout described below.
+The right column uses a 56px Romie heading, a 22px/1.42 Romie bold italic first-person quote with “writes” linked to the supplied Experimental History article, then a 1px divider. Biography is the owner's three exact current paragraphs at 16px/300/1.44, separated by one line. The lower italic note begins “Oh, and the GBY name?” and ends “I’m excited to help tell yours.” Fresh Yarn links to https://freshyarn.com/ in a new tab with noopener/noreferrer. The note sits at the bottom of the photo grouping with a natural minimum gap. Load the existing Be Vietnam Light Italic font for it.
 
-site/about/index.html provides the clean /about/ URL. It uses the existing studio heading, the two exact supplied biography paragraphs beginning “We focus on design, creative direction, and strategy…” and “These days, Melissa lives…”, and the approved about-portrait-640/-1000 WebPs. No additional biography or client claims were invented.
+Below 1000px, the complete text precedes the photo grouping, matching the previous mobile reading order. Keep photo proportions, reduce gaps on phones, and let the note follow the biography naturally. The header/mobile navigation and general footer remain shared; there is no body Let’s chat button. Main content uses normal document flow without page-specific JavaScript.
 
-The page uses the shared paper background, Romie/Be Vietnam typography, header, mobile menu and footer. The headline is centered above the portrait/bio grid. Desktop places the portrait left and copy right; below 1000px copy precedes the portrait, with 16px phone body text. Let’s chat links to ../contact/. about-page.css contains the page layout; there is no carousel or page-specific JavaScript.
+## Homepage and navigation
 
-## Navigation
+The About section is removed from the main homepage and retained current homepage-refresh preview. Services flows directly into testimonials. Current header/footer About links, the hero’s Read more about me button, and About navigation on contact, project and current preview/template pages point to /about/ with relative clean URLs. Work, Services and Kind words retain homepage section destinations. Logos return to the homepage without #main. Historical comparison previews retain their original local sections.
 
-Header/footer About links, the hero’s Read more about me button, and About navigation on current contact, project and retained current preview/template pages all point to the public /about/ page with relative clean URLs. Work, Services and Kind words still use homepage sections. Logos return to the homepage without #main. Historical comparison previews retain their original local sections.
+The shared homepage entrance controller handles absent #studio as uncovered so testimonials continue to appear. Original carousel assets/controller/styles remain for history only.
 
-The shared homepage entrance controller handles the absent #studio as an uncovered state, keeping testimonials and other entrances functional. Original About assets/controller/styles remain available for historical previews.
+## Verification
 
-## Checks
-
-Validate local links and build versioned dist output. Check desktop/mobile in Edge and WebKit: no homepage About section or dangling #studio link, all six Services cards and three quotes retained, normal-motion testimonial entrance, desktop and full-screen mobile About navigation to /about/, biography retained, and no horizontal overflow or page errors. No contact-form submission.
+Validate local references and build only dist with versioned styles. Compare the desktop render against the Figma screenshot, checking every image/layer, crop, 1440px slot geometry, italic font, divider and footer. Check mobile and WebKit for loaded/decoded images, no horizontal overflow, copy-first order and working article/Fresh Yarn/About links. Offscreen images may need scrolling into view before screenshot capture; a loaded naturalWidth alone does not guarantee paint. Do not submit the contact form during checks.

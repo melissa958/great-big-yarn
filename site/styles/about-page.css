@@ -1,29 +1,46 @@
-/* First About page, using the supplied biography and existing portrait. */
-.homepage-refresh .refresh-about-page-content { width:calc(100% - 120px); max-width:1320px; margin:96px auto 112px; }
-.about-page-intro { grid-column:1; grid-row:1; text-align:left; }
-.homepage-refresh .refresh-about-page-content h1 { margin:0; max-width:none; font-size:56px; line-height:1.12; text-wrap:balance; }
-.about-page-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:auto 1fr; gap:32px 80px; align-items:start; }
-.about-page-copy { grid-column:2; grid-row:1 / span 2; font-size:18px; font-weight:300; line-height:1.6; }
+/* About page, matched to Figma About page 316:2 / photo-and-copy group 323:111. */
+@font-face { font-family:"Be Vietnam"; src:url("../assets/fonts/BeVietnam-LightItalic.ttf") format("truetype"); font-style:italic; font-weight:300; font-display:swap; }
+.homepage-refresh .refresh-about-page-content { width:calc(100% - 120px); max-width:1288px; margin:96px auto 112px; }
+.about-page-grid { display:grid; grid-template-columns:minmax(0,613fr) minmax(0,579fr); column-gap:96px; align-items:stretch; }
+.about-page-copy { grid-column:2; grid-row:1; display:flex; flex-direction:column; font-size:16px; font-weight:300; line-height:1.44; }
+.homepage-refresh .refresh-about-page-content h1 { margin:0; max-width:none; font-size:56px; line-height:1.3; text-wrap:initial; }
 .about-page-copy p { margin:0; }
-.about-page-copy p + p { margin-top:24px; }
-.about-page-quote { margin:0 0 32px; font:700 28px/1.4 "Romie", Georgia, serif; font-synthesis:none; }
-.about-page-quote a { text-decoration:underline; text-underline-offset:4px; }
-.about-page-portrait { grid-column:1; grid-row:2; margin:0; aspect-ratio:613/449; overflow:hidden; border-radius:15px; }
-.about-page-portrait img { display:block; width:100%; height:100%; object-fit:cover; }
+.about-page-biography p + p { margin-top:23.04px; }
+.about-page-quote { max-width:557px; margin:21px 0 0; font:italic 700 22px/1.42 "Romie", Georgia, serif; font-synthesis:none; }
+.about-page-quote a { text-decoration:underline; text-underline-offset:3px; }
+.about-page-divider { flex:none; height:1px; margin:42px 0 40px; background:url("../assets/images/about/divider.svg") center / 100% 1px no-repeat; }
+.about-page-copy .about-page-name-note { margin-top:auto; padding-top:40px; font-style:italic; }
+.about-page-gallery { grid-column:1; grid-row:1; align-self:start; display:flex; flex-direction:column; gap:41px; }
+.about-page-gallery figure { position:relative; margin:0; overflow:hidden; border-radius:15px; }
+.about-page-gallery img { display:block; max-width:none; }
+.about-page-portrait { aspect-ratio:613/414; }
+.about-page-portrait img { width:100%; height:100%; object-fit:fill; object-position:bottom; }
+.about-page-photo-grid { display:grid; grid-template-columns:minmax(0,373fr) minmax(0,220fr); grid-template-rows:minmax(0,111fr) minmax(0,287fr); gap:16px 20px; aspect-ratio:613/414; }
+.about-page-projection { grid-column:1; grid-row:1 / span 2; }
+.about-page-projection img { position:absolute; width:165.87%; height:100%; left:-31.06%; top:0; }
+.about-page-charging { grid-column:2; grid-row:1; }
+.about-page-charging img { position:absolute; width:100%; height:264.26%; left:0; top:-97.45%; }
+.about-page-family { grid-column:2; grid-row:2; }
+.about-family-back { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.about-family-front { position:absolute; width:197.07%; height:110.1%; left:-44.9%; top:-10.1%; }
 @media (max-width:1199px) {
   .homepage-refresh .refresh-about-page-content { width:calc(100% - 64px); }
   .about-page-grid { column-gap:48px; }
+  .homepage-refresh .refresh-about-page-content h1 { font-size:48px; }
+  .about-page-gallery { gap:32px; }
 }
 @media (max-width:999px) {
   .homepage-refresh .refresh-about-page-content { margin-block:80px; max-width:700px; }
-  .homepage-refresh .refresh-about-page-content h1 { font-size:56px; }
-  .about-page-grid { grid-template-columns:minmax(0,1fr); grid-template-rows:none; gap:48px; }
-  .about-page-intro, .about-page-copy, .about-page-portrait { grid-column:1; grid-row:auto; }
+  .about-page-grid { grid-template-columns:minmax(0,1fr); gap:48px; }
+  .about-page-copy, .about-page-gallery { grid-column:1; grid-row:auto; }
+  .about-page-copy .about-page-name-note { margin-top:48px; padding-top:0; }
+  .about-page-gallery { width:100%; max-width:613px; margin-inline:auto; }
 }
 @media (max-width:599px) {
   .homepage-refresh .refresh-about-page-content { width:calc(100% - 48px); margin-block:64px 72px; }
   .homepage-refresh .refresh-about-page-content h1 { font-size:42px; }
-  .about-page-copy { font-size:16px; }
-  .about-page-quote { font-size:24px; }
   .about-page-grid { gap:36px; }
+  .about-page-divider { margin-block:32px; }
+  .about-page-gallery { gap:24px; }
+  .about-page-photo-grid { gap:10px 12px; }
 }
