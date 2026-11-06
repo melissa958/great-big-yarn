@@ -37,7 +37,7 @@ let frame = 0;
 function syncReveals() {
   frame = 0;
   document.body.classList.toggle('refresh-hidden', document.hidden);
-  const studioBottom = document.querySelector('#studio').getBoundingClientRect().bottom;
+  const studioBottom = document.querySelector('#studio')?.getBoundingClientRect().bottom ?? -Infinity;
   for (const item of items) {
     if (item.classList.contains('is-revealed')) continue;
     const bounds = item.getBoundingClientRect();

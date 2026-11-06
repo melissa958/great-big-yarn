@@ -1,6 +1,6 @@
 # About Me paired slides
 
-Current status, November 6: the owner removed the arrows and replaced the homepage bio with two supplied third-person paragraphs. Current homepage sources no longer render the controls or load about-carousel.js. They retain the first pair's existing layout wrappers for copy/image alignment and entrance behavior, with the portrait now occupying one grid row. A “More? Click here” link beneath the bio leads to /about/, which the owner explicitly requested. See about-page.md. The original carousel implementation below is historical and should not be re-enabled without a new request.
+Current status, November 6: the owner removed the entire About section from both current homepage sources and moved all current About links to /about/. The supplied third-person biography and portrait remain on that page. The original carousel implementation below is historical and should not be re-enabled without a new request. See about-page.md.
 
 The November homepage and retained current preview use the updated Figma About section `274:282` on Website `59:2`. The portrait is the original image asset from `274:271`, saved as responsive 640/1000px WebPs. It fills the 613 × 449 desktop slot with centered cover sizing and 15px corners. This replaces the former stretched/oversized portrait crop only in these current pages.
 

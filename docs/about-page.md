@@ -1,23 +1,21 @@
-# About page and homepage biography
+# About page
 
-Requested November 6, 2026.
+Updated November 6, 2026.
 
-## Homepage
+The owner requested a separate About page, then removed the entire About section from the homepage and retained current homepage-refresh preview. The homepage flows directly from Services to testimonials. Do not restore the previous biography section or its arrows/More button.
 
-Both site/index.html and the retained homepage-refresh directory preview use the owner's exact new paragraphs: the clean-energy/technology career biography and the upstate New York/family/studio paragraph. Keep the existing heading and original About portrait. Text remains 16px/300, with the existing line height and a 24px gap between paragraphs. Let the section grow naturally with the longer text.
+## Page and copy
 
-The two arrow buttons and live status group are removed from the markup. The current pages no longer load about-carousel.js. Existing .refresh-about-carousel / slide wrappers still supply the approved desktop image-left/copy-right grid and mobile copy-before-image order, but the portrait occupies one row rather than reserving a controls row. Original arrow assets and controller remain available as history.
+site/about/index.html provides the clean /about/ URL. It uses the existing studio heading, the two exact supplied biography paragraphs beginning “We focus on design, creative direction, and strategy…” and “These days, Melissa lives…”, and the approved about-portrait-640/-1000 WebPs. No additional biography or client claims were invented.
 
-The black “More? Click here” link sits 28px below the biography and uses the shared off-white button text. Its public destination is about/ from the homepage and ../../about/ from the retained preview.
+The page uses the shared paper background, Romie/Be Vietnam typography, header, mobile menu and footer. The headline is centered above the portrait/bio grid. Desktop places the portrait left and copy right; below 1000px copy precedes the portrait, with 16px phone body text. Let’s chat links to ../contact/. about-page.css contains the page layout; there is no carousel or page-specific JavaScript.
 
-## New page
+## Navigation
 
-The owner explicitly requested a new About page after choosing this button. The first version lives at site/about/index.html → /about/. It reuses the existing studio heading, both supplied paragraphs and the approved portrait; no additional biography or client claims have been invented.
+Header/footer About links, the hero’s Read more about me button, and About navigation on current contact, project and retained current preview/template pages all point to the public /about/ page with relative clean URLs. Work, Services and Kind words still use homepage sections. Logos return to the homepage without #main. Historical comparison previews retain their original local sections.
 
-The page uses the shared paper background, Romie/Be Vietnam typography, header, mobile menu and footer. The headline is centered above the portrait/bio grid. Desktop places the portrait left and copy right; below 1000px the copy precedes the portrait, with 16px phone body text. A standard Let’s chat link leads to ../contact/. Navigation remains linked to homepage sections as previously requested, and logo links return directly to ../ without #main.
-
-about-page.css contains only this page's layout. There is no carousel or page-specific JavaScript. Content and links remain available without JavaScript; the shared menu retains keyboard/focus and reduced-motion support.
+The shared homepage entrance controller handles the absent #studio as an uncovered state, keeping testimonials and other entrances functional. Original About assets/controller/styles remain available for historical previews.
 
 ## Checks
 
-Validate all local links and build the versioned dist output. Review the homepage section and new About page at 1440px and 390px, checking two exact matching bio paragraphs, zero arrow controls, the More link's actual navigation, local portrait loading, no horizontal overflow and mobile reading order. No contact-form submission is part of these checks.
+Validate local links and build versioned dist output. Check desktop/mobile in Edge and WebKit: no homepage About section or dangling #studio link, all six Services cards and three quotes retained, normal-motion testimonial entrance, desktop and full-screen mobile About navigation to /about/, biography retained, and no horizontal overflow or page errors. No contact-form submission.
